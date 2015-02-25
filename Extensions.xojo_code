@@ -244,7 +244,7 @@ Protected Module Extensions
 		  Declare function alloc lib FoundationLib selector "alloc" (clsRef as ptr) as ptr
 		  declare function dataWithContentsOfFile lib FoundationLib selector "dataWithContentsOfFile:" (clsRef as Ptr, path as CFStringRef) as Ptr
 		  
-		  if f = nil then 
+		  if f = nil then
 		    dim r as NilObjectException = new NilObjectException
 		    'r.Message = "An NSData object can only be created from a valid folderitem."
 		    Return nil

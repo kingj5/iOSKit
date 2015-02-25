@@ -1,5 +1,5 @@
 #tag Class
-Protected Class ScrollView
+ Attributes ( unfinished ) Protected Class ScrollView
 Inherits iOSUserControl
 	#tag Event
 		Function CreateView() As UInteger
@@ -31,7 +31,7 @@ Inherits iOSUserControl
 		    dim selfRef as ptr = initWithFrame(alloc(scrollerRef),frame.Value64)
 		  #Endif
 		  
-		  declare sub setScrollEnabled lib UIKitLib selector "setScrollEnabled:" (obj_id as ptr, yesNo as Boolean) 
+		  declare sub setScrollEnabled lib UIKitLib selector "setScrollEnabled:" (obj_id as ptr, yesNo as Boolean)
 		  setScrollEnabled(self.Handle,True)
 		  
 		  #if Target32Bit
@@ -48,7 +48,7 @@ Inherits iOSUserControl
 		    setContentSize(self.Handle,sz.Value64)
 		  #Endif
 		  
-		  declare sub setBackgroundColor lib UIKitLib selector "setBackgroundColor:" (obj_id as ptr, col as ptr) 
+		  declare sub setBackgroundColor lib UIKitLib selector "setBackgroundColor:" (obj_id as ptr, col as ptr)
 		  setBackgroundColor(selfRef,UIColor.LightGray)
 		  
 		  Return UInteger(selfRef)
