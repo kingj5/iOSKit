@@ -5,53 +5,53 @@ A declares implementation of many different classes for Xojo.  This currently co
 By module they are contained in:
 
 ###Foundation
-*NSArray
-*NSDate
-*NSDictionary
-*NSMutableArray
-*NSMutableDictionary
-*NSObject
-*NSPoint
-*NSRect
-*NSSize
-*NSString
+* NSArray
+* NSDate
+* NSDictionary
+* NSMutableArray
+* NSMutableDictionary
+* NSObject
+* NSPoint
+* NSRect
+* NSSize
+* NSString
 
 ###UIKit
-*UIActivity
-*UIActivityViewController
-*UIColor
-*UIGestureRecognizer
-*UIImagePickerController
-*UINavigationController
-*UIResponder
-*UIRotationGestureRecognizer
-*UISearchBar
-*UISearchController
-*UISwipeGestureRecognizer
-*UITapGestureRecognizer
-*UITouch
-*UIView
-*UIViewController
+* UIActivity
+* UIActivityViewController
+* UIColor
+* UIGestureRecognizer
+* UIImagePickerController
+* UINavigationController
+* UIResponder
+* UIRotationGestureRecognizer
+* UISearchBar
+* UISearchController
+* UISwipeGestureRecognizer
+* UITapGestureRecognizer
+* UITouch
+* UIView
+* UIViewController
 
 ###Extensions
-*Camera
-*EditableIOSImage
-*MFMailComposeViewController
-*PickerView
-*PickerViewMultiline
-*Reachability
-*ScrollView 
-*SwipeView
-*UIPickerViewDataSource
-*UIPickerViewDataSourceMultiline
-*UIStepper
+* Camera
+* EditableIOSImage
+* MFMailComposeViewController
+* PickerView
+* PickerViewMultiline
+* Reachability
+* ScrollView 
+* SwipeView
+* UIPickerViewDataSource
+* UIPickerViewDataSourceMultiline
+* UIStepper
 
 ###CoreMotion
-*CMAccelerometerData
-*CMDeviceMotion
-*CMGyroData
-*CMLogItem
-*CMMotionManager
+* CMAccelerometerData
+* CMDeviceMotion
+* CMGyroData
+* CMLogItem
+* CMMotionManager
 
 ##Additional Useful Stuff
 QRCode (module) - for reading and generating QRCodes
