@@ -55,8 +55,11 @@ By module they are contained in:
 
 ##Additional Useful Stuff
 QRCode (module) - for reading and generating QRCodes
+
 TargetClassMethodHelper (in UIKit) - For creating delegate or target objects using the ObjC Runtime library in conjunction with the BuildTargetClass method of UIKit
+
 SmartMemoryBlock and SmartMutableMemoryBlock (in Foundation) - Useful for using UIntegers with memory blocks, pragmas are used so they work as expected on 32/64 bit
+
 Extensions Methods (in Extensions) - Many methods which could be useful depending on your needs
 
 
