@@ -6,15 +6,21 @@ By module they are contained in:
 
 ###Foundation
 * NSArray
+* NSData
 * NSDate
 * NSDictionary
+* NSError
 * NSMutableArray
 * NSMutableDictionary
+* NSMutableSet
 * NSObject
 * NSPoint
 * NSRect
+* NSSet
 * NSSize
 * NSString
+* NSURL
+* NSUserDefaults
 
 ###UIKit
 * UIActivity
@@ -55,6 +61,8 @@ By module they are contained in:
 
 ##Additional Useful Stuff
 QRCode (module) - for reading and generating QRCodes
+
+KeychainServices (module) - for reading and writing to the iOS Keychain using the same API as is present in Xojo Desktop
 
 TargetClassMethodHelper (in UIKit) - For creating delegate or target objects using the ObjC Runtime library in conjunction with the BuildTargetClass method of UIKit
 

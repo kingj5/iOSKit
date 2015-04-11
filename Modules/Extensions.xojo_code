@@ -292,13 +292,79 @@ Protected Module Extensions
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function ScaleImage(extends img as iOSImage, scaleFactor as Double, mode as InterpolationQuality = InterpolationQuality.Default) As iOSImage
+		  dim UIImageRef as ptr = img.Handle
+		  #if Target32Bit
+		    declare function size lib UIKitLib selector "size" (obj_id as ptr) as CGSize32
+		    dim sz as CGSize32 = size(UIImageRef)
+		    dim newSize as CGSize32
+		  #Elseif Target64Bit
+		    declare function size lib UIKitLib selector "size" (obj_id as ptr) as CGSize64
+		    dim sz as CGSize64 = size(UIImageRef)
+		    dim newSize as CGSize64
+		  #Endif
+		  
+		  newSize.w = sz.w * scaleFactor
+		  newSize.h = sz.h * scaleFactor
+		  
+		  #if Target32Bit
+		    declare sub UIGraphicsBeginImageContext lib UIKitLib (mSize as CGSize32)
+		  #Elseif Target64Bit
+		    declare sub UIGraphicsBeginImageContext lib UIKitLib (mSize as CGSize64)
+		  #Endif
+		  UIGraphicsBeginImageContext(newSize)
+		  
+		  declare function UIGraphicsGetCurrentContext lib UIKitLib () as ptr
+		  dim CGContextRef as ptr = UIGraphicsGetCurrentContext
+		  
+		  declare sub CGContextSetInterpolationQuality lib CoreGraphicsLib (context as ptr, quality as InterpolationQuality)
+		  CGContextSetInterpolationQuality(CGContextRef, mode)
+		  
+		  #if Target32Bit
+		    declare sub drawInRect lib UIKitLib selector "drawInRect:" (obj_id as ptr, rect as CGRect32)
+		    dim r as CGRect32
+		  #Elseif Target64Bit
+		    declare sub drawInRect lib UIKitLib selector "drawInRect:" (obj_id as ptr, rect as CGRect64)
+		    dim r as CGRect64
+		  #Endif
+		  
+		  r.origin.x = 0
+		  r.origin.y = 0
+		  r.rsize.w = newSize.w
+		  r.rsize.h = newSize.h
+		  
+		  drawInRect(UIImageRef,r)
+		  
+		  declare function UIGraphicsGetImageFromCurrentImageContext lib UIKitLib () as ptr
+		  dim newUIImage as Ptr = UIGraphicsGetImageFromCurrentImageContext
+		  
+		  declare sub UIGraphicsEndImageContext lib UIKitLib ()
+		  UIGraphicsEndImageContext
+		  
+		  Return iOSImage.FromHandle(newUIImage)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function ScreenShot(extends aView as iOSView) As iOSImage
 		  declare function mainScreen lib UIKitLib selector "mainScreen" (clsRef as ptr) as ptr
-		  declare function bounds lib UIKitLib selector "bounds" (obj_id as Ptr) as CGRect
+		  #if Target32Bit
+		    declare function bounds lib UIKitLib selector "bounds" (obj_id as Ptr) as CGRect32
+		  #Elseif Target64Bit
+		    declare function bounds lib UIKitLib selector "bounds" (obj_id as Ptr) as CGRect64
+		  #Endif
 		  
-		  dim sz as CGSize = bounds(mainScreen(NSClassFromString("UIScreen"))).rsize
+		  #if Target32Bit 
+		    dim sz as CGSize32 = bounds(mainScreen(NSClassFromString("UIScreen"))).rsize
+		  #Elseif Target64Bit
+		    dim sz as CGSize64 = bounds(mainScreen(NSClassFromString("UIScreen"))).rsize
+		  #Endif
 		  
-		  declare sub UIGraphicsBeginImageContext lib UIKitLib (mSize as CGSize)
+		  #if Target32Bit
+		    declare sub UIGraphicsBeginImageContext lib UIKitLib (mSize as CGSize32)
+		  #Elseif Target64Bit
+		    declare sub UIGraphicsBeginImageContext lib UIKitLib (mSize as CGSize64)
+		  #Endif
 		  UIGraphicsBeginImageContext(sz)
 		  
 		  declare function view_ lib UIKitLib selector "view" (obj_id as ptr) as ptr
@@ -362,20 +428,48 @@ Protected Module Extensions
 	#tag EndMethod
 
 
-	#tag Structure, Name = CGPoint, Flags = &h0
+	#tag Constant, Name = CoreGraphicsLib, Type = Text, Dynamic = False, Default = \"CoreGraphics.framework", Scope = Public
+	#tag EndConstant
+
+
+	#tag Structure, Name = CGPoint32, Flags = &h0
 		x as single
 		y as single
 	#tag EndStructure
 
-	#tag Structure, Name = CGRect, Flags = &h0
-		origin as CGPoint
-		rsize as CGSize
+	#tag Structure, Name = CGPoint64, Flags = &h0
+		x as double
+		y as double
 	#tag EndStructure
 
-	#tag Structure, Name = CGSize, Flags = &h0
+	#tag Structure, Name = CGRect32, Flags = &h0
+		origin as CGPoint32
+		rsize as CGSize32
+	#tag EndStructure
+
+	#tag Structure, Name = CGRect64, Flags = &h0
+		origin as CGPoint64
+		rsize as CGSize64
+	#tag EndStructure
+
+	#tag Structure, Name = CGSize32, Flags = &h0
 		w as single
 		h as single
 	#tag EndStructure
+
+	#tag Structure, Name = CGSize64, Flags = &h0
+		w as double
+		h as double
+	#tag EndStructure
+
+
+	#tag Enum, Name = InterpolationQuality, Type = Integer, Flags = &h0
+		Default = 0
+		  None = 1
+		  Low = 2
+		  Medium = 4
+		High = 3
+	#tag EndEnum
 
 
 	#tag ViewBehavior

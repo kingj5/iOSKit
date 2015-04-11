@@ -85,37 +85,6 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Function BoundingRect(size as NSSize, options as Integer, attribs as NSDictionary) As NSRect
-		  
-		  #if Target32Bit
-		    declare function boundingRectWithSize lib FoundationLib selector "boundingRectWithSize:options:attributes:" _
-		    (obj_id as Ptr, size as NSSize32, options as Integer, attribs as Ptr) as NSRect32
-		  #Elseif Target64Bit
-		    declare function boundingRectWithSize lib FoundationLib selector "boundingRectWithSize:options:attributes:" _
-		    (obj_id as Ptr, size as NSSize64, options as Integer, attribs as Ptr) as NSRect64
-		  #Endif
-		  
-		  dim dictRef as Ptr
-		  if attribs <> nil then
-		    dictRef = attribs
-		  end if
-		  
-		  #if Target32Bit
-		    return boundingRectWithSize(self, size.Value32, options, dictRef)
-		  #Elseif Target64Bit
-		    return boundingRectWithSize(self, size.Value64, options, dictRef)
-		  #Endif
-		  
-		  
-		  #pragma unused size
-		  #pragma unused options
-		  #pragma unused attribs
-		  
-		  
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h1000
 		Function BoundingSize(attribs as NSDictionary) As NSSize
 		  
 		  #if Target32Bit
@@ -452,36 +421,6 @@ Inherits NSObject
 		  
 		  
 		  #pragma unused point
-		  #pragma unused attribs
-		  
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h1000
-		Sub Draw(rect as NSRect, options as Integer, attribs as NSDictionary)
-		  
-		  #if Target32Bit
-		    declare sub drawInRect lib FoundationLib selector "drawWithRect:options:attributes:" (obj_id as Ptr, rect as NSRect32, options as Integer, attribs as Ptr)
-		  #Elseif Target64Bit
-		    declare sub drawInRect lib FoundationLib selector "drawWithRect:options:attributes:" (obj_id as Ptr, rect as NSRect64, options as Integer, attribs as Ptr)
-		  #Endif
-		  
-		  
-		  dim dictRef as Ptr
-		  if attribs <> nil then
-		    dictRef = attribs
-		  end if
-		  
-		  #if Target32Bit
-		    drawInRect self, rect.Value32, options, dictRef
-		  #elseif Target64Bit
-		    drawInRect self, rect.Value64, options, dictRef
-		  #Endif
-		  
-		  
-		  #pragma unused rect
-		  #pragma unused options
 		  #pragma unused attribs
 		  
 		  

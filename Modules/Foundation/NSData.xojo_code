@@ -117,7 +117,23 @@ Inherits NSObject
 
 
 	#tag ComputedProperty, Flags = &h0
-		Data As SmartMutableMemoryBlock
+		#tag Getter
+			Get
+			  #if Target32Bit
+			    declare sub getBytes lib FoundationLib selector "getBytes:length:" ( id as Ptr, buffer as Ptr, length as UInt32 )
+			  #else
+			    declare sub getBytes lib FoundationLib selector "getBytes:length:" ( id as Ptr, buffer as Ptr, length as UInt64 )
+			  #endif
+			  if self.length > 0 then
+			    dim result as new Foundation.SmartMutableMemoryBlock(self.length)
+			    GetBytes self,result.Data,self.length
+			    Return result
+			  end if
+			  Return new SmartMutableMemoryBlock(0)
+			  
+			End Get
+		#tag EndGetter
+		DataMB As SmartMutableMemoryBlock
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -127,7 +143,7 @@ Inherits NSObject
 			  Return description_(self)
 			End Get
 		#tag EndGetter
-		description As CFStringRef
+		description As Text
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0

@@ -208,17 +208,29 @@ Inherits UIResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function preferredContentSize_ lib UIKitLib selector "preferredContentSize" (obj_id as ptr) as CGSize
+			  #if Target32Bit
+			    declare function preferredContentSize_ lib UIKitLib selector "preferredContentSize" (obj_id as ptr) as NSSize32
+			  #Elseif Target64Bit
+			    declare function preferredContentSize_ lib UIKitLib selector "preferredContentSize" (obj_id as ptr) as NSSize64
+			  #Endif
+			  
 			  Return preferredContentSize_(self)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  declare sub preferredContentSize_ lib UIKitLib selector "setPreferredContentSize:" (obj_id as ptr, preferredContentSize as CGSize)
-			  preferredContentSize_(self, value)
+			  #if Target32Bit
+			    declare sub preferredContentSize_ lib UIKitLib selector "setPreferredContentSize:" (obj_id as ptr, preferredContentSize as NSSize32)
+			    preferredContentSize_(self, value.Value32)
+			  #Elseif Target64Bit
+			    declare sub preferredContentSize_ lib UIKitLib selector "setPreferredContentSize:" (obj_id as ptr, preferredContentSize as NSSize64)
+			    preferredContentSize_(self, value.Value64)
+			  #Endif
+			  
+			  
 			End Set
 		#tag EndSetter
-		preferredContentSize As CGSize
+		preferredContentSize As Foundation.NSSize
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
