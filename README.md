@@ -59,6 +59,33 @@ By module they are contained in:
 * CMLogItem
 * CMMotionManager
 
+###AVFoundation
+* AVAudioPlayer
+* AVAudioRecorder
+* AVAudioSession
+* AVAudioSessionDataSourceDescription
+* AVAudioSessionPortDescription
+* AVAudioSessionRouteDescription
+* AVCaptureConnection
+* AVCaptureDevice
+* AVCaptureDeviceFormat
+* AVCaptureDeviceInput
+* AVCaptureInput
+* AVCaptureInputPort
+* AVCaptureMetadataOutput
+* AVCaptureOutput
+* AVCaptureSession
+* AVCaptureStillImageOutput
+* AVCaptureVideoPreviewLayer
+* AVMetadataFaceObject
+* AVMetadataMachineReadableCodeObject
+* AVMetadataObject
+* AVSpeechSynthesisVoice
+* AVSpeechSynthesizer
+* AVSpeechUtterance
+...and more coming
+
+
 ##Additional Useful Stuff
 QRCode (module) - for reading and generating QRCodes
 
@@ -72,4 +99,3 @@ Extensions Methods (in Extensions) - Many methods which could be useful dependin
 
 
 If there is anything in particular that you would like to see added to iOSKit, or you find any issues or incompatibilities, please PM me on the Xojo Forum and I will see what I can do!
-

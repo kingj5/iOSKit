@@ -10,10 +10,10 @@ Begin iosView CreateQRView
    Begin iOSTextField TextField1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextField1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   TextField1, 3, Label1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   TextField1, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   TextField1, 7, , 0, False, +1.00, 1, 1, 220, 
+      AutoLayout      =   TextField1, 3, Label1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   TextField1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   TextField1, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -34,10 +34,10 @@ Begin iosView CreateQRView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 84, 
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 84, 
+      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -55,10 +55,10 @@ Begin iosView CreateQRView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 1, TextField1, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   Button1, 3, Label1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 60, 
+      AutoLayout      =   Button1, 3, Label1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Button1, 1, TextField1, 2, False, +1.00, 1, 1, *kStdControlGapH, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Create"
       Enabled         =   True
       Height          =   30.0
@@ -75,10 +75,10 @@ Begin iosView CreateQRView
    Begin iOSCanvas Canvas1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Canvas1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Canvas1, 3, <Parent>, 3, False, +1.00, 1, 1, 168, 
-      AutoLayout      =   Canvas1, 8, , 0, False, +1.00, 1, 1, 200, 
       AutoLayout      =   Canvas1, 7, , 0, False, +1.00, 1, 1, 200, 
+      AutoLayout      =   Canvas1, 3, <Parent>, 3, False, +1.00, 1, 1, 168, 
+      AutoLayout      =   Canvas1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Canvas1, 8, , 0, False, +1.00, 1, 1, 200, 
       Height          =   200.0
       Left            =   60
       LockedInPosition=   False

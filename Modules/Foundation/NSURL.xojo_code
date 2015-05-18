@@ -37,13 +37,6 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Constructor(path as CFStringRef)
-		  declare function initFileURLWithPath_ lib FoundationLib selector "initFileURLWithPath:" (obj_id as ptr, path as CFStringRef) as ptr
-		  Super.Constructor( initFileURLWithPath_(Allocate(ClassRef), path) )
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Sub Constructor(path as CFStringRef, isDir as Boolean)
 		  declare function initFileURLWithPath_ lib FoundationLib selector "initFileURLWithPath:isDirectory:" (obj_id as ptr, path as CFStringRef, isDir as Boolean) as ptr
 		  Super.Constructor( initFileURLWithPath_(Allocate(ClassRef), path, isDir) )
@@ -75,6 +68,25 @@ Inherits NSObject
 		Sub Constructor(URLString as NSString)
 		  declare function initWithString_ lib FoundationLib selector "initWithString:" (obj_id as ptr, URLString as ptr) as ptr
 		  Super.Constructor( initWithString_(Allocate(ClassRef), URLString) )
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Constructor(path as Text)
+		  declare function initFileURLWithPath_ lib FoundationLib selector "initFileURLWithPath:" (obj_id as ptr, path as CFStringRef) as ptr
+		  Super.Constructor( initFileURLWithPath_(Allocate(ClassRef), path) )
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(f as xojo.IO.FolderItem)
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From NSObject
+		  // Constructor(ref as ptr) -- From NSObject
+		  self.Constructor(f.Path)
+		  
 		End Sub
 	#tag EndMethod
 
@@ -309,6 +321,16 @@ Inherits NSObject
 			End Get
 		#tag EndGetter
 		fileURL As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  dim result as new xojo.IO.FolderItem(self.path)
+			  Return result
+			End Get
+		#tag EndGetter
+		folderitemValue As xojo.IO.FolderItem
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0

@@ -40,6 +40,23 @@ Inherits NSDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
+		Sub Constructor()
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor(keys as NSArray, values as NSArray) -- From NSDictionary
+		  // Constructor(otherDictionary as NSDictionary) -- From NSDictionary
+		  // Constructor(keys() as NSObject, objects() as NSObject) -- From NSDictionary
+		  // Constructor(path as NSString) -- From NSDictionary
+		  // Constructor() -- From NSObject
+		  // Constructor(ref as ptr) -- From NSObject
+		  Super.Constructor(Initialize(Allocate(ClassRef)))
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
 		Sub Constructor(file as FolderItem)
 		  
 		  declare function initWithContentsOfFile lib FoundationLib selector "initWithContentsOfFile:" ( cls as Ptr, path as CFStringRef ) as Ptr
@@ -53,7 +70,7 @@ Inherits NSDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(capacity as Integer = 20)
+		Sub Constructor(capacity as Integer)
 		  
 		  declare function dictionaryWithCapacity lib FoundationLib selector "dictionaryWithCapacity:" ( cls as Ptr, capacity as UInt32 ) as Ptr
 		  
@@ -322,11 +339,6 @@ Inherits NSDictionary
 
 
 	#tag ViewBehavior
-		#tag ViewProperty
-			Name="Count"
-			Group="Behavior"
-			Type="Integer"
-		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
 			Visible=true

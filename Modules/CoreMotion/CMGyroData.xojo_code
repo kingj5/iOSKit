@@ -41,11 +41,6 @@ Inherits CMLogItem
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="timeStamp"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Top"
 			Visible=true
 			Group="Position"

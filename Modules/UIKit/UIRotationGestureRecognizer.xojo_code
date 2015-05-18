@@ -69,16 +69,6 @@ Inherits UIGestureRecognizer
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="state"
-			Group="Behavior"
-			Type="TouchState"
-			EditorType="Enum"
-			#tag EnumValues
-				"3 - Ended"
-				"1 - Began"
-			#tag EndEnumValues
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
@@ -94,7 +84,7 @@ Inherits UIGestureRecognizer
 		#tag ViewProperty
 			Name="velocity"
 			Group="Behavior"
-			Type="Integer"
+			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

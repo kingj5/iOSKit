@@ -80,6 +80,16 @@ Inherits NSObject
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="Code"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Domain"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -94,9 +104,9 @@ Inherits NSObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="mlocalizedDescription"
+			Name="localizedDescription"
 			Group="Behavior"
-			Type="Integer"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

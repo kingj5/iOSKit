@@ -10,10 +10,10 @@ Begin iosView MainView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
       AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, -69, 
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
       AutoLayout      =   Table1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Format          =   "0"
       Height          =   338.0
       Left            =   0
@@ -55,6 +55,8 @@ End
 		  // 7 = Reachability
 		  // 8 = CoreMotion
 		  // 9 = Keychain Services
+		  // 10 = AVFoundation Demo views
+		  // 11 = Record and Play video
 		  
 		  dim newView as iOSView
 		  select case row
@@ -78,6 +80,10 @@ End
 		    newView = new CoreMotionView
 		  case 9
 		    newView = new KeychainView
+		  case 10
+		    newView = new AVFoundationDemoView
+		  case 11
+		    newView = new RecordPlayVideo
 		  else
 		    //shouldn't get here
 		    Return
@@ -128,6 +134,14 @@ End
 		  me.AddRow(0,d)
 		  
 		  d = new iOSTableCellData("Keychain Services")
+		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
+		  me.AddRow(0,d)
+		  
+		  d = new iOSTableCellData("AVFoundation Demos")
+		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
+		  me.AddRow(0,d)
+		  
+		  d = new iOSTableCellData("Record and Play video")
 		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
 		  me.AddRow(0,d)
 		End Sub

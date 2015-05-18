@@ -10,10 +10,10 @@ Begin iosView EmailView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 176, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 176, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Send Message"
       Enabled         =   True
       Height          =   30.0

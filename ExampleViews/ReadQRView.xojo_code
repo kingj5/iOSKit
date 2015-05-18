@@ -19,10 +19,10 @@ Begin iosView ReadQRView
    Begin iOSTextArea TextArea1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextArea1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   TextArea1, 4, <Parent>, 4, False, +1.00, 1, 1, -*kStdGapCtlToViewV, 
-      AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 1, 1, 253, 
       AutoLayout      =   TextArea1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   TextArea1, 4, <Parent>, 4, False, +1.00, 1, 1, -*kStdGapCtlToViewV, 
+      AutoLayout      =   TextArea1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 1, 1, 253, 
       Editable        =   False
       Height          =   253.0
       KeyboardType    =   "0"
@@ -41,10 +41,10 @@ Begin iosView ReadQRView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 1, TextArea1, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label1, 4, TextArea1, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
       AutoLayout      =   Label1, 7, , 0, False, +1.00, 1, 1, 205, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 1, TextArea1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 4, TextArea1, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -62,10 +62,10 @@ Begin iosView ReadQRView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Button1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Take Image"
       Enabled         =   True
       Height          =   30.0
