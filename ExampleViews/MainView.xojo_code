@@ -111,7 +111,7 @@ End
 		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
 		  me.AddRow(0,d)
 		  
-		  d = new iOSTableCellData("Missing UIControlls")
+		  d = new iOSTableCellData("Missing UIControls")
 		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
 		  me.AddRow(0,d)
 		  
@@ -123,7 +123,7 @@ End
 		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
 		  me.AddRow(0,d)
 		  
-		  d = new iOSTableCellData("System sounds")
+		  d = new iOSTableCellData("System Sounds")
 		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
 		  me.AddRow(0,d)
 		  
