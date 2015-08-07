@@ -29,6 +29,12 @@ End
 
 #tag WindowCode
 	#tag Event
+		Sub Activate()
+		  self.ParentSplitView.Detail = new EmptyView
+		End Sub
+	#tag EndEvent
+
+	#tag Event
 		Sub Open()
 		  self.Title = "Version: " + getAppVersion
 		  
