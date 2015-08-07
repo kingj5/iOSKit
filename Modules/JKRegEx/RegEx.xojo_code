@@ -42,7 +42,7 @@ Protected Class RegEx
 		  
 		  mCreate
 		  
-		  Return mRegex.StringByReplacingMatchesInStringOptionsRangeWithTemplate(target, self.Options.Value, range, SearchPattern)
+		  Return mRegex.StringByReplacingMatchesInStringOptionsRangeWithTemplate(target, self.Options.Value, range, ReplacementPattern)
 		  
 		End Function
 	#tag EndMethod
