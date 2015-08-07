@@ -24,7 +24,7 @@ Protected Class RegExMatch
 		  
 		  dim range as NSRange
 		  range.location = 0
-		  range.length = mtarget.Length
+		  range.length = source.Length
 		  
 		  Return regexp.StringByReplacingMatchesInStringOptionsRangeWithTemplate( source, regexp.options, range, pattern)
 		End Function
@@ -39,7 +39,7 @@ Protected Class RegExMatch
 	#tag Method, Flags = &h0
 		Function SubExpressionString(index as Integer) As Text
 		  dim range as NSRange = textResult.RangeAtIndex(index)
-		  dim result as Text = mtarget.Mid(range.location+1,range.length)
+		  dim result as Text = mtarget.Mid(range.location, range.length)
 		  
 		  Return result
 		End Function
