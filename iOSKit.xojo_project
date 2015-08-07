@@ -17,6 +17,7 @@ Picture=iPhone6PlusPortrait;Launch Images/iPhone6PlusPortrait.png;&h2810AF78;&h6
 Picture=iPhone6Portrait;Launch Images/iPhone6Portrait.png;&h5F70457A;&h6B3E093E;false;0;&h0
 Picture=iPhonePortrait2x;Launch Images/iPhonePortrait2x.png;&h43E1BF2F;&h6B3E093E;false;0;&h0
 Folder=ExampleViews;ExampleViews;&h1989717F;&h0;false
+iOSView=EmptyView;ExampleViews/EmptyView.xojo_code;&h5BD067FF;&h1989717F;false
 Class=iOSTestController;iOSTestController.xojo_code;&h3FC78D4E;&h0;false
 Folder=XojoUnit;XojoUnit;&h2516B04D;&h0;false
 Folder=Unit Tests;Unit Tests;&h79CC2FFF;&h0;false
