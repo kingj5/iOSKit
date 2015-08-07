@@ -153,6 +153,7 @@ Class=TestResult;XojoUnit/TestFramework/TestResult.xojo_code;&h1624A4EB;&h3E1A9B
 iOSView=XojoUnitTestGroupView;XojoUnit/XojoUnitTestGroupView.xojo_code;&h1A070FFF;&h2516B04D;false
 iOSView=XojoUnitTestMethodView;XojoUnit/XojoUnitTestMethodView.xojo_code;&h38986FFF;&h2516B04D;false
 iOSView=XojoUnitTestDetailsView;XojoUnit/XojoUnitTestDetailsView.xojo_code;&h215E17FF;&h2516B04D;false
+Class=RegExTests;Unit Tests/RegExTests.xojo_code;&hA0F27FF;&h79CC2FFF;false
 DefaultScreen=iPhoneScreen
 DefaultTabletScreen=iPadScreen
 MajorVersion=1
