@@ -150,6 +150,13 @@ End
 		  d = new iOSTableCellData("Record and Play video")
 		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
 		  me.AddRow(0,d)
+		  
+		  if self.ParentSplitView.Available then
+		    d = new iOSTableCellData("Unit Tests")
+		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
+		    me.AddRow(0,d)
+		  end if
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
