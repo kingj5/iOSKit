@@ -127,17 +127,11 @@ Inherits StoreKit.PaymentTransactionObserver
 		  purchasedProductIdentifiers.AddObject ID
 		  Foundation.NSUserDefaults.StandardUserDefaults.SetBoolForKey(True, id.StringValue)
 		  call Foundation.NSUserDefaults.StandardUserDefaults.Synchronize
-		  
-		  dim userInfo as new xojo.Core.Dictionary
-		  userInfo.Value("productID") = ID.StringValue
-		  
-		  Notification_Center.NotificationCenter.MainCenter.PostNotification(_
-		  new Notification_Center.Notification(SKProvideContentForProductNotification, self, userInfo))
 		End Sub
 	#tag EndMethod
 
 	#tag DelegateDeclaration, Flags = &h0
-		Delegate Sub RequestProductsCompletionHandler(success as Boolean, products as Foundation.NSArray)
+		Delegate Sub RequestProductsCompletionHandler(success as Boolean, products as Foundation . NSArray)
 	#tag EndDelegateDeclaration
 
 	#tag Method, Flags = &h0
@@ -149,7 +143,6 @@ Inherits StoreKit.PaymentTransactionObserver
 		  AddHandler productsRequest.DidReceiveResponse, AddressOf HandleDidReceiveResponse
 		  AddHandler productsRequest.RequestDidFail, AddressOf HandleDidFail
 		  
-		  productsRequest.Start
 		End Sub
 	#tag EndMethod
 
@@ -186,10 +179,6 @@ Inherits StoreKit.PaymentTransactionObserver
 	#tag Property, Flags = &h21
 		Private purchasedProductIdentifiers As Foundation.NSMutableSet
 	#tag EndProperty
-
-
-	#tag Constant, Name = SKProvideContentForProductNotification, Type = Text, Dynamic = False, Default = \"skprovidecontent", Scope = Public
-	#tag EndConstant
 
 
 	#tag ViewBehavior
