@@ -29,6 +29,14 @@ End
 
 #tag WindowCode
 	#tag Event
+		Sub Activate()
+		  if ParentSplitView.Available then
+		    ParentSplitView.Detail = new EmptyView
+		  end if
+		End Sub
+	#tag EndEvent
+
+	#tag Event
 		Sub Open()
 		  self.Title = "Version: " + getAppVersion
 		  
@@ -57,40 +65,57 @@ End
 		  // 9 = Keychain Services
 		  // 10 = AVFoundation Demo views
 		  // 11 = Record and Play video
+		  // 12 = Unit Tests
 		  
-		  dim newView as iOSView
+		  dim newMasterView as iOSView
+		  dim newDetailView as iOSView
+		  
 		  select case row
 		  case 0
-		    newView = new ActivityView
+		    newDetailView = new ActivityView
 		  case 1
-		    newView = new CameraView
+		    newDetailView = new CameraView
 		  case 2
-		    newView = new MissingControlsView
+		    newDetailView = new MissingControlsView
 		  case 3
-		    newView = new CreateQRView
+		    newDetailView = new CreateQRView
 		  case 4
-		    newView = new ReadQRView
+		    newDetailView = new ReadQRView
 		  case 5
-		    newView = new SoundsView
+		    newDetailView = new SoundsView
 		  case 6
-		    newView = new EmailView
+		    newDetailView = new EmailView
 		  case 7
-		    newView = new ReachabilityView
+		    newDetailView = new ReachabilityView
 		  case 8
-		    newView = new CoreMotionView
+		    newDetailView = new CoreMotionView
 		  case 9
-		    newView = new KeychainView
+		    newDetailView = new KeychainView
 		  case 10
-		    newView = new AVFoundationDemoView
+		    newDetailView = new AVFoundationDemoView
 		  case 11
-		    newView = new RecordPlayVideo
+		    newDetailView = new RecordPlayVideo
+		  case 12
+		    newMasterView = new XojoUnitTestGroupView
+		    newDetailView = new XojoUnitTestDetailsView
 		  else
 		    //shouldn't get here
 		    Return
 		  end select
 		  'declare sub presentViewController_ lib UIKitLib selector "presentViewController:animated:completion:" (obj_id as ptr, viewControllerToPresent as ptr, flag as Boolean, completion as ptr)
-		  'PresentViewController_(self.ViewControllerHandle, newView.ViewControllerHandle, True, nil)
-		  self.PushTo(newView)
+		  'PresentViewController_(self.ViewControllerHandle, newDetailView.ViewControllerHandle, True, nil)
+		  
+		  if newMasterView isa iOSView then
+		    self.PushTo newMasterView
+		  end if
+		  
+		  if newDetailView isa iOSView then
+		    if ParentSplitView.Available then
+		      self.ParentSplitView.Detail = newDetailView
+		    else
+		      self.PushTo newDetailView
+		    end if
+		  end if
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -105,7 +130,7 @@ End
 		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
 		  me.AddRow(0,d)
 		  
-		  d = new iOSTableCellData("Missing UIControlls")
+		  d = new iOSTableCellData("Missing UIControls")
 		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
 		  me.AddRow(0,d)
 		  
@@ -117,7 +142,7 @@ End
 		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
 		  me.AddRow(0,d)
 		  
-		  d = new iOSTableCellData("System sounds")
+		  d = new iOSTableCellData("System Sounds")
 		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
 		  me.AddRow(0,d)
 		  
@@ -144,6 +169,13 @@ End
 		  d = new iOSTableCellData("Record and Play video")
 		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
 		  me.AddRow(0,d)
+		  
+		  if self.ParentSplitView.Available then
+		    d = new iOSTableCellData("Unit Tests")
+		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
+		    me.AddRow(0,d)
+		  end if
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
