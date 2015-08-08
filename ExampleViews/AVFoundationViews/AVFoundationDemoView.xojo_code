@@ -10,10 +10,10 @@ Begin iosView AVFoundationDemoView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 80, 
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
-      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 320, 
       AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
+      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 80, 
+      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 320, 
       Format          =   "0"
       Height          =   320.0
       Left            =   0
@@ -33,6 +33,7 @@ End
 #tag Events Table1
 	#tag Event
 		Sub Action(section As Integer, row As Integer)
+		  #Pragma Unused section
 		  //rows
 		  // 0 = Barcode Scanner
 		  // 1 = Speech Synthesis

@@ -26,6 +26,8 @@ Inherits NSObject
 		Sub Constructor(port as AVCaptureInputPort, layer as AVCaptureVideoPreviewLayer)
 		  declare function initWithInputPort_ lib AVFoundationLib selector "initWithInputPort:videoPreviewLayer:" (obj_id as ptr, port as ptr, layer as ptr) as ptr
 		  Super.Constructor( initWithInputPort_(Allocate(ClassRef), port, layer) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -33,6 +35,8 @@ Inherits NSObject
 		Sub Constructor(ports as NSArray, output as AVCaptureOutput)
 		  declare function initWithInputPorts_ lib AVFoundationLib selector "initWithInputPorts:output:" (obj_id as ptr, ports as ptr, output as ptr) as ptr
 		  Super.Constructor( initWithInputPorts_(Allocate(ClassRef), ports, output) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 

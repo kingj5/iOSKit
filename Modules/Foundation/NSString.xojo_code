@@ -275,6 +275,7 @@ Inherits NSObject
 		  
 		  super.Constructor(Initialize(Allocate(NSClassFromString("NSString"))))
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -295,6 +296,7 @@ Inherits NSObject
 		  #pragma unused aString
 		  
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -308,6 +310,7 @@ Inherits NSObject
 		  
 		  
 		  #pragma unused s
+		  
 		  
 		  
 		End Sub

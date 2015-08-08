@@ -26,6 +26,7 @@ Inherits NSObject
 		  // Constructor(ref as ptr) -- From NSObject
 		  Super.Constructor(Initialize(Allocate(NSClassFromString("CMMotionManager"))))
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 

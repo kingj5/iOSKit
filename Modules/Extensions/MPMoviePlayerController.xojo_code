@@ -32,6 +32,7 @@ Inherits NSObject
 		  declare function initWithContentURL lib MediaPlayerLib selector "initWithContentURL:" (obj_id as ptr, url as ptr) as ptr
 		  Super.Constructor(initWithContentURL(Allocate(ClassRef), contentURL))
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 

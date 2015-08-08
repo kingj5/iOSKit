@@ -47,6 +47,8 @@ Inherits iOSUserControl
 	#tag Method, Flags = &h1
 		Protected Sub HandleSelectionChange(sender as Extensions.UIPickerViewDataSourceMultiline, row as integer, column as integer)
 		  RaiseEvent SelectionChanged(row,column)
+		  
+		  #Pragma Unused sender
 		End Sub
 	#tag EndMethod
 

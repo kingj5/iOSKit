@@ -19,6 +19,7 @@ Inherits NSObject
 		  domain as CFStringRef, code as Integer, userInfo as Ptr) as Ptr
 		  Super.Constructor( initWithDomain_(Allocate(classRef), domain, code, userInfo) )
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 

@@ -15,9 +15,15 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SetPreferredPolarPattern(pattern as Text, outError as NSError) As Boolean
-		  declare function setPreferredPolarPattern_ lib AVFoundationLib selector "setPreferredPolarPattern:error:" (obj_id as ptr, pattern as CFStringRef, outError as ptr) as Boolean
-		  Return setPreferredPolarPattern_(self, pattern, outError)
+		Function SetPreferredPolarPattern(pattern as Text, byref outError as NSError) As Boolean
+		  declare function setPreferredPolarPattern_ lib AVFoundationLib selector "setPreferredPolarPattern:error:" (obj_id as ptr, pattern as CFStringRef, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = setPreferredPolarPattern_(self, pattern, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
+		  end if
+		  Return result
+		  
 		End Function
 	#tag EndMethod
 

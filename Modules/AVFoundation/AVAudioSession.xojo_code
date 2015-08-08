@@ -17,17 +17,21 @@ Inherits NSObject
 		  // Constructor(ref as ptr) -- From NSObject
 		  Super.Constructor(ref)
 		  
-		  dim target as Ptr = Initialize(Allocate(TargetClass))
 		  
-		  if dispatch = nil then dispatch = new xojo.Core.Dictionary
-		  dispatch.Value(target) = self
+		  
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function OverrideOutputAudioPortError(portOverride as AVAudioSessionPortOverride, outError as NSError) As Boolean
-		  declare function overrideOutputAudioPort_ lib AVFoundationLib selector "overrideOutputAudioPort:error:" (obj_id as ptr, portOverride as AVAudioSessionPortOverride, outError as ptr) as Boolean
-		  Return overrideOutputAudioPort_(self, portOverride, outError)
+		Function OverrideOutputAudioPortError(portOverride as AVAudioSessionPortOverride, byref outError as NSError) As Boolean
+		  declare function overrideOutputAudioPort_ lib AVFoundationLib selector "overrideOutputAudioPort:error:" (obj_id as ptr, portOverride as AVAudioSessionPortOverride, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = overrideOutputAudioPort_(self, portOverride, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
+		  end if
+		  Return result
 		End Function
 	#tag EndMethod
 
@@ -39,101 +43,161 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SetActive(beActive as Boolean, outError as NSError) As Boolean
-		  declare function setActive_ lib AVFoundationLib selector "setActive:error:" (obj_id as ptr, beActive as Boolean, outError as ptr) as Boolean
-		  if outError <> nil then
-		    Return setActive_(self, beActive, outError)
-		  else
-		    Return setActive_(self, beActive, nil)
+		Function SetActive(beActive as Boolean, byref outError as NSError) As Boolean
+		  declare function setActive_ lib AVFoundationLib selector "setActive:error:" (obj_id as ptr, beActive as Boolean, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = setActive_(self, beActive, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
 		  end if
+		  
+		  Return result
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SetActiveWithOptionsError(active as Boolean, options as AVAudioSessionSetActiveOptions, outError as NSError) As Boolean
-		  declare function setActive_ lib AVFoundationLib selector "setActive:withOptions:error:" (obj_id as ptr, active as Boolean, options as AVAudioSessionSetActiveOptions, outError as ptr) as Boolean
-		  Return setActive_(self, active, options, outError)
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function SetCategory(theCategory as CFStringRef, outError as NSError) As Boolean
-		  declare function setCategory_ lib AVFoundationLib selector "setCategory:error:" (obj_id as ptr, theCategory as CFStringRef, outError as ptr) as Boolean
-		  if outError <> nil then
-		    Return setCategory_(self, theCategory, outError)
-		  else
-		    Return setCategory_(self, theCategory, nil)
+		Function SetActiveWithOptionsError(active as Boolean, options as AVAudioSessionSetActiveOptions, byref outError as NSError) As Boolean
+		  declare function setActive_ lib AVFoundationLib selector "setActive:withOptions:error:" (obj_id as ptr, active as Boolean, options as AVAudioSessionSetActiveOptions, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = setActive_(self, active, options, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
 		  end if
+		  Return result
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SetCategoryWithOptions(category as CFStringRef, options as AVAudioSessionCategoryOptions, outError as NSError) As Boolean
-		  declare function setCategory_ lib AVFoundationLib selector "setCategory:withOptions:error:" (obj_id as ptr, category as CFStringRef, options as AVAudioSessionCategoryOptions, outError as ptr) as Boolean
-		  Return setCategory_(self, category, options, outError)
+		Function SetCategory(theCategory as CFStringRef, byref outError as NSError) As Boolean
+		  declare function setCategory_ lib AVFoundationLib selector "setCategory:error:" (obj_id as ptr, theCategory as CFStringRef, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = setCategory_(self, theCategory, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
+		  end if
+		  Return result
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SetInputDataSource(dataSource as AVAudioSessionDataSourceDescription, outError as NSError) As Boolean
+		Function SetCategoryWithOptions(category as CFStringRef, options as AVAudioSessionCategoryOptions, byref outError as NSError) As Boolean
+		  declare function setCategory_ lib AVFoundationLib selector "setCategory:withOptions:error:" (obj_id as ptr, category as CFStringRef, options as AVAudioSessionCategoryOptions, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = setCategory_(self, category, options, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
+		  end if
+		  Return result 
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function SetInputDataSource(dataSource as AVAudioSessionDataSourceDescription, byref outError as NSError) As Boolean
 		  declare function setInputDataSource_ lib AVFoundationLib selector "setInputDataSource:error:" (obj_id as ptr, dataSource as ptr, outError as ptr) as Boolean
-		  Return setInputDataSource_(self, dataSource, outError)
+		  dim err as ptr
+		  dim result as Boolean = setInputDataSource_(self, dataSource, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
+		  end if
+		  Return result
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SetInputGain(gain as double, outError as NSError) As Boolean
-		  declare function setInputGain_ lib AVFoundationLib selector "setInputGain:error:" (obj_id as ptr, gain as double, outError as ptr) as Boolean
-		  Return setInputGain_(self, gain, outError)
+		Function SetInputGain(gain as double, byref outError as NSError) As Boolean
+		  declare function setInputGain_ lib AVFoundationLib selector "setInputGain:error:" (obj_id as ptr, gain as double, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = setInputGain_(self, gain, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
+		  end if
+		  Return result
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SetMode(theMode as CFStringRef, outError as NSError) As Boolean
-		  declare function setMode_ lib AVFoundationLib selector "setMode:error:" (obj_id as ptr, theMode as CFStringRef, outError as ptr) as Boolean
-		  Return setMode_(self, theMode, outError)
+		Function SetMode(theMode as CFStringRef, byref outError as NSError) As Boolean
+		  declare function setMode_ lib AVFoundationLib selector "setMode:error:" (obj_id as ptr, theMode as CFStringRef, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = setMode_(self, theMode, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
+		  end if
+		  Return result
+		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SetOutputDataSourceError(dataSource as AVAudioSessionDataSourceDescription, outError as NSError) As Boolean
-		  declare function setOutputDataSource_ lib AVFoundationLib selector "setOutputDataSource:error:" (obj_id as ptr, dataSource as ptr, outError as ptr) as Boolean
-		  Return setOutputDataSource_(self, dataSource, outError)
+		Function SetOutputDataSourceError(dataSource as AVAudioSessionDataSourceDescription, byref outError as NSError) As Boolean
+		  declare function setOutputDataSource_ lib AVFoundationLib selector "setOutputDataSource:error:" (obj_id as ptr, dataSource as ptr, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = setOutputDataSource_(self, dataSource, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
+		  end if
+		  Return result
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SetPreferredInputError(inPort as AVAudioSessionPortDescription, outError as NSError) As Boolean
-		  declare function setPreferredInput_ lib AVFoundationLib selector "setPreferredInput:error:" (obj_id as ptr, inPort as ptr, outError as ptr) as Boolean
-		  Return setPreferredInput_(self, inPort, outError)
+		Function SetPreferredInputError(inPort as AVAudioSessionPortDescription, byref outError as NSError) As Boolean
+		  declare function setPreferredInput_ lib AVFoundationLib selector "setPreferredInput:error:" (obj_id as ptr, inPort as ptr, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = setPreferredInput_(self, inPort, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
+		  end if
+		  Return result
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SetPreferredInputNumberOfChannelsError(count as Integer, outError as NSError) As Boolean
-		  declare function setPreferredInputNumberOfChannels_ lib AVFoundationLib selector "setPreferredInputNumberOfChannels:error:" (obj_id as ptr, count as Integer, outError as ptr) as Boolean
-		  Return setPreferredInputNumberOfChannels_(self, count, outError)
+		Function SetPreferredInputNumberOfChannelsError(count as Integer, byref outError as NSError) As Boolean
+		  declare function setPreferredInputNumberOfChannels_ lib AVFoundationLib selector "setPreferredInputNumberOfChannels:error:" (obj_id as ptr, count as Integer, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = setPreferredInputNumberOfChannels_(self, count, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
+		  end if
+		  Return result
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SetPreferredIOBufferDurationError(duration as double, outError as NSError) As Boolean
-		  declare function setPreferredIOBufferDuration_ lib AVFoundationLib selector "setPreferredIOBufferDuration:error:" (obj_id as ptr, duration as Double, outError as ptr) as Boolean
-		  Return setPreferredIOBufferDuration_(self, duration, outError)
+		Function SetPreferredIOBufferDurationError(duration as double, byref outError as NSError) As Boolean
+		  declare function setPreferredIOBufferDuration_ lib AVFoundationLib selector "setPreferredIOBufferDuration:error:" (obj_id as ptr, duration as Double, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = setPreferredIOBufferDuration_(self, duration, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
+		  end if
+		  Return result
+		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SetPreferredOutputNumberOfChannelsError(count as Integer, outError as NSError) As Boolean
-		  declare function setPreferredOutputNumberOfChannels_ lib AVFoundationLib selector "setPreferredOutputNumberOfChannels:error:" (obj_id as ptr, count as Integer, outError as ptr) as Boolean
-		  Return setPreferredOutputNumberOfChannels_(self, count, outError)
+		Function SetPreferredOutputNumberOfChannelsError(count as Integer, byref outError as NSError) As Boolean
+		  declare function setPreferredOutputNumberOfChannels_ lib AVFoundationLib selector "setPreferredOutputNumberOfChannels:error:" (obj_id as ptr, count as Integer, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = setPreferredOutputNumberOfChannels_(self, count, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
+		  end if
+		  Return result
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SetPreferredSampleRateError(sampleRate as Double, outError as NSError) As Boolean
-		  declare function setPreferredSampleRate_ lib AVFoundationLib selector "setPreferredSampleRate:error:" (obj_id as ptr, sampleRate as Double, outError as ptr) as Boolean
-		  Return setPreferredSampleRate_(self, sampleRate, outError)
+		Function SetPreferredSampleRateError(sampleRate as Double, byref outError as NSError) As Boolean
+		  declare function setPreferredSampleRate_ lib AVFoundationLib selector "setPreferredSampleRate:error:" (obj_id as ptr, sampleRate as Double, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = setPreferredSampleRate_(self, sampleRate, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
+		  end if
+		  Return result
 		End Function
 	#tag EndMethod
 

@@ -16,23 +16,25 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Constructor(url as NSURL, settings as NSDictionary, outError as NSError)
-		  declare function initWithURL_ lib AVFoundationLib selector "initWithURL:settings:error:" (obj_id as ptr, url as ptr, settings as ptr, outError as ptr) as ptr
-		  if outError <> nil then
-		    Super.Constructor( initWithURL_(Allocate(ClassRef), url, settings, outError) )
-		  else
-		    Super.Constructor( initWithURL_(Allocate(ClassRef), url, settings, nil) )
+		Sub Constructor(url as NSURL, settings as NSDictionary, byref outError as NSError)
+		  declare function initWithURL_ lib AVFoundationLib selector "initWithURL:settings:error:" (obj_id as ptr, url as ptr, settings as ptr, byref outError as ptr) as ptr
+		  dim err as ptr
+		  Super.Constructor( initWithURL_(Allocate(ClassRef), url, settings, err) )
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
 		  end if
 		  
 		  dim target as ptr = Initialize(Allocate(TargetClass))
 		  
 		  if dispatch = nil then dispatch = new xojo.Core.Dictionary
-		  dispatch.Value(target) = self
+		  dispatch.Value(target) = xojo.core.WeakRef.Create(self)
 		  
 		  mdelegate = target
 		  
 		  
 		  
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -57,13 +59,29 @@ Inherits NSObject
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_didFinishRecording(pid as ptr, sel as ptr, player as ptr, success as Boolean)
-		  AVAudioRecorder(dispatch.Value(pid)).HandleFinishedRecording(success)
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    AVAudioRecorder(w.Value).HandleFinishedRecording(success)
+		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused player
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_encodeError(pid as ptr, sel as ptr, player as ptr, err as ptr)
-		  AVAudioRecorder(dispatch.Value(pid)).HandleEncodeError(new Foundation.NSError(err))
+		  dim error as Foundation.NSError
+		  if err<> nil then
+		    error = new Foundation.NSError(err)
+		  end if
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    AVAudioRecorder(w.Value).HandleEncodeError(error)
+		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused player
 		End Sub
 	#tag EndMethod
 

@@ -35,9 +35,9 @@ Inherits NSObject
 		  mdelegate = del
 		  
 		  if dispatch = nil then dispatch = new xojo.Core.Dictionary
-		  dispatch.Value(del) = self
+		  dispatch.Value(del) = xojo.Core.WeakRef.Create(self)
 		  
-		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -91,13 +91,26 @@ Inherits NSObject
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_didCancel(pid as ptr, sel as ptr, pickercontroller as ptr)
-		  UIImagePickerController(dispatch.Value(pid)).HandleDidCancel
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w<> nil then
+		    UIImagePickerController(w.Value).HandleDidCancel
+		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused pickercontroller
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_didFinishPickingMedia(pid as ptr, sel as ptr, pickercontroller as ptr, infoDict as ptr)
-		  UIImagePickerController(dispatch.Value(pid)).HandleDidFinishPicking(infoDict)
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w<> nil then
+		    UIImagePickerController(w.Value).HandleDidFinishPicking(infoDict)
+		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused pickercontroller
+		  
 		End Sub
 	#tag EndMethod
 

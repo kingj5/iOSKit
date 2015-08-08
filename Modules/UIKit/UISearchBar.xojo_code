@@ -26,7 +26,7 @@ Inherits iOSUserControl
 		  
 		  using Xojo.Core
 		  if dispatch = nil then dispatch = new Dictionary
-		  dispatch.Value(del) = self
+		  dispatch.Value(del) = xojo.core.WeakRef.Create(self)
 		  
 		  Return UInteger(selfRef)
 		End Function
@@ -129,49 +129,97 @@ Inherits iOSUserControl
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_bookmarkButtonPressed(pid as ptr, sel as ptr, searchbar as ptr)
-		  UISearchBar(dispatch.Value(pid)).HandleBookmarkButton
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    UISearchBar(w.Value).HandleBookmarkButton
+		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused searchbar
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_cancelButtonPressed(pid as ptr, sel as ptr, searchbar as ptr)
-		  UISearchBar(dispatch.Value(pid)).HandleCancelButton
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    UISearchBar(w.Value).HandleCancelButton
+		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused searchbar
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_didBeginEditing(pid as ptr, sel as ptr, searchbar as ptr)
-		  UISearchBar(dispatch.Value(pid)).HandleDidBeginEditing
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    UISearchBar(w.Value).HandleDidBeginEditing
+		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused searchbar
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_resultListButtonPressed(pid as ptr, sel as ptr, searchbar as ptr)
-		  UISearchBar(dispatch.Value(pid)).HandleResultListButton
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    UISearchBar(w.Value).HandleResultListButton
+		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused searchbar
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_scopeButtonChanged(pid as ptr, sel as ptr, searchbar as ptr, newIndex as Integer)
-		  UISearchBar(dispatch.Value(pid)).HandleScopeButtonChanged(newIndex)
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    UISearchBar(w.Value).HandleScopeButtonChanged(newIndex)
+		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused searchbar
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_searchButtonPressed(pid as ptr, sel as ptr, searchbar as ptr)
-		  UISearchBar(dispatch.Value(pid)).HandleSearchButton
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    UISearchBar(w.Value).HandleSearchButton
+		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused searchbar
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_shouldReplaceText(pid as ptr, sel as ptr, searchbar as ptr, range as NSRange, newText as CFStringRef) As Boolean
 		  Return True
+		  
+		  #Pragma unused pid
+		  #Pragma unused sel
+		  #Pragma unused searchbar
+		  #Pragma unused range
+		  #Pragma unused newText
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_TextChanged(pid as ptr, sel as ptr, seachbar as ptr, newText as CFStringRef)
-		  UISearchBar(dispatch.Value(pid)).HandleTextChanged(newText)
+		Private Shared Sub impl_TextChanged(pid as ptr, sel as ptr, searchbar as ptr, newText as CFStringRef)
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    UISearchBar(w.Value).HandleTextChanged(newText)
+		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused searchbar
 		End Sub
 	#tag EndMethod
 

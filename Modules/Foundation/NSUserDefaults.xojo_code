@@ -33,6 +33,8 @@ Inherits NSObject
 		Sub Constructor()
 		  declare function init_ lib FoundationLib selector "init" (obj_id as ptr) as ptr
 		  Super.Constructor( init_(Allocate(ClassRef)) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -40,6 +42,8 @@ Inherits NSObject
 		Sub Constructor(suitename as CFStringRef)
 		  declare function initWithSuiteName_ lib FoundationLib selector "initWithSuiteName:" (obj_id as ptr, suitename as CFStringRef) as ptr
 		  Super.Constructor( initWithSuiteName_(Allocate(ClassRef), suitename) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 

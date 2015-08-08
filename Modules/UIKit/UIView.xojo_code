@@ -21,7 +21,7 @@ Inherits UIResponder
 		    
 		  #Endif
 		  
-		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 

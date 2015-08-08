@@ -12,6 +12,8 @@ Inherits UIViewController
 		Sub Constructor(searchResultsController as UIViewController)
 		  declare function initWithSearchResultsController_ lib UIKitLib selector "initWithSearchResultsController:" (obj_id as ptr, searchResultsController as ptr) as ptr
 		  Super.Constructor( initWithSearchResultsController_(Allocate(ClassRef), searchResultsController) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -124,7 +126,32 @@ Inherits UIViewController
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="automaticallyAdjustsScrollViewInsets"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="definesPresentationContext"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="dimsBackgroundDuringPresentation"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="editing"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="extendedLayoutIncludesOpaqueBars"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="hidesBottomBarWhenPushed"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -148,10 +175,25 @@ Inherits UIViewController
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="modalInPopover"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="modalPresentationCapturesStatusBarAppearance"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="providesPresentationContextTransitionStyle"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

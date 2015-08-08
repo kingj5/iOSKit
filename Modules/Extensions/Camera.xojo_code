@@ -17,6 +17,8 @@ Protected Class Camera
 	#tag Method, Flags = &h21
 		Private Sub HandleDismiss(sender as UIKit.UIImagePickerController)
 		  Rebuild
+		  
+		  #Pragma Unused sender
 		End Sub
 	#tag EndMethod
 
@@ -28,6 +30,8 @@ Protected Class Camera
 		  RaiseEvent PictureTaken
 		  
 		  Rebuild
+		  
+		  #Pragma Unused sender
 		End Sub
 	#tag EndMethod
 
@@ -108,6 +112,17 @@ Protected Class Camera
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SourceType"
+			Group="Behavior"
+			Type="UIKit.UIImagePickerController.Source"
+			EditorType="Enum"
+			#tag EnumValues
+				"1 - Camera"
+				"0 - PhotoLibrary"
+				"2 - SavedPhotoAlbum"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

@@ -40,6 +40,8 @@ Inherits NSObject
 		Sub Constructor(path as CFStringRef, isDir as Boolean)
 		  declare function initFileURLWithPath_ lib FoundationLib selector "initFileURLWithPath:isDirectory:" (obj_id as ptr, path as CFStringRef, isDir as Boolean) as ptr
 		  Super.Constructor( initFileURLWithPath_(Allocate(ClassRef), path, isDir) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -47,6 +49,8 @@ Inherits NSObject
 		Sub Constructor(scheme as CFStringRef, host as CFStringRef, path as CFStringRef)
 		  declare function initWithScheme_ lib FoundationLib selector "initWithScheme:host:path:" (obj_id as ptr, scheme as CFStringRef, host as CFStringRef, path as CFStringRef) as ptr
 		  Super.Constructor( initWithScheme_(Allocate(ClassRef), scheme, host, path) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -54,6 +58,8 @@ Inherits NSObject
 		Sub Constructor(URLString as CFStringRef, baseURL as NSURL)
 		  declare function initWithString_ lib FoundationLib selector "initWithString:relativeToURL:" (obj_id as ptr, URLString as CFStringRef, baseURL as ptr) as ptr
 		  Super.Constructor( initWithString_(Allocate(ClassRef), URLString, baseURL) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -61,6 +67,8 @@ Inherits NSObject
 		Sub Constructor(bookmarkData as NSData, options as Integer, relativeURL as NSURL, isStale as Boolean, error as NSError)
 		  declare function initByResolvingBookmarkData_ lib FoundationLib selector "initByResolvingBookmarkData:options:relativeToURL:bookmarkDataIsStale:error:" (obj_id as ptr, bookmarkData as ptr, options as integer, relativeURL as ptr, isStale as Boolean, error as ptr) as ptr
 		  Super.Constructor( initByResolvingBookmarkData_(Allocate(ClassRef), bookmarkData, options, relativeURL, isStale, error) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -68,6 +76,8 @@ Inherits NSObject
 		Sub Constructor(URLString as NSString)
 		  declare function initWithString_ lib FoundationLib selector "initWithString:" (obj_id as ptr, URLString as ptr) as ptr
 		  Super.Constructor( initWithString_(Allocate(ClassRef), URLString) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -75,6 +85,8 @@ Inherits NSObject
 		Sub Constructor(path as Text)
 		  declare function initFileURLWithPath_ lib FoundationLib selector "initFileURLWithPath:" (obj_id as ptr, path as CFStringRef) as ptr
 		  Super.Constructor( initFileURLWithPath_(Allocate(ClassRef), path) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 

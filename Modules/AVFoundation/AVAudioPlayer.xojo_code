@@ -16,54 +16,65 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Constructor(data as NSData, outError as NSError)
-		  declare function initWithData_ lib AVFoundationLib selector "initWithData:error:" (obj_id as ptr, data as ptr, outError as ptr) as ptr
-		  if outError <> nil then
-		    Super.Constructor( initWithData_(Allocate(ClassRef), data, outError) )
-		  else
-		    Super.Constructor( initWithData_(Allocate(ClassRef), data, nil) )
+		Sub Constructor(data as NSData, byref outError as NSError)
+		  declare function initWithData_ lib AVFoundationLib selector "initWithData:error:" (obj_id as ptr, data as ptr, byref outError as ptr) as ptr
+		  
+		  dim err as Ptr
+		  
+		  Super.Constructor( initWithData_(Allocate(ClassRef), data, err) )
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
 		  end if
 		  
+		  
 		  CreateDelegate
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Constructor(data as NSData, utiString as Text, outError as NSError)
-		  declare function initWithData_ lib AVFoundationLib selector "initWithData:fileTypeHint:error:" (obj_id as ptr, data as ptr, utiString as CFStringRef, outError as ptr) as ptr
-		  if outError <> nil then
-		    Super.Constructor( initWithData_(Allocate(ClassRef), data, utiString, outError) )
-		  else
-		    Super.Constructor( initWithData_(Allocate(ClassRef), data, utiString, nil) )
+		Sub Constructor(data as NSData, utiString as Text, byref outError as NSError)
+		  declare function initWithData_ lib AVFoundationLib selector "initWithData:fileTypeHint:error:" (obj_id as ptr, data as ptr, utiString as CFStringRef, byref outError as ptr) as ptr
+		  dim err as Ptr
+		  Super.Constructor( initWithData_(Allocate(ClassRef), data, utiString, err) )
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
 		  end if
 		  
 		  CreateDelegate
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Constructor(url as NSURL, utiString as CFStringRef, outError as NSError)
-		  declare function initWithContentsOfURL_ lib AVFoundationLib selector "initWithContentsOfURL:fileTypeHint:error:" (obj_id as ptr, url as ptr, utiString as CFStringRef, outError as ptr) as ptr
-		  if outError <> nil then
-		    Super.Constructor( initWithContentsOfURL_(Allocate(ClassRef), url, utiString, outError) )
-		  else
-		    Super.Constructor( initWithContentsOfURL_(Allocate(ClassRef), url, utiString, nil) )
+		Sub Constructor(url as NSURL, utiString as CFStringRef, byref outError as NSError)
+		  declare function initWithContentsOfURL_ lib AVFoundationLib selector "initWithContentsOfURL:fileTypeHint:error:" (obj_id as ptr, url as ptr, utiString as CFStringRef, byref outError as ptr) as ptr
+		  dim err as ptr
+		  Super.Constructor( initWithContentsOfURL_(Allocate(ClassRef), url, utiString, err) )
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
 		  end if
 		  
 		  CreateDelegate
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Constructor(url as NSURL, outError as NSError)
-		  declare function initWithContentsOfURL_ lib AVFoundationLib selector "initWithContentsOfURL:error:" (obj_id as ptr, url as ptr, outError as ptr) as ptr
-		  if outError <> nil then
-		    Super.Constructor( initWithContentsOfURL_(Allocate(ClassRef), url, outError) )
-		  else
-		    Super.Constructor( initWithContentsOfURL_(Allocate(ClassRef), url, nil) )
+		Sub Constructor(url as NSURL, byref outError as NSError)
+		  declare function initWithContentsOfURL_ lib AVFoundationLib selector "initWithContentsOfURL:error:" (obj_id as ptr, url as ptr, byref outError as ptr) as ptr
+		  dim err as ptr
+		  Super.Constructor( initWithContentsOfURL_(Allocate(ClassRef), url, err) )
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
 		  end if
 		  
 		  CreateDelegate
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -72,7 +83,7 @@ Inherits NSObject
 		  dim target as ptr = Initialize(Allocate(TargetClass))
 		  
 		  if dispatch = nil then dispatch = new xojo.Core.Dictionary
-		  dispatch.Value(target) = self
+		  dispatch.Value(target) = xojo.core.WeakRef.Create(self)
 		  
 		  mdelegate = target
 		  
@@ -94,13 +105,29 @@ Inherits NSObject
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_decodeError(pid as ptr, sel as ptr, player as ptr, err as ptr)
-		  AVAudioPlayer(dispatch.Value(pid)).HandleDecodeError(new Foundation.NSError(err))
+		  dim error as Foundation.NSError
+		  if err <> nil then
+		    error = new Foundation.NSError(err)
+		  end if
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    AVAudioPlayer(w.Value).HandleDecodeError(error)
+		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused player
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_didFinishPlaying(pid as ptr, sel as ptr, player as ptr, success as Boolean)
-		  AVAudioPlayer(dispatch.Value(pid)).HandleFinishedPlaying(success)
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    AVAudioPlayer(w.Value).HandleFinishedPlaying(success)
+		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused player
 		End Sub
 	#tag EndMethod
 

@@ -38,6 +38,8 @@ Inherits NSObject
 		Sub Constructor()
 		  
 		  super.Constructor(Initialize(Allocate(NSClassFromString("NSDate"))))
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -55,6 +57,7 @@ Inherits NSObject
 		  
 		  #pragma unused secondsSinceNow
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -75,6 +78,7 @@ Inherits NSObject
 		  #pragma unused seconds
 		  #pragma unused sinceDate
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -89,6 +93,7 @@ Inherits NSObject
 		  
 		  super.Constructor(dateWithTimeIntervalSince1970( NSClassFromString( "NSDate" ), seconds ))
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 

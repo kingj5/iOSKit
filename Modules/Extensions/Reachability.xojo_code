@@ -17,15 +17,15 @@ Protected Class Reachability
 
 	#tag Method, Flags = &h21
 		Private Sub ParseFlags(flags as UInt32)
-		  dim cellularFlag as Boolean = if((flags and IsWWAN) <> 0,True,False)
+		  'dim cellularFlag as Boolean = if((flags and IsWWAN) <> 0,True,False)
 		  dim reachableFlag as Boolean = if((flags and Reachable) <> 0,True,False)
-		  dim transientflag as Boolean = if((flags and TransientConnection) <> 0,True,False)
+		  'dim transientflag as Boolean = if((flags and TransientConnection) <> 0,True,False)
 		  dim connectionRequiredFlag as Boolean = if((flags and ConnectionRequired) <> 0,True,False)
 		  dim connectionOnTrafficFlag as Boolean = if((flags and ConnectionOnTraffic) <> 0,True,False)
 		  dim interventionRequiredFlag as Boolean = if((flags and InterventionRequired) <> 0,True,False)
 		  dim connectionOnDemandFlag as Boolean = if((flags and ConnectionOnDemand) <> 0,True,False)
-		  dim localAddressFlag as Boolean = if((flags and IsLocalAddress) <> 0,True,False)
-		  dim directFlag as Boolean = if((flags and IsDirect) <> 0,True,False)
+		  'dim localAddressFlag as Boolean = if((flags and IsLocalAddress) <> 0,True,False)
+		  'dim directFlag as Boolean = if((flags and IsDirect) <> 0,True,False)
 		  
 		  isNotReachable = (reachableFlag = False)
 		  isReachableViaCellular = False

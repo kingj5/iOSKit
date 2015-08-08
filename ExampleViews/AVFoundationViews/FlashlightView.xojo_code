@@ -10,10 +10,10 @@ Begin iosView FlashlightView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 148, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button1, 10, <Parent>, 10, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 148, 
+      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
       Caption         =   "Toggle Flashlight"
       Enabled         =   True
       Height          =   30.0
@@ -45,7 +45,8 @@ End
 		  dim device as AVFoundation.AVCaptureDevice = AVFoundation.AVCaptureDevice.DefaultDeviceWithMediaType(AVFoundation.AVStringConstant("AVMediaTypeVideo"))
 		  
 		  //this is important, it crashes without it
-		  call device.LockForConfiguration(nil)
+		  dim err as Foundation.NSError
+		  call device.LockForConfiguration(err)
 		  
 		  if not isOn then
 		    device.torchMode = AVFoundation.AVCaptureDevice.AVCaptureTorchMode.On

@@ -24,77 +24,118 @@ Inherits NSObject
 		  using Xojo.Core
 		  if dispatch = nil then dispatch = new Dictionary
 		  if viewsDictionary = nil then viewsDictionary = new Dictionary
-		  dispatch.Value(selfRef) = self
+		  dispatch.Value(selfRef) = xojo.core.WeakRef.Create(self)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_attributedTitleForRowAndComponent(pid as ptr, sel as ptr, picker as ptr, row as integer, component as Integer) As ptr
-		  
+		  #Pragma Unused pid
+		  #Pragma Unused sel
+		  #Pragma Unused picker
+		  #Pragma Unused row
+		  #Pragma Unused component
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_didSelectRowAndComponent(pid as ptr, sel as ptr, picker as ptr, row as integer, component as integer)
-		  UIPickerViewDataSourceMultiline(dispatch.Value(pid)).SelectRowAndComponent(row,component)
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    UIPickerViewDataSourceMultiline(w.Value).SelectRowAndComponent(row,component)
+		  end if
+		  
+		  #Pragma Unused sel
+		  #Pragma Unused picker
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_numberOfComponents(pid as ptr, sel as ptr, picker as ptr) As Integer
-		  return UIPickerViewDataSourceMultiline(dispatch.Value(pid)).Columns.Ubound+1
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    return UIPickerViewDataSourceMultiline(w.Value).Columns.Ubound+1
+		  end if
+		  
+		  #Pragma Unused sel
+		  #Pragma Unused picker
+		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_numberOfRowsInComponent(pid as ptr, sel as ptr, picker as ptr, component as integer) As Integer
-		  dim rows() as text = UIPickerViewDataSourceMultiline(dispatch.Value(pid)).Columns(component)
-		  Return rows.Ubound+1
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    dim rows() as text = UIPickerViewDataSourceMultiline(w.Value).Columns(component)
+		    Return rows.Ubound+1
+		  end if
+		  
+		  #Pragma Unused sel
+		  #Pragma Unused picker
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Function impl_rowHeightForComponent(pid as ptr, sel as ptr, picker as ptr, compentent as integer) As Double
+		Private Shared Function impl_rowHeightForComponent(pid as ptr, sel as ptr, picker as ptr, component as integer) As Double
 		  Return 44
+		  
+		  #Pragma Unused pid
+		  #Pragma Unused sel
+		  #Pragma Unused picker
+		  #Pragma Unused component
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_titleForRowAndComponent(pid as ptr, sel as ptr, picker as ptr, row as Integer, component as integer) As CFStringRef
-		  return UIPickerViewDataSourceMultiline(dispatch.Value(pid)).TextInRowAndColumn(row,component)
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    return UIPickerViewDataSourceMultiline(w.Value).TextInRowAndColumn(row,component)
+		  end if
+		  
+		  #Pragma Unused sel
+		  #Pragma Unused picker
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_viewForRowAndComponent(pid as ptr, sel as ptr, picker as ptr, row as integer, component as integer, view as ptr) As ptr
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    dim theView as iOSTextArea
+		    theView = new iOSTextArea
+		    theView.Editable = False
+		    
+		    #if Target32Bit
+		      declare sub setFrame lib UIKitLib selector "setFrame:" (obj_id as ptr, frame as NSRect32)
+		    #Elseif Target64Bit
+		      declare sub setFrame lib UIKitLib selector "setFrame:" (obj_id as ptr, frame as NSRect64)
+		    #Endif
+		    dim rect as new NSRect
+		    rect.rsize.w = UIPickerViewDataSourceMultiline(w.Value).myPicker.Width/impl_numberOfComponents(pid,sel,picker)
+		    rect.rsize.h = 44
+		    
+		    #if Target32Bit
+		      setFrame(theView.Handle, rect.Value32)
+		    #Elseif Target64Bit
+		      setFrame(theView.Handle, rect.Value64)
+		    #Endif
+		    
+		    theView.Text = UIPickerViewDataSourceMultiline(w.Value).TextInRowAndColumn(row,component)
+		    Return theView.Handle
+		  End if
 		  
-		  dim theView as iOSTextArea
-		  theView = new iOSTextArea
-		  theView.Editable = False
-		  
-		  #if Target32Bit
-		    declare sub setFrame lib UIKitLib selector "setFrame:" (obj_id as ptr, frame as NSRect32)
-		  #Elseif Target64Bit
-		    declare sub setFrame lib UIKitLib selector "setFrame:" (obj_id as ptr, frame as NSRect64)
-		  #Endif
-		  dim rect as new NSRect
-		  rect.rsize.w = UIPickerViewDataSourceMultiline(dispatch.Value(pid)).myPicker.Width/impl_numberOfComponents(pid,sel,picker)
-		  rect.rsize.h = 44
-		  
-		  #if Target32Bit
-		    setFrame(theView.Handle, rect.Value32)
-		  #Elseif Target64Bit
-		    setFrame(theView.Handle, rect.Value64)
-		  #Endif
-		  
-		  theView.Text = UIPickerViewDataSourceMultiline(dispatch.Value(pid)).TextInRowAndColumn(row,component)
-		  Return theView.Handle
+		  #Pragma Unused view
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Function impl_widthForComponent(pid as ptr, sel as ptr, picker as ptr, compentent as integer) As Double
-		  
+		Private Shared Function impl_widthForComponent(pid as ptr, sel as ptr, picker as ptr, component as integer) As Double
+		  #Pragma Unused pid
+		  #Pragma Unused sel
+		  #Pragma Unused picker
+		  #Pragma Unused component
 		End Function
 	#tag EndMethod
 

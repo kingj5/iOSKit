@@ -9,15 +9,21 @@ Inherits AVFoundation.AVCaptureInput
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Constructor(device as AVCaptureDevice, outError as NSError)
-		  declare function initWithDevice_ lib AVFoundationLib selector "initWithDevice:error:" (obj_id as ptr, device as ptr, outError as ptr) as ptr
-		  Super.Constructor( initWithDevice_(Allocate(ClassRef), device, outError) )
+		Sub Constructor(device as AVCaptureDevice, byref outError as NSError)
+		  declare function initWithDevice_ lib AVFoundationLib selector "initWithDevice:error:" (obj_id as ptr, device as ptr, byref outError as ptr) as ptr
+		  dim err as ptr
+		  Super.Constructor( initWithDevice_(Allocate(ClassRef), device, err) )
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
+		  end if
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		 Shared Function DeviceInputWithDeviceError(device as AVCaptureDevice, byref outError as NSError) As AVFoundation.AVCaptureDeviceInput
-		  declare function deviceInputWithDevice_ lib AVFoundationLib selector "deviceInputWithDevice:error:" (clsRef as ptr, device as ptr, outError as ptr) as ptr
+		  declare function deviceInputWithDevice_ lib AVFoundationLib selector "deviceInputWithDevice:error:" (clsRef as ptr, device as ptr, byref outError as ptr) as ptr
 		  dim err as ptr
 		  dim result as new AVCaptureDeviceInput(deviceInputWithDevice_(ClassRef, device, err))
 		  

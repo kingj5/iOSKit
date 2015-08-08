@@ -14,7 +14,7 @@ Protected Module KeychainServices
 		  dim result as CFTypeRef
 		  dim status as Integer = SecItemAdd(dictRef, result)
 		  
-		  
+		  #Pragma Unused status
 		End Sub
 	#tag EndMethod
 
@@ -34,7 +34,7 @@ Protected Module KeychainServices
 		  
 		  dim status as Integer = SecItemDelete(dictRef)
 		  
-		  
+		  #Pragma Unused status
 		End Sub
 	#tag EndMethod
 
