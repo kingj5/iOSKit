@@ -1,6 +1,15 @@
 #tag Module
 Protected Module StoreKit
-	#tag Constant, Name = StoreKitLib, Type = , Dynamic = False, Default = \"StoreKit.framework", Scope = Public
+	#tag DelegateDeclaration, Flags = &h0
+		Delegate Sub LoadProductsCallback(result as Boolean, error as Foundation.NSError)
+	#tag EndDelegateDeclaration
+
+	#tag DelegateDeclaration, Flags = &h0
+		Delegate Sub RequestProductsCompletionHandler(success as Boolean, products as Foundation . NSArray)
+	#tag EndDelegateDeclaration
+
+
+	#tag Constant, Name = StoreKitLib, Type = Text, Dynamic = False, Default = \"StoreKit.framework", Scope = Public
 	#tag EndConstant
 
 

@@ -1,5 +1,5 @@
 #tag Class
- Attributes ( "unfininsh add delegate" ) Protected Class SKReceiptRefreshRequest
+Protected Class SKReceiptRefreshRequest
 Inherits StoreKit.SKRequest
 	#tag Method, Flags = &h21
 		Private Shared Function ClassRef() As Ptr
@@ -13,26 +13,48 @@ Inherits StoreKit.SKRequest
 		  declare function initWithReceiptProperties_ lib StoreKitLib selector "initWithReceiptProperties:" (obj_id as ptr, properties as ptr) as ptr
 		  Super.Constructor( initWithReceiptProperties_(Allocate(ClassRef), properties) )
 		  
+		  dim del as Ptr = Initialize(Allocate(TargetClass))
 		  if dispatch = nil then dispatch = new xojo.Core.Dictionary
+		  dispatch.Value(del) = xojo.core.WeakRef.Create(self)
+		  
+		  mDelegate = del
 		  
 		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
+		Private Sub HandleRequestDidFail(err as Foundation.NSError)
+		  RaiseEvent RequestDidFail(err)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub HandleRequestDidFinish()
+		  RaiseEvent RequestDidFinish
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
 		Private Shared Sub impl_requestDidFail(pid as ptr, sel as ptr, request as ptr, err as ptr)
-		  #Pragma warning "unfinished"
-		  #Pragma unused pid
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    SKReceiptRefreshRequest(w.Value).HandleRequestDidFail(new Foundation.NSError(err))
+		  end if
+		  
 		  #Pragma unused sel
 		  #Pragma unused request
-		  #Pragma unused err
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_requestDidFinish(pid as ptr, sel as ptr, request as ptr)
-		  #Pragma warning "unfinished"
-		  #Pragma unused pid
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    SKReceiptRefreshRequest(w.Value).HandleRequestDidFinish
+		  end if
+		  
 		  #Pragma unused sel
 		  #Pragma unused request
 		End Sub
@@ -55,6 +77,15 @@ Inherits StoreKit.SKRequest
 		  
 		End Function
 	#tag EndMethod
+
+
+	#tag Hook, Flags = &h0
+		Event RequestDidFail(err as Foundation.NSError)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event RequestDidFinish()
+	#tag EndHook
 
 
 	#tag Property, Flags = &h21

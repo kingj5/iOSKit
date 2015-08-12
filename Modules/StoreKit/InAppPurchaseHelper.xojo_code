@@ -117,7 +117,7 @@ Inherits StoreKit.PaymentTransactionObserver
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function productPurchased(identifier as Text) As Boolean
+		Function isProductPurchased(identifier as Text) As Boolean
 		  Return purchasedProductIdentifiers.ContainsObject(new NSString(identifier))
 		End Function
 	#tag EndMethod
@@ -135,10 +135,6 @@ Inherits StoreKit.PaymentTransactionObserver
 		  new Notification_Center.Notification(SKProvideContentForProductNotification, self, userInfo))
 		End Sub
 	#tag EndMethod
-
-	#tag DelegateDeclaration, Flags = &h0
-		Delegate Sub RequestProductsCompletionHandler(success as Boolean, products as Foundation.NSArray)
-	#tag EndDelegateDeclaration
 
 	#tag Method, Flags = &h0
 		Sub RequestProductsWithCompletionHandler(compHandler as RequestProductsCompletionHandler)
