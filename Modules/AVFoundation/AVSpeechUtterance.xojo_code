@@ -12,6 +12,8 @@ Inherits NSObject
 		Sub Constructor(str as Text)
 		  declare function initWithString_ lib AVFoundationLib selector "initWithString:" (obj_id as ptr, str as CFStringRef) as ptr
 		  Super.Constructor( initWithString_(Allocate(ClassRef), str) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 

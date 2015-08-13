@@ -12,6 +12,8 @@ Inherits NSObject
 		Sub Constructor(path as CFStringRef)
 		  declare function initWithContentsOfFile_ lib FoundationLib selector "initWithContentsOfFile:" (obj_id as ptr, path as CFStringRef) as ptr
 		  Super.Constructor( initWithContentsOfFile_(Allocate(ClassRef), path) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -19,6 +21,8 @@ Inherits NSObject
 		Sub Constructor(data as NSData)
 		  declare function initWithData_ lib FoundationLib selector "initWithData:" (obj_id as ptr, data as ptr) as ptr
 		  Super.Constructor( initWithData_(Allocate(ClassRef), data) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -26,6 +30,8 @@ Inherits NSObject
 		Sub Constructor(aURL as NSURL)
 		  declare function initWithContentsOfURL_ lib FoundationLib selector "initWithContentsOfURL:" (obj_id as ptr, aURL as ptr) as ptr
 		  Super.Constructor( initWithContentsOfURL_(Allocate(ClassRef), aURL) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -33,6 +39,8 @@ Inherits NSObject
 		Sub Constructor(bytes as xojo.core.memoryblock, length as UInteger)
 		  declare function initWithBytes_ lib FoundationLib selector "initWithBytes:length:" (obj_id as ptr, bytes as ptr, length as UInteger) as ptr
 		  Super.Constructor( initWithBytes_(Allocate(ClassRef), bytes.Data, length) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 

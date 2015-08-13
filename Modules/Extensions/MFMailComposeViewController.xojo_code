@@ -29,7 +29,10 @@ Inherits UIKit.UINavigationController
 		  setDelegate(del)
 		  
 		  if dispatch = nil then dispatch = new xojo.Core.Dictionary
-		  dispatch.Value(del) = self
+		  dispatch.Value(del) = xojo.core.WeakRef.Create(self)
+		  
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -40,8 +43,7 @@ Inherits UIKit.UINavigationController
 		  dismissModalViewController(mparentViewController.ViewControllerHandle, True, Nil)
 		  
 		  mparentViewController = nil
-		  
-		  
+		  Break
 		End Sub
 	#tag EndMethod
 
@@ -53,7 +55,16 @@ Inherits UIKit.UINavigationController
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_didFinishWithResult(pid as ptr, sel as ptr, composer as ptr, result as integer, err as ptr)
-		  MFMailComposeViewController(dispatch.Value(pid)).HandleDidFinish
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    MFMailComposeViewController(w.Value).HandleDidFinish
+		  end if
+		  
+		  
+		  #Pragma Unused sel
+		  #Pragma Unused composer
+		  #Pragma Unused result
+		  #Pragma Unused err
 		End Sub
 	#tag EndMethod
 
@@ -64,6 +75,7 @@ Inherits UIKit.UINavigationController
 		  presentViewController(mView.ViewControllerHandle, self, True, nil)
 		  
 		  mparentViewController = mView //get a reference to dismiss ourself
+		  
 		End Sub
 	#tag EndMethod
 
@@ -139,6 +151,31 @@ Inherits UIKit.UINavigationController
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="automaticallyAdjustsScrollViewInsets"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="definesPresentationContext"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="editing"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="extendedLayoutIncludesOpaqueBars"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="hidesBottomBarWhenPushed"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -153,10 +190,25 @@ Inherits UIKit.UINavigationController
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="modalInPopover"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="modalPresentationCapturesStatusBarAppearance"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="providesPresentationContextTransitionStyle"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

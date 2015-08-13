@@ -227,7 +227,9 @@ Protected Module Extensions
 		  Declare function sharedApplication_ lib "UIKit" selector "sharedApplication" (clsRef as ptr) as ptr
 		  Declare sub setNetworkActivityIndicatorVisible_ lib "UIKit" selector "setNetworkActivityIndicatorVisible:" (obj_id as ptr, yesNo as Boolean)
 		  
-		  setNetworkActivityIndicatorVisible_(sharedApplication_(NSClassFromString("UIApplication")), true)
+		  setNetworkActivityIndicatorVisible_(sharedApplication_(NSClassFromString("UIApplication")), visible)
+		  
+		  
 		End Sub
 	#tag EndMethod
 
@@ -256,7 +258,8 @@ Protected Module Extensions
 		  
 		  if f = nil then
 		    dim r as NilObjectException = new NilObjectException
-		    'r.Message = "An NSData object can only be created from a valid folderitem."
+		    r.Reason = "An NSData object can only be created from a valid folderitem."
+		    Raise r
 		    Return nil
 		  end if
 		  dim NSDataRef as ptr = dataWithContentsOfFile(NSClassFromString("NSData"), f.Path)

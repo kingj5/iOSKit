@@ -52,7 +52,9 @@ Inherits NSArray
 	#tag Method, Flags = &h1000
 		Sub Constructor()
 		  
-		  Constructor   NSObject.Initialize( NSObject.Allocate( NSClassFromString("NSMutableArray") ))
+		  super.Constructor(Initialize( Allocate( NSClassFromString("NSMutableArray") )) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -71,6 +73,7 @@ Inherits NSArray
 		  
 		  
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -91,6 +94,7 @@ Inherits NSArray
 		  #pragma unused anArray
 		  
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -112,6 +116,7 @@ Inherits NSArray
 		  #pragma unused copyItems
 		  
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -144,6 +149,7 @@ Inherits NSArray
 		  #pragma unused objects
 		  
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -156,6 +162,7 @@ Inherits NSArray
 		  next
 		  
 		  self.Constructor(nsstr)
+		  
 		  
 		End Sub
 	#tag EndMethod
@@ -172,6 +179,7 @@ Inherits NSArray
 		  #pragma unused capacity
 		  
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -588,6 +596,11 @@ Inherits NSArray
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="Count"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
 			Visible=true

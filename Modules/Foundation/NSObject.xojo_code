@@ -24,6 +24,8 @@ Class NSObject
 		Sub Destructor()
 		  declare sub release lib UIKitLib selector "release" (obj_id as ptr)
 		  release(m_id)
+		  
+		  if needsExtraRelease then release(m_id)
 		End Sub
 	#tag EndMethod
 
@@ -49,6 +51,10 @@ Class NSObject
 
 	#tag Property, Flags = &h21
 		Private m_id As ptr
+	#tag EndProperty
+
+	#tag Property, Flags = &h1
+		Protected needsExtraRelease As Boolean = false
 	#tag EndProperty
 
 

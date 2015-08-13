@@ -23,7 +23,7 @@ Inherits iOSUserControl
 		  
 		  using Xojo.Core
 		  if dispatch = nil then dispatch = new Dictionary
-		  dispatch.Value(Target) = self
+		  dispatch.Value(Target) = xojo.core.WeakRef.Create(self)
 		  
 		  declare sub addTarget lib UIKitLib selector "addTarget:action:forControlEvents:" (obj_id as ptr, target as ptr, action as ptr, events as Integer)
 		  const UIControlEventValueChanged = 4096
@@ -70,7 +70,13 @@ Inherits iOSUserControl
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_action(pid as ptr, sel as ptr, sender as ptr)
-		  UIStepper(dispatch.Value(pid)).HandleAction
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    UIStepper(w.Value).HandleAction
+		  end if
+		  
+		  #Pragma Unused sel
+		  #Pragma Unused sender
 		End Sub
 	#tag EndMethod
 

@@ -48,7 +48,7 @@ Inherits NSObject
 		  
 		  Super.Constructor(initWithComponents(Allocate(NSClassFromString("UIColor")),red/255,green/255,blue/255,(255-alpha)/255))
 		  
-		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 

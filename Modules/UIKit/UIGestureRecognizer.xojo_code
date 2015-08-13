@@ -18,9 +18,11 @@ Inherits NSObject
 		  
 		  using Xojo.Core
 		  if TargetDictionary = nil then TargetDictionary = new Dictionary
-		  TargetDictionary.Value(target) = self
+		  TargetDictionary.Value(target) = xojo.core.WeakRef.Create(self)
 		  
 		  
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -32,7 +34,13 @@ Inherits NSObject
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_action(pid as ptr, sel as ptr, gestureRecognizer as ptr)
-		  UIGestureRecognizer(TargetDictionary.Value(pid)).Gesture(new UIGestureRecognizer(gestureRecognizer))
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(TargetDictionary.Value(pid))
+		  if w.Value <> nil Then
+		    UIGestureRecognizer(w.Value).Gesture(new UIGestureRecognizer(gestureRecognizer))
+		  end if
+		  
+		  #Pragma unused sel
+		  
 		End Sub
 	#tag EndMethod
 

@@ -28,7 +28,7 @@ Inherits AVFoundation.AVCaptureOutput
 		  
 		  declare function retain lib FoundationLib selector "retain" (obj_id as ptr) as ptr
 		  sampleBuff = retain(sampleBuffer)
-		  error = retain(error)
+		  error = retain(err)
 		  done = True
 		  
 		End Sub
@@ -69,6 +69,8 @@ Inherits AVFoundation.AVCaptureOutput
 		  
 		  
 		  //kCMVideoCodecType_JPEG = 1785750887
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 

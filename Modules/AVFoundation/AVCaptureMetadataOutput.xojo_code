@@ -28,6 +28,8 @@ Inherits AVFoundation.AVCaptureOutput
 		  dim disp as ptr = dlsym(sysLib,"_dispatch_main_q")
 		  
 		  SetMetadataObjectsDelegateQueue(Target, disp)
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -50,9 +52,13 @@ Inherits AVFoundation.AVCaptureOutput
 		  
 		  declare function retain lib FoundationLib selector "retain" (obj_id as ptr) as ptr
 		  
+		  #Pragma warning "this method may leak memory"
 		  if metadataObjects <> nil then
 		    AVCaptureMetadataOutput(dispatch.Value(pid)).HandleDidOutputMetadataObjects( retain(captureOutput), retain(metadataObjects), retain(connection) )
 		  end if
+		  
+		  #Pragma unused sel
+		  
 		End Sub
 	#tag EndMethod
 

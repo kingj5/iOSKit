@@ -10,10 +10,10 @@ Begin iosView XojoUnitTestGroupView
    Begin iOSTable TestGroupsTable
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TestGroupsTable, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   TestGroupsTable, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   TestGroupsTable, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
       AutoLayout      =   TestGroupsTable, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   TestGroupsTable, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   TestGroupsTable, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   TestGroupsTable, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
       Format          =   "0"
       Height          =   415.0
       Left            =   0
@@ -41,6 +41,7 @@ End
 
 	#tag Event
 		Sub ToolbarPressed(button As iOSToolButton)
+		  #Pragma Unused button
 		  RunTests
 		End Sub
 	#tag EndEvent
@@ -117,7 +118,8 @@ End
 #tag Events TestGroupsTable
 	#tag Event
 		Sub Action(section As Integer, row As Integer)
-		  
+		  #Pragma Unused section
+		  #Pragma Unused row
 		End Sub
 	#tag EndEvent
 	#tag Event

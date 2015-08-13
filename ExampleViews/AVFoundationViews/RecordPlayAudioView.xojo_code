@@ -10,10 +10,10 @@ Begin iosView RecordPlayAudioView
    Begin iOSButton RecordPauseButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   RecordPauseButton, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   RecordPauseButton, 3, <Parent>, 3, False, +1.00, 1, 1, 169, 
-      AutoLayout      =   RecordPauseButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   RecordPauseButton, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   RecordPauseButton, 3, <Parent>, 3, False, +1.00, 1, 1, 169, 
+      AutoLayout      =   RecordPauseButton, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   RecordPauseButton, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Record"
       Enabled         =   True
       Height          =   30.0
@@ -30,10 +30,10 @@ Begin iosView RecordPlayAudioView
    Begin iOSButton StopButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   StopButton, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   StopButton, 10, RecordPauseButton, 10, False, +1.00, 1, 1, , 
-      AutoLayout      =   StopButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   StopButton, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   StopButton, 10, RecordPauseButton, 10, False, +1.00, 1, 1, , 
+      AutoLayout      =   StopButton, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   StopButton, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Stop"
       Enabled         =   False
       Height          =   30.0
@@ -50,10 +50,10 @@ Begin iosView RecordPlayAudioView
    Begin iOSButton PlayButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   PlayButton, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   PlayButton, 3, <Parent>, 3, False, +1.00, 1, 1, 270, 
-      AutoLayout      =   PlayButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   PlayButton, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   PlayButton, 3, <Parent>, 3, False, +1.00, 1, 1, 270, 
+      AutoLayout      =   PlayButton, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   PlayButton, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Play"
       Enabled         =   False
       Height          =   30.0
@@ -85,7 +85,8 @@ End
 		  
 		  //configure the audio session
 		  dim session as AVFoundation.AVAudioSession = AVFoundation.AVAudioSession.SharedInstance
-		  call session.SetCategory(AVFoundation.AVStringConstant("AVAudioSessionCategoryPlayAndRecord"),nil)
+		  dim err as Foundation.NSError
+		  call session.SetCategory(AVFoundation.AVStringConstant("AVAudioSessionCategoryPlayAndRecord"),err)
 		  
 		  //get the values of settings constants
 		  dim formatIDKey as Text = AVFoundation.AVStringConstant("AVFormatIDKey")
@@ -104,7 +105,7 @@ End
 		  recordSettings.Value(new NSString(numberOfChannelsKey)) = numberWithInt(numberClass, 2)
 		  
 		  //create the recorder object
-		  recorder = new AVFoundation.AVAudioRecorder(outputFile,recordSettings,nil)
+		  recorder = new AVFoundation.AVAudioRecorder(outputFile,recordSettings,err)
 		  recorder.meteringEnabled = True
 		  if not recorder.PrepareToRecord then
 		    MsgBox "error preparing to record"
@@ -121,6 +122,9 @@ End
 		  
 		  StopButton.Enabled = False
 		  PlayButton.Enabled = True
+		  
+		  #Pragma Unused sender
+		  #Pragma Unused successfully
 		End Sub
 	#tag EndMethod
 
@@ -146,7 +150,8 @@ End
 		  
 		  if not recorder.recording then
 		    dim session as AVFoundation.AVAudioSession = AVFoundation.AVAudioSession.SharedInstance
-		    if not session.SetActive(True,nil) then
+		    dim err as Foundation.NSError
+		    if not session.SetActive(True,err) then
 		      MsgBox "failed to make session active"
 		    end if
 		    if not recorder.Record then
@@ -169,7 +174,8 @@ End
 		  recorder.Stop
 		  
 		  dim session as AVFoundation.AVAudioSession = AVFoundation.AVAudioSession.SharedInstance
-		  call session.SetActive(false,nil)
+		  dim err as Foundation.NSError
+		  call session.SetActive(false,err)
 		  
 		End Sub
 	#tag EndEvent
@@ -178,7 +184,8 @@ End
 	#tag Event
 		Sub Action()
 		  if not recorder.recording then
-		    player = new AVFoundation.AVAudioPlayer(recorder.url,nil)
+		    dim err as Foundation.NSError
+		    player = new AVFoundation.AVAudioPlayer(recorder.url,err)
 		    call player.Play
 		  end if
 		End Sub

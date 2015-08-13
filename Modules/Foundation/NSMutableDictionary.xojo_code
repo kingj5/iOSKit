@@ -53,6 +53,7 @@ Inherits NSDictionary
 		  Super.Constructor(Initialize(Allocate(ClassRef)))
 		  
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -66,6 +67,7 @@ Inherits NSDictionary
 		  #pragma Unused file
 		  
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -79,6 +81,7 @@ Inherits NSDictionary
 		  #pragma Unused capacity
 		  
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -93,6 +96,7 @@ Inherits NSDictionary
 		  #pragma unused otherDictionary
 		  
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -108,6 +112,7 @@ Inherits NSDictionary
 		  #pragma unused copyItems
 		  
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -126,6 +131,7 @@ Inherits NSDictionary
 		  #pragma unused objects
 		  
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -339,6 +345,11 @@ Inherits NSDictionary
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="Count"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
 			Visible=true

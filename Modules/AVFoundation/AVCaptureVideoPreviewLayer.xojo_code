@@ -24,6 +24,8 @@ Inherits QuartzCore.CALayer
 		Sub Constructor(session as AVCaptureSession)
 		  declare function initWithSession_ lib AVFoundationLib selector "initWithSession:" (obj_id as ptr, session as ptr) as ptr
 		  Super.Constructor( initWithSession_(Allocate(ClassRef), session) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 

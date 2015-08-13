@@ -52,6 +52,7 @@ End
 #tag Events Table1
 	#tag Event
 		Sub Action(section As Integer, row As Integer)
+		  #Pragma Unused section
 		  //rows
 		  // 0 = UIActivity
 		  // 1 = Camera
@@ -65,7 +66,8 @@ End
 		  // 9 = Keychain Services
 		  // 10 = AVFoundation Demo views
 		  // 11 = Record and Play video
-		  // 12 = Unit Tests
+		  // 12 = UIActionController
+		  // 13 = Unit Tests
 		  
 		  dim newMasterView as iOSView
 		  dim newDetailView as iOSView
@@ -96,6 +98,8 @@ End
 		  case 11
 		    newDetailView = new RecordPlayVideo
 		  case 12
+		    newDetailView = new UIAlertView
+		  case 13
 		    newMasterView = new XojoUnitTestGroupView
 		    newDetailView = new XojoUnitTestDetailsView
 		  else
@@ -170,11 +174,16 @@ End
 		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
 		  me.AddRow(0,d)
 		  
+		  d = new iOSTableCellData("UIActionController")
+		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
+		  me.AddRow(0,d)
+		  
 		  if self.ParentSplitView.Available then
 		    d = new iOSTableCellData("Unit Tests")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
 		    me.AddRow(0,d)
 		  end if
+		  
 		  
 		End Sub
 	#tag EndEvent

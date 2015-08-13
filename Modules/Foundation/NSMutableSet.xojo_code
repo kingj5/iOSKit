@@ -26,6 +26,8 @@ Inherits NSSet
 		Sub Constructor()
 		  declare function init_ lib FoundationLib selector "init" (obj_id as ptr) as ptr
 		  Super.Constructor( init_(Allocate(ClassRef)) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -33,6 +35,8 @@ Inherits NSSet
 		Sub Constructor(numItems as UInteger)
 		  declare function initWithCapacity_ lib FoundationLib selector "initWithCapacity:" (obj_id as ptr, numItems as UInteger) as ptr
 		  Super.Constructor( initWithCapacity_(Allocate(ClassRef), numItems) )
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 

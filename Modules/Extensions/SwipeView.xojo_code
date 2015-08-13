@@ -24,7 +24,7 @@ Inherits iOSUserControl
 		  
 		  using xojo.Core
 		  if dispatch = nil then dispatch = new Dictionary
-		  dispatch.Value(selfRef) = self
+		  dispatch.Value(selfRef) = xojo.core.WeakRef.Create(self)
 		  
 		  Return UInteger(selfRef)
 		End Function
@@ -67,18 +67,24 @@ Inherits iOSUserControl
 	#tag Method, Flags = &h21
 		Private Sub HandleDownSwipe(sender as UIKit.UISwipeGestureRecognizer, additionalData as UIKit.UIGestureRecognizer)
 		  SwipeDown(additionalData)
+		  
+		  #Pragma Unused sender
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Sub HandleLeftSwipe(sender as UIKit.UISwipeGestureRecognizer, additionalData as UIKit.UIGestureRecognizer)
 		  SwipeLeft(additionalData)
+		  
+		  #Pragma Unused sender
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Sub HandleRightSwipe(sender as UIKit.UISwipeGestureRecognizer, additionalData as UIKit.UIGestureRecognizer)
 		  SwipeRight(additionalData)
+		  
+		  #Pragma Unused sender
 		End Sub
 	#tag EndMethod
 
@@ -101,7 +107,7 @@ Inherits iOSUserControl
 		    Tap(new xojo.Core.Point(tmp.x,tmp.y))
 		  end if
 		  
-		  
+		  #Pragma Unused sender
 		End Sub
 	#tag EndMethod
 
@@ -147,24 +153,40 @@ Inherits iOSUserControl
 	#tag Method, Flags = &h21
 		Private Sub HandleUpSwipe(sender as UIKit.UISwipeGestureRecognizer, additionalData as UIKit.UIGestureRecognizer)
 		  SwipeUp(additionalData)
+		  
+		  #Pragma Unused sender
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_canBecomeFirstResponder(pid as ptr, sel as ptr) As Boolean
 		  Return True
+		  
+		  #Pragma Unused pid 
+		  #Pragma Unused sel
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_drawRect32(pid as ptr, sel as ptr, dirtyRect as NSRect32)
-		  SwipeView(dispatch.Value(pid)).mDrawRect(dirtyRect)
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    SwipeView(w.Value).mDrawRect(dirtyRect)
+		  end if
+		  
+		  #Pragma Unused sel
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_drawRect64(pid as ptr, sel as ptr, dirtyRect as NSRect64)
-		  SwipeView(dispatch.Value(pid)).mDrawRect(dirtyRect)
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    SwipeView(w.Value).mDrawRect(dirtyRect)
+		  end if
+		  
+		  #Pragma unused sel
 		End Sub
 	#tag EndMethod
 
@@ -174,8 +196,14 @@ Inherits iOSUserControl
 		  
 		  declare function subtype lib UIKitLib selector "subtype" (obj_id as ptr) as Integer
 		  if subtype(evt) = UIEventSubtypeMotionShake then
-		    SwipeView(dispatch.Value(pid)).HandleShakeBegan
+		    dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		    if w.Value <> nil Then
+		      SwipeView(w.Value).HandleShakeBegan
+		    end if
 		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused eventsubtype
 		End Sub
 	#tag EndMethod
 
@@ -185,8 +213,14 @@ Inherits iOSUserControl
 		  
 		  declare function subtype lib UIKitLib selector "subtype" (obj_id as ptr) as Integer
 		  if subtype(evt) = UIEventSubtypeMotionShake then
-		    SwipeView(dispatch.Value(pid)).HandleShakeEnded
+		    dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		    if w.Value <> nil Then
+		      SwipeView(w.Value).HandleShakeEnded
+		    end if
 		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused eventsubtype
 		End Sub
 	#tag EndMethod
 
@@ -206,12 +240,19 @@ Inherits iOSUserControl
 		    touches.Append new UITouch(objectAtIndex(nsarr,i))
 		  next
 		  
-		  SwipeView(dispatch.Value(pid)).HandleTouchesBegan(touches)
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    SwipeView(w.Value).HandleTouchesBegan(touches)
+		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused evt
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_touchesEnded(pid as ptr, sel as ptr, touchesSet as ptr, evt as ptr)
+		  
 		  declare function allObjects lib UIKitLib selector "allObjects" (obj_id as ptr) as ptr
 		  dim nsarr as ptr = allObjects(touchesSet)
 		  
@@ -226,7 +267,13 @@ Inherits iOSUserControl
 		    touches.Append new UITouch(objectAtIndex(nsarr,i))
 		  next
 		  
-		  SwipeView(dispatch.Value(pid)).HandleTouchesEnded(touches)
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    SwipeView(w.Value).HandleTouchesEnded(touches)
+		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused evt
 		End Sub
 	#tag EndMethod
 
@@ -246,7 +293,13 @@ Inherits iOSUserControl
 		    touches.Append new UITouch(objectAtIndex(nsarr,i))
 		  next
 		  
-		  SwipeView(dispatch.Value(pid)).HandleTouchesMoved(touches)
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    SwipeView(w.Value).HandleTouchesMoved(touches)
+		  end if
+		  
+		  #Pragma unused sel
+		  #Pragma unused evt
 		End Sub
 	#tag EndMethod
 

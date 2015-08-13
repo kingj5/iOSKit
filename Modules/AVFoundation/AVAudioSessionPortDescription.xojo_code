@@ -15,9 +15,14 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SetPreferredDataSource(dataSource as AVAudioSessionDataSourceDescription, outError as NSError) As Boolean
-		  declare function setPreferredDataSource_ lib AVFoundationLib selector "setPreferredDataSource:error:" (obj_id as ptr, dataSource as ptr, outError as ptr) as Boolean
-		  Return setPreferredDataSource_(self, dataSource, outError)
+		Function SetPreferredDataSource(dataSource as AVAudioSessionDataSourceDescription, byref outError as NSError) As Boolean
+		  declare function setPreferredDataSource_ lib AVFoundationLib selector "setPreferredDataSource:error:" (obj_id as ptr, dataSource as ptr, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = setPreferredDataSource_(self, dataSource, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
+		  end if
+		  Return result
 		End Function
 	#tag EndMethod
 

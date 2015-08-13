@@ -64,6 +64,7 @@ Inherits NSObject
 		  
 		  Super.Constructor(dictionaryWithObjectsforKeys( NSClassFromString("NSDictionary"), values, keys))
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -77,6 +78,7 @@ Inherits NSObject
 		  
 		  #pragma unused otherDictionary
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -95,6 +97,7 @@ Inherits NSObject
 		  #pragma unused keys
 		  #pragma unused objects
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -109,6 +112,7 @@ Inherits NSObject
 		  
 		  #pragma unused path
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -427,11 +431,11 @@ Inherits NSObject
 		Function Value(key as Ptr) As Ptr
 		  //# Get a value corresponding to a key
 		  
-		  #if TargetMacOS
-		    declare function objectForKey lib FoundationLib selector "objectForKey:" (id as Ptr, key as Ptr) as Ptr
-		    
-		    return objectForKey(self, key)
-		  #endif
+		  
+		  declare function objectForKey lib FoundationLib selector "objectForKey:" (id as Ptr, key as Ptr) as Ptr
+		  
+		  return objectForKey(self, key)
+		  
 		End Function
 	#tag EndMethod
 

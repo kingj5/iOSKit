@@ -16,6 +16,8 @@ Inherits UIViewController
 		  else
 		    Super.Constructor( initWithActivityItems_(Allocate(ClassRef), activityItems, nil) )
 		  end if
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -39,6 +41,31 @@ Inherits UIViewController
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="automaticallyAdjustsScrollViewInsets"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="definesPresentationContext"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="editing"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="extendedLayoutIncludesOpaqueBars"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="hidesBottomBarWhenPushed"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -53,10 +80,25 @@ Inherits UIViewController
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="modalInPopover"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="modalPresentationCapturesStatusBarAppearance"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="providesPresentationContextTransitionStyle"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

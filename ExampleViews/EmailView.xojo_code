@@ -10,10 +10,10 @@ Begin iosView EmailView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 176, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 176, 
       Caption         =   "Send Message"
       Enabled         =   True
       Height          =   30.0
@@ -31,6 +31,10 @@ End
 #tag EndIOSView
 
 #tag WindowCode
+	#tag Property, Flags = &h0
+		mailComposeView As Extensions.MFMailComposeViewController
+	#tag EndProperty
+
 	#tag Property, Flags = &h21
 		Private p As iOSImage
 	#tag EndProperty
@@ -41,7 +45,7 @@ End
 #tag Events Button1
 	#tag Event
 		Sub Action()
-		  dim mailComposeView as new Extensions.MFMailComposeViewController
+		  mailComposeView = new Extensions.MFMailComposeViewController
 		  mailComposeView.setToRecipients Array("email@example.com")
 		  mailComposeView.setCcRecipients Array("email@example.com")
 		  mailComposeView.setBccRecipients Array("email@example.com")

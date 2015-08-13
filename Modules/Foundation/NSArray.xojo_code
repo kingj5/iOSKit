@@ -78,6 +78,7 @@ Inherits NSObject
 		  
 		  #pragma unused file
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -102,6 +103,7 @@ Inherits NSObject
 		  
 		  #pragma unused anArray
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -127,6 +129,7 @@ Inherits NSObject
 		  #pragma unused anArray
 		  #pragma unused copyItems
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 
@@ -163,6 +166,7 @@ Inherits NSObject
 		  
 		  #pragma unused objects
 		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 

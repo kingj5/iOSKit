@@ -27,6 +27,10 @@ Protected Module UIKit
 		End Function
 	#tag EndMethod
 
+	#tag DelegateDeclaration, Flags = &h0
+		Delegate Sub UIAlertActionCompletionHandler(sender as UIAlertAction)
+	#tag EndDelegateDeclaration
+
 
 	#tag Constant, Name = UIKitLib, Type = Text, Dynamic = False, Default = \"UIKit.framework", Scope = Public
 	#tag EndConstant

@@ -93,13 +93,15 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function LockForConfiguration(outError as NSError) As Boolean
-		  declare function lockForConfiguration_ lib AVFoundationLib selector "lockForConfiguration:" (obj_id as ptr, outError as ptr) as Boolean
-		  if outError <> nil then
-		    Return lockForConfiguration_(self, outError)
-		  Else
-		    Return lockForConfiguration_(self, nil)
+		Function LockForConfiguration(byref outError as NSError) As Boolean
+		  declare function lockForConfiguration_ lib AVFoundationLib selector "lockForConfiguration:" (obj_id as ptr, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = lockForConfiguration_(self, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
 		  end if
+		  
+		  Return result
 		End Function
 	#tag EndMethod
 
@@ -132,9 +134,15 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SetTorchModeOnWithLevelError(torchLevel as double, outError as NSError) As Boolean
-		  declare function setTorchModeOnWithLevel_ lib AVFoundationLib selector "setTorchModeOnWithLevel:error:" (obj_id as ptr, torchLevel as double, outError as ptr) as Boolean
-		  Return setTorchModeOnWithLevel_(self, torchLevel, outError)
+		Function SetTorchModeOnWithLevelError(torchLevel as double, byref outError as NSError) As Boolean
+		  declare function setTorchModeOnWithLevel_ lib AVFoundationLib selector "setTorchModeOnWithLevel:error:" (obj_id as ptr, torchLevel as double, byref outError as ptr) as Boolean
+		  dim err as ptr
+		  dim result as Boolean = setTorchModeOnWithLevel_(self, torchLevel, err)
+		  if err <> nil then
+		    outError = new Foundation.NSError(err)
+		  end if
+		  
+		  Return result
 		End Function
 	#tag EndMethod
 

@@ -17,6 +17,8 @@ Inherits NSObject
 		  // Constructor(ref as ptr) -- From NSObject
 		  Super.Constructor( Initialize(Allocate(ClassRef)) )
 		  
+		  
+		  needsExtraRelease = True
 		End Sub
 	#tag EndMethod
 

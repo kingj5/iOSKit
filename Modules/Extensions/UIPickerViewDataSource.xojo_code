@@ -23,56 +23,95 @@ Inherits NSObject
 		  
 		  using Xojo.Core
 		  if dispatch = nil then dispatch = new Dictionary
-		  dispatch.Value(selfRef) = self
+		  dispatch.Value(selfRef) = xojo.core.WeakRef.Create(self)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_attributedTitleForRowAndComponent(pid as ptr, sel as ptr, picker as ptr, row as integer, component as Integer) As ptr
-		  
+		  #Pragma Unused pid
+		  #Pragma Unused sel
+		  #Pragma Unused picker
+		  #Pragma Unused row
+		  #Pragma Unused component
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_didSelectRowAndComponent(pid as ptr, sel as ptr, picker as ptr, row as integer, component as integer)
-		  UIPickerViewDataSource(dispatch.Value(pid)).SelectRowAndComponent(row,component)
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    UIPickerViewDataSource(w.Value).SelectRowAndComponent(row,component)
+		  end if
+		  
+		  #Pragma Unused sel
+		  #Pragma Unused picker
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_numberOfComponents(pid as ptr, sel as ptr, picker as ptr) As Integer
-		  return UIPickerViewDataSource(dispatch.Value(pid)).Columns.Ubound+1
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    return UIPickerViewDataSource(w.Value).Columns.Ubound+1
+		  end if
+		  
+		  #Pragma Unused sel
+		  #Pragma Unused picker
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_numberOfRowsInComponent(pid as ptr, sel as ptr, picker as ptr, component as integer) As Integer
-		  dim rows() as text = UIPickerViewDataSource(dispatch.Value(pid)).Columns(component)
-		  Return rows.Ubound+1
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    dim rows() as text = UIPickerViewDataSource(w.Value).Columns(component)
+		    Return rows.Ubound+1
+		  end if
+		  
+		  #Pragma Unused sel
+		  #Pragma Unused picker
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Function impl_rowHeightForComponent(pid as ptr, sel as ptr, picker as ptr, compentent as integer) As Double
-		  
+		Private Shared Function impl_rowHeightForComponent(pid as ptr, sel as ptr, picker as ptr, component as integer) As Double
+		  #Pragma Unused pid
+		  #Pragma Unused sel
+		  #Pragma Unused picker
+		  #Pragma Unused component
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_titleForRowAndComponent(pid as ptr, sel as ptr, picker as ptr, row as Integer, component as integer) As CFStringRef
-		  return UIPickerViewDataSource(dispatch.Value(pid)).TextInRowAndColumn(row,component)
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    return UIPickerViewDataSource(w.Value).TextInRowAndColumn(row,component)
+		  end if
+		  
+		  #Pragma Unused sel
+		  #Pragma Unused picker
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_viewForRowAndComponent(pid as ptr, sel as ptr, picker as ptr, row as integer, component as integer, view as ptr) As ptr
-		  
+		  #Pragma Unused pid
+		  #Pragma Unused sel
+		  #Pragma Unused picker
+		  #Pragma Unused row
+		  #Pragma Unused component
+		  #Pragma Unused view
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Function impl_widthForComponent(pid as ptr, sel as ptr, picker as ptr, compentent as integer) As Double
-		  
+		Private Shared Function impl_widthForComponent(pid as ptr, sel as ptr, picker as ptr, component as integer) As Double
+		  #Pragma Unused pid
+		  #Pragma Unused sel
+		  #Pragma Unused picker
+		  #Pragma Unused component
 		End Function
 	#tag EndMethod
 
