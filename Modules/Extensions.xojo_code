@@ -209,6 +209,17 @@ Protected Module Extensions
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function isIPad() As Boolean
+		  declare function currentDevice_ lib UIKitLib selector "currentDevice" (clsRef as ptr) as ptr
+		  declare function model_ lib UIKitLib selector "model" (obj_id as ptr) as CFStringRef
+		  dim model as Text = model_(currentDevice_(NSClassFromString("UIDevice")))
+		  dim isPad as boolean = model.BeginsWith("iPad")
+		  
+		  Return isPad
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub MsgBox(title as Text, message as text = "")
 		  dim msg as new iOSMessageBox
 		  msg.Buttons = Array("Ok")
