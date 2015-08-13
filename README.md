@@ -83,6 +83,26 @@ By module they are contained in:
 * AVSpeechSynthesisVoice
 * AVSpeechSynthesizer
 * AVSpeechUtterance
+
+###StoreKit
+* InAppPurchaseHelper
+* PaymentTransactionObserver
+* SKDownload
+* SKMutablePayment
+* SKPayment
+* SKPaymentQueue
+* SKPaymentTransaction
+* SKProduct
+* SKProductsRequest
+* SKProductsResponse
+* SKReceiptRefreshRequest
+* SKStoreProductViewController
+
+###JKRegex
+* RegEx
+* RegExMatch
+* RegExOptions
+
 ...and more coming
 
 
@@ -96,6 +116,8 @@ TargetClassMethodHelper (in UIKit) - For creating delegate or target objects usi
 SmartMemoryBlock and SmartMutableMemoryBlock (in Foundation) - Useful for using UIntegers with memory blocks, pragmas are used so they work as expected on 32/64 bit
 
 Extensions Methods (in Extensions) - Many methods which could be useful depending on your needs
+
+Notification_Center module - allows for in app notifications to be easily posted and handled
 
 
 If there is anything in particular that you would like to see added to iOSKit, or you find any issues or incompatibilities, please PM me on the Xojo Forum and I will see what I can do!
