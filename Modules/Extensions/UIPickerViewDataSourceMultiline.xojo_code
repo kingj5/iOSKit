@@ -145,7 +145,7 @@ Inherits NSObject
 		    viewsDictionary.Remove(myPicker.Handle)
 		  end if
 		  
-		  Declare Sub reloadAllComponents lib UIKitLib selector "reloadAllComponents:" (obj_ref As Ptr)
+		  Declare Sub reloadAllComponents lib UIKitLib selector "reloadAllComponents" (obj_ref As Ptr)
 		  
 		  reloadAllComponents(myPicker.Handle)
 		End Sub

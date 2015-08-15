@@ -117,7 +117,7 @@ Inherits NSObject
 
 	#tag Method, Flags = &h21
 		Private Sub Reload()
-		  Declare Sub reloadAllComponents lib UIKitLib selector "reloadAllComponents:" (obj_ref As Ptr)
+		  Declare Sub reloadAllComponents lib UIKitLib selector "reloadAllComponents" (obj_ref As Ptr)
 		  
 		  reloadAllComponents(myPicker.Handle)
 		End Sub
