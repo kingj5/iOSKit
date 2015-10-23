@@ -10,7 +10,7 @@ Inherits NSObject
 		  
 		  needsExtraRelease = True
 		  
-		  Break
+		  
 		End Sub
 	#tag EndMethod
 

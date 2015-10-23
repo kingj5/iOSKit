@@ -5,43 +5,43 @@ Protected Module GameKit
 	#tag EndDelegateDeclaration
 
 	#tag DelegateDeclaration, Flags = &h0
-		Delegate Sub GKMatchCompletionHandler(match as GameKit.GKMatch, err as Foundation.NSError)
+		Delegate Sub GKMatchCompletionHandler(match as GameKit . GKMatch, err as Foundation . NSError)
 	#tag EndDelegateDeclaration
 
 	#tag DelegateDeclaration, Flags = &h0
-		Delegate Sub GKPlayerCompletionHandler(player as GameKit.GKPlayer, err as Foundation.NSError)
+		Delegate Sub GKPlayerCompletionHandler(player as GameKit . GKPlayer, err as Foundation . NSError)
 	#tag EndDelegateDeclaration
 
 	#tag DelegateDeclaration, Flags = &h0
-		Delegate Sub GKTurnbasedExchangeCompletionHandler(exchange as GameKit.GKTurnBasedExchange, err as Foundation.NSError)
+		Delegate Sub GKTurnbasedExchangeCompletionHandler(exchange as GameKit . GKTurnBasedExchange, err as Foundation . NSError)
 	#tag EndDelegateDeclaration
 
 	#tag DelegateDeclaration, Flags = &h0
-		Delegate Sub GKTurnbasedMatchCompletionHandler(match as GameKit.GKTurnbasedMatch, err as Foundation.NSError)
+		Delegate Sub GKTurnbasedMatchCompletionHandler(match as GameKit . GKTurnbasedMatch, err as Foundation . NSError)
 	#tag EndDelegateDeclaration
 
 	#tag DelegateDeclaration, Flags = &h0
-		Delegate Sub IntegerCompletionHandler(activity as integer, err as Foundation.NSError)
+		Delegate Sub IntegerCompletionHandler(activity as integer, err as Foundation . NSError)
 	#tag EndDelegateDeclaration
 
 	#tag DelegateDeclaration, Flags = &h0
-		Delegate Sub iOSImageCompletionHandler(img as iOSImage, err as Foundation.NSError)
+		Delegate Sub iOSImageCompletionHandler(img as iOSImage, err as Foundation . NSError)
 	#tag EndDelegateDeclaration
 
 	#tag DelegateDeclaration, Flags = &h0
-		Delegate Sub NSArrayCompletionHandler(arr as Foundation.NSArray, err as Foundation.NSError)
+		Delegate Sub NSArrayCompletionHandler(arr as Foundation . NSArray, err as Foundation . NSError)
 	#tag EndDelegateDeclaration
 
 	#tag DelegateDeclaration, Flags = &h0
-		Delegate Sub NSDataCompletionHandler(data as Foundation.NSData)
+		Delegate Sub NSDataCompletionHandler(data as Foundation . NSData)
 	#tag EndDelegateDeclaration
 
 	#tag DelegateDeclaration, Flags = &h0
-		Delegate Sub NSErrorCompletionHandler(err as Foundation.NSError)
+		Delegate Sub NSErrorCompletionHandler(err as Foundation . NSError)
 	#tag EndDelegateDeclaration
 
 	#tag DelegateDeclaration, Flags = &h0
-		Delegate Sub TextCompletionHandler(identifier as Text, err as Foundation.NSError)
+		Delegate Sub TextCompletionHandler(identifier as Text, err as Foundation . NSError)
 	#tag EndDelegateDeclaration
 
 
