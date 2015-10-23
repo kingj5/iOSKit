@@ -60,7 +60,7 @@ Inherits NSObject
 		  
 		  dim offset as UInt32 = 0
 		  while m.UInt32Value(offset) <> 0
-		    rb_array.append NSStringEncoding(m.UInt32Value(offset))
+		    rb_array.append CType(m.UInt32Value(offset), NSStringEncoding)
 		    offset = offset + sizeOfUInt32
 		  wend
 		  
@@ -1183,6 +1183,11 @@ Inherits NSObject
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Int64Value"
+			Group="Behavior"
+			Type="Int64"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="IntegerValue"

@@ -34,7 +34,7 @@ Inherits UIResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub PresentViewControllerAnimatedCompletion(viewControllerToPresent as UIViewController, flag as Boolean, completion as iOSBlock)
+		Sub PresentViewControllerAnimatedCompletion(viewControllerToPresent as Ptr, flag as Boolean, completion as iOSBlock)
 		  declare sub presentViewController_ lib UIKitLib selector "presentViewController:animated:completion:" (obj_id as ptr, viewControllerToPresent as ptr, flag as Boolean, completion as ptr)
 		  if completion <> nil then
 		    presentViewController_(self, viewControllerToPresent, flag, completion.Handle)

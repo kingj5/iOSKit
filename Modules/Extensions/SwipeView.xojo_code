@@ -204,6 +204,9 @@ Inherits iOSUserControl
 		  
 		  #Pragma unused sel
 		  #Pragma unused eventsubtype
+		  
+		  
+		  
 		End Sub
 	#tag EndMethod
 
@@ -221,6 +224,8 @@ Inherits iOSUserControl
 		  
 		  #Pragma unused sel
 		  #Pragma unused eventsubtype
+		  
+		  
 		End Sub
 	#tag EndMethod
 

@@ -68,6 +68,7 @@ End
 		  // 11 = Record and Play video
 		  // 12 = UIActionController
 		  // 13 = Unit Tests
+		  // 14 = GameKit
 		  
 		  dim newMasterView as iOSView
 		  dim newDetailView as iOSView
@@ -100,6 +101,10 @@ End
 		  case 12
 		    newDetailView = new UIAlertView
 		  case 13
+		    newDetailView = new ShakingView
+		  case 14
+		    newDetailView = new GameKitDemoView
+		  case 15
 		    newMasterView = new XojoUnitTestGroupView
 		    newDetailView = new XojoUnitTestDetailsView
 		  else
@@ -175,6 +180,14 @@ End
 		  me.AddRow(0,d)
 		  
 		  d = new iOSTableCellData("UIActionController")
+		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
+		  me.AddRow(0,d)
+		  
+		  d = new iOSTableCellData("Shaking")
+		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
+		  me.AddRow(0,d)
+		  
+		  d = new iOSTableCellData("GameKit Demos (In progress)")
 		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
 		  me.AddRow(0,d)
 		  

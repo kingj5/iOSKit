@@ -10,10 +10,10 @@ Begin iosView CreateQRView
    Begin iOSTextField TextField1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextField1, 7, , 0, False, +1.00, 1, 1, 220, 
-      AutoLayout      =   TextField1, 3, Label1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   TextField1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   TextField1, 3, Label1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   TextField1, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   TextField1, 7, , 0, False, +1.00, 1, 1, 220, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -34,13 +34,14 @@ Begin iosView CreateQRView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 84, 
       AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 84, 
       AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Enter text to be converted to a QRCode:"
@@ -55,10 +56,10 @@ Begin iosView CreateQRView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 60, 
-      AutoLayout      =   Button1, 3, Label1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Button1, 1, TextField1, 2, False, +1.00, 1, 1, *kStdControlGapH, 
+      AutoLayout      =   Button1, 3, Label1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 60, 
       Caption         =   "Create"
       Enabled         =   True
       Height          =   30.0
@@ -75,10 +76,10 @@ Begin iosView CreateQRView
    Begin iOSCanvas Canvas1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Canvas1, 7, , 0, False, +1.00, 1, 1, 200, 
-      AutoLayout      =   Canvas1, 3, <Parent>, 3, False, +1.00, 1, 1, 168, 
       AutoLayout      =   Canvas1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Canvas1, 3, <Parent>, 3, False, +1.00, 1, 1, 168, 
       AutoLayout      =   Canvas1, 8, , 0, False, +1.00, 1, 1, 200, 
+      AutoLayout      =   Canvas1, 7, , 0, False, +1.00, 1, 1, 200, 
       Height          =   200.0
       Left            =   60
       LockedInPosition=   False
@@ -93,13 +94,17 @@ End
 #tag WindowCode
 	#tag Event
 		Sub ToolbarPressed(button As iOSToolButton)
-		  if button.Type = iOSToolButton.Type.SystemAction then
-		    using Extensions
-		    using Foundation
-		    dim controller as UIActivityViewController
-		    controller = new UIActivityViewController(NSArray.CreateWithObject(new NSObject(p.Handle)),nil)
-		    
-		    self.PresentViewController(controller, True, nil)
+		  #if XojoVersion < 2015.03
+		    if button.Type = iOSToolButton.Type.SystemAction then
+		  #Else
+		    if button.Type = iOSToolButton.Types.SystemAction then
+		  #Endif
+		  using Extensions
+		  using Foundation
+		  dim controller as UIActivityViewController
+		  controller = new UIActivityViewController(NSArray.CreateWithObject(new NSObject(p.Handle)),nil)
+		  
+		  self.PresentViewController(controller, True, nil)
 		  end if
 		End Sub
 	#tag EndEvent
@@ -120,7 +125,11 @@ End
 		  
 		  static added as Boolean
 		  if not added then
-		    Toolbar.Add(iOSToolButton.NewSystemItem(iOSToolButton.Type.SystemAction))
+		    #if XojoVersion < 2015.03
+		      Toolbar.Add(iOSToolButton.NewSystemItem(iOSToolButton.Type.SystemAction))
+		    #Else
+		      Toolbar.Add(iOSToolButton.NewSystemItem(iOSToolButton.Types.SystemAction))
+		    #Endif
 		    added = True
 		  end if
 		End Sub

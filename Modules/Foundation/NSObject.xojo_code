@@ -43,6 +43,13 @@ Class NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function isNil() As Boolean
+		  dim p as Ptr = self.id
+		  Return p = nil
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function Operator_Convert() As ptr
 		  return self.id
 		End Function

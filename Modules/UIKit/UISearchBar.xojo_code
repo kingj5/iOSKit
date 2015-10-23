@@ -378,7 +378,7 @@ Inherits iOSUserControl
 			  autocapitalizationType_(self.Handle, value)
 			End Set
 		#tag EndSetter
-		autocapitalizationType As UITextAutocapitalizationType
+		autocapitalizationType As UIKit.UISearchbar.UITextAutocapitalizationType
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -394,7 +394,7 @@ Inherits iOSUserControl
 			  autocorrectionType_(self.Handle, value)
 			End Set
 		#tag EndSetter
-		autocorrectionType As UITextAutocorrectionType
+		autocorrectionType As UIKit.UISearchbar.UITextAutocorrectionType
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -426,7 +426,7 @@ Inherits iOSUserControl
 			  barStyle_(self.Handle, value)
 			End Set
 		#tag EndSetter
-		barStyle As UIBarStyle
+		barStyle As UIKit.UISearchbar.UIBarStyle
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -462,7 +462,7 @@ Inherits iOSUserControl
 			  keyboardType_(self.Handle, value)
 			End Set
 		#tag EndSetter
-		keyboardType As UIKeyboardType
+		keyboardType As UIKit.UISearchbar.UIKeyboardType
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -562,7 +562,7 @@ Inherits iOSUserControl
 			  searchBarStyle_(self.Handle, value)
 			End Set
 		#tag EndSetter
-		searchBarStyle As UISearchBarStyle
+		searchBarStyle As UIKit.UISearchbar.UISearchBarStyle
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -578,7 +578,7 @@ Inherits iOSUserControl
 			  searchFieldBackgroundPositionAdjustment_(self.Handle, value)
 			End Set
 		#tag EndSetter
-		searchFieldBackgroundPositionAdjustment As UIOffset
+		searchFieldBackgroundPositionAdjustment As UIKit.UISearchbar.UIOffset
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -610,7 +610,7 @@ Inherits iOSUserControl
 			  searchTextPositionAdjustment_(self.Handle, value)
 			End Set
 		#tag EndSetter
-		searchTextPositionAdjustment As UIOffset
+		searchTextPositionAdjustment As UIKit.UISearchbar.UIOffset
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -706,7 +706,7 @@ Inherits iOSUserControl
 			  spellCheckingType_(self.Handle, value)
 			End Set
 		#tag EndSetter
-		spellCheckingType As UITextSpellCheckingType
+		spellCheckingType As UIKit.UISearchbar.UITextSpellCheckingType
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -853,7 +853,7 @@ Inherits iOSUserControl
 			Name="autocapitalizationType"
 			Visible=true
 			Group="Behavior"
-			Type="UITextAutocapitalizationType"
+			Type="UIKit.UISearchbar.UITextAutocapitalizationType"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - None"
@@ -866,7 +866,7 @@ Inherits iOSUserControl
 			Name="autocorrectionType"
 			Visible=true
 			Group="Behavior"
-			Type="UITextAutocorrectionType"
+			Type="UIKit.UISearchbar.UITextAutocorrectionType"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - Default"
@@ -878,7 +878,7 @@ Inherits iOSUserControl
 			Name="barStyle"
 			Visible=true
 			Group="Behavior"
-			Type="UIBarStyle"
+			Type="UIKit.UISearchbar.UIBarStyle"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - Default"
@@ -902,7 +902,7 @@ Inherits iOSUserControl
 			Name="keyboardType"
 			Visible=true
 			Group="Behavior"
-			Type="UIKeyboardType"
+			Type="UIKit.UISearchbar.UIKeyboardType"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - Default"
@@ -947,7 +947,7 @@ Inherits iOSUserControl
 			Name="searchBarStyle"
 			Visible=true
 			Group="Behavior"
-			Type="UISearchBarStyle"
+			Type="UIKit.UISearchbar.UISearchBarStyle"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - Default"
@@ -993,7 +993,7 @@ Inherits iOSUserControl
 			Name="spellCheckingType"
 			Visible=true
 			Group="Behavior"
-			Type="UITextSpellCheckingType"
+			Type="UIKit.UISearchbar.UITextSpellCheckingType"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - Default"

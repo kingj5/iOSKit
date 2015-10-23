@@ -28,6 +28,7 @@ By module they are contained in:
 * UIColor
 * UIGestureRecognizer
 * UIImagePickerController
+* UILongPressGestureRecognizer
 * UINavigationController
 * UIResponder
 * UIRotationGestureRecognizer
@@ -103,6 +104,34 @@ By module they are contained in:
 * RegExMatch
 * RegExOptions
 
+###GameKit (Beta - Not all classes have been extensively tested, please let me know if you find any classes which do not work as expected)
+* GKAchievement
+* GKAchievementChallenge
+* GKAchievementDescription
+* GKChallenge
+* GKFriendRequestComposeViewController (and observer)
+* GKGameCenterViewController (and observer)
+* GKInvite
+* GKLeaderboard
+* GKLeaderboardSet
+* GKLocalPlayer
+* GKLocalPlayerListener
+* GKMatch
+* GKMatchmaker
+* GKMatchmakerViewController
+* GKMatchRequest
+* GKNotificationBanner
+* GKPlayer
+* GKSavedGame
+* GKScore
+* GKScoreChallenge
+* GKTurnBasedExchange
+* GKTurnBasedExchangeReply
+* GKTurnBasedMatch
+* GKTurnBasedMatchmakerViewController
+* GKTurnBasedParticipant
+* GKVoiceChat 
+
 ...and more coming
 
 
@@ -118,6 +147,17 @@ SmartMemoryBlock and SmartMutableMemoryBlock (in Foundation) - Useful for using 
 Extensions Methods (in Extensions) - Many methods which could be useful depending on your needs
 
 Notification_Center module - allows for in app notifications to be easily posted and handled
+
+###Helpers for GameKit
+AuthenticationHelper - Handles all necessary authentication and creates a notification when anything needs to happen
+
+StandardMatchHelper (and observer) - Helps setup and run a standard match.  Although you can do all of the stuff it does manually, why would you?
+
+TurnBasedMatchHelper - Unfinished, I haven’t been able to test this one as much because making a turn based match to test with is impossible without many devices to test with.  If someone figures this out and has a working example for it, please submit a pull request/PM me
+
+AchievementAndScoreHelper - Unfinished 
+
+Notes about GameKit - before anything can be done, you MUST authenticate the player using the AuthenticationHelper class (or your own version of it).  Also be sure to add GameKit to your app’s capabilities by clicking on Build Settings -> iOS -> Advanced Gear and enabling Game Center.
 
 
 If there is anything in particular that you would like to see added to iOSKit, or you find any issues or incompatibilities, please PM me on the Xojo Forum and I will see what I can do!
