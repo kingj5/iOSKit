@@ -3,7 +3,7 @@ Class CMMotionManager
 Inherits NSObject
 	#tag Method, Flags = &h0
 		Function accelerometerActive() As Boolean
-		  declare function isAccelerometerActive lib CoreMotionLib selector "isAccelerometerAvailable" _
+		  declare function isAccelerometerActive lib CoreMotionLib selector "isAccelerometerActive" _
 		  (obj_id as ptr) as Boolean
 		  Return isAccelerometerActive(self)
 		End Function
