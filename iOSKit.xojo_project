@@ -46,6 +46,7 @@ Folder=Modules;Modules;&hE7A9798;&h0;false
 Module=KeychainServices;Modules/KeychainServices.xojo_code;&h772DAE8A;&hE7A9798;false
 Class=JK_KeychainItem;Modules/KeychainServices/JK_KeychainItem.xojo_code;&h1BF5DAEF;&h772DAE8A;false
 Module=Foundation;Modules/Foundation.xojo_code;&h34FECEF5;&hE7A9798;false
+Class=NSMutableData;Modules/Foundation/NSMutableData.xojo_code;&hD5E04B;&h34FECEF5;false
 Class=NSArray;Modules/Foundation/NSArray.xojo_code;&h1A12E5DF;&h34FECEF5;false
 Class=NSDictionary;Modules/Foundation/NSDictionary.xojo_code;&h3E1BC095;&h34FECEF5;false
 Class=NSMutableArray;Modules/Foundation/NSMutableArray.xojo_code;&h4B16BDAC;&h34FECEF5;false
