@@ -10,10 +10,10 @@ Begin iosView SpeechSynthesisView
    Begin iOSTextArea TextArea1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 1, 1, 129, 
-      AutoLayout      =   TextArea1, 3, Label1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   TextArea1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   TextArea1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   TextArea1, 3, Label1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 1, 1, 129, 
+      AutoLayout      =   TextArea1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       Editable        =   True
       Height          =   129.0
       KeyboardType    =   "0"
@@ -32,13 +32,14 @@ Begin iosView SpeechSynthesisView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Label1, 7, , 0, False, +1.00, 1, 1, 159, 
       AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   Label1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 7, , 0, False, +1.00, 1, 1, 159, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Enter text to be spoken:"
@@ -53,10 +54,10 @@ Begin iosView SpeechSynthesisView
    Begin Extensions.PickerView PickerView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   PickerView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   PickerView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   PickerView1, 8, , 0, False, +1.00, 1, 1, 118, 
       AutoLayout      =   PickerView1, 4, <Parent>, 4, False, +1.00, 2, 1, -*kStdGapCtlToViewV, 
+      AutoLayout      =   PickerView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   PickerView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   PickerView1, 8, , 0, False, +1.00, 1, 1, 118, 
       Height          =   118.0
       Left            =   20
       LockedInPosition=   False
@@ -68,10 +69,10 @@ Begin iosView SpeechSynthesisView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 74, 
-      AutoLayout      =   Button1, 3, TextArea1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Button1, 1, PickerView1, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 3, TextArea1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 74, 
+      AutoLayout      =   Button1, 1, PickerView1, 1, False, +1.00, 1, 1, 0, 
       Caption         =   "Start"
       Enabled         =   True
       Height          =   30.0
@@ -88,10 +89,10 @@ Begin iosView SpeechSynthesisView
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 74, 
-      AutoLayout      =   Button2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button2, 10, Button1, 10, False, +1.00, 1, 1, , 
+      AutoLayout      =   Button2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 74, 
+      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Stop"
       Enabled         =   False
       Height          =   30.0
@@ -108,11 +109,11 @@ Begin iosView SpeechSynthesisView
    Begin iOSButton Button3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Button3, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button3, 9, <Parent>, 9, False, +1.00, 2, 1, 0, 
       AutoLayout      =   Button3, 2, Label1, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button3, 4, Button1, 4, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Button3, 9, <Parent>, 9, False, +1.00, 2, 1, 0, 
       AutoLayout      =   Button3, 7, , 0, False, +1.00, 2, 1, 74, 
-      AutoLayout      =   Button3, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Pause"
       Enabled         =   False
       Height          =   30.0
@@ -129,10 +130,10 @@ Begin iosView SpeechSynthesisView
    Begin iOSSegmentedControl SegmentedControl1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   SegmentedControl1, 7, , 0, False, +1.00, 1, 1, 200, 
-      AutoLayout      =   SegmentedControl1, 3, Label2, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   SegmentedControl1, 8, , 0, True, +1.00, 1, 1, 29, 
       AutoLayout      =   SegmentedControl1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   SegmentedControl1, 3, Label2, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   SegmentedControl1, 7, , 0, False, +1.00, 1, 1, 200, 
+      AutoLayout      =   SegmentedControl1, 8, , 0, True, +1.00, 1, 1, 29, 
       Caption         =   ""
       Enabled         =   True
       Height          =   29.0
@@ -148,13 +149,14 @@ Begin iosView SpeechSynthesisView
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Label2, 3, Button1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label2, 3, Button1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Speech Rate:"
@@ -236,7 +238,7 @@ End
 		  case 1
 		    //default
 		    utterance.rate = AVFoundation.AVSpeechUtterance.DefaultSpeechRate
-		  case 3
+		  case 2
 		    //max
 		    utterance.rate = AVFoundation.AVSpeechUtterance.MaximumSpeechRate
 		  end select

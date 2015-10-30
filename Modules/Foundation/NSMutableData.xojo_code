@@ -23,13 +23,6 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Constructor(capacity as UInteger)
-		  declare function initWithCapacity_ lib FoundationLib selector "initWithCapacity:" (obj_id as ptr, capacity as UInteger) as ptr
-		  Super.Constructor( initWithCapacity_(Allocate(ClassRef), capacity, aNumItems) )
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Sub Constructor(length as UInteger)
 		  declare function initWithLength_ lib FoundationLib selector "initWithLength:" (obj_id as ptr, length as UInteger) as ptr
 		  Super.Constructor( initWithLength_(Allocate(ClassRef), length) )
@@ -94,21 +87,21 @@ Inherits NSObject
 
 	#tag Method, Flags = &h0
 		Sub ReplaceBytesInRangeWithBytes(range as NSRange, bytes as xojo.Core.MemoryBlock)
-		  declare sub replaceBytesInRange_ lib FoundationLib selector "replaceBytesInRange:withBytes:" (obj_id as ptr, range as ptr, bytes as ptr)
+		  declare sub replaceBytesInRange_ lib FoundationLib selector "replaceBytesInRange:withBytes:" (obj_id as ptr, range as NSRange, bytes as ptr)
 		  replaceBytesInRange_(self, range, bytes.Data)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ReplaceBytesInRangeWithBytesLength(range as NSRange, replacementBytes as xojo.core.memoryblock, replacementLength as UInteger)
-		  declare sub replaceBytesInRange_ lib FoundationLib selector "replaceBytesInRange:withBytes:length:" (obj_id as ptr, range as ptr, replacementBytes as ptr, replacementLength as UInteger)
+		  declare sub replaceBytesInRange_ lib FoundationLib selector "replaceBytesInRange:withBytes:length:" (obj_id as ptr, range as NSRange, replacementBytes as ptr, replacementLength as UInteger)
 		  replaceBytesInRange_(self, range, replacementBytes.Data, replacementLength)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ResetBytesInRange(range as NSRange)
-		  declare sub resetBytesInRange_ lib FoundationLib selector "resetBytesInRange:" (obj_id as ptr, range as ptr)
+		  declare sub resetBytesInRange_ lib FoundationLib selector "resetBytesInRange:" (obj_id as ptr, range as NSRange)
 		  resetBytesInRange_(self, range)
 		End Sub
 	#tag EndMethod

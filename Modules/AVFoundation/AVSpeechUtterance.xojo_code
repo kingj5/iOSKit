@@ -76,14 +76,24 @@ Inherits NSObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function rate_ lib AVFoundationLib selector "rate" (obj_id as ptr) as Double
+			  #if Target32Bit
+			    declare function rate_ lib AVFoundationLib selector "rate" (obj_id as ptr) as single
+			  #Elseif Target64Bit
+			    declare function rate_ lib AVFoundationLib selector "rate" (obj_id as ptr) as Double
+			  #Endif
 			  Return rate_(self)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  declare sub rate_ lib AVFoundationLib selector "setRate:" (obj_id as ptr, rate as Double)
+			  #if Target32Bit
+			    declare sub rate_ lib AVFoundationLib selector "setRate:" (obj_id as ptr, rate as Double)
+			  #Elseif Target64Bit
+			    declare sub rate_ lib AVFoundationLib selector "setRate:" (obj_id as ptr, rate as single)
+			  #Endif
 			  rate_(self, value)
+			  
+			  
 			End Set
 		#tag EndSetter
 		rate As Double
