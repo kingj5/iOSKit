@@ -87,9 +87,9 @@ Inherits NSObject
 		#tag Setter
 			Set
 			  #if Target32Bit
-			    declare sub rate_ lib AVFoundationLib selector "setRate:" (obj_id as ptr, rate as single)
+			    declare sub rate_ lib AVFoundationLib selector "setRate:" (obj_id as ptr, rate as Double)
 			  #Elseif Target64Bit
-			    declare sub rate_ lib AVFoundationLib selector "setRate:" (obj_id as ptr, rate as double)
+			    declare sub rate_ lib AVFoundationLib selector "setRate:" (obj_id as ptr, rate as single)
 			  #Endif
 			  rate_(self, value)
 			  
