@@ -10,10 +10,10 @@ Begin iosView GameKitDemoView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   Label1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Label1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -32,10 +32,10 @@ Begin iosView GameKitDemoView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 176, 
-      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 83, 
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 83, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 176, 
+      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
       Caption         =   "Standard Head to Head"
       Enabled         =   True
       Height          =   30.0
@@ -52,10 +52,10 @@ Begin iosView GameKitDemoView
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Button2, 3, <Parent>, 3, False, +1.00, 1, 1, 148, 
-      AutoLayout      =   Button2, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button2, 3, <Parent>, 3, False, +1.00, 1, 1, 148, 
+      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button2, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
       Caption         =   "Turn Based"
       Enabled         =   False
       Height          =   30.0
