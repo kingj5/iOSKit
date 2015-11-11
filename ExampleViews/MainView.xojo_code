@@ -10,10 +10,10 @@ Begin iosView MainView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, -69, 
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
+      AutoLayout      =   Table1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Format          =   "0"
       Height          =   338.0
       Left            =   0
@@ -107,6 +107,8 @@ End
 		  case 15
 		    newDetailView = new UIDocumentPickerView
 		  case 16
+		    newDetailView = new NotificationsView
+		  case 17
 		    newMasterView = new XojoUnitTestGroupView
 		    newDetailView = new XojoUnitTestDetailsView
 		  else
@@ -194,6 +196,10 @@ End
 		  me.AddRow(0,d)
 		  
 		  d = new iOSTableCellData("UIDocumentPicker")
+		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
+		  me.AddRow(0,d)
+		  
+		  d = new iOSTableCellData("Notifications")
 		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
 		  me.AddRow(0,d)
 		  

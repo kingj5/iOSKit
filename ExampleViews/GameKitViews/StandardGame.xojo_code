@@ -10,10 +10,10 @@ Begin iosView StandardGame Implements StandardMatchHelperObserver
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
       Caption         =   "Find Match"
       Enabled         =   True
       Height          =   30.0
@@ -30,10 +30,10 @@ Begin iosView StandardGame Implements StandardMatchHelperObserver
    Begin iOSCanvas Canvas1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Canvas1, 3, Button1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Canvas1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Canvas1, 8, <Parent>, 7, False, +1.00, 2, 1, 0, 
       AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Canvas1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Canvas1, 3, Button1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Canvas1, 8, <Parent>, 7, False, +1.00, 2, 1, 0, 
       Height          =   320.0
       Left            =   0
       LockedInPosition=   False
@@ -64,10 +64,10 @@ Begin iosView StandardGame Implements StandardMatchHelperObserver
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 1, Button1, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button2, 2, Button1, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button2, 4, <Parent>, 4, False, +1.00, 2, 1, -*kStdGapCtlToViewV, 
+      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button2, 1, Button1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button2, 2, Button1, 2, False, +1.00, 1, 1, 0, 
       Caption         =   "Start Chat"
       Enabled         =   True
       Height          =   30.0
