@@ -10,10 +10,10 @@ Begin iosView StillImageView
    Begin Extensions.SwipeView GenericView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   GenericView1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   GenericView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   GenericView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   GenericView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   GenericView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   GenericView1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   GenericView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       Height          =   415.0
       Left            =   0
       LockedInPosition=   False
