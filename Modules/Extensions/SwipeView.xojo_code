@@ -121,6 +121,36 @@ Inherits iOSUserControl
 		    locations.Append new Point(tmp.x, tmp.y)
 		  next
 		  RaiseEvent TouchesBegan(locations)
+		  
+		  declare function view lib UIKitLib selector "view" (obj_id as ptr) as ptr
+		  declare function layer lib UIKitLib selector "layer" (obj_id as ptr) as ptr
+		  declare function presentationLayer Lib "QuartzCore.framework" selector "presentationLayer" (obj_id as ptr) as ptr
+		  
+		  
+		  'UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+		  'UIView *topView = window.rootViewController.view;
+		  declare function sharedApplication lib UIKitLib selector "sharedApplication" (clsRef as ptr) as ptr
+		  declare function keyWindow lib UIKitLib selector "keyWindow" (obj_id as ptr) as ptr
+		  declare function rootViewCtrlr lib UIKitLib selector "rootViewController" (obj_id as ptr) as ptr
+		  
+		  dim vw as ptr = view(rootViewCtrlr(keyWindow(sharedApplication(NSClassFromString("UIApplication")))))
+		  dim loc as Foundation.NSPoint = touches(0).locationInView(new UIView(vw))
+		  dim touchedLayer as ptr 
+		  #if Target32Bit
+		    declare function convertPt lib UIKitLib selector "convertPoint:toView:" (obj_id as ptr, pt as NSPoint32, view as ptr) as NSPoint32
+		    loc = convertPt(vw, loc.Value32,nil)
+		    declare function hitTest lib "QuartzCore.framework" selector "hitTest:" (obj_id as ptr, loc as NSPoint32) as ptr
+		    touchedLayer = hitTest(presentationLayer(layer(vw)), loc.Value32)
+		  #Elseif Target64Bit
+		    declare function convertPt lib UIKitLib selector "convertPoint:toView:" (obj_id as ptr, pt as NSPoint64, view as ptr) as NSPoint64
+		    loc = convertPt(vw, loc.Value64,nil)
+		    declare function hitTest lib "QuartzCore.framework" selector "hitTest:" (obj_id as ptr, loc as NSPoint64) as ptr
+		    touchedLayer = hitTest(presentationLayer(layer(vw)), loc.Value64)
+		  #Endif
+		  
+		  if touchedLayer <> nil then
+		    RaiseEvent LayerTouch(new xojo.Core.Point(loc.x, loc.y), 0)
+		  end if
 		End Sub
 	#tag EndMethod
 
@@ -134,6 +164,35 @@ Inherits iOSUserControl
 		    locations.Append new Point(tmp.x, tmp.y)
 		  next
 		  RaiseEvent TouchesMoved(locations)
+		  
+		  declare function view lib UIKitLib selector "view" (obj_id as ptr) as ptr
+		  declare function layer lib UIKitLib selector "layer" (obj_id as ptr) as ptr
+		  declare function presentationLayer Lib "QuartzCore.framework" selector "presentationLayer" (obj_id as ptr) as ptr
+		  
+		  'UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+		  'UIView *topView = window.rootViewController.view;
+		  declare function sharedApplication lib UIKitLib selector "sharedApplication" (clsRef as ptr) as ptr
+		  declare function keyWindow lib UIKitLib selector "keyWindow" (obj_id as ptr) as ptr
+		  declare function rootViewCtrlr lib UIKitLib selector "rootViewController" (obj_id as ptr) as ptr
+		  
+		  dim vw as ptr = view(rootViewCtrlr(keyWindow(sharedApplication(NSClassFromString("UIApplication")))))
+		  dim loc as Foundation.NSPoint = touches(0).locationInView(new UIView(vw))
+		  dim touchedLayer as ptr 
+		  #if Target32Bit
+		    declare function convertPt lib UIKitLib selector "convertPoint:toView:" (obj_id as ptr, pt as NSPoint32, view as ptr) as NSPoint32
+		    loc = convertPt(vw, loc.Value32,nil)
+		    declare function hitTest lib "QuartzCore.framework" selector "hitTest:" (obj_id as ptr, loc as NSPoint32) as ptr
+		    touchedLayer = hitTest(presentationLayer(layer(vw)), loc.Value32)
+		  #Elseif Target64Bit
+		    declare function convertPt lib UIKitLib selector "convertPoint:toView:" (obj_id as ptr, pt as NSPoint64, view as ptr) as NSPoint64
+		    loc = convertPt(vw, loc.Value64,nil)
+		    declare function hitTest lib "QuartzCore.framework" selector "hitTest:" (obj_id as ptr, loc as NSPoint64) as ptr
+		    touchedLayer = hitTest(presentationLayer(layer(vw)), loc.Value64)
+		  #Endif
+		  
+		  if touchedLayer <> nil then
+		    RaiseEvent LayerTouch(new xojo.Core.Point(loc.x, loc.y), 2)
+		  end if
 		End Sub
 	#tag EndMethod
 
@@ -147,6 +206,35 @@ Inherits iOSUserControl
 		    locations.Append new Point(tmp.x, tmp.y)
 		  next
 		  RaiseEvent TouchesMoved(locations)
+		  
+		  declare function view lib UIKitLib selector "view" (obj_id as ptr) as ptr
+		  declare function layer lib UIKitLib selector "layer" (obj_id as ptr) as ptr
+		  declare function presentationLayer Lib "QuartzCore.framework" selector "presentationLayer" (obj_id as ptr) as ptr
+		  
+		  'UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+		  'UIView *topView = window.rootViewController.view;
+		  declare function sharedApplication lib UIKitLib selector "sharedApplication" (clsRef as ptr) as ptr
+		  declare function keyWindow lib UIKitLib selector "keyWindow" (obj_id as ptr) as ptr
+		  declare function rootViewCtrlr lib UIKitLib selector "rootViewController" (obj_id as ptr) as ptr
+		  
+		  dim vw as ptr = view(rootViewCtrlr(keyWindow(sharedApplication(NSClassFromString("UIApplication")))))
+		  dim loc as Foundation.NSPoint = touches(0).locationInView(new UIView(vw))
+		  dim touchedLayer as ptr 
+		  #if Target32Bit
+		    declare function convertPt lib UIKitLib selector "convertPoint:toView:" (obj_id as ptr, pt as NSPoint32, view as ptr) as NSPoint32
+		    loc = convertPt(vw, loc.Value32,nil)
+		    declare function hitTest lib "QuartzCore.framework" selector "hitTest:" (obj_id as ptr, loc as NSPoint32) as ptr
+		    touchedLayer = hitTest(presentationLayer(layer(vw)), loc.Value32)
+		  #Elseif Target64Bit
+		    declare function convertPt lib UIKitLib selector "convertPoint:toView:" (obj_id as ptr, pt as NSPoint64, view as ptr) as NSPoint64
+		    loc = convertPt(vw, loc.Value64,nil)
+		    declare function hitTest lib "QuartzCore.framework" selector "hitTest:" (obj_id as ptr, loc as NSPoint64) as ptr
+		    touchedLayer = hitTest(presentationLayer(layer(vw)), loc.Value64)
+		  #Endif
+		  
+		  if touchedLayer <> nil then
+		    RaiseEvent LayerTouch(new xojo.Core.Point(loc.x, loc.y), 1)
+		  end if
 		End Sub
 	#tag EndMethod
 
@@ -364,6 +452,10 @@ Inherits iOSUserControl
 		End Function
 	#tag EndMethod
 
+
+	#tag Hook, Flags = &h0
+		Event LayerTouch(t as xojo.Core.Point, type as Integer)
+	#tag EndHook
 
 	#tag Hook, Flags = &h0
 		Event Open()

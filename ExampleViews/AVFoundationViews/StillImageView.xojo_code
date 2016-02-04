@@ -7,13 +7,13 @@ Begin iosView StillImageView
    TabTitle        =   ""
    Title           =   "Still Image Capture"
    Top             =   0
-   Begin Extensions.GenericView GenericView1
+   Begin Extensions.SwipeView GenericView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   GenericView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   GenericView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   GenericView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   GenericView1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   GenericView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   GenericView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   GenericView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Height          =   415.0
       Left            =   0
       LockedInPosition=   False
@@ -46,11 +46,11 @@ End
 	#tag Method, Flags = &h0
 		Sub ImageCaptured(img as iOSImage)
 		  
-		  captureSession.StopRunning
-		  captureSession = nil
-		  
-		  declare sub removeFromSuperlayer lib UIKitLib selector "removeFromSuperlayer" (obj_id as Ptr)
-		  removeFromSuperlayer(videoPreviewLayer)
+		  'captureSession.StopRunning
+		  'captureSession = nil
+		  '
+		  'declare sub removeFromSuperlayer lib UIKitLib selector "removeFromSuperlayer" (obj_id as Ptr)
+		  'removeFromSuperlayer(videoPreviewLayer)
 		  
 		  'declare function CGImage Lib UIKitLib selector "CGImage" (obj_id as ptr) as ptr
 		  'declare function layer lib UIKitLib selector "layer" (obj_id as ptr) as ptr
@@ -68,7 +68,7 @@ End
 
 	#tag Method, Flags = &h0
 		Sub SetUp()
-		  dim captureDevice as AVFoundation.AVCaptureDevice = AVFoundation.AVCaptureDevice.DefaultDeviceWithMediaType(AVFoundation.AVStringConstant("AVMediaTypeVideo"))
+		  captureDevice = AVFoundation.AVCaptureDevice.DefaultDeviceWithMediaType(AVFoundation.AVStringConstant("AVMediaTypeVideo"))
 		  
 		  dim err as foundation.NSError
 		  dim input as AVFoundation.AVCaptureDeviceInput = AVFoundation.AVCaptureDeviceInput.DeviceInputWithDeviceError(captureDevice, err)
@@ -98,6 +98,7 @@ End
 		  videoPreviewLayer = new AVFoundation.AVCaptureVideoPreviewLayer(captureSession)
 		  
 		  videoPreviewLayer.videoGravity = AVFoundation.AVStringConstant("AVLayerVideoGravityResizeAspectFill")
+		  'videoPreviewLayer.connection.videoOrientation = AVFoundation.AVCaptureConnection.AVCaptureVideoOrientation.LandscapeRight
 		  
 		  #if Target32Bit
 		    declare sub setFrame lib AVFoundationLib selector"setFrame:" (obj_id as ptr, frame as NSRect32)
@@ -133,6 +134,10 @@ End
 	#tag EndMethod
 
 
+	#tag Property, Flags = &h21
+		Private captureDevice As AVFoundation.AVCaptureDevice
+	#tag EndProperty
+
 	#tag Property, Flags = &h0
 		captureSession As AVFoundation.AVCaptureSession
 	#tag EndProperty
@@ -148,6 +153,21 @@ End
 
 #tag EndWindowCode
 
+#tag Events GenericView1
+	#tag Event
+		Sub LayerTouch(t as xojo.Core.Point, type as Integer)
+		  //type 0 = began, 1 = moved, 2 = ended
+		  dim pt as new NSPoint(t.x,t.y)
+		  pt = videoPreviewLayer.CaptureDevicePointOfInterestForPoint(pt)
+		  dim err as Foundation.NSError
+		  call captureDevice.LockForConfiguration(err)
+		  captureDevice.focusPointOfInterest = pt
+		  captureDevice.focusMode = AVFoundation.AVCaptureDevice.AVCaptureFocusMode.AutoFocus
+		  
+		  call captureDevice.UnlockForConfiguration
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="BackButtonTitle"
