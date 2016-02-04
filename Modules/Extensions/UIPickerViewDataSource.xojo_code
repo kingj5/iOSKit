@@ -4,7 +4,7 @@ Inherits NSObject
 	#tag Method, Flags = &h0
 		Sub AddColumn(values() as text)
 		  Columns.Append values
-		  ReloadColumn(Columns.Ubound)
+		  Reload
 		End Sub
 	#tag EndMethod
 

@@ -8,7 +8,7 @@ Begin iosView MissingControlsView
    Title           =   "Some Missing Controls"
    Top             =   0
    Begin iOSMessageBox MessageBox1
-      Left            =   100
+      Left            =   0
       LeftButton      =   "Cancel"
       LockedInPosition=   False
       Message         =   "Hello World"
@@ -17,18 +17,19 @@ Begin iosView MissingControlsView
       RightButton     =   ""
       Scope           =   0
       Title           =   "Hi There"
-      Top             =   100
+      Top             =   0
    End
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label2, 3, <Parent>, 3, False, +1.00, 1, 1, 73, 
-      AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, 160, 
+      AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Label2, 3, <Parent>, 3, False, +1.00, 1, 1, 73, 
+      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
       Left            =   160
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Value:"
@@ -43,10 +44,10 @@ Begin iosView MissingControlsView
    Begin Extensions.PickerView PickerView2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   PickerView2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   PickerView2, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   PickerView2, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   PickerView2, 8, , 0, False, +1.00, 1, 1, 116, 
+      AutoLayout      =   PickerView2, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   PickerView2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   PickerView2, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       Height          =   116.0
       Left            =   20
       LockedInPosition=   False
@@ -60,11 +61,11 @@ Begin iosView MissingControlsView
       AccessibilityLabel=   ""
       autocapitalizationType=   "1"
       autocorrectionType=   ""
+      AutoLayout      =   UISearchBar1, 2, <Parent>, 2, False, +1.00, 2, 1, -20, 
+      AutoLayout      =   UISearchBar1, 8, , 0, False, +1.00, 1, 1, 121, 
       AutoLayout      =   UISearchBar1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   UISearchBar1, 9, <Parent>, 1, False, +1.00, 2, 1, 20, 
-      AutoLayout      =   UISearchBar1, 8, , 0, False, +1.00, 1, 1, 121, 
       AutoLayout      =   UISearchBar1, 3, <Parent>, 3, False, +1.00, 1, 1, 151, 
-      AutoLayout      =   UISearchBar1, 2, <Parent>, 2, False, +1.00, 2, 1, -20, 
       barStyle        =   ""
       Height          =   121.0
       keyboardType    =   "0"
@@ -90,13 +91,14 @@ Begin iosView MissingControlsView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 2, <Parent>, 2, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 304, 
-      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 304, 
+      AutoLayout      =   Label1, 2, <Parent>, 2, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   ""
@@ -111,10 +113,10 @@ Begin iosView MissingControlsView
    Begin Extensions.UIStepper UIStepper1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   UIStepper1, 3, <Parent>, 3, False, +1.00, 2, 1, 70, 
-      AutoLayout      =   UIStepper1, 1, <Parent>, 1, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   UIStepper1, 7, , 0, False, +1.00, 1, 1, 103, 
       AutoLayout      =   UIStepper1, 8, , 0, False, +1.00, 1, 1, 46, 
+      AutoLayout      =   UIStepper1, 1, <Parent>, 1, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   UIStepper1, 3, <Parent>, 3, False, +1.00, 2, 1, 70, 
+      AutoLayout      =   UIStepper1, 7, , 0, False, +1.00, 1, 1, 103, 
       autorepeat      =   False
       continuous      =   False
       Height          =   46.0
@@ -193,10 +195,11 @@ End
 #tag Events PickerView2
 	#tag Event
 		Sub Open()
-		  me.AddColumn(Array("Apple","Banana","Pear","Grape"))
-		  me.AddColumn(Array("Punch","Soda"))
-		  me.SelectedRow(0) = 1
-		  me.SelectedRow(1) = 1
+		  PickerView2.AddColumn(Array("Apple","Banana","Pear","Grape"))
+		  PickerView2.AddColumn(Array("Punch","Soda"))
+		  PickerView2.Invalidate
+		  PickerView2.SelectedRow(0) = 1
+		  PickerView2.SelectedRow(1) = 1
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -229,6 +232,10 @@ End
 	#tag Event
 		Sub ValueChanged()
 		  label2.Text = "Value: " + me.value.ToText
+		  
+		  
+		  
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents

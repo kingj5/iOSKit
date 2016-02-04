@@ -1,8 +1,8 @@
 #tag IOSScreen
 	OrientationPortrait = True
-	OrientationLandscapeLeft = True
-	OrientationLandscapeRight = True
-	OrientationPortraitUpsideDown = True
+	OrientationLandscapeLeft = False
+	OrientationLandscapeRight = False
+	OrientationPortraitUpsideDown = False
 	Begin ScreenContent
 		ItemName = 
 		Target = 1675297613

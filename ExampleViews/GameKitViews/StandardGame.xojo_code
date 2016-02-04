@@ -43,7 +43,7 @@ Begin iosView StandardGame Implements StandardMatchHelperObserver
       Width           =   320.0
    End
    Begin xojo.Core.Timer Timer1
-      Left            =   80
+      Left            =   0
       LockedInPosition=   False
       Mode            =   "2"
       PanelIndex      =   -1
@@ -51,15 +51,15 @@ Begin iosView StandardGame Implements StandardMatchHelperObserver
       Period          =   10
       Scope           =   0
       Tolerance       =   0
-      Top             =   80
+      Top             =   0
    End
    Begin GameKit.GKLocalPlayerListener GKLocalPlayerListener1
-      Left            =   60
+      Left            =   0
       LockedInPosition=   False
       PanelIndex      =   -1
       Parent          =   ""
       Scope           =   1
-      Top             =   60
+      Top             =   0
    End
    Begin iOSButton Button2
       AccessibilityHint=   ""

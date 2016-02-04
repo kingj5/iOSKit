@@ -70,12 +70,12 @@ Begin iosView GameKitDemoView
       Width           =   100.0
    End
    Begin GameKit.GKLocalPlayerListener GKLocalPlayerListener1
-      Left            =   60
+      Left            =   0
       LockedInPosition=   False
       PanelIndex      =   -1
       Parent          =   ""
       Scope           =   1
-      Top             =   60
+      Top             =   0
    End
 End
 #tag EndIOSView
