@@ -43,7 +43,10 @@ End
 		  //create the controller -> create a single item array with an nsobject representing the image
 		  //the second parameter is an NSArray of custom UIActivity objects, just pass nil since custom object
 		  //UIActivity creation is _difficult_ in xojo
-		  controller = new UIActivityViewController(NSArray.CreateWithObject(new NSObject(b.Image.Handle)),nil)
+		  'controller = new UIActivityViewController(NSArray.CreateWithObject(new NSObject(b.Image.Handle)),nil)
+		  dim url as Foundation.NSURL = Foundation.NSURL.URLWithString("http://www.pps4me.de")
+		  controller = new UIActivityViewController(NSArray.CreateWithObject(url),nil)
+		  
 		  controller.excludedActivityTypes = NSArray.CreateWithObject( new NSString(UIActivity.UIActivityTypePrint))
 		  //present with nil completion handler
 		  self.PresentViewController(controller, True, nil)

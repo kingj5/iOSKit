@@ -1,5 +1,5 @@
 Type=iOS
-RBProjectVersion=2016.01
+RBProjectVersion=2015.04
 MinIDEVersion=20140300
 Class=App;App.xojo_code;&h5FAFE765;&h0;false
 iOSScreen=iPhoneScreen;iPhoneScreen.xojo_code;&h15810A9D;&h0;false
@@ -223,6 +223,8 @@ Module=iCloudStuff;Modules/iCloudStuff.xojo_code;&h7D6F17FF;&hE7A9798;false
 Class=UIDocumentPickerViewController;Modules/iCloudStuff/UIDocumentPickerViewController.xojo_code;&hD703BA;&h7D6F17FF;false
 LaunchImages=iOSLaunchImages;iOSLaunchImages.xojo_image;&h4CC3CFFF;&h0;false
 AppIcons=AppIcon;AppIcon.xojo_image;&h3BAA6FFF;&h0;false
+Class=ImprovediOSTable;ImprovediOSTable.xojo_code;&h217F7FFF;&h0;false
+iOSView=improvediOSTableView;improvediOSTableView.xojo_code;&h1BC87FFF;&h0;false
 DefaultScreen=iPhoneScreen
 DefaultTabletScreen=iPadScreen
 MajorVersion=1

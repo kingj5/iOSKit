@@ -6,43 +6,43 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		ZKwBupGiQc+vX1YVLWih4HrwhOU=
+		0hjTmtYwFVMv1ZdlYMjoVR48zvc=
 		</data>
 		<key>LaunchImage-700-568h@2x.png</key>
 		<data>
-		GEms/z2hBCmYpzdFLRgjPdhk6nw=
+		RnffGrrIfAcsSxXiu1dsZdia4o4=
 		</data>
 		<key>LaunchImage-700-Landscape@2x~ipad.png</key>
 		<data>
-		qvHEukX/yUbRn3Daw37J5DA081c=
+		6XhfHoWuJyApFHzuV9TLdBYW8Og=
 		</data>
 		<key>LaunchImage-700-Landscape~ipad.png</key>
 		<data>
-		PBaFXeB3FXNdgi81Uljc0JG1XG8=
+		QhlDn+9brn+ritWmlilBs5s6gS0=
 		</data>
 		<key>LaunchImage-700-Portrait@2x~ipad.png</key>
 		<data>
-		pe618I6ATSXsqyJTYjSEERFe3do=
+		ZtkaqcQ1+Wd5nJkaICJeJK4aX34=
 		</data>
 		<key>LaunchImage-700-Portrait~ipad.png</key>
 		<data>
-		evnhhpPLbs47PDh/2Dby6qURo2A=
+		vsMVR2d5J0/A+UK0xS350LKg0+s=
 		</data>
 		<key>LaunchImage-700@2x.png</key>
 		<data>
-		FZ/kp98RokJxW+yfr9H02Qao6gI=
+		Q3cX4jUzJEH0ha1Sgul8B+IPA+Q=
 		</data>
-		<key>LaunchImage-800-667h.png</key>
+		<key>LaunchImage-800-667h@2x.png</key>
 		<data>
-		TgKvv6i23yC/Pa7UMV+0DltM8kE=
+		EHsCYv4LZ0WDZUqKrFsUrYGN7rs=
 		</data>
 		<key>LaunchImage-800-Landscape-736h@3x.png</key>
 		<data>
-		77ZXv2oemBc1IrvSVKjUeVaR+bw=
+		9DMbtYxjxjsMhJXnDzXwk9OvY7U=
 		</data>
 		<key>LaunchImage-800-Portrait-736h@3x.png</key>
 		<data>
-		W9ez4FbNQFZEWzglWDDpLjclN2I=
+		i2OXHNoxZwAwlRuzyt4L7c3WAOE=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -52,120 +52,48 @@
 		<data>
 		0hz/bT4Wc2+y6m3wovzXfdc80RA=
 		</data>
-		<key>iPadLandscape.png</key>
-		<data>
-		HbHYgj0Sqj5dK+YCBksUYI3hi6s=
-		</data>
-		<key>iPadLandscape2x.png</key>
-		<data>
-		N9Oxtk91JAgqiVJtN70ah2PJFhc=
-		</data>
-		<key>iPadPortrait.png</key>
-		<data>
-		4l5B88qahirfypMDYDGlhpwFlB8=
-		</data>
-		<key>iPadPortrait2x.png</key>
-		<data>
-		zJ/zwdarEBna7OWK4eWgX/Z3TcA=
-		</data>
-		<key>iPhone5Portrait.png</key>
-		<data>
-		1dcIQsd4xlXg/4n+yviiFT+94zQ=
-		</data>
-		<key>iPhone6PlusLandscape.png</key>
-		<data>
-		2ha/gI0svQqJ0XZXn2ex9NqolwY=
-		</data>
-		<key>iPhone6PlusPortrait.png</key>
-		<data>
-		Ioc6PV3OS4SDXvYzdG5NpSSZXU8=
-		</data>
-		<key>iPhone6Portrait.png</key>
-		<data>
-		4Nj7K/r/bYAMcL/hspCkcCV4OvY=
-		</data>
-		<key>iPhonePortrait2x.png</key>
-		<data>
-		L+/t1N3aQKfsYvHqBPJgo+7/z/0=
-		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>LaunchImage-700-568h@2x.png</key>
 		<data>
-		GEms/z2hBCmYpzdFLRgjPdhk6nw=
+		RnffGrrIfAcsSxXiu1dsZdia4o4=
 		</data>
 		<key>LaunchImage-700-Landscape@2x~ipad.png</key>
 		<data>
-		qvHEukX/yUbRn3Daw37J5DA081c=
+		6XhfHoWuJyApFHzuV9TLdBYW8Og=
 		</data>
 		<key>LaunchImage-700-Landscape~ipad.png</key>
 		<data>
-		PBaFXeB3FXNdgi81Uljc0JG1XG8=
+		QhlDn+9brn+ritWmlilBs5s6gS0=
 		</data>
 		<key>LaunchImage-700-Portrait@2x~ipad.png</key>
 		<data>
-		pe618I6ATSXsqyJTYjSEERFe3do=
+		ZtkaqcQ1+Wd5nJkaICJeJK4aX34=
 		</data>
 		<key>LaunchImage-700-Portrait~ipad.png</key>
 		<data>
-		evnhhpPLbs47PDh/2Dby6qURo2A=
+		vsMVR2d5J0/A+UK0xS350LKg0+s=
 		</data>
 		<key>LaunchImage-700@2x.png</key>
 		<data>
-		FZ/kp98RokJxW+yfr9H02Qao6gI=
+		Q3cX4jUzJEH0ha1Sgul8B+IPA+Q=
 		</data>
-		<key>LaunchImage-800-667h.png</key>
+		<key>LaunchImage-800-667h@2x.png</key>
 		<data>
-		TgKvv6i23yC/Pa7UMV+0DltM8kE=
+		EHsCYv4LZ0WDZUqKrFsUrYGN7rs=
 		</data>
 		<key>LaunchImage-800-Landscape-736h@3x.png</key>
 		<data>
-		77ZXv2oemBc1IrvSVKjUeVaR+bw=
+		9DMbtYxjxjsMhJXnDzXwk9OvY7U=
 		</data>
 		<key>LaunchImage-800-Portrait-736h@3x.png</key>
 		<data>
-		W9ez4FbNQFZEWzglWDDpLjclN2I=
+		i2OXHNoxZwAwlRuzyt4L7c3WAOE=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
 		0hz/bT4Wc2+y6m3wovzXfdc80RA=
-		</data>
-		<key>iPadLandscape.png</key>
-		<data>
-		HbHYgj0Sqj5dK+YCBksUYI3hi6s=
-		</data>
-		<key>iPadLandscape2x.png</key>
-		<data>
-		N9Oxtk91JAgqiVJtN70ah2PJFhc=
-		</data>
-		<key>iPadPortrait.png</key>
-		<data>
-		4l5B88qahirfypMDYDGlhpwFlB8=
-		</data>
-		<key>iPadPortrait2x.png</key>
-		<data>
-		zJ/zwdarEBna7OWK4eWgX/Z3TcA=
-		</data>
-		<key>iPhone5Portrait.png</key>
-		<data>
-		1dcIQsd4xlXg/4n+yviiFT+94zQ=
-		</data>
-		<key>iPhone6PlusLandscape.png</key>
-		<data>
-		2ha/gI0svQqJ0XZXn2ex9NqolwY=
-		</data>
-		<key>iPhone6PlusPortrait.png</key>
-		<data>
-		Ioc6PV3OS4SDXvYzdG5NpSSZXU8=
-		</data>
-		<key>iPhone6Portrait.png</key>
-		<data>
-		4Nj7K/r/bYAMcL/hspCkcCV4OvY=
-		</data>
-		<key>iPhonePortrait2x.png</key>
-		<data>
-		L+/t1N3aQKfsYvHqBPJgo+7/z/0=
 		</data>
 	</dict>
 	<key>rules</key>
