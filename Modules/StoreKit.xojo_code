@@ -1,7 +1,7 @@
 #tag Module
 Protected Module StoreKit
 	#tag DelegateDeclaration, Flags = &h0
-		Delegate Sub LoadProductsCallback(result as Boolean, error as Foundation.NSError)
+		Delegate Sub LoadProductsCallback(result as Boolean, error as Foundation . NSError)
 	#tag EndDelegateDeclaration
 
 	#tag DelegateDeclaration, Flags = &h0

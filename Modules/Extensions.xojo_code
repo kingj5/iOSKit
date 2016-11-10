@@ -427,6 +427,36 @@ Protected Module Extensions
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function ThumbnailOfVideo(videoFile as xojo.IO.FolderItem) As iOSImage
+		  dim url as new Foundation.NSURL(videoFile)
+		  
+		  declare function initWithURL_ lib AVFoundationLib selector "initWithURL:options:" (obj_id as ptr, url as ptr, options as ptr) as ptr
+		  declare function alloc lib FoundationLib selector "alloc" (clsref as ptr) as Ptr
+		  dim asset as Ptr = initWithURL_(alloc(NSClassFromString("AVURLAsset")), url, nil)
+		  
+		  declare function initWithAsset_ lib AVFoundationLib selector "initWithAsset:" (obj_id as ptr, asset as ptr) as Ptr
+		  dim generator as ptr = initWithAsset_(alloc(NSClassFromString("AVAssetImageGenerator")), asset)
+		  
+		  declare sub setAppliesPreferredTrackTransform_ lib AVFoundationLib selector "setAppliesPreferredTrackTransform:" (obj_id as ptr, yesNo as Boolean)
+		  setAppliesPreferredTrackTransform_(generator,True)
+		  
+		  dim err as ptr
+		  
+		  declare function CMTimeMake lib "CoreMedia" (value as Int64, timescale as int32) as CMTime
+		  dim time as CMTime = CMTimeMake(1,1)
+		  
+		  declare function copyImage_ lib AVFoundationLib selector "copyCGImageAtTime:actualTime:error:" (obj_id as ptr, time as CMTime, actualTime as ptr, err as ptr) as ptr
+		  
+		  dim cgimgRef as ptr = copyImage_(generator, time, nil, err)
+		  
+		  declare function initWithCGImage_ lib UIKitLib selector "initWithCGImage:" (obj_id as ptr, img as ptr) as ptr
+		  dim uiimage as ptr = initWithCGImage_(alloc(NSClassFromString("UIImage")), cgimgRef)
+		  
+		  Return iOSImage.FromHandle(uiimage)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Vibrate()
 		  const kSystemSoundID_Vibrate = 4095
 		  declare sub AudioServicesPlaySystemSound lib "AudioToolbox.framework" (snd as Integer)

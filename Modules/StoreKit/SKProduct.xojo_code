@@ -73,6 +73,24 @@ Inherits NSObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  
+			  declare function priceLocale_ lib StoreKitLib selector "priceLocale" (obj_id as ptr) as ptr
+			  declare function identifier_ lib FoundationLib selector "identifier" (ref as ptr) as CFStringRef
+			  
+			  dim localePtr As Ptr = priceLocale_(self)
+			  
+			  Dim identifier As Text = identifier_(localePtr)
+			  
+			  Return new xojo.core.Locale(identifier)
+			  
+			End Get
+		#tag EndGetter
+		PriceLocale As xojo.core.locale
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  declare function productIdentifier_ lib StoreKitLib selector "productIdentifier" (obj_id as ptr) as CFStringRef
 			  Return productIdentifier_(self)
 			End Get

@@ -4,17 +4,20 @@ Begin iosView ReadQRView
    Compatibility   =   ""
    Left            =   0
    NavigationBarVisible=   True
+   TabIcon         =   ""
    TabTitle        =   ""
    Title           =   "Read a QRCode"
    Top             =   0
    Begin Extensions.Camera Camera1
-      Left            =   60
+      editedImage     =   ""
+      Left            =   0
       LockedInPosition=   False
+      originalImage   =   ""
       PanelIndex      =   -1
       Parent          =   ""
       Scope           =   1
       SourceType      =   "1"
-      Top             =   60
+      Top             =   0
    End
    Begin iOSTextArea TextArea1
       AccessibilityHint=   ""
@@ -48,6 +51,7 @@ Begin iosView ReadQRView
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "The text from your image is:"
@@ -142,6 +146,11 @@ End
 		Visible=true
 		Group="ID"
 		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="TabIcon"
+		Group="Behavior"
+		Type="iOSImage"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"

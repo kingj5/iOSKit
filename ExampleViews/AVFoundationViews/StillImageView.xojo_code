@@ -4,16 +4,17 @@ Begin iosView StillImageView
    Compatibility   =   ""
    Left            =   0
    NavigationBarVisible=   True
+   TabIcon         =   ""
    TabTitle        =   ""
    Title           =   "Still Image Capture"
    Top             =   0
    Begin Extensions.SwipeView GenericView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   GenericView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   GenericView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   GenericView1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
       AutoLayout      =   GenericView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   GenericView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   GenericView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   GenericView1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
       Height          =   415.0
       Left            =   0
       LockedInPosition=   False
@@ -31,12 +32,27 @@ End
 		  xojo.core.Timer.CallLater(1,AddressOf SetUp)
 		  //iosusercontrols are not resized until after the open event so any code which uses their bounds
 		  //gets messed up in the open event - delay setup until after the open event
+		  
+		  
+		  #if XojoVersion < 2015.03
+		    self.Toolbar.Add iOSToolButton.NewSystemItem(iOSToolButton.Type.SystemCamera)
+		    self.Toolbar.Add iOSToolButton.NewSystemItem(iOSToolButton.Type.SystemFlexibleSpace)
+		    self.Toolbar.Add iOSToolButton.NewPlain("Flip Camera")
+		  #Else
+		    self.Toolbar.Add iOSToolButton.NewSystemItem(iOSToolButton.Types.SystemCamera)
+		    self.Toolbar.Add iOSToolButton.NewSystemItem(iOSToolButton.Types.SystemFlexibleSpace)
+		    self.Toolbar.Add iOSToolButton.NewPlain("Flip Camera")
+		  #Endif
 		End Sub
 	#tag EndEvent
 
 	#tag Event
 		Sub ToolbarPressed(button As iOSToolButton)
-		  TakePicture
+		  if button.Type = iOSToolButton.Types.SystemCamera then
+		    TakePicture
+		  else
+		    ToggleCamera
+		  end if
 		  
 		  #Pragma Unused button
 		End Sub
@@ -44,21 +60,32 @@ End
 
 
 	#tag Method, Flags = &h0
+		Sub CleanupConnection()
+		  captureSession.StopRunning
+		  captureSession = nil
+		  
+		  declare sub removeFromSuperlayer lib UIKitLib selector "removeFromSuperlayer" (obj_id as Ptr)
+		  removeFromSuperlayer(videoPreviewLayer)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function FaceCamera() As AVFoundation.AVCaptureDevice
+		  dim devices as Foundation.NSArray = AVFoundation.AVCaptureDevice.DevicesWithMediaType(AVFoundation.AVStringConstant("AVMediaTypeVideo"))
+		  dim count as Integer = devices.Count
+		  for x as Integer = 0 to count-1
+		    dim device as new AVFoundation.AVCaptureDevice(devices.Value(x))
+		    if device.position = AVFoundation.AVCaptureDevice.AVCaptureDevicePosition.Front then
+		      Return device
+		    end if
+		  next 
+		  Return nil
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub ImageCaptured(img as iOSImage)
-		  
-		  'captureSession.StopRunning
-		  'captureSession = nil
-		  '
-		  'declare sub removeFromSuperlayer lib UIKitLib selector "removeFromSuperlayer" (obj_id as Ptr)
-		  'removeFromSuperlayer(videoPreviewLayer)
-		  
-		  'declare function CGImage Lib UIKitLib selector "CGImage" (obj_id as ptr) as ptr
-		  'declare function layer lib UIKitLib selector "layer" (obj_id as ptr) as ptr
-		  'dim viewLayer as ptr = layer(GenericView1.Handle)
-		  'declare sub setContents lib UIKitLib selector "setContents:" (obj_id as ptr, contents as Ptr)
-		  'setContents(viewLayer,CGImage(img.Handle))
-		  
-		  
 		  
 		  dim p as new PictureView
 		  p.SetImage(img)
@@ -69,6 +96,68 @@ End
 	#tag Method, Flags = &h0
 		Sub SetUp()
 		  captureDevice = AVFoundation.AVCaptureDevice.DefaultDeviceWithMediaType(AVFoundation.AVStringConstant("AVMediaTypeVideo"))
+		  
+		  dim err as foundation.NSError
+		  dim input as AVFoundation.AVCaptureDeviceInput = AVFoundation.AVCaptureDeviceInput.DeviceInputWithDeviceError(captureDevice, err)
+		  
+		  if input = nil then
+		    MsgBox "", err.localizedDescription
+		    Return
+		  end if
+		  
+		  stillImageOutput = new AVFoundation.AVCaptureStillImageOutput
+		  
+		  dim jpeg as Text = AVFoundation.AVStringConstant("AVVideoCodecJPEG")
+		  dim videoKey as Text = AVFoundation.AVStringConstant("AVVideoCodecKey")
+		  
+		  dim outputSettings as Foundation.NSDictionary = Foundation.NSDictionary.CreateFromObject(new NSString(videoKey), new NSString(jpeg))
+		  stillImageOutput.outputSettings = outputSettings
+		  
+		  captureSession = new AVFoundation.AVCaptureSession
+		  if captureSession.CanAddInput(input) then
+		    captureSession.AddInput(input)
+		  end if
+		  if captureSession.CanAddOutput(stillImageOutput) then
+		    captureSession.AddOutput(stillImageOutput)
+		  end if
+		  
+		  //set up preview
+		  videoPreviewLayer = new AVFoundation.AVCaptureVideoPreviewLayer(captureSession)
+		  
+		  videoPreviewLayer.videoGravity = AVFoundation.AVStringConstant("AVLayerVideoGravityResizeAspectFill")
+		  'videoPreviewLayer.connection.videoOrientation = AVFoundation.AVCaptureConnection.AVCaptureVideoOrientation.LandscapeRight
+		  
+		  #if Target32Bit
+		    declare sub setFrame lib AVFoundationLib selector"setFrame:" (obj_id as ptr, frame as NSRect32)
+		    declare function bounds lib UIKitLib selector "bounds" (obj_id as ptr) as NSRect32
+		  #elseif Target64Bit
+		    declare sub setFrame lib AVFoundationLib selector"setFrame:" (obj_id as ptr, frame as NSRect64)
+		    declare function bounds lib UIKitLib selector "bounds" (obj_id as ptr) as NSRect64
+		  #Endif
+		  declare function layer lib UIKitLib selector "layer" (obj_id as ptr) as ptr
+		  declare sub addSublayer lib UIKitLib selector "addSublayer:" (obj_id as ptr, sublayer as ptr)
+		  
+		  dim viewLayer as ptr = layer(GenericView1.Handle)
+		  setFrame( videoPreviewLayer, bounds(viewLayer) )
+		  addSublayer(viewLayer, videoPreviewLayer)
+		  
+		  captureSession.StartRunning
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SetUpFaceCamera()
+		  captureDevice = FaceCamera()
+		  
+		  if captureDevice = nil then
+		    //there is no face camera on this device
+		    MsgBox "Face Camera is unavailable"
+		    isFaceCamera = False
+		    SetUp() //call the normal setup so we still have a connection
+		    Return
+		  end if
 		  
 		  dim err as foundation.NSError
 		  dim input as AVFoundation.AVCaptureDeviceInput = AVFoundation.AVCaptureDeviceInput.DeviceInputWithDeviceError(captureDevice, err)
@@ -133,6 +222,20 @@ End
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub ToggleCamera()
+		  CleanupConnection
+		  
+		  if isFaceCamera then
+		    isFaceCamera = False
+		    SetUp()
+		  else
+		    isFaceCamera = True
+		    SetUpFaceCamera
+		  end if
+		End Sub
+	#tag EndMethod
+
 
 	#tag Property, Flags = &h21
 		Private captureDevice As AVFoundation.AVCaptureDevice
@@ -140,6 +243,10 @@ End
 
 	#tag Property, Flags = &h0
 		captureSession As AVFoundation.AVCaptureSession
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		isFaceCamera As Boolean
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -183,6 +290,11 @@ End
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="isFaceCamera"
+		Group="Behavior"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Left"
 		Visible=true
 		Group="Position"
@@ -205,6 +317,11 @@ End
 		Visible=true
 		Group="ID"
 		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="TabIcon"
+		Group="Behavior"
+		Type="iOSImage"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"

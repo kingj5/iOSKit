@@ -5,7 +5,15 @@ Protected Class TestResult
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		IncludeMethod As Boolean = True
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		Message As Text
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		MethodInfo As Xojo.Introspection.MethodInfo
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -35,6 +43,12 @@ Protected Class TestResult
 			Name="Duration"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IncludeMethod"
+			Group="Behavior"
+			InitialValue="True"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"

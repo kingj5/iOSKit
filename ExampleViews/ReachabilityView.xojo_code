@@ -4,6 +4,7 @@ Begin iosView ReachabilityView
    Compatibility   =   ""
    Left            =   0
    NavigationBarVisible=   True
+   TabIcon         =   ""
    TabTitle        =   ""
    Title           =   "Reachablility"
    Top             =   0
@@ -37,6 +38,7 @@ Begin iosView ReachabilityView
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   ""
@@ -109,6 +111,11 @@ End
 		Visible=true
 		Group="ID"
 		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="TabIcon"
+		Group="Behavior"
+		Type="iOSImage"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"

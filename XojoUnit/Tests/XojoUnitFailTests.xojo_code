@@ -1,6 +1,16 @@
 #tag Class
 Protected Class XojoUnitFailTests
 Inherits TestGroup
+	#tag Event
+		Sub TearDown()
+		  If IsAsyncTest Then
+		    PassIfFailed
+		  End If
+		  
+		End Sub
+	#tag EndEvent
+
+
 	#tag Method, Flags = &h0
 		Sub AreDifferentObjectTest()
 		  Dim d1 As Xojo.Core.Date = Xojo.Core.Date.Now
@@ -477,6 +487,20 @@ Inherits TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub AsyncTest()
+		  IsAsyncTest = True
+		  AsyncAwait 1
+		  Assert.Fail "No async method started"
+		  IncrementFailCountIfFail
+		  
+		  //
+		  // TearDown will finish this up
+		  //
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub FailTest()
 		  Assert.Fail("Failed!")
 		  IncrementFailCountIfFail
@@ -574,6 +598,10 @@ Inherits TestGroup
 
 	#tag Property, Flags = &h21
 		Private FailCount As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private IsAsyncTest As Boolean
 	#tag EndProperty
 
 

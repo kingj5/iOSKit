@@ -4,6 +4,7 @@ Begin iosView SoundsView
    Compatibility   =   ""
    Left            =   0
    NavigationBarVisible=   True
+   TabIcon         =   ""
    TabTitle        =   ""
    Title           =   "Sounds"
    Top             =   0
@@ -14,6 +15,8 @@ Begin iosView SoundsView
       AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, -63, 
       AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 3, TopLayoutGuide, 3, False, +1.00, 1, 1, 0, 
+      EditingEnabled  =   False
+      EstimatedRowHeight=   -1
       Format          =   "0"
       Height          =   352.0
       Left            =   0
@@ -36,7 +39,7 @@ End
 		  me.AddSection ""
 		  dim sounds() as Text = Extensions.GetSystemSoundNames
 		  for i as Integer = 0 to sounds.Ubound
-		    me.AddRow 0, new iOSTableCellData(sounds(i),"",nil,iOSTableCellData.AccessoryTypes.Checkmark)
+		    me.AddRow 0, me.CreateCell(sounds(i),"",nil,iOSTableCellData.AccessoryTypes.Checkmark)
 		  next
 		End Sub
 	#tag EndEvent
@@ -78,6 +81,11 @@ End
 		Visible=true
 		Group="ID"
 		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="TabIcon"
+		Group="Behavior"
+		Type="iOSImage"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"

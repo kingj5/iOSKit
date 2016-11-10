@@ -47,7 +47,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function AvailableStringEncodings() As NSStringEncoding()
+		Shared Function AvailableStringEncodings() As NSStringEncoding()
 		  
 		  
 		  declare function availableStringEncodings lib FoundationLib selector "availableStringEncodings" (class_id as Ptr) as Ptr
@@ -317,7 +317,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function Create() As NSString
+		Shared Function Create() As NSString
 		  
 		  
 		  declare function string_ lib FoundationLib selector "string" (class_id as Ptr) as Ptr
@@ -335,7 +335,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateWithString(aString as NSString) As NSString
+		Shared Function CreateWithString(aString as NSString) As NSString
 		  
 		  
 		  declare function stringWithString lib FoundationLib selector "stringWithString:" (class_id as Ptr, aString as Ptr) as Ptr
@@ -360,7 +360,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateWithString(aString as Text) As NSString
+		Shared Function CreateWithString(aString as Text) As NSString
 		  
 		  
 		  declare function stringWithString lib FoundationLib selector "stringWithString:" (class_id as Ptr, aString as CFStringRef) as Ptr
@@ -684,7 +684,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function LocalizedNameOfStringEncoding(anEncoding as NSStringEncoding) As Text
+		Shared Function LocalizedNameOfStringEncoding(anEncoding as NSStringEncoding) As Text
 		  
 		  
 		  declare function localizedNameOfStringEncoding lib FoundationLib selector "localizedNameOfStringEncoding:" _
@@ -1089,6 +1089,17 @@ Inherits NSObject
 			End Get
 		#tag EndGetter
 		StringValue As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  declare function UTF8String_ lib FoundationLib selector "UTF8String" (obj_id as ptr) as CString
+			  
+			  Return text.FromCString(UTF8String_(self), xojo.core.TextEncoding.UTF8)
+			End Get
+		#tag EndGetter
+		UTF8String As Text
 	#tag EndComputedProperty
 
 
