@@ -40,7 +40,7 @@ Protected Class AuthenticationHelper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function GetInstance() As AuthenticationHelper
+		Shared Function GetInstance() As AuthenticationHelper
 		  static helper as new AuthenticationHelper
 		  Return helper
 		End Function

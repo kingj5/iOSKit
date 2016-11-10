@@ -4,7 +4,6 @@ Begin iosView StillImageView
    Compatibility   =   ""
    Left            =   0
    NavigationBarVisible=   True
-   TabIcon         =   ""
    TabTitle        =   ""
    Title           =   "Still Image Capture"
    Top             =   0
@@ -290,11 +289,6 @@ End
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="isFaceCamera"
-		Group="Behavior"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
 		Name="Left"
 		Visible=true
 		Group="Position"
@@ -317,11 +311,6 @@ End
 		Visible=true
 		Group="ID"
 		Type="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="TabIcon"
-		Group="Behavior"
-		Type="iOSImage"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"

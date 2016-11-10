@@ -50,7 +50,7 @@ Inherits GameKit.GKPlayer
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function LocalPlayer() As GKLocalPlayer
+		Shared Function LocalPlayer() As GKLocalPlayer
 		  declare function localPlayer_ lib GameKitLib selector "localPlayer" (clsRef as ptr) as ptr
 		  Return new GKLocalPlayer(localPlayer_(ClassRef))
 		End Function

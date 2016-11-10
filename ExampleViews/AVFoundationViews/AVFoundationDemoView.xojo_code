@@ -4,6 +4,7 @@ Begin iosView AVFoundationDemoView
    Compatibility   =   ""
    Left            =   0
    NavigationBarVisible=   True
+   TabIcon         =   ""
    TabTitle        =   ""
    Title           =   "AVFoundation Demos"
    Top             =   0
@@ -14,6 +15,8 @@ Begin iosView AVFoundationDemoView
       AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
       AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 80, 
       AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 320, 
+      EditingEnabled  =   False
+      EstimatedRowHeight=   -1
       Format          =   "0"
       Height          =   320.0
       Left            =   0
@@ -63,26 +66,44 @@ End
 	#tag Event
 		Sub Open()
 		  me.AddSection("Select a view")
+		  dim d as iOSTableCellData
 		  
-		  dim d as new iOSTableCellData("Barcode Scanner")
-		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		  me.AddRow(0,d)
-		  
-		  d = new iOSTableCellData("Speech Synthesis")
-		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		  me.AddRow(0,d)
-		  
-		  d = new iOSTableCellData("Record and Play Audio")
-		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		  me.AddRow(0,d)
-		  
-		  d = new iOSTableCellData("Still Image Capture")
-		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		  me.AddRow(0,d)
-		  
-		  d = new iOSTableCellData("Flashlight")
-		  d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		  me.AddRow(0,d)
+		  #if XojoVersion < 2016.03
+		    d = new iOSTableCellData("Barcode Scanner")
+		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
+		    me.AddRow(0,d)
+		    
+		    d = new iOSTableCellData("Speech Synthesis")
+		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
+		    me.AddRow(0,d)
+		    
+		    d = new iOSTableCellData("Record and Play Audio")
+		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
+		    me.AddRow(0,d)
+		    
+		    d = new iOSTableCellData("Still Image Capture")
+		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
+		    me.AddRow(0,d)
+		    
+		    d = new iOSTableCellData("Flashlight")
+		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
+		    me.AddRow(0,d)
+		  #else
+		    d = me.CreateCell("Barcode Scanner","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    me.AddRow(0,d)
+		    
+		    d = me.CreateCell("Speech Synthesis","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    me.AddRow(0,d)
+		    
+		    d = me.CreateCell("Record and Play Audio","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    me.AddRow(0,d)
+		    
+		    d = me.CreateCell("Still Image Capture","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    me.AddRow(0,d)
+		    
+		    d = me.CreateCell("Flashlight","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    me.AddRow(0,d)
+		  #endif
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -123,6 +144,11 @@ End
 		Visible=true
 		Group="ID"
 		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="TabIcon"
+		Group="Behavior"
+		Type="iOSImage"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"

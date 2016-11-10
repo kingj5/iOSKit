@@ -1,60 +1,57 @@
 #tag IOSView
-Begin iosView EmailView
+Begin iosView improvediOSTableView
    BackButtonTitle =   "Back"
    Compatibility   =   ""
    Left            =   0
    NavigationBarVisible=   True
    TabIcon         =   ""
    TabTitle        =   ""
-   Title           =   "Send an Email"
+   Title           =   "Improved iOSTable"
    Top             =   0
-   Begin iOSButton Button1
+   Begin ImprovediOSTable ImprovediOSTable1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 176, 
-      Caption         =   "Send Message"
-      Enabled         =   True
-      Height          =   30.0
-      Left            =   110
+      AutoLayout      =   ImprovediOSTable1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   ImprovediOSTable1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   ImprovediOSTable1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   ImprovediOSTable1, 4, <Parent>, 4, False, +1.00, 2, 1, -*kStdGapCtlToViewV, 
+      EditingEnabled  =   False
+      EstimatedRowHeight=   -1
+      Format          =   "0"
+      Height          =   387.0
+      Left            =   20
       LockedInPosition=   False
-      Scope           =   0
-      TextColor       =   &c007AFF00
-      TextFont        =   ""
-      TextSize        =   0
-      Top             =   176
+      Scope           =   2
+      SectionCount    =   0
+      Top             =   73
       Visible         =   True
-      Width           =   100.0
+      Width           =   280.0
    End
 End
 #tag EndIOSView
 
 #tag WindowCode
-	#tag Property, Flags = &h0
-		mailComposeView As Extensions.MFMailComposeViewController
-	#tag EndProperty
-
-	#tag Property, Flags = &h21
-		Private p As iOSImage
-	#tag EndProperty
-
-
 #tag EndWindowCode
 
-#tag Events Button1
+#tag Events ImprovediOSTable1
 	#tag Event
-		Sub Action()
-		  mailComposeView = new Extensions.MFMailComposeViewController
-		  mailComposeView.setToRecipients Array("email@example.com")
-		  mailComposeView.setCcRecipients Array("email@example.com")
-		  mailComposeView.setBccRecipients Array("email@example.com")
-		  mailComposeView.setSubject "This is a sample email"
+		Sub Open()
+		  me.AddSection("Test")
 		  
-		  if Extensions.MFMailComposeViewController.canSendMail then
-		    mailComposeView.PresentInView(self)
-		  end if
+		  dim data as iOSTableCellData
+		  for i as Integer = 0 to 15
+		    #if XojoVersion < 2016.03
+		      data = new iOSTableCellData("Test "+i.totext)
+		    #else
+		      data = me.CreateCell("Test "+i.ToText)
+		    #endif
+		    me.AddRow(0,data)
+		  next
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub ScrollToBottom()
+		  me.RemoveAll
 		End Sub
 	#tag EndEvent
 #tag EndEvents

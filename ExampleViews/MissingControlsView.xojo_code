@@ -4,6 +4,7 @@ Begin iosView MissingControlsView
    Compatibility   =   ""
    Left            =   0
    NavigationBarVisible=   True
+   TabIcon         =   ""
    TabTitle        =   ""
    Title           =   "Some Missing Controls"
    Top             =   0
@@ -61,11 +62,12 @@ Begin iosView MissingControlsView
       AccessibilityLabel=   ""
       autocapitalizationType=   "1"
       autocorrectionType=   ""
-      AutoLayout      =   UISearchBar1, 2, <Parent>, 2, False, +1.00, 2, 1, -20, 
-      AutoLayout      =   UISearchBar1, 8, , 0, False, +1.00, 1, 1, 121, 
-      AutoLayout      =   UISearchBar1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   UISearchBar1, 9, <Parent>, 1, False, +1.00, 2, 1, 20, 
       AutoLayout      =   UISearchBar1, 3, <Parent>, 3, False, +1.00, 1, 1, 151, 
+      AutoLayout      =   UISearchBar1, 9, <Parent>, 1, False, +1.00, 2, 1, 20, 
+      AutoLayout      =   UISearchBar1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   UISearchBar1, 8, , 0, False, +1.00, 1, 1, 121, 
+      AutoLayout      =   UISearchBar1, 2, <Parent>, 2, False, +1.00, 2, 1, -20, 
+      backgroundImage =   ""
       barStyle        =   ""
       Height          =   121.0
       keyboardType    =   "0"
@@ -74,6 +76,7 @@ Begin iosView MissingControlsView
       placeholder     =   "My name is..."
       prompt          =   "Enter your name:"
       Scope           =   0
+      scopeBarBackgroundImage=   ""
       searchBarStyle  =   "2"
       searchResultsButtonSelected=   False
       selectedScopeButtonIndex=   0
@@ -231,7 +234,8 @@ End
 #tag Events UIStepper1
 	#tag Event
 		Sub ValueChanged()
-		  label2.Text = "Value: " + me.value.ToText
+		  dim value as Integer = me.value
+		  label2.Text = "Value: " + value.ToText
 		  
 		  
 		  
@@ -276,6 +280,11 @@ End
 		Visible=true
 		Group="ID"
 		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="TabIcon"
+		Group="Behavior"
+		Type="iOSImage"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"

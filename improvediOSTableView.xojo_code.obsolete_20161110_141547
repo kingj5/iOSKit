@@ -4,21 +4,26 @@ Begin iosView improvediOSTableView
    Compatibility   =   ""
    Left            =   0
    NavigationBarVisible=   True
+   TabIcon         =   ""
    TabTitle        =   ""
    Title           =   "Improved iOSTable"
    Top             =   0
    Begin ImprovediOSTable ImprovediOSTable1
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   ImprovediOSTable1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   ImprovediOSTable1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   ImprovediOSTable1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   ImprovediOSTable1, 4, <Parent>, 4, False, +1.00, 2, 1, -*kStdGapCtlToViewV, 
+      EditingEnabled  =   False
+      EstimatedRowHeight=   -1
       Format          =   "0"
       Height          =   387.0
-      Left            =   20.0
+      Left            =   20
       LockedInPosition=   False
       Scope           =   2
       SectionCount    =   0
-      Top             =   73.0
+      Top             =   73
       Visible         =   True
       Width           =   280.0
    End
@@ -35,7 +40,11 @@ End
 		  
 		  dim data as iOSTableCellData
 		  for i as Integer = 0 to 15
-		    data = new iOSTableCellData("Test "+i.totext)
+		    #if XojoVersion < 2016.03
+		      data = new iOSTableCellData("Test "+i.totext)
+		    #else
+		      data = me.CreateCell("Test "+i.ToText)
+		    #endif
 		    me.AddRow(0,data)
 		  next
 		End Sub
@@ -83,6 +92,11 @@ End
 		Visible=true
 		Group="ID"
 		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="TabIcon"
+		Group="Behavior"
+		Type="iOSImage"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"

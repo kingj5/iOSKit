@@ -47,7 +47,7 @@ Inherits UIKit.UIViewController
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub impl_documentPickerdidPickDocumentAtURL(pid as ptr, sel as ptr, controller as ptr, url as ptr)
+		Shared Sub impl_documentPickerdidPickDocumentAtURL(pid as ptr, sel as ptr, controller as ptr, url as ptr)
 		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
 		  if not(w.Value = nil) then
 		    UIDocumentPickerViewController(w.value).HandledocumentPickerdidPickDocumentAtURL(new UIDocumentPickerViewController(controller), new NSURL(url))
@@ -56,7 +56,7 @@ Inherits UIKit.UIViewController
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub impl_documentPickerWasCancelled(pid as ptr, sel as ptr, controller as ptr)
+		Shared Sub impl_documentPickerWasCancelled(pid as ptr, sel as ptr, controller as ptr)
 		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
 		  if not(w.Value = nil) then
 		    UIDocumentPickerViewController(w.value).HandledocumentPickerWasCancelled(new UIDocumentPickerViewController(controller))
@@ -142,6 +142,13 @@ Inherits UIKit.UIViewController
 			Name="documentPickerMode"
 			Group="Behavior"
 			Type="UIDocumentPickerMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Import"
+				"1 - Open"
+				"2 - ExportToService"
+				"3 - MoveToService"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="editing"

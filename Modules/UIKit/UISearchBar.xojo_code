@@ -875,6 +875,11 @@ Inherits iOSUserControl
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="backgroundImage"
+			Group="Behavior"
+			Type="iOSImage"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="barStyle"
 			Visible=true
 			Group="Behavior"
@@ -942,6 +947,11 @@ Inherits iOSUserControl
 			Visible=true
 			Group="Behavior"
 			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="scopeBarBackgroundImage"
+			Group="Behavior"
+			Type="iOSImage"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="searchBarStyle"
