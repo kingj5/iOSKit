@@ -109,7 +109,7 @@ End
 		  case 14
 		    newDetailView = new GameKitDemoView
 		  case 15
-		    newDetailView = new UIDocumentPickerView
+		    'newDetailView = new UIDocumentPickerView //for a future version when entitlements actually work
 		  case 16
 		    newDetailView = new improvediOSTableView
 		  case 17
