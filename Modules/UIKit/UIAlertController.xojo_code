@@ -9,9 +9,30 @@ Inherits UIViewController
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function AlertControllerWithTitleMessagePreferredStyle(title as CFStringRef, message as CFStringRef, preferredStyle as UIAlertControllerStyle) As UIAlertController
-		  declare function alertControllerWithTitle_ lib UIKitLib selector "alertControllerWithTitle:message:preferredStyle:" (clsRef as ptr, title as CFStringRef, message as CFStringRef, preferredStyle as UIAlertControllerStyle) as ptr
-		  Return new UIAlertController(alertControllerWithTitle_(ClassRef, title, message, preferredStyle))
+		Shared Function AlertControllerWithTitleMessagePreferredStyle(title as CFStringRef, message as CFStringRef, preferredStyle as UIAlertControllerStyle) As UIAlertController
+		  Declare Function alertControllerWithTitle_ Lib UIKitLib selector "alertControllerWithTitle:message:preferredStyle:" (clsRef As ptr, title As CFStringRef, message As CFStringRef, preferredStyle As UIAlertControllerStyle) As ptr
+		  
+		  Dim t As Text = title
+		  Dim m As Text = message
+		  
+		  If t.Empty = False And m.Empty = False Then
+		    Return New UIAlertController(alertControllerWithTitle_(ClassRef, title, message, preferredStyle))
+		    
+		    
+		  Elseif t.Empty = False Then
+		    Return New UIAlertController(alertControllerWithTitle_(ClassRef, title, Nil, preferredStyle))
+		    
+		  Elseif m.Empty = False Then
+		    Return New UIAlertController(alertControllerWithTitle_(ClassRef, title, message, preferredStyle))
+		    
+		  Else
+		    Return New UIAlertController(alertControllerWithTitle_(ClassRef, Nil, Nil, preferredStyle))
+		    
+		  End If
+		  
+		  
+		  
+		  
 		End Function
 	#tag EndMethod
 
@@ -197,6 +218,11 @@ Inherits UIViewController
 			Name="preferredStyle"
 			Group="Behavior"
 			Type="UIAlertControllerStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - ActionSheet"
+				"1 - Alert"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="providesPresentationContextTransitionStyle"
