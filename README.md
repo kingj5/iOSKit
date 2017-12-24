@@ -1,10 +1,10 @@
-#IOSKit
+# IOSKit
 A declares implementation of many different classes for Xojo.  This currently contains a large portion of my completed classes and will continue to grow as I create more classes.  I have tried to create a demo of many of the classes, however still more do not yet have a demo.
 
-##Currently implemented classes 
+## Currently implemented classes 
 By module they are contained in:
 
-###Foundation
+### Foundation
 * NSArray
 * NSData
 * NSDate
@@ -22,7 +22,7 @@ By module they are contained in:
 * NSURL
 * NSUserDefaults
 
-###UIKit
+### UIKit
 * UIActivity
 * UIActivityViewController
 * UIColor
@@ -40,7 +40,7 @@ By module they are contained in:
 * UIView
 * UIViewController
 
-###Extensions
+### Extensions
 * Camera
 * EditableIOSImage
 * MFMailComposeViewController
@@ -53,14 +53,14 @@ By module they are contained in:
 * UIPickerViewDataSourceMultiline
 * UIStepper
 
-###CoreMotion
+### CoreMotion
 * CMAccelerometerData
 * CMDeviceMotion
 * CMGyroData
 * CMLogItem
 * CMMotionManager
 
-###AVFoundation
+### AVFoundation
 * AVAudioPlayer
 * AVAudioRecorder
 * AVAudioSession
@@ -85,7 +85,7 @@ By module they are contained in:
 * AVSpeechSynthesizer
 * AVSpeechUtterance
 
-###StoreKit
+### StoreKit
 * InAppPurchaseHelper
 * PaymentTransactionObserver
 * SKDownload
@@ -99,12 +99,12 @@ By module they are contained in:
 * SKReceiptRefreshRequest
 * SKStoreProductViewController
 
-###JKRegex
+### JKRegex
 * RegEx
 * RegExMatch
 * RegExOptions
 
-###GameKit (Beta - Not all classes have been extensively tested, please let me know if you find any classes which do not work as expected)
+### GameKit (Beta - Not all classes have been extensively tested, please let me know if you find any classes which do not work as expected)
 * GKAchievement
 * GKAchievementChallenge
 * GKAchievementDescription
@@ -135,7 +135,7 @@ By module they are contained in:
 ...and more coming
 
 
-##Additional Useful Stuff
+## Additional Useful Stuff
 QRCode (module) - for reading and generating QRCodes
 
 KeychainServices (module) - for reading and writing to the iOS Keychain using the same API as is present in Xojo Desktop
@@ -148,7 +148,7 @@ Extensions Methods (in Extensions) - Many methods which could be useful dependin
 
 Notification_Center module - allows for in app notifications to be easily posted and handled
 
-###Helpers for GameKit
+### Helpers for GameKit
 AuthenticationHelper - Handles all necessary authentication and creates a notification when anything needs to happen
 
 StandardMatchHelper (and observer) - Helps setup and run a standard match.  Although you can do all of the stuff it does manually, why would you?
