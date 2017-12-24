@@ -76,7 +76,7 @@ End
 		  dim count as Integer = devices.Count
 		  for x as Integer = 0 to count-1
 		    dim device as new AVFoundation.AVCaptureDevice(devices.Value(x))
-		    if device.position = AVFoundation.AVCaptureDevice.AVCaptureDevicePosition.Front then
+		    if device.position = 2 then
 		      Return device
 		    end if
 		  next 

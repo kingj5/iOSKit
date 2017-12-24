@@ -63,6 +63,20 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function magnetometerActive() As Boolean
+		  declare function isMagnetometerActive_ lib CoreMotionLib selector "isMagnetometerActive" (obj_id as ptr) as Boolean
+		  Return isMagnetometerActive_(self)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function magnetometerAvailable() As Boolean
+		  declare function isMagnetometerAvailable_ lib CoreMotionLib selector "isMagnetometerAvailable" (obj_id as ptr) as Boolean
+		  Return isMagnetometerAvailable_(self)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub startAccelerometerUpdates()
 		  declare sub startAccelerometerUpdates_ lib CoreMotionLib selector "startAccelerometerUpdates" _
 		  (obj_id as ptr)
@@ -87,6 +101,13 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub startMagnometerUpdates()
+		  declare sub startMagnetometerUpdates_ lib CoreMotionLib selector "startMagnetometerUpdates" (obj_id as ptr)
+		  startMagnetometerUpdates_(self)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub stopAccelerometerUpdates()
 		  declare sub stopAccelerometerUpdates_ lib CoreMotionLib selector "stopAccelerometerUpdates" _
 		  (obj_id as ptr)
@@ -107,6 +128,13 @@ Inherits NSObject
 		  declare sub stopGyroUpdates_ lib CoreMotionLib selector "stopGyroUpdates" _
 		  (obj_id as ptr)
 		  stopGyroUpdates_(self)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub stopMagnometerUpdates()
+		  declare sub stopMagnetometerUpdates_ lib CoreMotionLib selector "stopMagnetometerUpdates" (obj_id as ptr)
+		  stopMagnetometerUpdates_(self)
 		End Sub
 	#tag EndMethod
 
@@ -200,6 +228,34 @@ Inherits NSObject
 		gyroUpdateInterval As Double
 	#tag EndComputedProperty
 
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  declare function magnetometerData_ lib CoreMotionLib selector "magnetometerData" (obj_id as ptr) as ptr
+			  return new CMMagnetometerData(magnetometerData_(self))
+			End Get
+		#tag EndGetter
+		magnetometerData As CoreMotion.CMMagnetometerData
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  declare function magnetometerUpdateInterval_ lib CoreMotionLib selector "magnetometerUpdateInterval"_
+			  (obj_id as ptr) as Double
+			  Return magnetometerUpdateInterval_(self)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  declare sub setMagnetometerUpdateInterval lib CoreMotionLib selector "setMagnetometerUpdateInterval:" _
+			  (obj_id as ptr, interval as Double)
+			  setMagnetometerUpdateInterval(self,value)
+			End Set
+		#tag EndSetter
+		magnetometerUpdateInterval As Double
+	#tag EndComputedProperty
+
 
 	#tag ViewBehavior
 		#tag ViewProperty
@@ -230,6 +286,11 @@ Inherits NSObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="magnetometerUpdateInterval"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

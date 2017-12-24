@@ -1,5 +1,5 @@
 Type=iOS
-RBProjectVersion=2016.03
+RBProjectVersion=2016.041
 MinIDEVersion=20140300
 Class=App;App.xojo_code;&h5FAFE765;&h0;false
 iOSScreen=iPhoneScreen;iPhoneScreen.xojo_code;&h15810A9D;&h0;false
@@ -226,6 +226,7 @@ Class=TestResult;XojoUnit/TestFramework/TestResult.xojo_code;&h1624A4EB;&h3E1A9B
 iOSView=XojoUnitTestGroupView;XojoUnit/XojoUnitTestGroupView.xojo_code;&h1A070FFF;&h2516B04D;false
 iOSView=XojoUnitTestMethodView;XojoUnit/XojoUnitTestMethodView.xojo_code;&h38986FFF;&h2516B04D;false
 iOSView=XojoUnitTestDetailsView;XojoUnit/XojoUnitTestDetailsView.xojo_code;&h215E17FF;&h2516B04D;false
+Class=CMMagnetometerData;Modules/CoreMotion/CMMagnetometerData.xojo_code;&h304B17FF;&h58DA52FC;false
 DefaultScreen=iPhoneScreen
 DefaultTabletScreen=iPadScreen
 MajorVersion=1

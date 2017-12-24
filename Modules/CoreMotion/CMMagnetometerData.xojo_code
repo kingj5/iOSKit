@@ -1,9 +1,15 @@
-#tag Module
-Protected Module iCloudStuff
-	#tag Note, Name = Note
-		You must be sure to enable iCloud under build settings if you try to use any of the code contained within this module
-		
-	#tag EndNote
+#tag Class
+Class CMMagnetometerData
+Inherits CMLogItem
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  declare function magneticField_ lib CoreMotionLib selector "magneticField" (obj_id as ptr) as CMMagneticField
+			  Return magneticField_(self)
+			End Get
+		#tag EndGetter
+		magneticField As CMMagneticField
+	#tag EndComputedProperty
 
 
 	#tag ViewBehavior
@@ -22,6 +28,11 @@ Protected Module iCloudStuff
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="mmagneticField"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
@@ -34,6 +45,11 @@ Protected Module iCloudStuff
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="timeStamp"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Top"
 			Visible=true
 			Group="Position"
@@ -41,5 +57,5 @@ Protected Module iCloudStuff
 			Type="Integer"
 		#tag EndViewProperty
 	#tag EndViewBehavior
-End Module
-#tag EndModule
+End Class
+#tag EndClass

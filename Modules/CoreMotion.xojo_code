@@ -10,6 +10,12 @@ Protected Module CoreMotion
 		z as double
 	#tag EndStructure
 
+	#tag Structure, Name = CMMagneticField, Flags = &h0
+		x as double
+		  y as double
+		z as double
+	#tag EndStructure
+
 	#tag Structure, Name = CMRotationRate, Flags = &h0
 		x as double
 		  y as double
