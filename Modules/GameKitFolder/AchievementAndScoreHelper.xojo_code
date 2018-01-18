@@ -20,19 +20,21 @@ Implements GameKit.GKGameCenterViewControllerObserver
 
 	#tag Method, Flags = &h0
 		Sub DisplayLeaderboard(inView as iOSView, leaderboardID as Text = "")
-		  dim gameCenterController as new GameKit.GKGameCenterViewController
+		  gameCenterController = new GameKit.GKGameCenterViewController
 		  gameCenterController.observer = self
 		  if leaderboardID <> "" then
 		    gameCenterController.leaderboardIdentifier = leaderboardID
 		  end if
 		  gameCenterController.viewState = GameKit.GKGameCenterViewController.GKGameCenterViewControllerState.Leaderboards
 		  
-		  gameCenterController.PresentViewControllerAnimatedCompletion(inView.ViewControllerHandle, True, nil)
+		  inView.PresentViewController(gameCenterController, True, nil)
+		  
+		  mParentView = inView
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function GetInstance() As AchievementAndScoreHelper
+		Shared Function GetInstance() As AchievementAndScoreHelper
 		  static instance as new AchievementAndScoreHelper
 		  Return instance
 		End Function
@@ -62,6 +64,10 @@ Implements GameKit.GKGameCenterViewControllerObserver
 		End Sub
 	#tag EndMethod
 
+
+	#tag Property, Flags = &h21
+		Private gameCenterController As GameKit.GKGameCenterViewController
+	#tag EndProperty
 
 	#tag Property, Flags = &h0
 		mParentView As iOSView
