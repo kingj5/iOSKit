@@ -1,3 +1,5 @@
 ./Builds - iOSKit.xojo_project/*
 .iOSKit.xojo_uistate
 iOSKit.debug.app
+/Builds - iOSKit.xojo_project
+/.iOSKit.xojo_uistate
