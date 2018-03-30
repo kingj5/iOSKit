@@ -3,7 +3,7 @@ Protected Class Reachability
 	#tag Method, Flags = &h0
 		Sub Constructor()
 		  declare function SCNetworkReachabilityCreateWithName lib "SystemConfiguration" (allocator as ptr, str as CString) as ptr
-		  dim t as Text = "google.com"
+		  dim t as Text = "captive.apple.com"
 		  dim ReachabilityRef as Ptr = SCNetworkReachabilityCreateWithName(Nil, t.ToCString(xojo.Core.TextEncoding.UTF8))
 		  
 		  dim reachableFlags as UInt32
