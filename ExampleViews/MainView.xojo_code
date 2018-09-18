@@ -2,6 +2,7 @@
 Begin iosView MainView
    BackButtonTitle =   ""
    Compatibility   =   ""
+   LargeTitleMode  =   "2"
    Left            =   0
    NavigationBarVisible=   True
    TabIcon         =   ""
@@ -11,10 +12,11 @@ Begin iosView MainView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, -69, 
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
-      AutoLayout      =   Table1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AllowRefresh    =   False
+      AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, -69, , True
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, , True
+      AutoLayout      =   Table1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, , True
       EditingEnabled  =   False
       EditingEnabled  =   False
       EstimatedRowHeight=   -1
@@ -74,206 +76,225 @@ End
 		  // 13 = Unit Tests
 		  // 14 = GameKit
 		  
-		  dim newMasterView as iOSView
-		  dim newDetailView as iOSView
+		  Dim newMasterView As iOSView
+		  Dim newDetailView As iOSView
 		  
-		  select case row
-		  case 0
-		    newDetailView = new ActivityView
-		  case 1
-		    newDetailView = new CameraView
-		  case 2
-		    newDetailView = new MissingControlsView
-		  case 3
-		    newDetailView = new CreateQRView
-		  case 4
-		    newDetailView = new ReadQRView
-		  case 5
-		    newDetailView = new SoundsView
-		  case 6
-		    newDetailView = new EmailView
-		  case 7
-		    newDetailView = new ReachabilityView
-		  case 8
-		    newDetailView = new CoreMotionView
-		  case 9
-		    newDetailView = new KeychainView
-		  case 10
-		    newDetailView = new AVFoundationDemoView
-		  case 11
-		    newDetailView = new RecordPlayVideo
-		  case 12
-		    newDetailView = new UIAlertView
-		  case 13
-		    newDetailView = new ShakingView
-		  case 14
-		    newDetailView = new GameKitDemoView
-		  case 15
+		  Select Case row
+		  Case 0
+		    newDetailView = New ActivityView
+		  Case 1
+		    newDetailView = New CameraView
+		  Case 2
+		    newDetailView = New MissingControlsView
+		  Case 3
+		    newDetailView = New CreateQRView
+		  Case 4
+		    newDetailView = New ReadQRView
+		  Case 5
+		    newDetailView = New SoundsView
+		  Case 6
+		    newDetailView = New EmailView
+		  Case 7
+		    newDetailView = New ReachabilityView
+		  Case 8
+		    newDetailView = New CoreMotionView
+		  Case 9
+		    newDetailView = New KeychainView
+		  Case 10
+		    newDetailView = New AVFoundationDemoView
+		  Case 11
+		    newDetailView = New RecordPlayVideo
+		  Case 12
+		    newDetailView = New UIAlertView
+		  Case 13
+		    newDetailView = New ShakingView
+		  Case 14
+		    newDetailView = New GameKitDemoView
+		  Case 15
 		    'newDetailView = new UIDocumentPickerView //for a future version when entitlements actually work
-		  case 16
-		    newDetailView = new improvediOSTableView
-		  case 17
-		    newMasterView = new XojoUnitTestGroupView
-		    newDetailView = new XojoUnitTestDetailsView
-		  else
+		  Case 16
+		    newDetailView = New improvediOSTableView
+		  Case 17
+		    newDetailView = New HapticFeedbackView
+		  Case 18
+		    newMasterView = New XojoUnitTestGroupView
+		    newDetailView = New XojoUnitTestDetailsView
+		    
+		  Else
 		    //shouldn't get here
 		    Return
-		  end select
+		  End Select
 		  'declare sub presentViewController_ lib UIKitLib selector "presentViewController:animated:completion:" (obj_id as ptr, viewControllerToPresent as ptr, flag as Boolean, completion as ptr)
 		  'PresentViewController_(self.ViewControllerHandle, newDetailView.ViewControllerHandle, True, nil)
 		  
-		  if newMasterView isa iOSView then
-		    self.PushTo newMasterView
-		  end if
+		  If newMasterView IsA iOSView Then
+		    Self.PushTo newMasterView
+		  End If
 		  
-		  if newDetailView isa iOSView then
-		    if ParentSplitView.Available then
-		      self.ParentSplitView.Detail = newDetailView
-		    else
-		      self.PushTo newDetailView
-		    end if
+		  If newDetailView IsA iOSView Then
+		    If ParentSplitView.Available Then
+		      Self.ParentSplitView.Detail = newDetailView
+		    Else
+		      Self.PushTo newDetailView
+		    End If
 		  end if
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub Open()
-		  me.AddSection("Select a view")
-		  dim d as iOSTableCellData
-		  #if XojoVersion < 2016.03
-		    d = new iOSTableCellData("UIActivityView")
+		  Me.AddSection("Select a view")
+		  Dim d As iOSTableCellData
+		  #If XojoVersion < 2016.03
+		    d = New iOSTableCellData("UIActivityView")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    d = new iOSTableCellData("Camera")
+		    d = New iOSTableCellData("Camera")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    d = new iOSTableCellData("Missing UIControls")
+		    d = New iOSTableCellData("Missing UIControls")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    d = new iOSTableCellData("Create QRCode")
+		    d = New iOSTableCellData("Create QRCode")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    d = new iOSTableCellData("Read QRCode")
+		    d = New iOSTableCellData("Read QRCode")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    d = new iOSTableCellData("System Sounds")
+		    d = New iOSTableCellData("System Sounds")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    d = new iOSTableCellData("Email")
+		    d = New iOSTableCellData("Email")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    d = new iOSTableCellData("Reachability")
+		    d = New iOSTableCellData("Reachability")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    d = new iOSTableCellData("Core Motion")
+		    d = New iOSTableCellData("Core Motion")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    d = new iOSTableCellData("Keychain Services")
+		    d = New iOSTableCellData("Keychain Services")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    d = new iOSTableCellData("AVFoundation Demos")
+		    d = New iOSTableCellData("AVFoundation Demos")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    d = new iOSTableCellData("Record and Play video")
+		    d = New iOSTableCellData("Record and Play video")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    d = new iOSTableCellData("UIActionController")
+		    d = New iOSTableCellData("UIActionController")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    d = new iOSTableCellData("Shaking")
+		    d = New iOSTableCellData("Shaking")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    d = new iOSTableCellData("GameKit Demos (In progress)")
+		    d = New iOSTableCellData("GameKit Demos (In progress)")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    d = new iOSTableCellData("UIDocumentPicker")
+		    d = New iOSTableCellData("UIDocumentPicker")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    d = new iOSTableCellData("Improved iOSTable")
+		    d = New iOSTableCellData("Improved iOSTable")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		    me.AddRow(0,d)
+		    Me.AddRow(0,d)
 		    
-		    if self.ParentSplitView.Available then
-		      d = new iOSTableCellData("Unit Tests")
+		    If Self.ParentSplitView.Available Then
+		      d = New iOSTableCellData("Unit Tests")
 		      d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
-		      me.AddRow(0,d)
-		    end if
-		  #else
-		    d = me.CreateCell("UIActivityView","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		      Me.AddRow(0,d)
+		    End If
+		  #Else
+		    d = Me.CreateCell("UIActivityView","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    d = me.CreateCell("Camera","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		    d = Me.CreateCell("Camera","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    d = me.CreateCell("Missing UIControls","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		    d = Me.CreateCell("Missing UIControls","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    d = me.CreateCell("Create QRCode","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		    d = Me.CreateCell("Create QRCode","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    d = me.CreateCell("Read QRCode","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		    d = Me.CreateCell("Read QRCode","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    d = me.CreateCell("System Sounds","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		    d = Me.CreateCell("System Sounds","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    d = me.CreateCell("Email","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		    d = Me.CreateCell("Email","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    d = me.CreateCell("Reachability","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		    d = Me.CreateCell("Reachability","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    d = me.CreateCell("Core Motion","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		    d = Me.CreateCell("Core Motion","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    d = me.CreateCell("Keychain Services","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		    d = Me.CreateCell("Keychain Services","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    d = me.CreateCell("AVFoundation Demos","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		    d = Me.CreateCell("AVFoundation Demos","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    d = me.CreateCell("Record and Play video","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		    d = Me.CreateCell("Record and Play video","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    d = me.CreateCell("UIActionController","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		    d = Me.CreateCell("UIActionController","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    d = me.CreateCell("Shaking","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		    d = Me.CreateCell("Shaking","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    d = me.CreateCell("GameKit Demos (In progress)","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		    d = Me.CreateCell("GameKit Demos (In progress)","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    d = me.CreateCell("UIDocumentPicker","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		    d = Me.CreateCell("UIDocumentPicker","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    d = me.CreateCell("Improved iOSTable","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		    me.AddRow(0,d)
+		    d = Me.CreateCell("Improved iOSTable","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
 		    
-		    if self.ParentSplitView.Available then
-		      d = me.CreateCell("Unit Tests","",nil,iOSTableCellData.AccessoryTypes.Disclosure)
-		      me.AddRow(0,d)
-		    end if
+		    d = Me.CreateCell("Haptic Feedback","iPhone only",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
+		    
+		    If Self.ParentSplitView.Available Then
+		      d = Me.CreateCell("Unit Tests","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		      Me.AddRow(0,d)
+		    End If
 		  #endif
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="LargeTitleMode"
+		Visible=true
+		Group="Behavior"
+		InitialValue="2"
+		Type="LargeTitleDisplayModes"
+		EditorType="Enum"
+		#tag EnumValues
+			"0 - Automatic"
+			"1 - Always"
+			"2 - Never"
+		#tag EndEnumValues
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
 		Group="Behavior"
