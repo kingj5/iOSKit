@@ -1,9 +1,26 @@
 #tag Class
 Class UIColor
 Inherits NSObject
+	#tag Method, Flags = &h0, Description = 52657475726E732061204347436F6C6F7220726570726573656E746174696F6E206F6620746865205549436F6C6F72
+		Function CGColor() As Ptr
+		  
+		  Declare Function cgcolor Lib UIKitLib selector "cgColor" (obj_id As ptr) as ptr
+		  Return CGColor(self)
+		End Function
+	#tag EndMethod
+
 	#tag DelegateDeclaration, Flags = &h21
 		Private Delegate Function ClassMethodDelegate(class_id as Ptr) As Ptr
 	#tag EndDelegateDeclaration
+
+	#tag Method, Flags = &h0
+		Shared Function ClearColor() As UIColor
+		  
+		  
+		  return MakeObjectFromClassMethod(AddressOf m_clearColor)
+		  
+		End Function
+	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function ColorValue() As Color
@@ -53,7 +70,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function Cyan() As UIColor
+		Shared Function Cyan() As UIColor
 		  
 		  return MakeObjectFromClassMethod(AddressOf m_cyanColor)
 		  
@@ -61,7 +78,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function DarkGray() As UIColor
+		Shared Function DarkGray() As UIColor
 		  
 		  return MakeObjectFromClassMethod(AddressOf m_darkGrayColor)
 		  
@@ -69,7 +86,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function Gray() As UIColor
+		Shared Function Gray() As UIColor
 		  
 		  return MakeObjectFromClassMethod(AddressOf m_grayColor)
 		  
@@ -77,7 +94,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function Green() As UIColor
+		Shared Function Green() As UIColor
 		  
 		  return MakeObjectFromClassMethod(AddressOf m_greenColor)
 		  
@@ -85,7 +102,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function LightGray() As UIColor
+		Shared Function LightGray() As UIColor
 		  
 		  return MakeObjectFromClassMethod(AddressOf m_lightGrayColor)
 		  
@@ -93,7 +110,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function Magenta() As UIColor
+		Shared Function Magenta() As UIColor
 		  
 		  return MakeObjectFromClassMethod(AddressOf m_magentaColor)
 		  
@@ -306,7 +323,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function Orange() As UIColor
+		Shared Function Orange() As UIColor
 		  
 		  return MakeObjectFromClassMethod(AddressOf m_orangeColor)
 		  
@@ -314,7 +331,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function Purple() As UIColor
+		Shared Function Purple() As UIColor
 		  
 		  return MakeObjectFromClassMethod(AddressOf m_purpleColor)
 		  
@@ -322,7 +339,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function Red() As UIColor
+		Shared Function Red() As UIColor
 		  
 		  return MakeObjectFromClassMethod(AddressOf m_redColor)
 		  
@@ -330,7 +347,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function White() As UIColor
+		Shared Function White() As UIColor
 		  
 		  return MakeObjectFromClassMethod(AddressOf m_whiteColor)
 		  
@@ -338,7 +355,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function Yellow() As UIColor
+		Shared Function Yellow() As UIColor
 		  
 		  return MakeObjectFromClassMethod(AddressOf m_yellowColor)
 		  

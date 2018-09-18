@@ -219,6 +219,27 @@ Protected Module Extensions
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0, Description = 52657475726E732054727565206966207468652063757272656E742064657669636520697320616E206950686F6E65582028526571756972657320586F6A6F2032303138723129
+		Function isIPhoneX() As Boolean
+		  
+		  
+		  Declare Function mainScreen Lib UIKitLib selector "mainScreen" (clsRef As ptr) As ptr
+		  
+		  #If Target32Bit
+		    Return False
+		    
+		  #ElseIf Target64Bit
+		    Declare Function nativebounds Lib UIKitLib selector "nativeBounds" (obj_id As Ptr) As CGRect64
+		    Dim sz As CGSize64 = nativeBounds(mainScreen(NSClassFromString("UIScreen"))).rsize
+		    
+		    If sz.w = 1125 And sz.h = 2436 Then Return True
+		  #EndIf
+		  
+		  
+		  
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Sub MsgBox(title as Text, message as text = "")
 		  dim msg as new iOSMessageBox

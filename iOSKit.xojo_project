@@ -231,6 +231,7 @@ Class=UIImpactFeedbackGenerator;Modules/UIKit/UIImpactFeedbackGenerator.xojo_cod
 Class=UINotificationFeedbackGenerator;Modules/UIKit/UINotificationFeedbackGenerator.xojo_code;&h000000000BDBBFFF;&h0000000005DD9374;false
 Class=UISelectionFeedbackGenerator;Modules/UIKit/UISelectionFeedbackGenerator.xojo_code;&h000000001CC31FFF;&h0000000005DD9374;false
 iOSView=HapticFeedbackView;ExampleViews/HapticFeedbackView.xojo_code;&h0000000006596FFF;&h000000001989717F;false
+Class=UIPopoverPresentationController;Modules/UIKit/UIPopoverPresentationController.xojo_code;&h0000000003E4BFFF;&h0000000005DD9374;false
 DefaultScreen=iPhoneScreen
 DefaultTabletScreen=iPadScreen
 MajorVersion=1
