@@ -19,7 +19,7 @@ Class NotificationCenter
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function MainCenter() As NotificationCenter
+		Shared Function MainCenter() As NotificationCenter
 		  static mcenter as NotificationCenter
 		  if mcenter = nil then
 		    mcenter = new NotificationCenter

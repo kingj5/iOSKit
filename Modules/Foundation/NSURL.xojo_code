@@ -2,7 +2,7 @@
 Class NSURL
 Inherits NSObject
 	#tag Method, Flags = &h0
-		 Shared Function BookmarkDataWithContentsOfURL(bookmarkFileURL as NSURL, error as NSError) As NSData
+		Shared Function BookmarkDataWithContentsOfURL(bookmarkFileURL as NSURL, error as NSError) As NSData
 		  declare function bookmarkDataWithContentsOfURL_ lib FoundationLib selector "bookmarkDataWithContentsOfURL:error:" (clsRef as ptr, bookmarkFileURL as ptr, error as ptr) as ptr
 		  Return new NSData(bookmarkDataWithContentsOfURL_(ClassRef, bookmarkFileURL, error))
 		End Function
@@ -110,21 +110,21 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function FileURLWithPath(path as CFStringRef) As NSURL
+		Shared Function FileURLWithPath(path as CFStringRef) As NSURL
 		  declare function fileURLWithPath_ lib FoundationLib selector "fileURLWithPath:" (clsRef as ptr, path as CFStringRef) as ptr
 		  Return new NSURL(fileURLWithPath_(ClassRef, path))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function FileURLWithPathComponents(components as NSArray) As NSURL
+		Shared Function FileURLWithPathComponents(components as NSArray) As NSURL
 		  declare function fileURLWithPathComponents_ lib FoundationLib selector "fileURLWithPathComponents:" (clsRef as ptr, components as ptr) as ptr
 		  Return new NSURL(fileURLWithPathComponents_(ClassRef, components))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function FileURLWithPathIsDirectory(path as CFStringRef, isDir as Boolean) As NSURL
+		Shared Function FileURLWithPathIsDirectory(path as CFStringRef, isDir as Boolean) As NSURL
 		  declare function fileURLWithPath_ lib FoundationLib selector "fileURLWithPath:isDirectory:" (clsRef as ptr, path as CFStringRef, isDir as Boolean) as ptr
 		  Return new NSURL(fileURLWithPath_(ClassRef, path, isDir))
 		End Function
@@ -187,7 +187,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function ResourceValuesForKeysFromBookmarkData(keys as NSArray, bookmarkData as NSData) As NSDictionary
+		Shared Function ResourceValuesForKeysFromBookmarkData(keys as NSArray, bookmarkData as NSData) As NSDictionary
 		  declare function resourceValuesForKeys_ lib FoundationLib selector "resourceValuesForKeys:fromBookmarkData:" (clsRef as ptr, keys as ptr, bookmarkData as ptr) as ptr
 		  Return new NSDictionary(resourceValuesForKeys_(ClassRef, keys, bookmarkData))
 		End Function
@@ -250,35 +250,35 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function URLByResolvingAliasFileAtURLOptionsError(url as NSURL, options as Integer, error as NSError) As NSURL
+		Shared Function URLByResolvingAliasFileAtURLOptionsError(url as NSURL, options as Integer, error as NSError) As NSURL
 		  declare function URLByResolvingAliasFileAtURL_ lib FoundationLib selector "URLByResolvingAliasFileAtURL:options:error:" (clsRef as ptr, url as ptr, options as integer, error as ptr) as ptr
 		  Return new NSURL(URLByResolvingAliasFileAtURL_(ClassRef, url, options, error))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function URLByResolvingBookmarkDataOptionsRelativeToURLBookmarkDataIsStaleError(bookmarkData as NSData, options as Integer, relativeURL as NSURL, isStale as Boolean, error as NSError) As NSURL
+		Shared Function URLByResolvingBookmarkDataOptionsRelativeToURLBookmarkDataIsStaleError(bookmarkData as NSData, options as Integer, relativeURL as NSURL, isStale as Boolean, error as NSError) As NSURL
 		  declare function URLByResolvingBookmarkData_ lib FoundationLib selector "URLByResolvingBookmarkData:options:relativeToURL:bookmarkDataIsStale:error:" (clsRef as ptr, bookmarkData as ptr, options as integer, relativeURL as ptr, isStale as Boolean, error as ptr) as ptr
 		  Return new NSURL(URLByResolvingBookmarkData_(ClassRef, bookmarkData, options, relativeURL, isStale, error))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function URLWithString(URLString as CFStringRef) As NSURL
+		Shared Function URLWithString(URLString as CFStringRef) As NSURL
 		  declare function URLWithString_ lib FoundationLib selector "URLWithString:" (clsRef as ptr, URLString as CFStringRef) as ptr
 		  Return new NSURL(URLWithString_(ClassRef, URLString))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function URLWithStringRelativeToURL(URLString as CFStringRef, baseURL as NSURL) As NSURL
+		Shared Function URLWithStringRelativeToURL(URLString as CFStringRef, baseURL as NSURL) As NSURL
 		  declare function URLWithString_ lib FoundationLib selector "URLWithString:relativeToURL:" (clsRef as ptr, URLString as CFStringRef, baseURL as ptr) as ptr
 		  Return new NSURL(URLWithString_(ClassRef, URLString, baseURL))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function WriteBookmarkDataToURLOptionsError(bookmarkData as NSData, bookmarkFileURL as NSURL, options as uinteger, error as NSError) As Boolean
+		Shared Function WriteBookmarkDataToURLOptionsError(bookmarkData as NSData, bookmarkFileURL as NSURL, options as uinteger, error as NSError) As Boolean
 		  declare function writeBookmarkData_ lib FoundationLib selector "writeBookmarkData:toURL:options:error:" (clsRef as ptr, bookmarkData as ptr, bookmarkFileURL as ptr, options as uinteger, error as ptr) as Boolean
 		  Return writeBookmarkData_(ClassRef, bookmarkData, bookmarkFileURL, options, error)
 		End Function

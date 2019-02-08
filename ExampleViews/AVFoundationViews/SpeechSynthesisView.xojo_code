@@ -2,18 +2,20 @@
 Begin iosView SpeechSynthesisView
    BackButtonTitle =   "Back"
    Compatibility   =   ""
+   LargeTitleMode  =   "2"
    Left            =   0
    NavigationBarVisible=   True
+   TabIcon         =   ""
    TabTitle        =   ""
    Title           =   "Text To Speech"
    Top             =   0
    Begin iOSTextArea TextArea1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextArea1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   TextArea1, 3, Label1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 1, 1, 129, 
-      AutoLayout      =   TextArea1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   TextArea1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, , True
+      AutoLayout      =   TextArea1, 3, Label1, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+      AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 1, 1, 129, , True
+      AutoLayout      =   TextArea1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, , True
       Editable        =   True
       Height          =   129.0
       KeyboardType    =   "0"
@@ -32,10 +34,10 @@ Begin iosView SpeechSynthesisView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   Label1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label1, 7, , 0, False, +1.00, 1, 1, 159, 
+      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, , True
+      AutoLayout      =   Label1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, , True
+      AutoLayout      =   Label1, 7, , 0, False, +1.00, 1, 1, 159, , True
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -54,10 +56,10 @@ Begin iosView SpeechSynthesisView
    Begin Extensions.PickerView PickerView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   PickerView1, 4, <Parent>, 4, False, +1.00, 2, 1, -*kStdGapCtlToViewV, 
-      AutoLayout      =   PickerView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   PickerView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   PickerView1, 8, , 0, False, +1.00, 1, 1, 118, 
+      AutoLayout      =   PickerView1, 4, <Parent>, 4, False, +1.00, 2, 1, -*kStdGapCtlToViewV, , True
+      AutoLayout      =   PickerView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, , True
+      AutoLayout      =   PickerView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, , True
+      AutoLayout      =   PickerView1, 8, , 0, False, +1.00, 1, 1, 118, , True
       Height          =   118.0
       Left            =   20
       LockedInPosition=   False
@@ -69,10 +71,10 @@ Begin iosView SpeechSynthesisView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button1, 3, TextArea1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 74, 
-      AutoLayout      =   Button1, 1, PickerView1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, , True
+      AutoLayout      =   Button1, 3, TextArea1, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 74, , True
+      AutoLayout      =   Button1, 1, PickerView1, 1, False, +1.00, 1, 1, 0, , True
       Caption         =   "Start"
       Enabled         =   True
       Height          =   30.0
@@ -89,10 +91,10 @@ Begin iosView SpeechSynthesisView
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 10, Button1, 10, False, +1.00, 1, 1, , 
-      AutoLayout      =   Button2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 74, 
-      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button2, 10, Button1, 10, False, +1.00, 1, 1, , , True
+      AutoLayout      =   Button2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, , True
+      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 74, , True
+      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, , True
       Caption         =   "Stop"
       Enabled         =   False
       Height          =   30.0
@@ -109,11 +111,11 @@ Begin iosView SpeechSynthesisView
    Begin iOSButton Button3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button3, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button3, 9, <Parent>, 9, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Button3, 2, Label1, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button3, 4, Button1, 4, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Button3, 7, , 0, False, +1.00, 2, 1, 74, 
+      AutoLayout      =   Button3, 8, , 0, False, +1.00, 1, 1, 30, , True
+      AutoLayout      =   Button3, 9, <Parent>, 9, False, +1.00, 2, 1, 0, , True
+      AutoLayout      =   Button3, 2, Label1, 2, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   Button3, 4, Button1, 4, False, +1.00, 2, 1, 0, , True
+      AutoLayout      =   Button3, 7, , 0, False, +1.00, 2, 1, 74, , True
       Caption         =   "Pause"
       Enabled         =   False
       Height          =   30.0
@@ -130,10 +132,10 @@ Begin iosView SpeechSynthesisView
    Begin iOSSegmentedControl SegmentedControl1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   SegmentedControl1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   SegmentedControl1, 3, Label2, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   SegmentedControl1, 7, , 0, False, +1.00, 1, 1, 200, 
-      AutoLayout      =   SegmentedControl1, 8, , 0, True, +1.00, 1, 1, 29, 
+      AutoLayout      =   SegmentedControl1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   SegmentedControl1, 3, Label2, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+      AutoLayout      =   SegmentedControl1, 7, , 0, False, +1.00, 1, 1, 200, , True
+      AutoLayout      =   SegmentedControl1, 8, , 0, True, +1.00, 1, 1, 29, , True
       Caption         =   ""
       Enabled         =   True
       Height          =   29.0
@@ -149,10 +151,10 @@ Begin iosView SpeechSynthesisView
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label2, 3, Button1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, , True
+      AutoLayout      =   Label2, 3, Button1, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+      AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 100, , True
+      AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, , True
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -270,6 +272,24 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="TabIcon"
+		Group="Behavior"
+		Type="iOSImage"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="LargeTitleMode"
+		Visible=true
+		Group="Behavior"
+		InitialValue="2"
+		Type="LargeTitleDisplayModes"
+		EditorType="Enum"
+		#tag EnumValues
+			"0 - Automatic"
+			"1 - Always"
+			"2 - Never"
+		#tag EndEnumValues
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
 		Group="Behavior"

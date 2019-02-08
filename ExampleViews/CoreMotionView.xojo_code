@@ -2,8 +2,10 @@
 Begin iosView CoreMotionView
    BackButtonTitle =   "Back"
    Compatibility   =   ""
+   LargeTitleMode  =   "2"
    Left            =   0
    NavigationBarVisible=   True
+   TabIcon         =   ""
    TabTitle        =   ""
    Title           =   "CoreMotion"
    Top             =   0
@@ -11,15 +13,15 @@ Begin iosView CoreMotionView
       accelerometerUpdateInterval=   0.0
       deviceMotionUpdateInterval=   0.0
       gyroUpdateInterval=   0.0
-      Left            =   80
+      Left            =   0
       LockedInPosition=   False
       PanelIndex      =   -1
       Parent          =   ""
       Scope           =   0
-      Top             =   80
+      Top             =   0
    End
    Begin xojo.Core.Timer Timer1
-      Left            =   100
+      Left            =   0
       LockedInPosition=   False
       Mode            =   "2"
       PanelIndex      =   -1
@@ -27,15 +29,15 @@ Begin iosView CoreMotionView
       Period          =   10
       Scope           =   0
       Tolerance       =   0
-      Top             =   100
+      Top             =   0
    End
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 2, <Parent>, 2, False, +1.00, 1, 1, -38, 
-      AutoLayout      =   Button1, 10, Button2, 10, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 2, <Parent>, 2, False, +1.00, 1, 1, -38, , True
+      AutoLayout      =   Button1, 10, Button2, 10, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, , True
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, , True
       Caption         =   "Stop updating"
       Enabled         =   True
       Height          =   30.0
@@ -52,10 +54,10 @@ Begin iosView CoreMotionView
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Button2, 3, <Parent>, 3, False, +1.00, 1, 1, 88, 
-      AutoLayout      =   Button2, 1, <Parent>, 1, False, +1.00, 1, 1, 40, 
-      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 100, , True
+      AutoLayout      =   Button2, 3, <Parent>, 3, False, +1.00, 1, 1, 88, , True
+      AutoLayout      =   Button2, 1, <Parent>, 1, False, +1.00, 1, 1, 40, , True
+      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, , True
       Caption         =   "Start Updating"
       Enabled         =   True
       Height          =   30.0
@@ -72,13 +74,14 @@ Begin iosView CoreMotionView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 2, Button2, 2, False, +1.00, 1, 1, 61, 
-      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 137, 
-      AutoLayout      =   Label1, 1, Button2, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 2, Button2, 2, False, +1.00, 1, 1, 61, , True
+      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 137, , True
+      AutoLayout      =   Label1, 1, Button2, 1, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, , True
       Enabled         =   True
       Height          =   30.0
       Left            =   40
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "User Acceleration:"
@@ -93,13 +96,14 @@ Begin iosView CoreMotionView
    Begin iOSLabel XLabel
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   XLabel, 2, Button2, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   XLabel, 3, Label1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   XLabel, 1, Label1, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   XLabel, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   XLabel, 2, Button2, 2, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   XLabel, 3, Label1, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+      AutoLayout      =   XLabel, 1, Label1, 1, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   XLabel, 8, , 0, False, +1.00, 1, 1, 30, , True
       Enabled         =   True
       Height          =   30.0
       Left            =   40
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   ""
@@ -114,13 +118,14 @@ Begin iosView CoreMotionView
    Begin iOSLabel YLabel
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   YLabel, 2, XLabel, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   YLabel, 3, XLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   YLabel, 1, XLabel, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   YLabel, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   YLabel, 2, XLabel, 2, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   YLabel, 3, XLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+      AutoLayout      =   YLabel, 1, XLabel, 1, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   YLabel, 8, , 0, False, +1.00, 1, 1, 30, , True
       Enabled         =   True
       Height          =   30.0
       Left            =   40
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   ""
@@ -135,13 +140,14 @@ Begin iosView CoreMotionView
    Begin iOSLabel ZLabel
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ZLabel, 2, YLabel, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   ZLabel, 3, YLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ZLabel, 1, YLabel, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   ZLabel, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   ZLabel, 2, YLabel, 2, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   ZLabel, 3, YLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+      AutoLayout      =   ZLabel, 1, YLabel, 1, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   ZLabel, 8, , 0, False, +1.00, 1, 1, 30, , True
       Enabled         =   True
       Height          =   30.0
       Left            =   40
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   ""
@@ -156,13 +162,14 @@ Begin iosView CoreMotionView
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, 40, 
-      AutoLayout      =   Label2, 3, ZLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 161, 
+      AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, 40, , True
+      AutoLayout      =   Label2, 3, ZLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, , True
+      AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 161, , True
       Enabled         =   True
       Height          =   30.0
       Left            =   40
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Gyro Data:"
@@ -177,13 +184,14 @@ Begin iosView CoreMotionView
    Begin iOSLabel XGyroLabel
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   XGyroLabel, 1, ZLabel, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   XGyroLabel, 3, Label2, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   XGyroLabel, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   XGyroLabel, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   XGyroLabel, 1, ZLabel, 1, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   XGyroLabel, 3, Label2, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+      AutoLayout      =   XGyroLabel, 8, , 0, False, +1.00, 1, 1, 30, , True
+      AutoLayout      =   XGyroLabel, 7, , 0, False, +1.00, 1, 1, 100, , True
       Enabled         =   True
       Height          =   30.0
       Left            =   40
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   ""
@@ -198,13 +206,14 @@ Begin iosView CoreMotionView
    Begin iOSLabel YGyroLabel
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   YGyroLabel, 1, ZLabel, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   YGyroLabel, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   YGyroLabel, 3, XGyroLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   YGyroLabel, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   YGyroLabel, 1, ZLabel, 1, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   YGyroLabel, 8, , 0, False, +1.00, 1, 1, 30, , True
+      AutoLayout      =   YGyroLabel, 3, XGyroLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+      AutoLayout      =   YGyroLabel, 7, , 0, False, +1.00, 1, 1, 100, , True
       Enabled         =   True
       Height          =   30.0
       Left            =   40
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   ""
@@ -219,13 +228,14 @@ Begin iosView CoreMotionView
    Begin iOSLabel ZGyroLabel
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ZGyroLabel, 1, ZLabel, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   ZGyroLabel, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   ZGyroLabel, 3, YGyroLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ZGyroLabel, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   ZGyroLabel, 1, ZLabel, 1, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   ZGyroLabel, 8, , 0, False, +1.00, 1, 1, 30, , True
+      AutoLayout      =   ZGyroLabel, 3, YGyroLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+      AutoLayout      =   ZGyroLabel, 7, , 0, False, +1.00, 1, 1, 100, , True
       Enabled         =   True
       Height          =   30.0
       Left            =   40
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   ""
@@ -290,6 +300,24 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="TabIcon"
+		Group="Behavior"
+		Type="iOSImage"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="LargeTitleMode"
+		Visible=true
+		Group="Behavior"
+		InitialValue="2"
+		Type="LargeTitleDisplayModes"
+		EditorType="Enum"
+		#tag EnumValues
+			"0 - Automatic"
+			"1 - Always"
+			"2 - Never"
+		#tag EndEnumValues
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
 		Group="Behavior"

@@ -2,7 +2,7 @@
 Protected Class AVCaptureDevice
 Inherits NSObject
 	#tag Method, Flags = &h0
-		 Shared Function AuthorizationStatusForMediaType(mediaType as CFStringRef) As AVAuthorizationStatus
+		Shared Function AuthorizationStatusForMediaType(mediaType as CFStringRef) As AVAuthorizationStatus
 		  declare function authorizationStatusForMediaType_ lib AVFoundationLib selector "authorizationStatusForMediaType:" (clsRef as ptr, mediaType as CFStringRef) as AVAuthorizationStatus
 		  Return (authorizationStatusForMediaType_(ClassRef, mediaType))
 		End Function
@@ -23,28 +23,28 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function DefaultDeviceWithMediaType(mediaType as CFStringRef) As AVCaptureDevice
+		Shared Function DefaultDeviceWithMediaType(mediaType as CFStringRef) As AVCaptureDevice
 		  declare function defaultDeviceWithMediaType_ lib AVFoundationLib selector "defaultDeviceWithMediaType:" (clsRef as ptr, mediaType as CFStringRef) as ptr
 		  Return new AVCaptureDevice(defaultDeviceWithMediaType_(ClassRef, mediaType))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function Devices() As NSArray
+		Shared Function Devices() As NSArray
 		  declare function devices_ lib AVFoundationLib selector "devices" (clsRef as ptr) as ptr
 		  Return new NSArray(devices_(ClassRef))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function DevicesWithMediaType(mediaType as CFStringRef) As NSArray
+		Shared Function DevicesWithMediaType(mediaType as CFStringRef) As NSArray
 		  declare function devicesWithMediaType_ lib AVFoundationLib selector "devicesWithMediaType:" (clsRef as ptr, mediaType as CFStringRef) as ptr
 		  Return new NSArray(devicesWithMediaType_(ClassRef, mediaType))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function DeviceWithUniqueID(deviceUniqueID as CFStringRef) As AVCaptureDevice
+		Shared Function DeviceWithUniqueID(deviceUniqueID as CFStringRef) As AVCaptureDevice
 		  declare function deviceWithUniqueID_ lib AVFoundationLib selector "deviceWithUniqueID:" (clsRef as ptr, deviceUniqueID as CFStringRef) as ptr
 		  Return new AVCaptureDevice(deviceWithUniqueID_(ClassRef, deviceUniqueID))
 		End Function
@@ -113,7 +113,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub RequestAccessForMediaTypeCompletionHandler(mediaType as CFStringRef, handler as iOSBlock)
+		Shared Sub RequestAccessForMediaTypeCompletionHandler(mediaType as CFStringRef, handler as iOSBlock)
 		  declare sub requestAccessForMediaType_ lib AVFoundationLib selector "requestAccessForMediaType:completionHandler:" (clsRef as ptr, mediaType as CFStringRef, handler as ptr)
 		  requestAccessForMediaType_(ClassRef, mediaType, handler.Handle)
 		End Sub

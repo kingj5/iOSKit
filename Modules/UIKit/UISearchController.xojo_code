@@ -121,6 +121,23 @@ Inherits UIViewController
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="modalPresentationStyle"
+			Group="Behavior"
+			Type="UIModalPresentationStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Fullscreen"
+				"1 - PageSheet"
+				"2 - FormSheet"
+				"3 - CurrentContext"
+				"4 - Custom"
+				"5 - OverFullScreen"
+				"6 - OverCurrentContext"
+				"7 - Popover"
+				"-1 - None"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="active"
 			Group="Behavior"
 			Type="Boolean"

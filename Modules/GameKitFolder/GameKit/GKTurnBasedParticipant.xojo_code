@@ -100,6 +100,38 @@ Inherits NSObject
 			InitialValue="0"
 			Type="Integer"
 		#tag EndViewProperty
+		#tag ViewProperty
+			Name="matchOutcome"
+			Group="Behavior"
+			Type="GKTurnBasedMatchOutcome"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - None"
+				"1 - Quit"
+				"2 - Won"
+				"3 - Lost"
+				"4 - Tied"
+				"5 - TimeExpired"
+				"6 - First"
+				"7 - Second"
+				"8 - Third"
+				"9 - Fourth"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="status"
+			Group="Behavior"
+			Type="GKTurnBasedParticipantStatus"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Unknown"
+				"1 - Invited"
+				"2 - Declined"
+				"3 - Matching"
+				"4 - Active"
+				"5 - Done"
+			#tag EndEnumValues
+		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
 #tag EndClass

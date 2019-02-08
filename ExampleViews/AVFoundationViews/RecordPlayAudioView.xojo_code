@@ -2,18 +2,20 @@
 Begin iosView RecordPlayAudioView
    BackButtonTitle =   "Back"
    Compatibility   =   ""
+   LargeTitleMode  =   "2"
    Left            =   0
    NavigationBarVisible=   True
+   TabIcon         =   ""
    TabTitle        =   ""
    Title           =   "Record and Play Audio"
    Top             =   0
    Begin iOSButton RecordPauseButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   RecordPauseButton, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   RecordPauseButton, 3, <Parent>, 3, False, +1.00, 1, 1, 169, 
-      AutoLayout      =   RecordPauseButton, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   RecordPauseButton, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   RecordPauseButton, 7, , 0, False, +1.00, 1, 1, 100, , True
+      AutoLayout      =   RecordPauseButton, 3, <Parent>, 3, False, +1.00, 1, 1, 169, , True
+      AutoLayout      =   RecordPauseButton, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, , True
+      AutoLayout      =   RecordPauseButton, 8, , 0, False, +1.00, 1, 1, 30, , True
       Caption         =   "Record"
       Enabled         =   True
       Height          =   30.0
@@ -30,10 +32,10 @@ Begin iosView RecordPlayAudioView
    Begin iOSButton StopButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   StopButton, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   StopButton, 10, RecordPauseButton, 10, False, +1.00, 1, 1, , 
-      AutoLayout      =   StopButton, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   StopButton, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   StopButton, 7, , 0, False, +1.00, 1, 1, 100, , True
+      AutoLayout      =   StopButton, 10, RecordPauseButton, 10, False, +1.00, 1, 1, , , True
+      AutoLayout      =   StopButton, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, , True
+      AutoLayout      =   StopButton, 8, , 0, False, +1.00, 1, 1, 30, , True
       Caption         =   "Stop"
       Enabled         =   False
       Height          =   30.0
@@ -50,10 +52,10 @@ Begin iosView RecordPlayAudioView
    Begin iOSButton PlayButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   PlayButton, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   PlayButton, 3, <Parent>, 3, False, +1.00, 1, 1, 270, 
-      AutoLayout      =   PlayButton, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   PlayButton, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   PlayButton, 7, , 0, False, +1.00, 1, 1, 100, , True
+      AutoLayout      =   PlayButton, 3, <Parent>, 3, False, +1.00, 1, 1, 270, , True
+      AutoLayout      =   PlayButton, 9, <Parent>, 9, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   PlayButton, 8, , 0, False, +1.00, 1, 1, 30, , True
       Caption         =   "Play"
       Enabled         =   False
       Height          =   30.0
@@ -192,6 +194,24 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="TabIcon"
+		Group="Behavior"
+		Type="iOSImage"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="LargeTitleMode"
+		Visible=true
+		Group="Behavior"
+		InitialValue="2"
+		Type="LargeTitleDisplayModes"
+		EditorType="Enum"
+		#tag EnumValues
+			"0 - Automatic"
+			"1 - Always"
+			"2 - Never"
+		#tag EndEnumValues
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
 		Group="Behavior"

@@ -2,8 +2,10 @@
 Begin iosView EmptyView
    BackButtonTitle =   ""
    Compatibility   =   ""
+   LargeTitleMode  =   "2"
    Left            =   0
    NavigationBarVisible=   False
+   TabIcon         =   ""
    TabTitle        =   ""
    Title           =   "No Selection"
    Top             =   0
@@ -14,6 +16,24 @@ End
 #tag EndWindowCode
 
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="TabIcon"
+		Group="Behavior"
+		Type="iOSImage"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="LargeTitleMode"
+		Visible=true
+		Group="Behavior"
+		InitialValue="2"
+		Type="LargeTitleDisplayModes"
+		EditorType="Enum"
+		#tag EnumValues
+			"0 - Automatic"
+			"1 - Always"
+			"2 - Never"
+		#tag EndEnumValues
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
 		Group="Behavior"

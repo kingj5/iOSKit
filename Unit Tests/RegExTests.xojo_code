@@ -126,6 +126,16 @@ Inherits TestGroup
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="IsRunning"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="NotImplementedCount"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Duration"
 			Group="Behavior"
 			Type="Double"

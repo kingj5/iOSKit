@@ -184,7 +184,7 @@ Inherits NSArray
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function Create() As NSMutableArray
+		Shared Function Create() As NSMutableArray
 		  
 		  
 		  declare function array_ lib FoundationLib selector "array" (class_id as Ptr) as Ptr
@@ -200,7 +200,7 @@ Inherits NSArray
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateWithArray(anArray as NSArray) As NSMutableArray
+		Shared Function CreateWithArray(anArray as NSArray) As NSMutableArray
 		  
 		  
 		  declare function arrayWithArray lib FoundationLib selector "arrayWithArray:" (class_id as Ptr, anArray as Ptr) as Ptr
@@ -224,7 +224,7 @@ Inherits NSArray
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateWithCapacity(capacity as UInt32) As NSMutableArray
+		Shared Function CreateWithCapacity(capacity as UInt32) As NSMutableArray
 		  
 		  
 		  declare function arrayWithCapacity lib FoundationLib selector "arrayWithCapacity:" (class_id as Ptr, capacity as UInt32) as Ptr
@@ -244,7 +244,7 @@ Inherits NSArray
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateWithFile(file as FolderItem) As NSMutableArray
+		Shared Function CreateWithFile(file as FolderItem) As NSMutableArray
 		  
 		  
 		  declare function arrayWithContentsOfFile lib FoundationLib selector "arrayWithContentsOfFile:" (class_id as Ptr, aPath as CFStringRef) as Ptr
@@ -265,7 +265,7 @@ Inherits NSArray
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateWithObject(anObject as NSObject) As NSMutableArray
+		Shared Function CreateWithObject(anObject as NSObject) As NSMutableArray
 		  
 		  
 		  declare function arrayWithObject lib FoundationLib selector "arrayWithObject:" (class_id as Ptr, anObject as Ptr) as Ptr
@@ -286,7 +286,7 @@ Inherits NSArray
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateWithObjects(objects() as NSObject) As NSMutableArray
+		Shared Function CreateWithObjects(objects() as NSObject) As NSMutableArray
 		  
 		  
 		  declare function arrayWithObjects lib FoundationLib selector "arrayWithObjects:count:" (class_id as Ptr, objects as Ptr, count as UInt32) as Ptr

@@ -22,7 +22,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function MaxPlayersAllowedForMatchOfType(matchType as GKMatchType) As UInteger
+		Shared Function MaxPlayersAllowedForMatchOfType(matchType as GKMatchType) As UInteger
 		  declare function maxPlayersAllowedForMatchOfType_ lib GameKitLib selector "maxPlayersAllowedForMatchOfType:" (clsRef as ptr, matchType as GKMatchType) as UInteger
 		  Return maxPlayersAllowedForMatchOfType_(ClassRef, matchType)
 		End Function

@@ -172,6 +172,19 @@ Inherits NSObject
 			InitialValue="0"
 			Type="Integer"
 		#tag EndViewProperty
+		#tag ViewProperty
+			Name="status"
+			Group="Behavior"
+			Type="GKTurnBasedExchangeStatus"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Unknown"
+				"1 - Active"
+				"2 - Complete"
+				"3 - Resolved"
+				"4 - Cancelled"
+			#tag EndEnumValues
+		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
 #tag EndClass

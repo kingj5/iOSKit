@@ -136,7 +136,7 @@ Inherits NSDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function Create() As NSMutableDictionary
+		Shared Function Create() As NSMutableDictionary
 		  //# Creates and returns an empty dictionary.
 		  
 		  
@@ -154,7 +154,7 @@ Inherits NSDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateWithCapacity(numItems as Integer) As NSMutableDictionary
+		Shared Function CreateWithCapacity(numItems as Integer) As NSMutableDictionary
 		  
 		  
 		  declare function dictionaryWithCapacity lib FoundationLib selector "dictionaryWithCapacity:" (class_id as Ptr, numItems as UInt32) as Ptr
@@ -174,7 +174,7 @@ Inherits NSDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateWithDictionary(otherDictionary as NSDictionary) As NSMutableDictionary
+		Shared Function CreateWithDictionary(otherDictionary as NSDictionary) As NSMutableDictionary
 		  
 		  
 		  declare function dictionaryWithDictionary lib FoundationLib selector "dictionaryWithDictionary:" _
@@ -195,7 +195,7 @@ Inherits NSDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateWithFile(file as FolderItem) As NSMutableDictionary
+		Shared Function CreateWithFile(file as FolderItem) As NSMutableDictionary
 		  
 		  
 		  declare function dictionaryWithContentsOfFile lib FoundationLib selector "dictionaryWithContentsOfFile:" _
@@ -216,7 +216,7 @@ Inherits NSDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateWithObject(key as Ptr, anObject as Ptr) As NSMutableDictionary
+		Shared Function CreateWithObject(key as Ptr, anObject as Ptr) As NSMutableDictionary
 		  
 		  
 		  declare function dictionaryWithObject lib FoundationLib selector "dictionaryWithObject:forKey:" _
@@ -236,7 +236,7 @@ Inherits NSDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateWithObjects(keys() as NSObject, objects() as NSObject) As NSMutableDictionary
+		Shared Function CreateWithObjects(keys() as NSObject, objects() as NSObject) As NSMutableDictionary
 		  
 		  
 		  declare function dictionaryWithObjects lib FoundationLib selector "dictionaryWithObjects:forKeys:" _

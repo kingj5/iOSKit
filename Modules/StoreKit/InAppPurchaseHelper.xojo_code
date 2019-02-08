@@ -78,7 +78,7 @@ Inherits StoreKit.PaymentTransactionObserver
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function GetInstance() As StoreKit.InAppPurchaseHelper
+		Shared Function GetInstance() As StoreKit.InAppPurchaseHelper
 		  static instance as StoreKit.InAppPurchaseHelper
 		  
 		  if instance = nil then

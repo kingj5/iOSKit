@@ -18,7 +18,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function SpeechUtteranceWithString(string as Text) As AVFoundation.AVSpeechUtterance
+		Shared Function SpeechUtteranceWithString(string as Text) As AVFoundation.AVSpeechUtterance
 		  declare function speechUtteranceWithString_ lib AVFoundationLib selector "speechUtteranceWithString:" (clsRef as ptr, string as CFStringRef) as ptr
 		  Return new AVSpeechUtterance(speechUtteranceWithString_(ClassRef, string))
 		End Function

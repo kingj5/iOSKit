@@ -9,7 +9,7 @@ Inherits UIResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub AttemptRotationToDeviceOrientation()
+		Shared Sub AttemptRotationToDeviceOrientation()
 		  declare sub attemptRotationToDeviceOrientation_ lib UIKitLib selector "attemptRotationToDeviceOrientation" (clsRef as ptr)
 		  attemptRotationToDeviceOrientation_(ClassRef)
 		End Sub
@@ -198,6 +198,22 @@ Inherits UIResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  declare function modalPresentationStyle_ lib UIKitLib selector "modalPresentationStyle" (obj_id as ptr) as UIModalPresentationStyle
+			  Return modalPresentationStyle_(self)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  declare sub modalPresentationStyle_ lib UIKitLib selector "setModalPresentationStyle:" (obj_id as ptr, modalPresentationStyle as UIModalPresentationStyle)
+			  modalPresentationStyle_(self, value)
+			End Set
+		#tag EndSetter
+		modalPresentationStyle As UIModalPresentationStyle
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  declare function parentViewController_ lib UIKitLib selector "parentViewController" (obj_id as ptr) as ptr
 			  Return new UIViewController(parentViewController_(self))
 			End Get
@@ -318,6 +334,19 @@ Inherits UIResponder
 	#tag EndComputedProperty
 
 
+	#tag Enum, Name = UIModalPresentationStyle, Flags = &h0
+		Fullscreen = 0
+		  PageSheet
+		  FormSheet
+		  CurrentContext
+		  Custom
+		  OverFullScreen
+		  OverCurrentContext
+		  Popover
+		None = -1
+	#tag EndEnum
+
+
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="automaticallyAdjustsScrollViewInsets"
@@ -391,6 +420,23 @@ Inherits UIResponder
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="modalPresentationStyle"
+			Group="Behavior"
+			Type="UIModalPresentationStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Fullscreen"
+				"1 - PageSheet"
+				"2 - FormSheet"
+				"3 - CurrentContext"
+				"4 - Custom"
+				"5 - OverFullScreen"
+				"6 - OverCurrentContext"
+				"7 - Popover"
+				"-1 - None"
+			#tag EndEnumValues
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

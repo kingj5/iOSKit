@@ -139,7 +139,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub ResetStandardUserDefaults()
+		Shared Sub ResetStandardUserDefaults()
 		  declare sub resetStandardUserDefaults_ lib FoundationLib selector "resetStandardUserDefaults" (clsRef as ptr)
 		  resetStandardUserDefaults_(ClassRef)
 		End Sub
@@ -195,7 +195,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function StandardUserDefaults() As NSUserDefaults
+		Shared Function StandardUserDefaults() As NSUserDefaults
 		  declare function standardUserDefaults_ lib FoundationLib selector "standardUserDefaults" (clsRef as ptr) as ptr
 		  Return new NSUserDefaults(standardUserDefaults_(ClassRef))
 		End Function

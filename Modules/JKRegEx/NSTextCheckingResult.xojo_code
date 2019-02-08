@@ -88,6 +88,11 @@ Inherits NSObject
 			InitialValue="0"
 			Type="Integer"
 		#tag EndViewProperty
+		#tag ViewProperty
+			Name="numberOfRanges"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
 #tag EndClass

@@ -9,14 +9,14 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function IsVoIPAllowed() As Boolean
+		Shared Function IsVoIPAllowed() As Boolean
 		  declare function isVoIPAllowed_ lib GameKitLib selector "isVoIPAllowed" (clsRef as ptr) as Boolean
 		  Return isVoIPAllowed_(ClassRef)
 		End Function
 	#tag EndMethod
 
 	#tag DelegateDeclaration, Flags = &h0
-		Delegate Sub PlayerVoiceChatStateDidChange(player as GameKit.GKPlayer, state as ChatState)
+		Delegate Sub PlayerVoiceChatStateDidChange(player as GameKit . GKPlayer, state as ChatState)
 	#tag EndDelegateDeclaration
 
 	#tag Method, Flags = &h0

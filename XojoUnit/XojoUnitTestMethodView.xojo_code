@@ -2,6 +2,7 @@
 Begin iosView XojoUnitTestMethodView
    BackButtonTitle =   ""
    Compatibility   =   ""
+   LargeTitleMode  =   "2"
    Left            =   0
    NavigationBarVisible=   True
    TabIcon         =   ""
@@ -11,10 +12,11 @@ Begin iosView XojoUnitTestMethodView
    Begin iOSTable MethodTable
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   MethodTable, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   MethodTable, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
-      AutoLayout      =   MethodTable, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   MethodTable, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AllowRefresh    =   False
+      AutoLayout      =   MethodTable, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   MethodTable, 2, <Parent>, 2, False, +1.00, 1, 1, -0, , True
+      AutoLayout      =   MethodTable, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   MethodTable, 1, <Parent>, 1, False, +1.00, 1, 1, 0, , True
       EditingEnabled  =   False
       EditingEnabled  =   False
       EstimatedRowHeight=   -1
@@ -82,6 +84,19 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="LargeTitleMode"
+		Visible=true
+		Group="Behavior"
+		InitialValue="2"
+		Type="LargeTitleDisplayModes"
+		EditorType="Enum"
+		#tag EnumValues
+			"0 - Automatic"
+			"1 - Always"
+			"2 - Never"
+		#tag EndEnumValues
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
 		Group="Behavior"

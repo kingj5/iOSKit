@@ -2,7 +2,7 @@
 Protected Class UIBlurEffect
 Inherits Extensions.UIVisualEffect
 	#tag Method, Flags = &h0
-		 Shared Function EffectWithStyle(style as BlurEffectStyle) As Extensions.UIBlurEffect
+		Shared Function EffectWithStyle(style as BlurEffectStyle) As Extensions.UIBlurEffect
 		  declare function effectWithStyle_ lib UIKitLib selector "effectWithStyle:" (clsRef as ptr, style as BlurEffectStyle) as ptr
 		  Return new UIBlurEffect(effectWithStyle_(NSClassFromString("UIBlurEffect"),style))
 		End Function

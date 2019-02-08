@@ -30,14 +30,14 @@ Inherits QuartzCore.CALayer
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function LayerWithSession(session as AVCaptureSession) As AVFoundation.AVCaptureVideoPreviewLayer
+		Shared Function LayerWithSession(session as AVCaptureSession) As AVFoundation.AVCaptureVideoPreviewLayer
 		  declare function layerWithSession_ lib AVFoundationLib selector "layerWithSession:" (clsRef as ptr, session as ptr) as ptr
 		  Return new AVCaptureVideoPreviewLayer(layerWithSession_(ClassRef, session))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function LayerWithSessionWithNoConnection(session as AVCaptureSession) As AVFoundation.AVCaptureVideoPreviewLayer
+		Shared Function LayerWithSessionWithNoConnection(session as AVCaptureSession) As AVFoundation.AVCaptureVideoPreviewLayer
 		  declare function layerWithSessionWithNoConnection_ lib AVFoundationLib selector "layerWithSessionWithNoConnection:" (clsRef as ptr, session as ptr) as ptr
 		  Return new AVCaptureVideoPreviewLayer(layerWithSessionWithNoConnection_(ClassRef, session))
 		End Function

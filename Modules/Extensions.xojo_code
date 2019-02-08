@@ -219,6 +219,27 @@ Protected Module Extensions
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0, Description = 52657475726E732054727565206966207468652063757272656E742064657669636520697320616E206950686F6E65582028526571756972657320586F6A6F2032303138723129
+		Function isIPhoneX() As Boolean
+		  
+		  
+		  Declare Function mainScreen Lib UIKitLib selector "mainScreen" (clsRef As ptr) As ptr
+		  
+		  #If Target32Bit
+		    Return False
+		    
+		  #ElseIf Target64Bit
+		    Declare Function nativebounds Lib UIKitLib selector "nativeBounds" (obj_id As Ptr) As CGRect64
+		    Dim sz As CGSize64 = nativeBounds(mainScreen(NSClassFromString("UIScreen"))).rsize
+		    
+		    If sz.w = 1125 And sz.h = 2436 Then Return True
+		  #EndIf
+		  
+		  
+		  
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Sub MsgBox(title as Text, message as text = "")
 		  dim msg as new iOSMessageBox
@@ -276,6 +297,34 @@ Protected Module Extensions
 		  dim NSDataRef as ptr = dataWithContentsOfFile(NSClassFromString("NSData"), f.Path)
 		  
 		  Return NSDataRef
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function OpenURL(url As Text) As Boolean
+		  Declare Function NSClassFromString Lib FoundationLib (name As CFStringRef) As Ptr
+		  Declare Function sharedApplication Lib UIKitLib Selector "sharedApplication" (obj As Ptr) As Ptr
+		  Dim sharedApp As Ptr = sharedApplication(NSClassFromString("UIApplication"))
+		  
+		  Declare Function URLWithString Lib FoundationLib Selector "URLWithString:" ( id As Ptr, URLString As CFStringRef ) As Ptr
+		  Dim nsURL As Ptr = URLWithString(NSClassFromString("NSURL"), url)
+		  
+		  
+		  
+		  If Double.FromText(UIDevice.currentDevice.SystemVersion) >= 10.0 Then
+		    
+		    Declare Sub openURL Lib UIKitLib Selector "openURL:options:completionHandler:" (id As Ptr, nsurl As Ptr, options As ptr, completion As ptr)
+		    openURL(sharedApp, nsURL, nil, nil)
+		    
+		    Return True
+		    
+		  Else
+		    
+		    Declare Function openURL Lib UIKitLib Selector "openURL:" (id As Ptr, nsurl As Ptr) As Boolean
+		    Return openURL(sharedApp, nsURL)
+		    
+		    
+		  End If
 		End Function
 	#tag EndMethod
 

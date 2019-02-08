@@ -38,6 +38,17 @@ Inherits UIGestureRecognizer
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="state"
+			Group="Behavior"
+			Type="TouchState"
+			EditorType="Enum"
+			#tag EnumValues
+				"3 - Ended"
+				"1 - Began"
+				"2 - Changed"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"

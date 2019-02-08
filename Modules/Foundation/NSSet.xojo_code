@@ -86,7 +86,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function Set() As NSSet
+		Shared Function Set() As NSSet
 		  declare function set_ lib FoundationLib selector "set" (clsRef as ptr) as ptr
 		  Return new NSSet(set_(ClassRef))
 		End Function
@@ -121,21 +121,21 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function SetWithArray(arr as NSArray) As NSSet
+		Shared Function SetWithArray(arr as NSArray) As NSSet
 		  declare function setWithArray_ lib FoundationLib selector "setWithArray:" (clsRef as ptr, arr as ptr) as ptr
 		  Return new NSSet(setWithArray_(ClassRef, arr))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function SetWithObject(obj as Foundation.NSObject) As NSSet
+		Shared Function SetWithObject(obj as Foundation.NSObject) As NSSet
 		  declare function setWithObject_ lib FoundationLib selector "setWithObject:" (clsRef as ptr, object as ptr) as ptr
 		  Return new NSSet(setWithObject_(ClassRef, obj))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function SetWithSet(set as NSSet) As NSSet
+		Shared Function SetWithSet(set as NSSet) As NSSet
 		  declare function setWithSet_ lib FoundationLib selector "setWithSet:" (clsRef as ptr, set as ptr) as ptr
 		  Return new NSSet(setWithSet_(ClassRef, set))
 		End Function
@@ -220,6 +220,11 @@ Inherits NSObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="count"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

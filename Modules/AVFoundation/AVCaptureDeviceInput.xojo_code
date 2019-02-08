@@ -22,7 +22,7 @@ Inherits AVFoundation.AVCaptureInput
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function DeviceInputWithDeviceError(device as AVCaptureDevice, byref outError as NSError) As AVFoundation.AVCaptureDeviceInput
+		Shared Function DeviceInputWithDeviceError(device as AVCaptureDevice, byref outError as NSError) As AVFoundation.AVCaptureDeviceInput
 		  declare function deviceInputWithDevice_ lib AVFoundationLib selector "deviceInputWithDevice:error:" (clsRef as ptr, device as ptr, byref outError as ptr) as ptr
 		  dim err as ptr
 		  dim result as new AVCaptureDeviceInput(deviceInputWithDevice_(ClassRef, device, err))

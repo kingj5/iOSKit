@@ -2,7 +2,7 @@
 Protected Class UIAlertAction
 Inherits NSObject
 	#tag Method, Flags = &h0
-		 Shared Function ActionWithTitleStyleHandler(title as CFStringRef, style as UIAlertActionStyle, comphandler as UIAlertActionCompletionHandler) As UIAlertAction
+		Shared Function ActionWithTitleStyleHandler(title as CFStringRef, style as UIAlertActionStyle, comphandler as UIAlertActionCompletionHandler) As UIAlertAction
 		  declare function actionWithTitle_ lib UIKitLib selector "actionWithTitle:style:handler:" (clsRef as ptr, title as CFStringRef, style as UIAlertActionStyle, handler as ptr) as ptr
 		  dim handler as new UIAlertActionCompletionHandlerWrapper(comphandler)
 		  dim blk as new iOSBlock(AddressOf handler.handler)
@@ -92,6 +92,12 @@ Inherits NSObject
 			Name="style"
 			Group="Behavior"
 			Type="UIAlertActionStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Default"
+				"1 - Cancel"
+				"2 - Destructive"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

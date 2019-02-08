@@ -1,7 +1,7 @@
 #tag Class
 Class NSObject
 	#tag Method, Flags = &h0
-		 Shared Function Allocate(clsRef as ptr) As ptr
+		Shared Function Allocate(clsRef as ptr) As ptr
 		  declare function alloc lib FoundationLib selector "alloc" (clsRef as ptr) as ptr
 		  Return alloc(clsRef)
 		End Function
@@ -36,7 +36,7 @@ Class NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function Initialize(obj_id as ptr) As ptr
+		Shared Function Initialize(obj_id as ptr) As ptr
 		  declare function init lib FoundationLib selector "init" (obj_id as ptr) as ptr
 		  Return init(obj_id)
 		End Function

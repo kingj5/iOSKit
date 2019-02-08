@@ -2,7 +2,7 @@
 Protected Class UIVibrancyEffect
 Inherits Extensions.UIVisualEffect
 	#tag Method, Flags = &h0
-		 Shared Function EffectForBlurEffect(blurEffect as Extensions.UIBlurEffect) As Extensions.UIVisualEffect
+		Shared Function EffectForBlurEffect(blurEffect as Extensions.UIBlurEffect) As Extensions.UIVisualEffect
 		  declare function effectWithBlurEffect_ lib UIKitLib selector "effectForBlurEffect:" (clsRef as ptr, effect as ptr) as ptr
 		  Return new UIVibrancyEffect(effectWithBlurEffect_(NSClassFromString("UIVibrancyEffect"),blurEffect))
 		End Function

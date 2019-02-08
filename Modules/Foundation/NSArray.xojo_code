@@ -205,7 +205,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function Create() As NSArray
+		Shared Function Create() As NSArray
 		  
 		  
 		  declare function array_ lib FoundationLib selector "array" (class_id as Ptr) as Ptr
@@ -221,7 +221,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateWithArray(anArray as NSArray) As NSArray
+		Shared Function CreateWithArray(anArray as NSArray) As NSArray
 		  //# Creates and returns an array containing the objects in another given array.
 		  
 		  
@@ -245,7 +245,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateWithFile(file as FolderItem) As NSArray
+		Shared Function CreateWithFile(file as FolderItem) As NSArray
 		  //# Creates and returns an array containing the contents of the file specified by a given path.
 		  
 		  
@@ -266,7 +266,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateWithObject(anObject as NSObject) As NSArray
+		Shared Function CreateWithObject(anObject as NSObject) As NSArray
 		  //# Creates and returns an array containing a given object.
 		  
 		  
@@ -287,7 +287,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateWithObjects(objects() as NSObject) As NSArray
+		Shared Function CreateWithObjects(objects() as NSObject) As NSArray
 		  //# Creates and returns an array containing the objects in the argument list.
 		  
 		  

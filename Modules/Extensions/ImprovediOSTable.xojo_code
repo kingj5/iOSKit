@@ -91,6 +91,13 @@ Inherits iOSTable
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="AllowRefresh"
+			Visible=true
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="AccessibilityHint"
 			Group="Behavior"
 			Type="Text"

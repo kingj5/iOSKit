@@ -137,6 +137,16 @@ Protected Class Camera
 			InitialValue="0"
 			Type="Integer"
 		#tag EndViewProperty
+		#tag ViewProperty
+			Name="editedImage"
+			Group="Behavior"
+			Type="iOSImage"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="originalImage"
+			Group="Behavior"
+			Type="iOSImage"
+		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
 #tag EndClass

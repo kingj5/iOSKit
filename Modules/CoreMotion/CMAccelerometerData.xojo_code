@@ -15,6 +15,11 @@ Inherits CMLogItem
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="timeStamp"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"

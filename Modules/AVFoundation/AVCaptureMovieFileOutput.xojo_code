@@ -44,6 +44,26 @@ Inherits AVFoundation.AVCaptureFileOutput
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="recording"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="maxRecordedFileSize"
+			Group="Behavior"
+			Type="Int64"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="minFreeDiskSpaceLimit"
+			Group="Behavior"
+			Type="Int64"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="recordedFileSize"
+			Group="Behavior"
+			Type="Int64"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"

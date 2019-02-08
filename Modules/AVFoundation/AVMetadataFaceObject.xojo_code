@@ -62,6 +62,11 @@ Inherits AVFoundation.AVMetadataObject
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="type"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="faceID"
 			Group="Behavior"
 			Type="Integer"

@@ -1247,6 +1247,11 @@ Inherits NSObject
 			InitialValue="0"
 			Type="Integer"
 		#tag EndViewProperty
+		#tag ViewProperty
+			Name="UTF8String"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
 #tag EndClass

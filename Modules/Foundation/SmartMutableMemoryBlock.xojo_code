@@ -34,6 +34,11 @@ Inherits Xojo.Core.MutableMemoryBlock
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="Size"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"

@@ -28,7 +28,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function GetInstance() As TurnBasedMatchHelper
+		Shared Function GetInstance() As TurnBasedMatchHelper
 		  static helper as new TurnBasedMatchHelper
 		  Return helper
 		End Function

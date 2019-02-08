@@ -16,7 +16,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub LoadReceivedChallengesWithCompletionHandler(completionHandler as NSArrayCompletionHandler)
+		Shared Sub LoadReceivedChallengesWithCompletionHandler(completionHandler as NSArrayCompletionHandler)
 		  declare sub loadReceivedChallengesWithCompletionHandler_ lib GameKitLib selector "loadReceivedChallengesWithCompletionHandler:" (clsRef as ptr, completionHandler as ptr)
 		  dim handler as new GameKit.NSArrayCompletionHandlerWrapper(completionHandler)
 		  dim blk as new iOSBlock(AddressOf handler.handler)

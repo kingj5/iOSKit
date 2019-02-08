@@ -60,6 +60,11 @@ Inherits StoreKit.SKPayment
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="applicationUsername"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"

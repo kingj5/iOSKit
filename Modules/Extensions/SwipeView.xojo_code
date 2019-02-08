@@ -32,20 +32,22 @@ Inherits iOSUserControl
 
 	#tag Event
 		Sub Open()
-		  dim useGestures as Boolean = raiseEvent UsesGestures
+		  Dim useGestures As Boolean = RaiseEvent UsesGestures
 		  
 		  if useGestures then
 		    LeftRecognizer = new UISwipeGestureRecognizer(UISwipeGestureRecognizer.SwipeDirection.Left)
 		    RightRecognizer = new UISwipeGestureRecognizer(UISwipeGestureRecognizer.SwipeDirection.Right)
 		    UpRecognizer = new UISwipeGestureRecognizer(UISwipeGestureRecognizer.SwipeDirection.Up)
 		    DownRecognizer = new UISwipeGestureRecognizer(UISwipeGestureRecognizer.SwipeDirection.Down)
-		    TapRecognizer = new UITapGestureRecognizer
+		    TapRecognizer = New UITapGestureRecognizer
+		    PinchRecognizer = New UIPinchGestureRecognizer
 		    
 		    AddHandler LeftRecognizer.Gesture, AddressOf HandleLeftSwipe
 		    AddHandler RightRecognizer.Gesture, AddressOf HandleRightSwipe
 		    AddHandler UpRecognizer.Gesture, AddressOf HandleUpSwipe
 		    AddHandler DownRecognizer.Gesture, AddressOf HandleDownSwipe
 		    AddHandler TapRecognizer.Gesture, AddressOf HandleTap
+		    AddHandler PinchRecognizer.Gesture, AddressOf HandlePinch
 		    
 		    declare sub addGestureRecognizer lib UIKitLib selector "addGestureRecognizer:" _
 		    (view as ptr, recognizer as ptr)
@@ -53,7 +55,8 @@ Inherits iOSUserControl
 		    addGestureRecognizer(self.Handle, RightRecognizer)
 		    addGestureRecognizer(self.Handle, UpRecognizer)
 		    addGestureRecognizer(self.Handle, DownRecognizer)
-		    addGestureRecognizer(self.Handle, TapRecognizer)
+		    addGestureRecognizer(Self.Handle, TapRecognizer)
+		    addGestureRecognizer(Self.Handle, PinchRecognizer)
 		  else
 		    declare sub setMultipleTouchEnabled lib UIKitLib selector "setMultipleTouchEnabled:" (obj_id as ptr, yesNo as Boolean)
 		    setMultipleTouchEnabled(self.Handle,True)
@@ -77,6 +80,16 @@ Inherits iOSUserControl
 		  SwipeLeft(additionalData)
 		  
 		  #Pragma Unused sender
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub HandlePinch(sender as UIKit.UIPinchGestureRecognizer, additionalData as UIKit.UIGestureRecognizer)
+		  dim tmp as NSPoint = additionalData.locationInView(new UIView(self.Handle))
+		  Pinch(new xojo.Core.Point(tmp.x,tmp.y), sender.scale, sender.velocity)
+		  
+		  #Pragma Unused sender
+		  
 		End Sub
 	#tag EndMethod
 
@@ -466,6 +479,10 @@ Inherits iOSUserControl
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
+		Event Pinch(location as xojo.Core.Point, scale as double, velocity as double)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
 		Event ShakeBegan()
 	#tag EndHook
 
@@ -520,6 +537,10 @@ Inherits iOSUserControl
 
 	#tag Property, Flags = &h21
 		Private LeftRecognizer As UISwipeGestureRecognizer
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private PinchRecognizer As UIKit.UIPinchGestureRecognizer
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
