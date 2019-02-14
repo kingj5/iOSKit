@@ -87,7 +87,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function SharedMatchmaker() As GKMatchmaker
+		Shared Function SharedMatchmaker() As GKMatchmaker
 		  declare function sharedMatchmaker_ lib GameKitLib selector "sharedMatchmaker" (clsRef as ptr) as ptr
 		  Return new GKMatchmaker(sharedMatchmaker_(ClassRef))
 		End Function

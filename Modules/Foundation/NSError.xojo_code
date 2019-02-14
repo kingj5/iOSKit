@@ -24,7 +24,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function errorWithDomain(domain as Text, code as Integer, userInfo as Foundation.NSDictionary) As NSError
+		Shared Function errorWithDomain(domain as Text, code as Integer, userInfo as Foundation.NSDictionary) As NSError
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:

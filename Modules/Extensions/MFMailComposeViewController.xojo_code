@@ -10,7 +10,7 @@ Inherits UIKit.UINavigationController
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function canSendMail() As Boolean
+		Shared Function canSendMail() As Boolean
 		  declare function canSendMail_ lib MessageUIKitLib selector "canSendMail" (clsRef as ptr) as Boolean
 		  Return canSendMail_(NSClassFromString("MFMailComposeViewController"))
 		End Function
@@ -150,6 +150,23 @@ Inherits UIKit.UINavigationController
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="modalPresentationStyle"
+			Group="Behavior"
+			Type="UIModalPresentationStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Fullscreen"
+				"1 - PageSheet"
+				"2 - FormSheet"
+				"3 - CurrentContext"
+				"4 - Custom"
+				"5 - OverFullScreen"
+				"6 - OverCurrentContext"
+				"7 - Popover"
+				"-1 - None"
+			#tag EndEnumValues
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="automaticallyAdjustsScrollViewInsets"
 			Group="Behavior"

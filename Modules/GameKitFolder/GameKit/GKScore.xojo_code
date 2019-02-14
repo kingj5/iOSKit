@@ -35,7 +35,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub ReportScoresWithCompletionHandler(scores as NSArray, completionHandler as NSErrorCompletionHandler)
+		Shared Sub ReportScoresWithCompletionHandler(scores as NSArray, completionHandler as NSErrorCompletionHandler)
 		  declare sub reportScores_ lib GameKitLib selector "reportScores:withCompletionHandler:" (clsRef as ptr, scores as ptr, completionHandler as ptr)
 		  dim handler as new NSErrorCompletionHandlerWrapper(completionHandler)
 		  dim blk as new iOSBlock(AddressOf handler.handler)
@@ -44,7 +44,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub ReportScoresWithEligibleChallengesWithCompletionHandler(scores as NSArray, challenges as NSArray, completionHandler as NSErrorCompletionHandler)
+		Shared Sub ReportScoresWithEligibleChallengesWithCompletionHandler(scores as NSArray, challenges as NSArray, completionHandler as NSErrorCompletionHandler)
 		  declare sub reportScores_ lib GameKitLib selector "reportScores:withEligibleChallenges:withCompletionHandler:" (clsRef as ptr, scores as ptr, challenges as ptr, completionHandler as ptr)
 		  dim handler as new NSErrorCompletionHandlerWrapper(completionHandler)
 		  dim blk as new iOSBlock(AddressOf handler.handler)

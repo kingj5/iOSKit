@@ -2,18 +2,20 @@
 Begin iosView UIAlertView
    BackButtonTitle =   "Back"
    Compatibility   =   ""
+   LargeTitleMode  =   "2"
    Left            =   0
    NavigationBarVisible=   True
+   TabIcon         =   ""
    TabTitle        =   ""
    Title           =   "UIAlertController"
    Top             =   0
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 144, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, , True
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, , True
+      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 144, , True
       Caption         =   "Press Me!"
       Enabled         =   True
       Height          =   30.0
@@ -30,13 +32,14 @@ Begin iosView UIAlertView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   Label1, 1, Button1, 1, False, +1.00, 1, 1, -90, 
-      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 262, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, , True
+      AutoLayout      =   Label1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, , True
+      AutoLayout      =   Label1, 1, Button1, 1, False, +1.00, 1, 1, -90, , True
+      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 262, , True
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   ""
@@ -91,6 +94,24 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="TabIcon"
+		Group="Behavior"
+		Type="iOSImage"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="LargeTitleMode"
+		Visible=true
+		Group="Behavior"
+		InitialValue="2"
+		Type="LargeTitleDisplayModes"
+		EditorType="Enum"
+		#tag EnumValues
+			"0 - Automatic"
+			"1 - Always"
+			"2 - Never"
+		#tag EndEnumValues
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
 		Group="Behavior"

@@ -202,7 +202,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function SharedInstance() As AVAudioSession
+		Shared Function SharedInstance() As AVAudioSession
 		  declare function sharedInstance_ lib AVFoundationLib selector "sharedInstance" (clsRef as ptr) as ptr
 		  Return new AVAudioSession(sharedInstance_(ClassRef))
 		End Function

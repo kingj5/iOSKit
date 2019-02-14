@@ -23,7 +23,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function CanMakePayments() As Boolean
+		Shared Function CanMakePayments() As Boolean
 		  declare function canMakePayments_ lib StoreKitLib selector "canMakePayments" (clsRef as ptr) as Boolean
 		  Return canMakePayments_(ClassRef)
 		End Function
@@ -37,7 +37,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function DefaultQueue() As SKPaymentQueue
+		Shared Function DefaultQueue() As SKPaymentQueue
 		  declare function defaultQueue_ lib StoreKitLib selector "defaultQueue" (clsRef as ptr) as ptr
 		  Return new SKPaymentQueue(defaultQueue_(ClassRef))
 		End Function

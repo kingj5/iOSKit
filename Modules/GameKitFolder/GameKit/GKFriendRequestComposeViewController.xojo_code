@@ -55,7 +55,7 @@ Inherits UIKit.UINavigationController
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function MaxNumberOfRecipients() As UInteger
+		Shared Function MaxNumberOfRecipients() As UInteger
 		  declare function maxNumberOfRecipients_ lib GameKitLib selector "maxNumberOfRecipients" (clsRef as ptr) as UInteger
 		  Return maxNumberOfRecipients_(ClassRef)
 		End Function
@@ -108,6 +108,23 @@ Inherits UIKit.UINavigationController
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="modalPresentationStyle"
+			Group="Behavior"
+			Type="UIModalPresentationStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Fullscreen"
+				"1 - PageSheet"
+				"2 - FormSheet"
+				"3 - CurrentContext"
+				"4 - Custom"
+				"5 - OverFullScreen"
+				"6 - OverCurrentContext"
+				"7 - Popover"
+				"-1 - None"
+			#tag EndEnumValues
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="automaticallyAdjustsScrollViewInsets"
 			Group="Behavior"

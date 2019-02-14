@@ -54,6 +54,17 @@ Inherits UIGestureRecognizer
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="state"
+			Group="Behavior"
+			Type="TouchState"
+			EditorType="Enum"
+			#tag EnumValues
+				"3 - Ended"
+				"1 - Began"
+				"2 - Changed"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -85,6 +96,16 @@ Inherits UIGestureRecognizer
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="numberOfTapsRequired"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="numberOfTouchesRequired"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

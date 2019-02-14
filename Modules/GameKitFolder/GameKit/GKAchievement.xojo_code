@@ -35,7 +35,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub LoadAchievementsWithCompletionHandler(completionHandler as NSArrayCompletionHandler)
+		Shared Sub LoadAchievementsWithCompletionHandler(completionHandler as NSArrayCompletionHandler)
 		  declare sub loadAchievementsWithCompletionHandler_ lib GameKitLib selector "loadAchievementsWithCompletionHandler:" (clsRef as ptr, completionHandler as ptr)
 		  dim handler as new GameKit.NSArrayCompletionHandlerWrapper(completionHandler)
 		  dim blk as new iOSBlock(AddressOf handler.handler)
@@ -44,7 +44,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub ReportAchievementsWithCompletionHandler(achievements as NSArray, completionHandler as NSErrorCompletionHandler)
+		Shared Sub ReportAchievementsWithCompletionHandler(achievements as NSArray, completionHandler as NSErrorCompletionHandler)
 		  declare sub reportAchievements_ lib GameKitLib selector "reportAchievements:withCompletionHandler:" (clsRef as ptr, achievements as ptr, completionHandler as ptr)
 		  dim handler as new NSErrorCompletionHandlerWrapper(completionHandler)
 		  dim blk as new iOSBlock(AddressOf handler.handler)
@@ -53,7 +53,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub ReportAchievementsWithEligibleChallengesWithCompletionHandler(achievements as NSArray, challenges as NSArray, completionHandler as NSErrorCompletionHandler)
+		Shared Sub ReportAchievementsWithEligibleChallengesWithCompletionHandler(achievements as NSArray, challenges as NSArray, completionHandler as NSErrorCompletionHandler)
 		  declare sub reportAchievements_ lib GameKitLib selector "reportAchievements:withEligibleChallenges:withCompletionHandler:" (clsRef as ptr, achievements as ptr, challenges as ptr, completionHandler as ptr)
 		  dim handler as new NSErrorCompletionHandlerWrapper(completionHandler)
 		  dim blk as new iOSBlock(AddressOf handler.handler)
@@ -62,7 +62,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub ResetAchievementsWithCompletionHandler(completionHandler as NSErrorCompletionHandler)
+		Shared Sub ResetAchievementsWithCompletionHandler(completionHandler as NSErrorCompletionHandler)
 		  declare sub resetAchievementsWithCompletionHandler_ lib GameKitLib selector "resetAchievementsWithCompletionHandler:" (clsRef as ptr, completionHandler as ptr)
 		  dim handler as new NSErrorCompletionHandlerWrapper(completionHandler)
 		  dim blk as new iOSBlock(AddressOf handler.handler)

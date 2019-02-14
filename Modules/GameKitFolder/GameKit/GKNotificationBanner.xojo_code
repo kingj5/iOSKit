@@ -13,7 +13,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub ShowBannerWithTitleMessageCompletionHandler(title as Text, message as Text, completionHandler as BannerCompletionHandler)
+		Shared Sub ShowBannerWithTitleMessageCompletionHandler(title as Text, message as Text, completionHandler as BannerCompletionHandler)
 		  declare sub showBannerWithTitle_ lib GameKitLib selector "showBannerWithTitle:message:completionHandler:" (clsRef as ptr, title as CFStringRef, message as CFStringRef, completionHandler as ptr)
 		  if completionHandler <> nil then
 		    dim blk as new iOSBlock(completionHandler)
@@ -25,7 +25,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub ShowBannerWithTitleMessageDurationCompletionHandler(title as Text, message as Text, duration as double, completionHandler as BannerCompletionHandler)
+		Shared Sub ShowBannerWithTitleMessageDurationCompletionHandler(title as Text, message as Text, duration as double, completionHandler as BannerCompletionHandler)
 		  declare sub showBannerWithTitle_ lib GameKitLib selector "showBannerWithTitle:message:duration:completionHandler:" (clsRef as ptr, title as CFStringRef, message as CFStringRef, duration as double, completionHandler as ptr)
 		  if completionHandler <> nil Then
 		    dim blk as new iOSBlock(completionHandler)

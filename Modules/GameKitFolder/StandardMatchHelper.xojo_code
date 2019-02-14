@@ -58,7 +58,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function GetInstance() As StandardMatchHelper
+		Shared Function GetInstance() As StandardMatchHelper
 		  static helper as new StandardMatchHelper
 		  Return helper
 		End Function

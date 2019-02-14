@@ -2,14 +2,14 @@
 Class UIImagePickerController
 Inherits NSObject
 	#tag Method, Flags = &h0
-		 Shared Function AvailableCaptureModesForCameraDevice(cameraDevice as UIImagePickerControllerCameraDevice) As NSArray
+		Shared Function AvailableCaptureModesForCameraDevice(cameraDevice as UIImagePickerControllerCameraDevice) As NSArray
 		  declare function availableCaptureModesForCameraDevice_ lib UIKitLib selector "availableCaptureModesForCameraDevice:" (clsRef as ptr, cameraDevice as UIImagePickerControllerCameraDevice) as ptr
 		  Return new NSArray(availableCaptureModesForCameraDevice_(ClassRef, cameraDevice))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function AvailableMediaTypesForSourceType(sourceType as Source) As NSArray
+		Shared Function AvailableMediaTypesForSourceType(sourceType as Source) As NSArray
 		  declare function availableMediaTypesForSourceType_ lib UIKitLib selector "availableMediaTypesForSourceType:" (clsRef as ptr, sourceType as Source) as ptr
 		  Return new NSArray(availableMediaTypesForSourceType_(ClassRef, sourceType))
 		End Function
@@ -115,21 +115,21 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function IsCameraDeviceAvailable(cameraDevice as UIImagePickerControllerCameraDevice) As Boolean
+		Shared Function IsCameraDeviceAvailable(cameraDevice as UIImagePickerControllerCameraDevice) As Boolean
 		  declare function isCameraDeviceAvailable_ lib UIKitLib selector "isCameraDeviceAvailable:" (clsRef as ptr, cameraDevice as UIImagePickerControllerCameraDevice) as Boolean
 		  Return isCameraDeviceAvailable_(ClassRef, cameraDevice)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function IsFlashAvailableForCameraDevice(cameraDevice as UIImagePickerControllerCameraDevice) As Boolean
+		Shared Function IsFlashAvailableForCameraDevice(cameraDevice as UIImagePickerControllerCameraDevice) As Boolean
 		  declare function isFlashAvailableForCameraDevice_ lib UIKitLib selector "isFlashAvailableForCameraDevice:" (clsRef as ptr, cameraDevice as UIImagePickerControllerCameraDevice) as Boolean
 		  Return isFlashAvailableForCameraDevice_(ClassRef, cameraDevice)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function IsSourceTypeAvailable(sourceType as Source) As Boolean
+		Shared Function IsSourceTypeAvailable(sourceType as Source) As Boolean
 		  declare function isSourceTypeAvailable_ lib UIKitLib selector "isSourceTypeAvailable:" (clsRef as ptr, sourceType as Source) as Boolean
 		  Return isSourceTypeAvailable_(ClassRef, sourceType)
 		End Function
@@ -537,6 +537,16 @@ Inherits NSObject
 				"4 - IFrame1280x720"
 				"5 - IFrame960x540"
 			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="editedImage"
+			Group="Behavior"
+			Type="iOSImage"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="originalImage"
+			Group="Behavior"
+			Type="iOSImage"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

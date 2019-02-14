@@ -301,6 +301,34 @@ Protected Module Extensions
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function OpenURL(url As Text) As Boolean
+		  Declare Function NSClassFromString Lib FoundationLib (name As CFStringRef) As Ptr
+		  Declare Function sharedApplication Lib UIKitLib Selector "sharedApplication" (obj As Ptr) As Ptr
+		  Dim sharedApp As Ptr = sharedApplication(NSClassFromString("UIApplication"))
+		  
+		  Declare Function URLWithString Lib FoundationLib Selector "URLWithString:" ( id As Ptr, URLString As CFStringRef ) As Ptr
+		  Dim nsURL As Ptr = URLWithString(NSClassFromString("NSURL"), url)
+		  
+		  
+		  
+		  If Double.FromText(UIDevice.currentDevice.SystemVersion) >= 10.0 Then
+		    
+		    Declare Sub openURL Lib UIKitLib Selector "openURL:options:completionHandler:" (id As Ptr, nsurl As Ptr, options As ptr, completion As ptr)
+		    openURL(sharedApp, nsURL, nil, nil)
+		    
+		    Return True
+		    
+		  Else
+		    
+		    Declare Function openURL Lib UIKitLib Selector "openURL:" (id As Ptr, nsurl As Ptr) As Boolean
+		    Return openURL(sharedApp, nsURL)
+		    
+		    
+		  End If
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub PresentViewController(extends aView as iOSView, viewControllerToPresent as UIViewController, flag as Boolean, completion as iOSBlock)
 		  declare sub presentViewController_ lib UIKitLib selector "presentViewController:animated:completion:" (obj_id as ptr, viewControllerToPresent as ptr, flag as Boolean, completion as ptr)
 		  if completion <> nil then

@@ -36,7 +36,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub LoadLeaderboardsWithCompletionHandler(completionHandler as NSArrayCompletionHandler)
+		Shared Sub LoadLeaderboardsWithCompletionHandler(completionHandler as NSArrayCompletionHandler)
 		  declare sub loadLeaderboardsWithCompletionHandler_ lib GameKitLib selector "loadLeaderboardsWithCompletionHandler:" (clsRef as ptr, completionHandler as ptr)
 		  dim handler as new GameKit.NSArrayCompletionHandlerWrapper(completionHandler)
 		  dim blk as new iOSBlock(AddressOf handler.handler)

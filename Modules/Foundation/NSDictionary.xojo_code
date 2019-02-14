@@ -127,7 +127,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function Create() As NSDictionary
+		Shared Function Create() As NSDictionary
 		  //# Creates and returns an empty dictionary.
 		  
 		  
@@ -145,7 +145,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateFromDictionary(otherDictionary as NSDictionary) As NSDictionary
+		Shared Function CreateFromDictionary(otherDictionary as NSDictionary) As NSDictionary
 		  //# Creates and returns a dictionary containing the keys and values from another given dictionary.
 		  
 		  
@@ -166,7 +166,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function CreateFromFile(file as FolderItem) As NSDictionary
+		Shared Function CreateFromFile(file as FolderItem) As NSDictionary
 		  //# Create a new NSDictionary from a file (like as .plist file)
 		  
 		  
@@ -185,7 +185,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateFromObject(key as Ptr, anObject as Ptr) As NSDictionary
+		Shared Function CreateFromObject(key as Ptr, anObject as Ptr) As NSDictionary
 		  //# Creates and returns a dictionary containing a given key and value.
 		  
 		  
@@ -205,7 +205,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function CreateFromObjects(keys() as NSObject, objects() as NSObject) As NSDictionary
+		Shared Function CreateFromObjects(keys() as NSObject, objects() as NSObject) As NSDictionary
 		  //# Creates and returns a dictionary containing entries constructed from the contents of an array of keys and an array of values.
 		  
 		  

@@ -2,6 +2,7 @@
 Begin iosView MissingControlsView
    BackButtonTitle =   "Back"
    Compatibility   =   ""
+   LargeTitleMode  =   "2"
    Left            =   0
    NavigationBarVisible=   True
    TabIcon         =   ""
@@ -23,10 +24,10 @@ Begin iosView MissingControlsView
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, 160, 
-      AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Label2, 3, <Parent>, 3, False, +1.00, 1, 1, 73, 
-      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, 160, , True
+      AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 100, , True
+      AutoLayout      =   Label2, 3, <Parent>, 3, False, +1.00, 1, 1, 73, , True
+      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, , True
       Enabled         =   True
       Height          =   30.0
       Left            =   160
@@ -45,10 +46,10 @@ Begin iosView MissingControlsView
    Begin Extensions.PickerView PickerView2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   PickerView2, 8, , 0, False, +1.00, 1, 1, 116, 
-      AutoLayout      =   PickerView2, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   PickerView2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   PickerView2, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   PickerView2, 8, , 0, False, +1.00, 1, 1, 116, , True
+      AutoLayout      =   PickerView2, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   PickerView2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, , True
+      AutoLayout      =   PickerView2, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, , True
       Height          =   116.0
       Left            =   20
       LockedInPosition=   False
@@ -62,11 +63,11 @@ Begin iosView MissingControlsView
       AccessibilityLabel=   ""
       autocapitalizationType=   "1"
       autocorrectionType=   ""
-      AutoLayout      =   UISearchBar1, 3, <Parent>, 3, False, +1.00, 1, 1, 151, 
-      AutoLayout      =   UISearchBar1, 9, <Parent>, 1, False, +1.00, 2, 1, 20, 
-      AutoLayout      =   UISearchBar1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   UISearchBar1, 8, , 0, False, +1.00, 1, 1, 121, 
-      AutoLayout      =   UISearchBar1, 2, <Parent>, 2, False, +1.00, 2, 1, -20, 
+      AutoLayout      =   UISearchBar1, 3, <Parent>, 3, False, +1.00, 1, 1, 151, , True
+      AutoLayout      =   UISearchBar1, 9, <Parent>, 1, False, +1.00, 2, 1, 20, , True
+      AutoLayout      =   UISearchBar1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, , True
+      AutoLayout      =   UISearchBar1, 8, , 0, False, +1.00, 1, 1, 121, , True
+      AutoLayout      =   UISearchBar1, 2, <Parent>, 2, False, +1.00, 2, 1, -20, , True
       backgroundImage =   ""
       barStyle        =   ""
       Height          =   121.0
@@ -94,10 +95,10 @@ Begin iosView MissingControlsView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 304, 
-      AutoLayout      =   Label1, 2, <Parent>, 2, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, , True
+      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 304, , True
+      AutoLayout      =   Label1, 2, <Parent>, 2, False, +1.00, 1, 1, 20, , True
+      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, , True
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -116,10 +117,10 @@ Begin iosView MissingControlsView
    Begin Extensions.UIStepper UIStepper1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   UIStepper1, 8, , 0, False, +1.00, 1, 1, 46, 
-      AutoLayout      =   UIStepper1, 1, <Parent>, 1, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   UIStepper1, 3, <Parent>, 3, False, +1.00, 2, 1, 70, 
-      AutoLayout      =   UIStepper1, 7, , 0, False, +1.00, 1, 1, 103, 
+      AutoLayout      =   UIStepper1, 8, , 0, False, +1.00, 1, 1, 46, , True
+      AutoLayout      =   UIStepper1, 1, <Parent>, 1, False, +1.00, 1, 1, 30, , True
+      AutoLayout      =   UIStepper1, 3, <Parent>, 3, False, +1.00, 2, 1, 70, , True
+      AutoLayout      =   UIStepper1, 7, , 0, False, +1.00, 1, 1, 103, , True
       autorepeat      =   False
       continuous      =   False
       Height          =   46.0
@@ -244,6 +245,19 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="LargeTitleMode"
+		Visible=true
+		Group="Behavior"
+		InitialValue="2"
+		Type="LargeTitleDisplayModes"
+		EditorType="Enum"
+		#tag EnumValues
+			"0 - Automatic"
+			"1 - Always"
+			"2 - Never"
+		#tag EndEnumValues
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
 		Group="Behavior"

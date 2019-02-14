@@ -21,21 +21,21 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function CurrentLanguageCode() As Text
+		Shared Function CurrentLanguageCode() As Text
 		  declare function currentLanguageCode_ lib AVFoundationLib selector "currentLanguageCode" (clsRef as ptr) as CFStringRef
 		  Return currentLanguageCode_(ClassRef)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function SpeechVoices() As NSArray
+		Shared Function SpeechVoices() As NSArray
 		  declare function speechVoices_ lib AVFoundationLib selector "speechVoices" (clsRef as ptr) as ptr
 		  Return new NSArray(speechVoices_(ClassRef))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function VoiceWithLanguage(language as Text) As AVSpeechSynthesisVoice
+		Shared Function VoiceWithLanguage(language as Text) As AVSpeechSynthesisVoice
 		  declare function voiceWithLanguage_ lib AVFoundationLib selector "voiceWithLanguage:" (clsRef as ptr, language as CFStringRef) as ptr
 		  Return new AVSpeechSynthesisVoice(voiceWithLanguage_(ClassRef, language))
 		End Function

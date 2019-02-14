@@ -54,7 +54,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub FindMatchForRequestWithCompletionHandler(request as GKMatchRequest, completionHandler as GKTurnbasedMatchCompletionHandler)
+		Shared Sub FindMatchForRequestWithCompletionHandler(request as GKMatchRequest, completionHandler as GKTurnbasedMatchCompletionHandler)
 		  declare sub findMatchForRequest_ lib GameKitLib selector "findMatchForRequest:withCompletionHandler:" (clsRef as ptr, request as ptr, completionHandler as ptr)
 		  dim handler as new GKTurnbasedMatchCompletionHandlerWrapper(completionHandler)
 		  dim blk as new iOSBlock(AddressOf handler.handler)
@@ -72,7 +72,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub LoadMatchesWithCompletionHandler(completionHandler as NSArrayCompletionHandler)
+		Shared Sub LoadMatchesWithCompletionHandler(completionHandler as NSArrayCompletionHandler)
 		  declare sub loadMatchesWithCompletionHandler_ lib GameKitLib selector "loadMatchesWithCompletionHandler:" (clsRef as ptr, completionHandler as ptr)
 		  dim handler as new GameKit.NSArrayCompletionHandlerWrapper(completionHandler)
 		  dim blk as new iOSBlock(AddressOf handler.handler)
@@ -81,7 +81,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub LoadMatchWithIDWithCompletionHandler(matchID as Text, completionHandler as GKTurnbasedMatchCompletionHandler)
+		Shared Sub LoadMatchWithIDWithCompletionHandler(matchID as Text, completionHandler as GKTurnbasedMatchCompletionHandler)
 		  declare sub loadMatchWithID_ lib GameKitLib selector "loadMatchWithID:withCompletionHandler:" (clsRef as ptr, matchID as CFStringRef, completionHandler as ptr)
 		  dim handler as new GKTurnbasedMatchCompletionHandlerWrapper(completionHandler)
 		  dim blk as new iOSBlock(AddressOf handler.handler)
@@ -364,6 +364,18 @@ Inherits NSObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="status"
+			Group="Behavior"
+			Type="GKTurnBasedMatchStatus"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Unknown"
+				"1 - Open"
+				"2 - Ended"
+				"3 - Matching"
+			#tag EndEnumValues
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

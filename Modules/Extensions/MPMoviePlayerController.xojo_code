@@ -16,7 +16,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function ClassRef() As Ptr
+		Shared Function ClassRef() As Ptr
 		  static ref as ptr = NSClassFromString("MPMoviePlayerController")
 		  Return ref
 		End Function

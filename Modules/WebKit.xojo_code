@@ -1,12 +1,5 @@
-#tag Interface
-Protected Interface SKStoreProductViewControllerObserver
-	#tag Method, Flags = &h0
-		Sub DidFinish(sender as StoreKit.SKStoreProductViewController)
-		  
-		End Sub
-	#tag EndMethod
-
-
+#tag Module
+Protected Module WebKit
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Name"
@@ -42,5 +35,5 @@ Protected Interface SKStoreProductViewControllerObserver
 			Type="Integer"
 		#tag EndViewProperty
 	#tag EndViewBehavior
-End Interface
-#tag EndInterface
+End Module
+#tag EndModule

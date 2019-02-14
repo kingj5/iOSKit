@@ -18,7 +18,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub LoadPlayersForIdentifiersWithCompletionHandler(identifiers as NSArray, completionHandler as NSArrayCompletionHandler)
+		Shared Sub LoadPlayersForIdentifiersWithCompletionHandler(identifiers as NSArray, completionHandler as NSArrayCompletionHandler)
 		  declare sub loadPlayersForIdentifiers_ lib GameKitLib selector "loadPlayersForIdentifiers:withCompletionHandler:" (clsRef as ptr, identifiers as ptr, completionHandler as ptr)
 		  dim handler as new GameKit.NSArrayCompletionHandlerWrapper(completionHandler)
 		  dim blk as new iOSBlock(AddressOf handler.handler)

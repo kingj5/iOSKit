@@ -69,7 +69,7 @@ Inherits NSSet
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function Set() As Foundation.NSMutableSet
+		Shared Function Set() As Foundation.NSMutableSet
 		  declare function set_ lib FoundationLib selector "set" (clsRef as ptr) as ptr
 		  Return new NSMutableSet(set_(ClassRef))
 		End Function
@@ -83,7 +83,7 @@ Inherits NSSet
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function SetWithCapacity(numItems as UInteger) As NSMutableSet
+		Shared Function SetWithCapacity(numItems as UInteger) As NSMutableSet
 		  declare function setWithCapacity_ lib FoundationLib selector "setWithCapacity:" (clsRef as ptr, numItems as UInteger) as ptr
 		  Return new NSMutableSet(setWithCapacity_(ClassRef, numItems))
 		End Function
@@ -98,6 +98,11 @@ Inherits NSSet
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="count"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
 			Visible=true

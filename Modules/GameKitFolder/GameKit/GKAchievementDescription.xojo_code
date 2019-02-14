@@ -9,14 +9,14 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function IncompleteAchievementImage() As iOSImage
+		Shared Function IncompleteAchievementImage() As iOSImage
 		  declare function incompleteAchievementImage_ lib GameKitLib selector "incompleteAchievementImage" (clsRef as ptr) as ptr
 		  Return iOSImage.FromHandle(incompleteAchievementImage_(ClassRef))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub LoadAchievementDescriptionsWithCompletionHandler(completionHandler as NSArrayCompletionHandler)
+		Shared Sub LoadAchievementDescriptionsWithCompletionHandler(completionHandler as NSArrayCompletionHandler)
 		  declare sub loadAchievementDescriptionsWithCompletionHandler_ lib GameKitLib selector "loadAchievementDescriptionsWithCompletionHandler:" (clsRef as ptr, completionHandler as ptr)
 		  dim handler as new GameKit.NSArrayCompletionHandlerWrapper(completionHandler)
 		  dim blk as new iOSBlock(AddressOf handler.handler)
@@ -34,7 +34,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function PlaceholderCompletedAchievementImage() As iOSImage
+		Shared Function PlaceholderCompletedAchievementImage() As iOSImage
 		  declare function placeholderCompletedAchievementImage_ lib GameKitLib selector "placeholderCompletedAchievementImage" (clsRef as ptr) as ptr
 		  Return iOSImage.FromHandle(placeholderCompletedAchievementImage_(ClassRef))
 		End Function

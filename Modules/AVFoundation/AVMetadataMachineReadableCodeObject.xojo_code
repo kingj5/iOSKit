@@ -32,6 +32,11 @@ Inherits AVFoundation.AVMetadataObject
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="type"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"

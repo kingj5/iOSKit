@@ -9,7 +9,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function PaymentWithProduct(product as SKProduct) As SKPayment
+		Shared Function PaymentWithProduct(product as SKProduct) As SKPayment
 		  declare function paymentWithProduct_ lib StoreKitLib selector "paymentWithProduct:" (clsRef as ptr, product as ptr) as ptr
 		  Return new SKPayment(paymentWithProduct_(ClassRef, product))
 		End Function

@@ -2,6 +2,7 @@
 Begin iosView XojoUnitTestDetailsView
    BackButtonTitle =   ""
    Compatibility   =   ""
+   LargeTitleMode  =   "2"
    Left            =   0
    NavigationBarVisible=   False
    TabIcon         =   ""
@@ -11,10 +12,10 @@ Begin iosView XojoUnitTestDetailsView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 35, 
-      AutoLayout      =   Label1, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, , True
+      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 35, , True
+      AutoLayout      =   Label1, 7, , 0, False, +1.00, 1, 1, 100, , True
+      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, , True
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -33,10 +34,10 @@ Begin iosView XojoUnitTestDetailsView
    Begin iOSRectangle Rectangle1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Rectangle1, 8, , 0, False, +1.00, 1, 1, 218, 
-      AutoLayout      =   Rectangle1, 3, Label1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Rectangle1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   Rectangle1, 1, Label1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Rectangle1, 8, , 0, False, +1.00, 1, 1, 218, , True
+      AutoLayout      =   Rectangle1, 3, Label1, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+      AutoLayout      =   Rectangle1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, , True
+      AutoLayout      =   Rectangle1, 1, Label1, 1, False, +1.00, 1, 1, 0, , True
       BorderColor     =   &c00000000
       BorderWidth     =   2.0
       CornerHeight    =   0.0
@@ -52,10 +53,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel Label2
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
-         AutoLayout      =   Label2, 3, Rectangle1, 3, False, +1.00, 1, 1, *kStdGapCtlToViewV, 
-         AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 100, 
-         AutoLayout      =   Label2, 1, Rectangle1, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+         AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, , True
+         AutoLayout      =   Label2, 3, Rectangle1, 3, False, +1.00, 1, 1, *kStdGapCtlToViewV, , True
+         AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 100, , True
+         AutoLayout      =   Label2, 1, Rectangle1, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, , True
          Enabled         =   True
          Height          =   30.0
          Left            =   40
@@ -76,10 +77,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel StartLabel
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   StartLabel, 8, , 0, False, +1.00, 1, 1, 30, 
-         AutoLayout      =   StartLabel, 1, Label2, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-         AutoLayout      =   StartLabel, 10, Label2, 10, False, +1.00, 2, 1, 0, 
-         AutoLayout      =   StartLabel, 7, , 0, False, +1.00, 2, 1, 200, 300
+         AutoLayout      =   StartLabel, 8, , 0, False, +1.00, 1, 1, 30, , True
+         AutoLayout      =   StartLabel, 1, Label2, 2, False, +1.00, 1, 1, *kStdControlGapH, , True
+         AutoLayout      =   StartLabel, 10, Label2, 10, False, +1.00, 2, 1, 0, , True
+         AutoLayout      =   StartLabel, 7, , 0, False, +1.00, 2, 1, 200, 300, True
          Enabled         =   True
          Height          =   30.0
          Left            =   148
@@ -100,10 +101,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel Label4
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   Label4, 3, StartLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-         AutoLayout      =   Label4, 8, , 0, False, +1.00, 1, 1, 30, 
-         AutoLayout      =   Label4, 1, Label2, 1, False, +1.00, 1, 1, 0, 
-         AutoLayout      =   Label4, 7, , 0, False, +1.00, 1, 1, 100, 
+         AutoLayout      =   Label4, 3, StartLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+         AutoLayout      =   Label4, 8, , 0, False, +1.00, 1, 1, 30, , True
+         AutoLayout      =   Label4, 1, Label2, 1, False, +1.00, 1, 1, 0, , True
+         AutoLayout      =   Label4, 7, , 0, False, +1.00, 1, 1, 100, , True
          Enabled         =   True
          Height          =   30.0
          Left            =   40
@@ -124,10 +125,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel TestCountLabel
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   TestCountLabel, 10, Label4, 10, False, +1.00, 1, 1, 0, 
-         AutoLayout      =   TestCountLabel, 8, , 0, False, +1.00, 1, 1, 30, 
-         AutoLayout      =   TestCountLabel, 7, , 0, False, +1.00, 1, 1, 828, 
-         AutoLayout      =   TestCountLabel, 1, Label4, 2, False, +1.00, 1, 1, *kStdControlGapH, 
+         AutoLayout      =   TestCountLabel, 10, Label4, 10, False, +1.00, 1, 1, 0, , True
+         AutoLayout      =   TestCountLabel, 8, , 0, False, +1.00, 1, 1, 30, , True
+         AutoLayout      =   TestCountLabel, 7, , 0, False, +1.00, 1, 1, 828, , True
+         AutoLayout      =   TestCountLabel, 1, Label4, 2, False, +1.00, 1, 1, *kStdControlGapH, , True
          Enabled         =   True
          Height          =   30.0
          Left            =   148
@@ -148,10 +149,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel Label6
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   Label6, 1, Label4, 1, False, +1.00, 1, 1, 0, 
-         AutoLayout      =   Label6, 7, , 0, False, +1.00, 1, 1, 100, 
-         AutoLayout      =   Label6, 3, TestCountLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-         AutoLayout      =   Label6, 8, , 0, False, +1.00, 1, 1, 30, 
+         AutoLayout      =   Label6, 1, Label4, 1, False, +1.00, 1, 1, 0, , True
+         AutoLayout      =   Label6, 7, , 0, False, +1.00, 1, 1, 100, , True
+         AutoLayout      =   Label6, 3, TestCountLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+         AutoLayout      =   Label6, 8, , 0, False, +1.00, 1, 1, 30, , True
          Enabled         =   True
          Height          =   30.0
          Left            =   40
@@ -172,10 +173,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel PassedCountLabel
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   PassedCountLabel, 8, , 0, False, +1.00, 1, 1, 30, 
-         AutoLayout      =   PassedCountLabel, 10, Label6, 10, False, +1.00, 1, 1, 0, 
-         AutoLayout      =   PassedCountLabel, 7, , 0, False, +1.00, 1, 1, 187, 
-         AutoLayout      =   PassedCountLabel, 1, Label6, 2, False, +1.00, 1, 1, *kStdControlGapH, 
+         AutoLayout      =   PassedCountLabel, 8, , 0, False, +1.00, 1, 1, 30, , True
+         AutoLayout      =   PassedCountLabel, 10, Label6, 10, False, +1.00, 1, 1, 0, , True
+         AutoLayout      =   PassedCountLabel, 7, , 0, False, +1.00, 1, 1, 187, , True
+         AutoLayout      =   PassedCountLabel, 1, Label6, 2, False, +1.00, 1, 1, *kStdControlGapH, , True
          Enabled         =   True
          Height          =   30.0
          Left            =   148
@@ -196,10 +197,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel Label8
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   Label8, 8, , 0, False, +1.00, 1, 1, 30, 
-         AutoLayout      =   Label8, 3, PassedCountLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-         AutoLayout      =   Label8, 7, , 0, False, +1.00, 1, 1, 100, 
-         AutoLayout      =   Label8, 1, Label6, 1, False, +1.00, 1, 1, 0, 
+         AutoLayout      =   Label8, 8, , 0, False, +1.00, 1, 1, 30, , True
+         AutoLayout      =   Label8, 3, PassedCountLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+         AutoLayout      =   Label8, 7, , 0, False, +1.00, 1, 1, 100, , True
+         AutoLayout      =   Label8, 1, Label6, 1, False, +1.00, 1, 1, 0, , True
          Enabled         =   True
          Height          =   30.0
          Left            =   40
@@ -220,10 +221,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel FailedCountLabel
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   FailedCountLabel, 8, , 0, False, +1.00, 1, 1, 30, 
-         AutoLayout      =   FailedCountLabel, 10, Label8, 10, False, +1.00, 1, 1, 0, 
-         AutoLayout      =   FailedCountLabel, 7, , 0, False, +1.00, 1, 1, 187, 
-         AutoLayout      =   FailedCountLabel, 1, Label8, 2, False, +1.00, 1, 1, *kStdControlGapH, 
+         AutoLayout      =   FailedCountLabel, 8, , 0, False, +1.00, 1, 1, 30, , True
+         AutoLayout      =   FailedCountLabel, 10, Label8, 10, False, +1.00, 1, 1, 0, , True
+         AutoLayout      =   FailedCountLabel, 7, , 0, False, +1.00, 1, 1, 187, , True
+         AutoLayout      =   FailedCountLabel, 1, Label8, 2, False, +1.00, 1, 1, *kStdControlGapH, , True
          Enabled         =   True
          Height          =   30.0
          Left            =   148
@@ -244,10 +245,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel Label10
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   Label10, 8, , 0, False, +1.00, 1, 1, 30, 
-         AutoLayout      =   Label10, 3, FailedCountLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-         AutoLayout      =   Label10, 7, , 0, False, +1.00, 1, 1, 100, 
-         AutoLayout      =   Label10, 1, Label8, 1, False, +1.00, 1, 1, 0, 
+         AutoLayout      =   Label10, 8, , 0, False, +1.00, 1, 1, 30, , True
+         AutoLayout      =   Label10, 3, FailedCountLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+         AutoLayout      =   Label10, 7, , 0, False, +1.00, 1, 1, 100, , True
+         AutoLayout      =   Label10, 1, Label8, 1, False, +1.00, 1, 1, 0, , True
          Enabled         =   True
          Height          =   30.0
          Left            =   40
@@ -268,10 +269,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel SkippedCountLabel
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   SkippedCountLabel, 8, , 0, False, +1.00, 1, 1, 30, 
-         AutoLayout      =   SkippedCountLabel, 10, Label10, 10, False, +1.00, 1, 1, 0, 
-         AutoLayout      =   SkippedCountLabel, 7, , 0, False, +1.00, 1, 1, 187, 
-         AutoLayout      =   SkippedCountLabel, 1, Label10, 2, False, +1.00, 1, 1, *kStdControlGapH, 
+         AutoLayout      =   SkippedCountLabel, 8, , 0, False, +1.00, 1, 1, 30, , True
+         AutoLayout      =   SkippedCountLabel, 10, Label10, 10, False, +1.00, 1, 1, 0, , True
+         AutoLayout      =   SkippedCountLabel, 7, , 0, False, +1.00, 1, 1, 187, , True
+         AutoLayout      =   SkippedCountLabel, 1, Label10, 2, False, +1.00, 1, 1, *kStdControlGapH, , True
          Enabled         =   True
          Height          =   30.0
          Left            =   148
@@ -292,10 +293,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel Label14
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   Label14, 7, , 0, False, +1.00, 1, 1, 100, 
-         AutoLayout      =   Label14, 10, Label2, 10, False, +1.00, 1, 1, 0, 
-         AutoLayout      =   Label14, 1, Rectangle1, 1, False, +1.00, 1, 1, 347, 
-         AutoLayout      =   Label14, 8, , 0, False, +1.00, 1, 1, 30, 
+         AutoLayout      =   Label14, 7, , 0, False, +1.00, 1, 1, 100, , True
+         AutoLayout      =   Label14, 10, Label2, 10, False, +1.00, 1, 1, 0, , True
+         AutoLayout      =   Label14, 1, Rectangle1, 1, False, +1.00, 1, 1, 347, , True
+         AutoLayout      =   Label14, 8, , 0, False, +1.00, 1, 1, 30, , True
          Enabled         =   True
          Height          =   30.0
          Left            =   367
@@ -316,10 +317,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel DurationLabel
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   DurationLabel, 7, , 0, False, +1.00, 1, 1, 187, 
-         AutoLayout      =   DurationLabel, 10, Label2, 10, False, +1.00, 1, 1, 0, 
-         AutoLayout      =   DurationLabel, 1, Label14, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-         AutoLayout      =   DurationLabel, 8, , 0, False, +1.00, 1, 1, 30, 
+         AutoLayout      =   DurationLabel, 7, , 0, False, +1.00, 1, 1, 187, , True
+         AutoLayout      =   DurationLabel, 10, Label2, 10, False, +1.00, 1, 1, 0, , True
+         AutoLayout      =   DurationLabel, 1, Label14, 2, False, +1.00, 1, 1, *kStdControlGapH, , True
+         AutoLayout      =   DurationLabel, 8, , 0, False, +1.00, 1, 1, 30, , True
          Enabled         =   True
          Height          =   30.0
          Left            =   475
@@ -341,10 +342,10 @@ Begin iosView XojoUnitTestDetailsView
    Begin iOSLabel Label11
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label11, 2, Label1, 2, False, +1.00, 1, 1, 194, 
-      AutoLayout      =   Label11, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label11, 1, Rectangle1, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label11, 10, <Parent>, 10, False, +1.00, 1, 1, -29, 
+      AutoLayout      =   Label11, 2, Label1, 2, False, +1.00, 1, 1, 194, , True
+      AutoLayout      =   Label11, 8, , 0, False, +1.00, 1, 1, 30, , True
+      AutoLayout      =   Label11, 1, Rectangle1, 1, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   Label11, 10, <Parent>, 10, False, +1.00, 1, 1, -29, , True
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -363,10 +364,10 @@ Begin iosView XojoUnitTestDetailsView
    Begin iOSRectangle Rectangle2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Rectangle2, 2, Rectangle1, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Rectangle2, 3, Label11, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Rectangle2, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   Rectangle2, 8, , 0, False, +1.00, 1, 1, 370, 
+      AutoLayout      =   Rectangle2, 2, Rectangle1, 2, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   Rectangle2, 3, Label11, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+      AutoLayout      =   Rectangle2, 1, <Parent>, 1, False, +1.00, 1, 1, 20, , True
+      AutoLayout      =   Rectangle2, 8, , 0, False, +1.00, 1, 1, 370, , True
       BorderColor     =   &c00000000
       BorderWidth     =   2.0
       CornerHeight    =   0.0
@@ -382,10 +383,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel TestNameLabel
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   TestNameLabel, 7, , 0, False, +1.00, 1, 1, 190, 
-         AutoLayout      =   TestNameLabel, 3, Rectangle2, 3, False, +1.00, 1, 1, *kStdGapCtlToViewV, 
-         AutoLayout      =   TestNameLabel, 1, Rectangle2, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-         AutoLayout      =   TestNameLabel, 8, , 0, False, +1.00, 1, 1, 30, 
+         AutoLayout      =   TestNameLabel, 7, , 0, False, +1.00, 1, 1, 190, , True
+         AutoLayout      =   TestNameLabel, 3, Rectangle2, 3, False, +1.00, 1, 1, *kStdGapCtlToViewV, , True
+         AutoLayout      =   TestNameLabel, 1, Rectangle2, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, , True
+         AutoLayout      =   TestNameLabel, 8, , 0, False, +1.00, 1, 1, 30, , True
          Enabled         =   True
          Height          =   30.0
          Left            =   40
@@ -406,10 +407,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel TestResultLabel
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   TestResultLabel, 7, , 0, False, +1.00, 1, 1, 100, 
-         AutoLayout      =   TestResultLabel, 10, TestNameLabel, 10, False, +1.00, 1, 1, , 
-         AutoLayout      =   TestResultLabel, 2, Rectangle2, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-         AutoLayout      =   TestResultLabel, 8, , 0, False, +1.00, 1, 1, 30, 
+         AutoLayout      =   TestResultLabel, 7, , 0, False, +1.00, 1, 1, 100, , True
+         AutoLayout      =   TestResultLabel, 10, TestNameLabel, 10, False, +1.00, 1, 1, , , True
+         AutoLayout      =   TestResultLabel, 2, Rectangle2, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, , True
+         AutoLayout      =   TestResultLabel, 8, , 0, False, +1.00, 1, 1, 30, , True
          Enabled         =   True
          Height          =   30.0
          Left            =   180
@@ -430,10 +431,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel Label13
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   Label13, 7, , 0, False, +1.00, 1, 1, 75, 
-         AutoLayout      =   Label13, 3, TestResultLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-         AutoLayout      =   Label13, 1, TestNameLabel, 1, False, +1.00, 1, 1, 0, 
-         AutoLayout      =   Label13, 8, , 0, False, +1.00, 1, 1, 30, 
+         AutoLayout      =   Label13, 7, , 0, False, +1.00, 1, 1, 75, , True
+         AutoLayout      =   Label13, 3, TestResultLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+         AutoLayout      =   Label13, 1, TestNameLabel, 1, False, +1.00, 1, 1, 0, , True
+         AutoLayout      =   Label13, 8, , 0, False, +1.00, 1, 1, 30, , True
          Enabled         =   True
          Height          =   30.0
          Left            =   40
@@ -454,10 +455,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel TestDurationLabel
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   TestDurationLabel, 8, , 0, False, +1.00, 1, 1, 30, 
-         AutoLayout      =   TestDurationLabel, 1, Label13, 2, False, +1.00, 2, 1, *kStdControlGapH, 
-         AutoLayout      =   TestDurationLabel, 10, Label13, 10, False, +1.00, 1, 1, 0, 
-         AutoLayout      =   TestDurationLabel, 2, Rectangle2, 2, False, +1.00, 1, 1, -*kStdControlGapH, 
+         AutoLayout      =   TestDurationLabel, 8, , 0, False, +1.00, 1, 1, 30, , True
+         AutoLayout      =   TestDurationLabel, 1, Label13, 2, False, +1.00, 2, 1, *kStdControlGapH, , True
+         AutoLayout      =   TestDurationLabel, 10, Label13, 10, False, +1.00, 1, 1, 0, , True
+         AutoLayout      =   TestDurationLabel, 2, Rectangle2, 2, False, +1.00, 1, 1, -*kStdControlGapH, , True
          Enabled         =   True
          Height          =   30.0
          Left            =   123
@@ -478,10 +479,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSLabel Label12
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   Label12, 7, , 0, False, +1.00, 1, 1, 100, 
-         AutoLayout      =   Label12, 3, TestDurationLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-         AutoLayout      =   Label12, 1, Label13, 1, False, +1.00, 1, 1, 0, 
-         AutoLayout      =   Label12, 8, , 0, False, +1.00, 1, 1, 30, 
+         AutoLayout      =   Label12, 7, , 0, False, +1.00, 1, 1, 100, , True
+         AutoLayout      =   Label12, 3, TestDurationLabel, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+         AutoLayout      =   Label12, 1, Label13, 1, False, +1.00, 1, 1, 0, , True
+         AutoLayout      =   Label12, 8, , 0, False, +1.00, 1, 1, 30, , True
          Enabled         =   True
          Height          =   30.0
          Left            =   40
@@ -502,10 +503,10 @@ Begin iosView XojoUnitTestDetailsView
       Begin iOSTextArea TestResultsArea
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
-         AutoLayout      =   TestResultsArea, 2, TestResultLabel, 2, False, +1.00, 1, 1, 0, 
-         AutoLayout      =   TestResultsArea, 3, Label12, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-         AutoLayout      =   TestResultsArea, 1, Label12, 1, False, +1.00, 1, 1, 0, 
-         AutoLayout      =   TestResultsArea, 8, , 0, False, +1.00, 1, 1, 200, 
+         AutoLayout      =   TestResultsArea, 2, TestResultLabel, 2, False, +1.00, 1, 1, 0, , True
+         AutoLayout      =   TestResultsArea, 3, Label12, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+         AutoLayout      =   TestResultsArea, 1, Label12, 1, False, +1.00, 1, 1, 0, , True
+         AutoLayout      =   TestResultsArea, 8, , 0, False, +1.00, 1, 1, 200, , True
          Editable        =   True
          Height          =   200.0
          KeyboardType    =   "0"
@@ -531,6 +532,19 @@ End
 #tag EndWindowCode
 
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="LargeTitleMode"
+		Visible=true
+		Group="Behavior"
+		InitialValue="2"
+		Type="LargeTitleDisplayModes"
+		EditorType="Enum"
+		#tag EnumValues
+			"0 - Automatic"
+			"1 - Always"
+			"2 - Never"
+		#tag EndEnumValues
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
 		Group="Behavior"

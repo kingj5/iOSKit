@@ -493,6 +493,11 @@ Inherits NSObject
 			Group="Behavior"
 			Type="double"
 		#tag EndViewProperty
+		#tag ViewProperty
+			Name="numberOfChannels"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
 #tag EndClass

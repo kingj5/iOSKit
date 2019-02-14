@@ -3,10 +3,10 @@ Protected Class App
 Inherits IOSApplication
 	#tag CompatibilityFlags = TargetIOS
 	#tag Event
-		Sub Open()
+		Function Open(launchOptionsHandle as Ptr) As Boolean
 		  'using Extensions
 		  'UIVisualEffectView.DefaultEffect = UIVibrancyEffect.EffectForBlurEffect(UIBlurEffect.EffectWithStyle(UIBlurEffect.BlurEffectStyle.Dark))
-		End Sub
+		End Function
 	#tag EndEvent
 
 	#tag Event

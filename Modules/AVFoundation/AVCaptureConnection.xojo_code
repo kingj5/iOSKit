@@ -9,14 +9,14 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function ConnectionWithInputPortsOutput(ports as NSArray, output as AVCaptureOutput) As AVCaptureConnection
+		Shared Function ConnectionWithInputPortsOutput(ports as NSArray, output as AVCaptureOutput) As AVCaptureConnection
 		  declare function connectionWithInputPorts_ lib AVFoundationLib selector "connectionWithInputPorts:output:" (clsRef as ptr, ports as ptr, output as ptr) as ptr
 		  Return new AVCaptureConnection(connectionWithInputPorts_(ClassRef, ports, output))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function ConnectionWithInputPortVideoPreviewLayer(port as AVCaptureInputPort, layer as AVCaptureVideoPreviewLayer) As AVCaptureConnection
+		Shared Function ConnectionWithInputPortVideoPreviewLayer(port as AVCaptureInputPort, layer as AVCaptureVideoPreviewLayer) As AVCaptureConnection
 		  declare function connectionWithInputPort_ lib AVFoundationLib selector "connectionWithInputPort:videoPreviewLayer:" (clsRef as ptr, port as ptr, layer as ptr) as ptr
 		  Return new AVCaptureConnection(connectionWithInputPort_(ClassRef, port, layer))
 		End Function

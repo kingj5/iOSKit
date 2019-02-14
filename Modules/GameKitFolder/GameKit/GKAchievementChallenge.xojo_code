@@ -22,6 +22,18 @@ Inherits GameKit.GKChallenge
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="state"
+			Group="Behavior"
+			Type="GKChallengeState"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Invalid"
+				"1 - Pending"
+				"2 - Completed"
+				"3 - Declined"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
