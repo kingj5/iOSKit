@@ -116,6 +116,7 @@ End
 		    newDetailView = New improvediOSTableView
 		  Case 17
 		    newDetailView = New HapticFeedbackView
+
 		    
 		  Case 18
 		    newDetailView = new HTMLView
@@ -126,6 +127,7 @@ End
 		    
 		    
 		    
+
 		  Else
 		    //shouldn't get here
 		    Return
@@ -227,6 +229,7 @@ End
 		  #Else
 		    d = Me.CreateCell("UIActivityView","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
 		    Me.AddRow(0,d)
+
 		    
 		    d = Me.CreateCell("Camera","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
 		    Me.AddRow(0,d)
@@ -282,6 +285,7 @@ End
 		    d = Me.CreateCell("HTMLViewer Delegate","2018r2+",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
 		    Me.AddRow(0,d)
 		    
+
 		    If Self.ParentSplitView.Available Then
 		      d = Me.CreateCell("Unit Tests","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
 		      Me.AddRow(0,d)
