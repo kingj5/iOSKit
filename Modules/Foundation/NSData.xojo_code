@@ -81,17 +81,19 @@ Inherits NSObject
 
 	#tag Method, Flags = &h0
 		Function GetBytes(range as NSRange) As SmartMemoryBlock
-		  dim buffer as new SmartMemoryBlock(range.length)
+		  Dim buffer As New SmartMemoryBlock(range.length)
 		  declare sub getBytes_ lib FoundationLib selector "getBytes:range:" (obj_id as ptr, buffer as ptr, range as NSRange)
-		  getBytes_(self, buffer.Data, range)
+		  getBytes_(Self, buffer.Data, range)
+		  Return buffer
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function GetBytes(length as UInteger) As SmartMemoryBlock
-		  dim buffer as new SmartMemoryBlock(length)
+		  Dim buffer As New SmartMemoryBlock(length)
 		  declare sub getBytes_ lib FoundationLib selector "getBytes:length:" (obj_id as ptr, buffer as ptr, length as UInteger)
-		  getBytes_(self, buffer.Data, length)
+		  getBytes_(Self, buffer.Data, length)
+		  Return buffer
 		End Function
 	#tag EndMethod
 
