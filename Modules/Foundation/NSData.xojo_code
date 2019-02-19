@@ -45,35 +45,35 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function Data() As NSData
+		Shared Function Data() As NSData
 		  declare function data_ lib FoundationLib selector "data" (clsRef as ptr) as ptr
 		  Return new NSData(data_(ClassRef))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function DataWithBytesLength(bytes as xojo.core.memoryblock, length as UInteger) As NSData
+		Shared Function DataWithBytesLength(bytes as xojo.core.memoryblock, length as UInteger) As NSData
 		  declare function dataWithBytes_ lib FoundationLib selector "dataWithBytes:length:" (clsRef as ptr, bytes as ptr, length as UInteger) as ptr
 		  Return new NSData(dataWithBytes_(ClassRef, bytes.Data, length))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function DataWithContentsOfFile(path as CFStringRef) As NSData
+		Shared Function DataWithContentsOfFile(path as CFStringRef) As NSData
 		  declare function dataWithContentsOfFile_ lib FoundationLib selector "dataWithContentsOfFile:" (clsRef as ptr, path as CFStringRef) as ptr
 		  Return new NSData(dataWithContentsOfFile_(ClassRef, path))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function DataWithContentsOfURL(aURL as NSURL) As NSData
+		Shared Function DataWithContentsOfURL(aURL as NSURL) As NSData
 		  declare function dataWithContentsOfURL_ lib FoundationLib selector "dataWithContentsOfURL:" (clsRef as ptr, aURL as ptr) as ptr
 		  Return new NSData(dataWithContentsOfURL_(ClassRef, aURL))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function DataWithData(aData as NSData) As NSData
+		Shared Function DataWithData(aData as NSData) As NSData
 		  declare function dataWithData_ lib FoundationLib selector "dataWithData:" (clsRef as ptr, aData as ptr) as ptr
 		  Return new NSData(dataWithData_(ClassRef, aData))
 		End Function
@@ -81,17 +81,19 @@ Inherits NSObject
 
 	#tag Method, Flags = &h0
 		Function GetBytes(range as NSRange) As SmartMemoryBlock
-		  dim buffer as new SmartMemoryBlock(range.length)
+		  Dim buffer As New SmartMemoryBlock(range.length)
 		  declare sub getBytes_ lib FoundationLib selector "getBytes:range:" (obj_id as ptr, buffer as ptr, range as NSRange)
-		  getBytes_(self, buffer.Data, range)
+		  getBytes_(Self, buffer.Data, range)
+		  Return buffer
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function GetBytes(length as UInteger) As SmartMemoryBlock
-		  dim buffer as new SmartMemoryBlock(length)
+		  Dim buffer As New SmartMemoryBlock(length)
 		  declare sub getBytes_ lib FoundationLib selector "getBytes:length:" (obj_id as ptr, buffer as ptr, length as UInteger)
-		  getBytes_(self, buffer.Data, length)
+		  getBytes_(Self, buffer.Data, length)
+		  Return buffer
 		End Function
 	#tag EndMethod
 
@@ -203,6 +205,11 @@ Inherits NSObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="length"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
