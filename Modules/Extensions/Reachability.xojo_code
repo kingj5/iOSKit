@@ -12,6 +12,8 @@ Protected Class Reachability
 		  if success then
 		    ParseFlags(reachableFlags)
 		  end if
+		  Declare Sub CFRelease Lib "CoreFoundation" ( CFTypeRef As Ptr )
+		  CFRelease( ReachabilityRef )
 		End Sub
 	#tag EndMethod
 
