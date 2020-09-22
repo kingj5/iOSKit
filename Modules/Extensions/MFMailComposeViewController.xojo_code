@@ -47,17 +47,29 @@ Inherits UIKit.UINavigationController
 		End Sub
 	#tag EndMethod
 
+	#tag DelegateDeclaration, Flags = &h0
+		Delegate Sub FinishDelegate(result As MFMailComposeResult)
+	#tag EndDelegateDeclaration
+
 	#tag Method, Flags = &h21
-		Private Sub HandleDidFinish()
+		Private Sub HandleDidFinish(result As MFMailComposeResult)
+		  
+		  
+		  if FinishCallback <> nil then
+		    FinishCallback.Invoke(result)
+		  end if
+		  
+		  
+		  
 		  dismiss
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_didFinishWithResult(pid as ptr, sel as ptr, composer as ptr, result as integer, err as ptr)
+		Private Shared Sub impl_didFinishWithResult(pid as ptr, sel as ptr, composer as ptr, result as MFMailComposeResult, err as ptr)
 		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
 		  if w.Value <> nil Then
-		    MFMailComposeViewController(w.Value).HandleDidFinish
+		    MFMailComposeViewController(w.Value).HandleDidFinish(result)
 		  end if
 		  
 		  
@@ -140,6 +152,10 @@ Inherits UIKit.UINavigationController
 		Private Shared dispatch As xojo.Core.Dictionary
 	#tag EndProperty
 
+	#tag Property, Flags = &h0
+		FinishCallback As FinishDelegate
+	#tag EndProperty
+
 	#tag Property, Flags = &h21
 		Private mparentViewController As iOSView
 	#tag EndProperty
@@ -149,10 +165,20 @@ Inherits UIKit.UINavigationController
 	#tag EndConstant
 
 
+	#tag Enum, Name = MFMailComposeResult, Flags = &h0
+		cancelled = 0
+		  saved
+		  sent
+		failed
+	#tag EndEnum
+
+
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="modalPresentationStyle"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="UIModalPresentationStyle"
 			EditorType="Enum"
 			#tag EnumValues
@@ -169,28 +195,43 @@ Inherits UIKit.UINavigationController
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="automaticallyAdjustsScrollViewInsets"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="definesPresentationContext"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="editing"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="extendedLayoutIncludesOpaqueBars"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="hidesBottomBarWhenPushed"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -198,6 +239,7 @@ Inherits UIKit.UINavigationController
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -205,33 +247,47 @@ Inherits UIKit.UINavigationController
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="modalInPopover"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="modalPresentationCapturesStatusBarAppearance"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="providesPresentationContextTransitionStyle"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -239,6 +295,7 @@ Inherits UIKit.UINavigationController
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
