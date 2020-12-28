@@ -44,6 +44,21 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
+		Sub Constructor(value as DateTime)
+		  //# Creates and returns an NSDate object set to the given number of seconds from the first instant of 1 January 1970, GMT.
+		  
+		  
+		  Declare Function dateWithTimeIntervalSince1970 Lib FoundationLib Selector "dateWithTimeIntervalSince1970:" (class_id As Ptr, seconds As Double) As Ptr
+		  
+		  dim seconds as Double = value.SecondsFrom1970
+		  
+		  Super.Constructor(dateWithTimeIntervalSince1970(NSClassFromString("NSDate"), seconds))
+		  
+		  needsExtraRelease = True
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
 		Sub Constructor(secondsSinceNow as Double)
 		  //# Returns an NSDate object initialized relative to the current date and time by a given number of seconds.
 		  
@@ -269,19 +284,48 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function Operator_Convert() As Date
+		Function Operator_Convert() As DateTime
 		  
 		  //Returns the interval between the NSDate and the first instant of 1 January 1970, GMT.
 		  declare function timeIntervalSince1970 lib FoundationLib selector "timeIntervalSince1970" (id as Ptr) as Double
 		  
-		  dim d as new Date(timeIntervalSince1970(self),TimeZone.Current)
+		  Dim d As New DateTime(timeIntervalSince1970(Self), TimeZone.Current)
+		  return d
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function Operator_Convert() As Xojo.Core.Date
+		  
+		  //Returns the interval between the NSDate and the first instant of 1 January 1970, GMT.
+		  declare function timeIntervalSince1970 lib FoundationLib selector "timeIntervalSince1970" (id as Ptr) as Double
+		  
+		  Dim d As New Xojo.Core.Date(timeIntervalSince1970(Self), TimeZone.Current)
 		  return d
 		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Operator_Convert(value as Date)
+		Sub Operator_Convert(value as DateTime)
+		  
+		  self.Constructor(value)
+		  
+		  '
+		  'declare function dateWithTimeIntervalSince1970 lib FoundationLib selector "dateWithTimeIntervalSince1970:" (class_id as Ptr, seconds as Double) as Ptr
+		  '
+		  'dim d as new Date
+		  'd.SQLDateTime = "1970-01-01 00:00:00"
+		  'dim seconds as Double = value.TotalSeconds - d.TotalSeconds - 3600.0*value.GMTOffset
+		  'dim p as Ptr = dateWithTimeIntervalSince1970(NSClassFromString("NSDate"), seconds)
+		  'super.Constructor(p)
+		  '
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Operator_Convert(value as Xojo.Core.Date)
 		  
 		  self.Constructor(value)
 		  
