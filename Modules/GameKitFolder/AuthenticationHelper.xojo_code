@@ -4,14 +4,14 @@ Protected Class AuthenticationHelper
 		Private Sub authenticateMethod(viewController as ptr, err as ptr)
 		  if viewController <> nil then
 		    authenticationViewController = viewController
-		    NotificationCenter.MainCenter.PostNotification(GameKitNeedsToAuthenticateNotification, self)
+		    JK_NotificationCenter.MainCenter.PostNotification(GameKitNeedsToAuthenticateNotification, self)
 		  else
 		    if localPlayer.authenticated then
 		      gameCenterIsEnabled = True
-		      NotificationCenter.MainCenter.PostNotification(GameKitSucessfullyAuthenticatedNotification, self)
+		      JK_NotificationCenter.MainCenter.PostNotification(GameKitSucessfullyAuthenticatedNotification, self)
 		    else
 		      gameCenterIsEnabled = False
-		      NotificationCenter.MainCenter.PostNotification(GameKitFailedToAuthenticateNotification, self)
+		      JK_NotificationCenter.MainCenter.PostNotification(GameKitFailedToAuthenticateNotification, self)
 		    end if
 		  end if
 		  

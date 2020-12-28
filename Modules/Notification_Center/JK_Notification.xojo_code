@@ -1,5 +1,5 @@
 #tag Class
-Class Notification
+Class JK_Notification
 	#tag Method, Flags = &h0
 		Sub Constructor(notificationName as Text, sender as Object)
 		  self.Constructor(notificationName,sender,nil)

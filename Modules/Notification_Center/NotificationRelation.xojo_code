@@ -1,7 +1,7 @@
 #tag Class
 Private Class NotificationRelation
 	#tag Method, Flags = &h0
-		Sub Constructor(observer as object, callback as NotificationCenter.NotificationCallBack, notificationName as text, sender as object)
+		Sub Constructor(observer as object, callback as JK_NotificationCenter.NotificationCallBack, notificationName as text, sender as object)
 		  self.Observer = observer
 		  self.CallBack = callback
 		  self.NotificationName = notificationName
@@ -10,13 +10,13 @@ Private Class NotificationRelation
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SendNotification(anotification as Notification)
+		Sub SendNotification(anotification as JK_Notification)
 		  CallBack.Invoke(aNotification)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function WantsNotification(aNotification as Notification) As Boolean
+		Function WantsNotification(aNotification as JK_Notification) As Boolean
 		  dim wants as Boolean = False
 		  if NotificationName = "" and sender = nil then  
 		    //accepts all notifications from all sources
@@ -36,7 +36,7 @@ Private Class NotificationRelation
 
 
 	#tag Property, Flags = &h0
-		CallBack As NotificationCenter.NotificationCallBack
+		CallBack As JK_NotificationCenter.NotificationCallBack
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

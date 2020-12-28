@@ -86,16 +86,16 @@ End
 	#tag Event
 		Sub Close()
 		  'stop receiving notifications about gamekit
-		  NotificationCenter.MainCenter.removeObserver(self)
+		  JK_NotificationCenter.MainCenter.removeObserver(self)
 		End Sub
 	#tag EndEvent
 
 	#tag Event
 		Sub Open()
 		  //register for the authenticate Notification - if the player is not authenticated a view controller will have to be presented for the user to log in
-		  NotificationCenter.MainCenter.addObserver(self, AddressOf TryAuthenticate, AuthenticationHelper.GameKitNeedsToAuthenticateNotification, nil)
+		  JK_NotificationCenter.MainCenter.addObserver(self, AddressOf TryAuthenticate, AuthenticationHelper.GameKitNeedsToAuthenticateNotification, nil)
 		  
-		  NotificationCenter.MainCenter.addObserver(self, AddressOf DidAuthenticate, AuthenticationHelper.GameKitSucessfullyAuthenticatedNotification, nil)
+		  JK_NotificationCenter.MainCenter.addObserver(self, AddressOf DidAuthenticate, AuthenticationHelper.GameKitSucessfullyAuthenticatedNotification, nil)
 		  
 		  //start the authentication process
 		  //this method must be called in order for GameKit to begin the authentication process
@@ -107,7 +107,7 @@ End
 
 
 	#tag Method, Flags = &h1
-		Protected Sub DidAuthenticate(aNotification as Notification)
+		Protected Sub DidAuthenticate(aNotification as JK_Notification)
 		  GameKit.GKLocalPlayer.LocalPlayer.UnregisterAllListeners
 		  GameKit.GKLocalPlayer.LocalPlayer.RegisterListener(GKLocalPlayerListener1)
 		  
@@ -115,7 +115,7 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub TryAuthenticate(aNotification as Notification)
+		Protected Sub TryAuthenticate(aNotification as JK_Notification)
 		  dim helper as AuthenticationHelper = AuthenticationHelper.GetInstance
 		  if helper.NeedsToAuthenticate then
 		    helper.PresentAuthenticationViewController(self)

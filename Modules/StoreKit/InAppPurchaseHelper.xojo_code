@@ -136,8 +136,8 @@ Inherits StoreKit.PaymentTransactionObserver
 		  dim userInfo as new xojo.Core.Dictionary
 		  userInfo.Value("productID") = ID.StringValue
 		  
-		  Notification_Center.NotificationCenter.MainCenter.PostNotification(_
-		  new Notification_Center.Notification(SKProvideContentForProductNotification, self, userInfo))
+		  Notification_Center.JK_NotificationCenter.MainCenter.PostNotification(_
+		  new Notification_Center.JK_Notification(SKProvideContentForProductNotification, self, userInfo))
 		End Sub
 	#tag EndMethod
 
