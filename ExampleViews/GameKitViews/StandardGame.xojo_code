@@ -46,6 +46,8 @@ Begin iosView StandardGame Implements StandardMatchHelperObserver
    End
    Begin Timer Timer1
       LockedInPosition=   False
+      PanelIndex      =   -1
+      Parent          =   ""
       Period          =   10
       RunMode         =   2
       Scope           =   0
@@ -98,7 +100,7 @@ End
 
 	#tag Method, Flags = &h1
 		Protected Function DeSerializePoint(data as Foundation.NSData) As xojo.Core.Point
-		  dim mb as MemoryBlock = data.DataMB
+		  Dim mb As Xojo.Core.MemoryBlock = data.DataMB
 		  dim x, y, s as Int32
 		  s = mb.Int32Value(8)
 		  x = mb.Int32Value(0)/s*self.Size.Width
@@ -106,7 +108,6 @@ End
 		  dim result as new xojo.Core.Point(x,y)
 		  
 		  Return result
-		  
 		  
 		End Function
 	#tag EndMethod
@@ -173,7 +174,7 @@ End
 	#tag Method, Flags = &h1
 		Protected Function SerializePoint(pt as xojo.Core.Point) As Foundation.NSData
 		  
-		  dim mb as new MutableMemoryBlock(12)
+		  Dim mb As New Xojo.Core.MutableMemoryBlock(12)
 		  mb.Int32Value(0) = pt.X //x value of point
 		  mb.Int32Value(4) = pt.Y //y value of point
 		  mb.Int32Value(8) = self.Size.Width //width of screen for scaling

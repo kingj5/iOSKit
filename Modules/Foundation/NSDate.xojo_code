@@ -287,7 +287,7 @@ Inherits NSObject
 		Function Operator_Convert() As DateTime
 		  
 		  //Returns the interval between the NSDate and the first instant of 1 January 1970, GMT.
-		  declare function timeIntervalSince1970 lib FoundationLib selector "timeIntervalSince1970" (id as Ptr) as Double
+		  Declare Function timeIntervalSince1970 Lib FoundationLib Selector "timeIntervalSince1970" (id As Ptr) As Double
 		  
 		  Dim d As New DateTime(timeIntervalSince1970(Self), TimeZone.Current)
 		  return d
@@ -301,7 +301,7 @@ Inherits NSObject
 		  //Returns the interval between the NSDate and the first instant of 1 January 1970, GMT.
 		  declare function timeIntervalSince1970 lib FoundationLib selector "timeIntervalSince1970" (id as Ptr) as Double
 		  
-		  Dim d As New Xojo.Core.Date(timeIntervalSince1970(Self), TimeZone.Current)
+		  Dim d As New Xojo.Core.Date(timeIntervalSince1970(Self), Xojo.Core.TimeZone.Current)
 		  return d
 		  
 		End Function

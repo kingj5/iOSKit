@@ -110,7 +110,7 @@ End
 		Private Sub RunTests()
 		  If Self.ParentSplitView.Available Then
 		    Dim detail As XojoUnitTestDetailsView = XojoUnitTestDetailsView(Self.ParentSplitView.Detail)
-		    detail.StartLabel.Text = Date.Now.ToText(Locale.Current, Date.FormatStyles.Medium)
+		    detail.StartLabel.Text = Xojo.Core.Date.Now.ToText(Xojo.Core.Locale.Current, Xojo.Core.Date.FormatStyles.Medium)
 		    
 		    Controller.Start
 		    
@@ -137,7 +137,7 @@ End
 		Sub AllTestsFinished()
 		  Dim detail As XojoUnitTestDetailsView = XojoUnitTestDetailsView(Self.ParentSplitView.Detail)
 		  
-		  detail.DurationLabel.Text = Controller.Duration.ToText(Locale.Current, "#,##0.0000000") + "s"
+		  detail.DurationLabel.Text = Controller.Duration.ToText(Xojo.Core.Locale.Current, "#,##0.0000000") + "s"
 		  
 		  Dim testCount As Integer
 		  testCount = Controller.RunTestCount
@@ -145,10 +145,10 @@ End
 		  
 		  Dim pct As Double
 		  pct = (Controller.PassedCount / testCount) * 100
-		  detail.PassedCountLabel.Text = Controller.PassedCount.ToText + " (" + pct.ToText(Locale.Current, "#0.00") + "%)"
+		  detail.PassedCountLabel.Text = Controller.PassedCount.ToText + " (" + pct.ToText(Xojo.Core.Locale.Current, "#0.00") + "%)"
 		  
 		  pct = (Controller.FailedCount / testCount) * 100
-		  detail.FailedCountLabel.Text = Controller.FailedCount.ToText + " (" + pct.ToText(Locale.Current, "#0.00") + "%)"
+		  detail.FailedCountLabel.Text = Controller.FailedCount.ToText + " (" + pct.ToText(Xojo.Core.Locale.Current, "#0.00") + "%)"
 		  detail.SkippedCountLabel.Text = Controller.SkippedCount.ToText
 		End Sub
 	#tag EndEvent

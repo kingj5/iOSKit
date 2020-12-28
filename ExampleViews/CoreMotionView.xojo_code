@@ -22,6 +22,8 @@ Begin iosView CoreMotionView
    End
    Begin Timer Timer1
       LockedInPosition=   False
+      PanelIndex      =   -1
+      Parent          =   ""
       Period          =   10
       RunMode         =   2
       Scope           =   0

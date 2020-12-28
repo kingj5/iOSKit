@@ -56,7 +56,7 @@ Inherits NSObject
 		  
 		  dim rb_array() as NSStringEncoding
 		  
-		  dim m as MemoryBlock = new MemoryBlock(availableStringEncodings(ClassRef))
+		  dim m as new Xojo.Core.MemoryBlock(availableStringEncodings(ClassRef))
 		  
 		  dim offset as UInt32 = 0
 		  while m.UInt32Value(offset) <> 0

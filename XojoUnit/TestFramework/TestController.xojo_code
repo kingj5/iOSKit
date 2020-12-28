@@ -8,7 +8,7 @@ Protected Class TestController
 
 	#tag Method, Flags = &h21
 		Private Sub EndTimer()
-		  mDuration = (Microseconds-mTimer) / 1000000
+		  mDuration = (Xojo.System.Microseconds - mTimer) / 1000000
 		  
 		  
 		End Sub
@@ -22,7 +22,7 @@ Protected Class TestController
 		    Const kEOL As Text = &u0A
 		  #Endif
 		  
-		  Dim f as FolderItem
+		  Dim f as Xojo.IO.Folderitem
 		  f = New FolderItem(filePath, FolderItem.PathTypeShell)
 		  Dim stream as BinaryStream
 		  If f <> Nil Then
@@ -265,7 +265,7 @@ Protected Class TestController
 
 	#tag Method, Flags = &h21
 		Private Sub StartTimer()
-		  mTimer = Microseconds
+		  mTimer = Xojo.System.Microseconds
 		End Sub
 	#tag EndMethod
 

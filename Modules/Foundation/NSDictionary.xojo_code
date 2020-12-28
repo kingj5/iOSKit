@@ -166,7 +166,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Shared Function CreateFromFile(file as FolderItem) As NSDictionary
+		Shared Function CreateFromFile(file as Xojo.IO.Folderitem) As NSDictionary
 		  //# Create a new NSDictionary from a file (like as .plist file)
 		  
 		  
@@ -440,7 +440,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function WriteToFile(file as FolderItem, atomically as Boolean = true) As Boolean
+		Function WriteToFile(file as Xojo.IO.Folderitem, atomically as Boolean = true) As Boolean
 		  //# Write the NSDictionary to 'file'. Returns true on success
 		  
 		  

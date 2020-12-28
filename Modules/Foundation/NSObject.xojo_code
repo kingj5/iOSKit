@@ -55,6 +55,16 @@ Class NSObject
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function RespondsToSelector(name as string) As Boolean
+		  Declare Function RespondsToSelector_ Lib "Foundation" Selector "respondsToSelector:" (obj As Ptr, SEL As Ptr) As Boolean
+		  
+		  Dim sel As Ptr = Foundation.NSSelectorFromString(name)
+		  
+		  Return RespondsToSelector_(id, sel)
+		End Function
+	#tag EndMethod
+
 
 	#tag Property, Flags = &h21
 		Private m_id As ptr

@@ -14,7 +14,7 @@ Inherits TestGroup
 		  
 		  If AsyncTestTimer IsA Object Then
 		    AsyncTestTimer.RunMode = Timer.RunModes.Off
-		    RemoveHandler AsyncTestTimer.Action, WeakAddressOf AsyncTestTimer_Action
+		    RemoveHandler AsyncTestTimer.Run, WeakAddressOf AsyncTestTimer_Action
 		    AsyncTestTimer = Nil
 		  End If
 		  
@@ -394,7 +394,7 @@ Inherits TestGroup
 		Sub AsyncTest()
 		  If AsyncTestTimer Is Nil Then
 		    AsyncTestTimer = New Timer
-		    AddHandler AsyncTestTimer.Action, WeakAddressOf AsyncTestTimer_Action
+		    AddHandler AsyncTestTimer.Run, WeakAddressOf AsyncTestTimer_Action
 		  End If
 		  
 		  AsyncTestTimer.RunMode = Timer.RunModes.Single
@@ -435,7 +435,7 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub IsNilTest()
-		  Dim d As Date
+		  Dim d As Xojo.Core.Date
 		  
 		  Assert.IsNil(d)
 		End Sub

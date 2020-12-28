@@ -59,25 +59,6 @@ Inherits NSArray
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(file as FolderItem)
-		  
-		  
-		  declare function initWithContentsOfFile lib FoundationLib selector "initWithContentsOfFile:" (obj_id as Ptr, aPath as CFStringRef) as Ptr
-		  
-		  if file <> nil then
-		    super.Constructor(initWithContentsOfFile(Allocate(NSClassFromString("NSMutableArray")), file.Path))
-		  end if
-		  
-		  
-		  #pragma unused file
-		  
-		  
-		  
-		  needsExtraRelease = True
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h1000
 		Sub Constructor(anArray as NSArray)
 		  
 		  
@@ -184,6 +165,25 @@ Inherits NSArray
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
+		Sub Constructor(file as Xojo.IO.Folderitem)
+		  
+		  
+		  declare function initWithContentsOfFile lib FoundationLib selector "initWithContentsOfFile:" (obj_id as Ptr, aPath as CFStringRef) as Ptr
+		  
+		  if file <> nil then
+		    super.Constructor(initWithContentsOfFile(Allocate(NSClassFromString("NSMutableArray")), file.Path))
+		  end if
+		  
+		  
+		  #pragma unused file
+		  
+		  
+		  
+		  needsExtraRelease = True
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
 		Shared Function Create() As NSMutableArray
 		  
 		  
@@ -244,7 +244,7 @@ Inherits NSArray
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Shared Function CreateWithFile(file as FolderItem) As NSMutableArray
+		Shared Function CreateWithFile(file as Xojo.IO.Folderitem) As NSMutableArray
 		  
 		  
 		  declare function arrayWithContentsOfFile lib FoundationLib selector "arrayWithContentsOfFile:" (class_id as Ptr, aPath as CFStringRef) as Ptr

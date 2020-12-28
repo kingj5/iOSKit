@@ -126,7 +126,7 @@ Protected Class TestGroup
 		  
 		  If Not IsClone And RunTestsTimer IsA Object Then
 		    RunTestsTimer.RunMode = Timer.RunModes.Off
-		    RemoveHandler RunTestsTimer.Action, WeakAddressOf RunTestsTimer_Action
+		    RemoveHandler RunTestsTimer.Run, WeakAddressOf RunTestsTimer_Action
 		    RunTestsTimer = Nil
 		  End If
 		  
@@ -137,7 +137,8 @@ Protected Class TestGroup
 		Private Sub EndTimer()
 		  Dim elapsed As Double
 		  
-		  elapsed = (Microseconds-mTimer) / 1000000
+		  
+		  elapsed = (Xojo.System.Microseconds - mTimer) / 1000000
 		  
 		  CurrentTestResult.Duration = elapsed
 		  
@@ -309,7 +310,7 @@ Protected Class TestGroup
 		    ClearResults
 		    If RunTestsTimer Is Nil Then
 		      RunTestsTimer = New Timer
-		      AddHandler RunTestsTimer.Action, WeakAddressOf RunTestsTimer_Action
+		      AddHandler RunTestsTimer.Run, WeakAddressOf RunTestsTimer_Action
 		    End If
 		    RunTestsTimer.Period = 1
 		    RunTestsTimer.RunMode = Timer.RunModes.Multiple
@@ -322,7 +323,7 @@ Protected Class TestGroup
 
 	#tag Method, Flags = &h21
 		Private Sub StartTimer()
-		  mTimer = Microseconds
+		  mTimer = Xojo.System.Microseconds
 		End Sub
 	#tag EndMethod
 
@@ -434,7 +435,7 @@ Protected Class TestGroup
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Return RunTestsTimer Isa Object And RunTestsTimer.Mode <> Timer.RunModes.Off
+			  Return RunTestsTimer Isa Object And RunTestsTimer.RunMode <> Timer.RunModes.Off
 			  
 			End Get
 		#tag EndGetter

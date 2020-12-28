@@ -63,7 +63,7 @@ Begin iosView CreateQRView
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, , True
       AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 60, , True
       Caption         =   "Create"
-      Enabled         =   True
+      Enabled         =   False
       Height          =   30.0
       Left            =   248
       LockedInPosition=   False
@@ -119,6 +119,13 @@ End
 
 #tag EndWindowCode
 
+#tag Events TextField1
+	#tag Event
+		Sub TextChange()
+		  Button1.Enabled = (me.Text<>"")
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag Events Button1
 	#tag Event
 		Sub Action()

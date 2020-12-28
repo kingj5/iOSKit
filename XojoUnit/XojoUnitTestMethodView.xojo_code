@@ -77,7 +77,7 @@ End
 		      detail.TestNameLabel.Text = tr.TestName
 		      detail.TestResultLabel.Text = tr.Result
 		      detail.TestResultsArea.Text = tr.Message
-		      detail.TestDurationLabel.Text = tr.Duration.ToText(Locale.Current, "#,##0.0000000") + "s"
+		      detail.TestDurationLabel.Text = tr.Duration.ToText(Xojo.Core.Locale.Current, "#,##0.0000000") + "s"
 		    End If
 		  End If
 		End Sub
