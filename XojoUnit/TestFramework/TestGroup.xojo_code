@@ -125,7 +125,7 @@ Protected Class TestGroup
 		  End If
 		  
 		  If Not IsClone And RunTestsTimer IsA Object Then
-		    RunTestsTimer.Mode = Xojo.Core.Timer.Modes.Off
+		    RunTestsTimer.RunMode = Timer.RunModes.Off
 		    RemoveHandler RunTestsTimer.Action, WeakAddressOf RunTestsTimer_Action
 		    RunTestsTimer = Nil
 		  End If
@@ -196,7 +196,7 @@ Protected Class TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub RunTestsTimer_Action(sender As Xojo.Core.Timer)
+		Private Sub RunTestsTimer_Action(sender As Timer)
 		  If UseConstructor Is Nil then
 		    Dim myInfo As Xojo.Introspection.TypeInfo = Xojo.Introspection.GetType(Self)
 		    Dim constructors() As Xojo.Introspection.ConstructorInfo = myInfo.Constructors
@@ -283,7 +283,7 @@ Protected Class TestGroup
 		  
 		  CurrentClone = Nil
 		  CurrentTestResult = Nil
-		  sender.Mode = Xojo.Core.Timer.Modes.Off
+		  sender.RunMode = Timer.RunModes.Off
 		  
 		  Dim c As TestController = Controller
 		  If c IsA Object Then
@@ -308,11 +308,11 @@ Protected Class TestGroup
 		  If IncludeGroup Then
 		    ClearResults
 		    If RunTestsTimer Is Nil Then
-		      RunTestsTimer = New Xojo.Core.Timer
+		      RunTestsTimer = New Timer
 		      AddHandler RunTestsTimer.Action, WeakAddressOf RunTestsTimer_Action
 		    End If
 		    RunTestsTimer.Period = 1
-		    RunTestsTimer.Mode = Xojo.Core.Timer.Modes.Multiple
+		    RunTestsTimer.RunMode = Timer.RunModes.Multiple
 		  Else
 		    ClearResults(True) // Mark tests as Skipped
 		  End If
@@ -434,7 +434,7 @@ Protected Class TestGroup
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Return RunTestsTimer Isa Object And RunTestsTimer.Mode <> Xojo.Core.Timer.Modes.Off
+			  Return RunTestsTimer Isa Object And RunTestsTimer.Mode <> Timer.RunModes.Off
 			  
 			End Get
 		#tag EndGetter
@@ -513,7 +513,7 @@ Protected Class TestGroup
 	#tag EndComputedProperty
 
 	#tag Property, Flags = &h21
-		Private RunTestsTimer As Xojo.Core.Timer
+		Private RunTestsTimer As Timer
 	#tag EndProperty
 
 	#tag ComputedProperty, Flags = &h0

@@ -20,16 +20,11 @@ Begin iosView CoreMotionView
       Scope           =   0
       Top             =   0
    End
-   Begin xojo.Core.Timer Timer1
-      Left            =   0
+   Begin Timer Timer1
       LockedInPosition=   False
-      Mode            =   2
-      PanelIndex      =   -1
-      Parent          =   ""
       Period          =   10
+      RunMode         =   2
       Scope           =   0
-      Tolerance       =   0
-      Top             =   0
    End
    Begin iOSButton Button1
       AccessibilityHint=   ""
@@ -255,14 +250,14 @@ End
 
 #tag Events Timer1
 	#tag Event
-		Sub Action()
-		  dim accel as CoreMotion.CMAcceleration
+		Sub Run()
+		  Dim accel As CoreMotion.CMAcceleration
 		  accel = CMMotionManager1.deviceMotion.userAcceleration
 		  XLabel.Text = accel.x.ToText
 		  YLabel.Text = accel.y.ToText
 		  ZLabel.Text = accel.z.ToText
 		  
-		  dim gyro as CoreMotion.CMRotationRate
+		  Dim gyro As CoreMotion.CMRotationRate
 		  gyro = CMMotionManager1.gyroData.rotationRate
 		  XGyroLabel.Text = gyro.x.ToText
 		  YGyroLabel.Text = gyro.y.ToText
@@ -273,7 +268,7 @@ End
 #tag Events Button1
 	#tag Event
 		Sub Action()
-		  Timer1.Mode = Timer.Modes.Off
+		  Timer1.RunMode = Timer.RunModes.Off
 		  
 		  CMMotionManager1.stopDeviceMotionUpdates
 		End Sub
@@ -282,7 +277,7 @@ End
 #tag Events Button2
 	#tag Event
 		Sub Action()
-		  Timer1.Mode = Timer.Modes.Multiple
+		  Timer1.RunMode = Timer.RunModes.Multiple
 		  CMMotionManager1.deviceMotionUpdateInterval = 0.1
 		  CMMotionManager1.gyroUpdateInterval = 0.1
 		  if CMMotionManager1.deviceMotionAvailable then

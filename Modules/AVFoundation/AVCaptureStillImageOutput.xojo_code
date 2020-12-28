@@ -10,7 +10,7 @@ Inherits AVFoundation.AVCaptureOutput
 		  dim compHandler as new iOSBlock(AddressOf CompletionHandler)
 		  capture_(self,connection,compHandler.Handle)
 		  
-		  xojo.core.timer.CallLater(2,AddressOf CompletionWatcher)
+		  Timer.CallLater(2,AddressOf CompletionWatcher)
 		End Sub
 	#tag EndMethod
 
@@ -37,7 +37,7 @@ Inherits AVFoundation.AVCaptureOutput
 	#tag Method, Flags = &h21
 		Private Sub CompletionWatcher()
 		  if not done then
-		    xojo.core.Timer.CallLater(2,AddressOf CompletionWatcher)
+		    Timer.CallLater(2,AddressOf CompletionWatcher)
 		    Return
 		  end if
 		  

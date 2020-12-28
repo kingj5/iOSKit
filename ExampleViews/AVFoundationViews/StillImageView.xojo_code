@@ -30,7 +30,7 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Open()
-		  xojo.core.Timer.CallLater(1,AddressOf SetUp)
+		  Timer.CallLater(1,AddressOf SetUp)
 		  //iosusercontrols are not resized until after the open event so any code which uses their bounds
 		  //gets messed up in the open event - delay setup until after the open event
 		  

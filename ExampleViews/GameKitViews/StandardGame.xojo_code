@@ -44,16 +44,11 @@ Begin iosView StandardGame Implements StandardMatchHelperObserver
       Visible         =   True
       Width           =   320.0
    End
-   Begin xojo.Core.Timer Timer1
-      Left            =   0
+   Begin Timer Timer1
       LockedInPosition=   False
-      Mode            =   2
-      PanelIndex      =   -1
-      Parent          =   ""
       Period          =   10
+      RunMode         =   2
       Scope           =   0
-      Tolerance       =   0
-      Top             =   0
    End
    Begin GameKit.GKLocalPlayerListener GKLocalPlayerListener1
       Left            =   0
@@ -309,7 +304,7 @@ End
 #tag EndEvents
 #tag Events Timer1
 	#tag Event
-		Sub Action()
+		Sub Run()
 		  Canvas1.Invalidate
 		End Sub
 	#tag EndEvent

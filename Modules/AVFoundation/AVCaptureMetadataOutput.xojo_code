@@ -72,7 +72,7 @@ Inherits AVFoundation.AVCaptureOutput
 		    release pMetadataObjects
 		    release pOutput
 		  else
-		    xojo.core.Timer.CallLater( 2, AddressOf OutputHandler )
+		    Timer.CallLater( 2, AddressOf OutputHandler )
 		  end if
 		End Sub
 	#tag EndMethod
@@ -82,7 +82,7 @@ Inherits AVFoundation.AVCaptureOutput
 		  declare sub setMetadataObjectsDelegate_ lib AVFoundationLib selector "setMetadataObjectsDelegate:queue:" (obj_id as ptr, objectsDelegate as ptr, objectsCallbackQueue as ptr)
 		  setMetadataObjectsDelegate_(self, objectsDelegate, objectsCallbackQueue)
 		  
-		  xojo.core.Timer.CallLater( 2, AddressOf OutputHandler )
+		  Timer.CallLater( 2, AddressOf OutputHandler )
 		End Sub
 	#tag EndMethod
 
