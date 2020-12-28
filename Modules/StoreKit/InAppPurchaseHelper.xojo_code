@@ -80,12 +80,12 @@ Inherits StoreKit.PaymentTransactionObserver
 	#tag Method, Flags = &h0
 		Shared Function GetInstance() As StoreKit.InAppPurchaseHelper
 		  static instance as StoreKit.InAppPurchaseHelper
-
-          if ClearInstance = True then
-            instance = Nil
-            ClearInstance = False
-          end if
-
+		  
+		  if ClearInstance = True then
+		    instance = Nil
+		    ClearInstance = False
+		  end if
+		  
 		  if instance = nil then
 		    dim set as new Foundation.NSMutableSet
 		    for each t as Text in productIDArray
@@ -167,31 +167,35 @@ Inherits StoreKit.PaymentTransactionObserver
 		End Sub
 	#tag EndMethod
 
-    #tag Method, Flags = &h0
-      Sub Setup()
-        dim set as new Foundation.NSMutableSet
-        for each t as Text in productIDArray
-          set.AddObject( new NSString(t) )
-        next
+	#tag Method, Flags = &h0
+		Sub Setup()
+		  dim set as new Foundation.NSMutableSet
+		  for each t as Text in productIDArray
+		    set.AddObject( new NSString(t) )
+		  next
+		  
+		  productIdentifiers = set
+		  
+		  purchasedProductIdentifiers = Foundation.NSMutableSet.Set
+		  
+		  dim productIDsArray as Foundation.NSArray = productIdentifiers.allObjects
+		  dim count as UInteger = productIDsArray.count
+		  for i as Integer = 0 to count - 1
+		    dim productID as new Foundation.NSString(productIDsArray.Value(i))
+		    dim productPurchased as Boolean = Foundation.NSUserDefaults.StandardUserDefaults.BoolForKey(productID.StringValue)
+		    if productPurchased then
+		      purchasedProductIdentifiers.AddObject productID
+		    end if
+		  next
+		  
+		  StoreKit.SKPaymentQueue.DefaultQueue.AddTransactionObserver(self)
+		End Sub
+	#tag EndMethod
 
-        productIdentifiers = set
 
-        purchasedProductIdentifiers = Foundation.NSMutableSet.Set
-
-        dim productIDsArray as Foundation.NSArray = productIdentifiers.allObjects
-        dim count as UInteger = productIDsArray.count
-        for i as Integer = 0 to count - 1
-          dim productID as new Foundation.NSString(productIDsArray.Value(i))
-          dim productPurchased as Boolean = Foundation.NSUserDefaults.StandardUserDefaults.BoolForKey(productID.StringValue)
-          if productPurchased then
-            purchasedProductIdentifiers.AddObject productID
-          end if
-        next
-
-        StoreKit.SKPaymentQueue.DefaultQueue.AddTransactionObserver(self)
-      End Sub
-    #tag EndMethod
-
+	#tag Property, Flags = &h0
+		Shared ClearInstance As Boolean
+	#tag EndProperty
 
 	#tag Property, Flags = &h21
 		Private completionHandler As RequestProductsCompletionHandler
@@ -200,10 +204,6 @@ Inherits StoreKit.PaymentTransactionObserver
 	#tag Property, Flags = &h0
 		Shared productIDArray() As Text
 	#tag EndProperty
-
-    #tag Property, Flags = &h0
-        Shared ClearInstance As Boolean
-    #tag EndProperty
 
 	#tag Property, Flags = &h21
 		Private productIdentifiers As Foundation.NSSet
@@ -229,6 +229,7 @@ Inherits StoreKit.PaymentTransactionObserver
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -236,18 +237,23 @@ Inherits StoreKit.PaymentTransactionObserver
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -255,6 +261,7 @@ Inherits StoreKit.PaymentTransactionObserver
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

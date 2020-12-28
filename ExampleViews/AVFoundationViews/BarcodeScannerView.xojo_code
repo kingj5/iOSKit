@@ -2,7 +2,7 @@
 Begin iosView BarcodeScannerView
    BackButtonTitle =   "Back"
    Compatibility   =   ""
-   LargeTitleMode  =   "2"
+   LargeTitleMode  =   2
    Left            =   0
    NavigationBarVisible=   True
    TabIcon         =   ""
@@ -16,7 +16,7 @@ Begin iosView BarcodeScannerView
       AutoLayout      =   GenericView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, , True
       AutoLayout      =   GenericView1, 3, TopLayoutGuide, 3, False, +1.00, 1, 1, 0, , True
       AutoLayout      =   GenericView1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, , True
-      Height          =   415.0
+      Height          =   503.0
       Left            =   0
       LockedInPosition=   False
       Scope           =   1
@@ -41,7 +41,7 @@ Begin iosView BarcodeScannerView
          TextColor       =   &c007AFF00
          TextFont        =   ""
          TextSize        =   0
-         Top             =   430
+         Top             =   518
          Visible         =   True
          Width           =   100.0
       End
@@ -55,17 +55,17 @@ Begin iosView BarcodeScannerView
          Enabled         =   True
          Height          =   30.0
          Left            =   7
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "GenericView1"
          Scope           =   0
          Text            =   ""
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
-         Top             =   392
+         Top             =   480
          Visible         =   True
          Width           =   305.0
       End
@@ -183,8 +183,11 @@ End
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="TabIcon"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="iOSImage"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="LargeTitleMode"
@@ -201,7 +204,9 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -211,6 +216,7 @@ End
 		Group="ID"
 		InitialValue="-2147483648"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Left"
@@ -218,32 +224,45 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="NavigationBarVisible"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -253,5 +272,6 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

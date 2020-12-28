@@ -99,6 +99,7 @@ Protected Class Camera
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -106,16 +107,21 @@ Protected Class Camera
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SourceType"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="UIKit.UIImagePickerController.Source"
 			EditorType="Enum"
 			#tag EnumValues
@@ -128,7 +134,9 @@ Protected Class Camera
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -136,16 +144,23 @@ Protected Class Camera
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="editedImage"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="iOSImage"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="originalImage"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="iOSImage"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
