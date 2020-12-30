@@ -1,6 +1,10 @@
 # IOSKit
 A declares implementation of many different classes for Xojo.  This currently contains a large portion of my completed classes and will continue to grow as I create more classes.  I have tried to create a demo of many of the classes, however still more do not yet have a demo.
 
+## Warning about Xojo Version
+Please use this version of iOSKit if you need to build with Xojo versions earlier than 2020r2 (when API2.0 was introduced for iOS).
+If you are using 2020r2 or later, please use the `master` branch which will support API2.0.
+
 ## Currently implemented classes 
 By module they are contained in:
 
