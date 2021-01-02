@@ -5,6 +5,9 @@ A declares implementation of many different classes for Xojo.  This currently co
 Please use this version of iOSKit if you need to build with Xojo versions later than 2020r2 (when API2.0 was introduced for iOS).
 If you are using an earlier version of Xojo which does not support API2.0, please use the `API1-compatible` branch.
 
+Compiler errors should now be resolved, deprecation warnings will be fixed in the future  
+
+
 ## Currently implemented classes 
 By module they are contained in:
 
