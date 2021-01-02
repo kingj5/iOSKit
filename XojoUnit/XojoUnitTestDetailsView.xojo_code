@@ -2,7 +2,7 @@
 Begin iosView XojoUnitTestDetailsView
    BackButtonTitle =   ""
    Compatibility   =   ""
-   LargeTitleMode  =   "2"
+   LargeTitleMode  =   2
    Left            =   0
    NavigationBarVisible=   False
    TabIcon         =   ""
@@ -19,11 +19,11 @@ Begin iosView XojoUnitTestDetailsView
       Enabled         =   True
       Height          =   30.0
       Left            =   20
-      LineBreakMode   =   "0"
+      LineBreakMode   =   0
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Overview"
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   "System Bold		"
       TextSize        =   0
@@ -60,13 +60,13 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   40
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle1"
          Scope           =   0
          Text            =   "Start:"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
@@ -84,13 +84,13 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   148
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle1"
          Scope           =   0
          Text            =   "2015-01-01 12:00PM"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
@@ -108,13 +108,13 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   40
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle1"
          Scope           =   0
          Text            =   "Total:"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
@@ -132,13 +132,13 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   148
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle1"
          Scope           =   0
          Text            =   "100 tests in 10 groups"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
@@ -156,13 +156,13 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   40
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle1"
          Scope           =   0
          Text            =   "Passed:"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
@@ -180,13 +180,13 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   148
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle1"
          Scope           =   0
          Text            =   "0 (0%)"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
@@ -204,13 +204,13 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   40
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle1"
          Scope           =   0
          Text            =   "Failed:"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
@@ -228,13 +228,13 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   148
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle1"
          Scope           =   0
          Text            =   "0 (0%)"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
@@ -252,13 +252,13 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   40
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle1"
          Scope           =   0
          Text            =   "Skipped:"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
@@ -276,13 +276,13 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   148
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle1"
          Scope           =   0
          Text            =   "0 (0%)"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
@@ -300,13 +300,13 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   367
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle1"
          Scope           =   0
          Text            =   "Duration:"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
@@ -324,13 +324,13 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   475
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle1"
          Scope           =   0
          Text            =   "0s"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
@@ -349,15 +349,15 @@ Begin iosView XojoUnitTestDetailsView
       Enabled         =   True
       Height          =   30.0
       Left            =   20
-      LineBreakMode   =   "0"
+      LineBreakMode   =   0
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Selected Test Results"
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   "System Bold		"
       TextSize        =   0
-      Top             =   196
+      Top             =   240
       Visible         =   True
       Width           =   294.0
    End
@@ -377,7 +377,7 @@ Begin iosView XojoUnitTestDetailsView
       Left            =   20
       LockedInPosition=   False
       Scope           =   0
-      Top             =   234
+      Top             =   278
       Visible         =   True
       Width           =   280.0
       Begin iOSLabel TestNameLabel
@@ -390,17 +390,17 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   40
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle2"
          Scope           =   0
          Text            =   "Test Name"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
-         Top             =   254
+         Top             =   298
          Visible         =   True
          Width           =   190.0
       End
@@ -414,17 +414,17 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   180
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle2"
          Scope           =   0
          Text            =   "Passed"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
-         Top             =   254
+         Top             =   298
          Visible         =   True
          Width           =   100.0
       End
@@ -438,17 +438,17 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   40
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle2"
          Scope           =   0
          Text            =   "Duration:"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
-         Top             =   292
+         Top             =   336
          Visible         =   True
          Width           =   75.0
       End
@@ -462,17 +462,17 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   123
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle2"
          Scope           =   0
          Text            =   "0s"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
-         Top             =   292
+         Top             =   336
          Visible         =   True
          Width           =   169.0
       End
@@ -486,17 +486,17 @@ Begin iosView XojoUnitTestDetailsView
          Enabled         =   True
          Height          =   30.0
          Left            =   40
-         LineBreakMode   =   "0"
+         LineBreakMode   =   0
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle2"
          Scope           =   0
          Text            =   "Messages"
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
-         Top             =   330
+         Top             =   374
          Visible         =   True
          Width           =   100.0
       End
@@ -507,20 +507,22 @@ Begin iosView XojoUnitTestDetailsView
          AutoLayout      =   TestResultsArea, 3, Label12, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
          AutoLayout      =   TestResultsArea, 1, Label12, 1, False, +1.00, 1, 1, 0, , True
          AutoLayout      =   TestResultsArea, 8, , 0, False, +1.00, 1, 1, 200, , True
+         BorderColor     =   ""
+         BorderStyle     =   0
          Editable        =   True
          Height          =   200.0
-         KeyboardType    =   "0"
+         KeyboardType    =   0
          Left            =   40
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "Rectangle2"
          Scope           =   0
          Text            =   ""
-         TextAlignment   =   "0"
+         TextAlignment   =   0
          TextColor       =   &c00000000
          TextFont        =   ""
          TextSize        =   0
-         Top             =   368
+         Top             =   412
          Visible         =   True
          Width           =   240.0
       End
@@ -547,7 +549,9 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -557,6 +561,7 @@ End
 		Group="ID"
 		InitialValue="-2147483648"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Left"
@@ -564,37 +569,53 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="NavigationBarVisible"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabIcon"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="iOSImage"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -604,5 +625,6 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

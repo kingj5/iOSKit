@@ -125,8 +125,8 @@ Protected Class TestGroup
 		  End If
 		  
 		  If Not IsClone And RunTestsTimer IsA Object Then
-		    RunTestsTimer.Mode = Xojo.Core.Timer.Modes.Off
-		    RemoveHandler RunTestsTimer.Action, WeakAddressOf RunTestsTimer_Action
+		    RunTestsTimer.RunMode = Timer.RunModes.Off
+		    RemoveHandler RunTestsTimer.Run, WeakAddressOf RunTestsTimer_Action
 		    RunTestsTimer = Nil
 		  End If
 		  
@@ -137,7 +137,8 @@ Protected Class TestGroup
 		Private Sub EndTimer()
 		  Dim elapsed As Double
 		  
-		  elapsed = (Microseconds-mTimer) / 1000000
+		  
+		  elapsed = (Xojo.System.Microseconds - mTimer) / 1000000
 		  
 		  CurrentTestResult.Duration = elapsed
 		  
@@ -196,7 +197,7 @@ Protected Class TestGroup
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub RunTestsTimer_Action(sender As Xojo.Core.Timer)
+		Private Sub RunTestsTimer_Action(sender As Timer)
 		  If UseConstructor Is Nil then
 		    Dim myInfo As Xojo.Introspection.TypeInfo = Xojo.Introspection.GetType(Self)
 		    Dim constructors() As Xojo.Introspection.ConstructorInfo = myInfo.Constructors
@@ -283,7 +284,7 @@ Protected Class TestGroup
 		  
 		  CurrentClone = Nil
 		  CurrentTestResult = Nil
-		  sender.Mode = Xojo.Core.Timer.Modes.Off
+		  sender.RunMode = Timer.RunModes.Off
 		  
 		  Dim c As TestController = Controller
 		  If c IsA Object Then
@@ -308,11 +309,11 @@ Protected Class TestGroup
 		  If IncludeGroup Then
 		    ClearResults
 		    If RunTestsTimer Is Nil Then
-		      RunTestsTimer = New Xojo.Core.Timer
-		      AddHandler RunTestsTimer.Action, WeakAddressOf RunTestsTimer_Action
+		      RunTestsTimer = New Timer
+		      AddHandler RunTestsTimer.Run, WeakAddressOf RunTestsTimer_Action
 		    End If
 		    RunTestsTimer.Period = 1
-		    RunTestsTimer.Mode = Xojo.Core.Timer.Modes.Multiple
+		    RunTestsTimer.RunMode = Timer.RunModes.Multiple
 		  Else
 		    ClearResults(True) // Mark tests as Skipped
 		  End If
@@ -322,7 +323,7 @@ Protected Class TestGroup
 
 	#tag Method, Flags = &h21
 		Private Sub StartTimer()
-		  mTimer = Microseconds
+		  mTimer = Xojo.System.Microseconds
 		End Sub
 	#tag EndMethod
 
@@ -434,7 +435,7 @@ Protected Class TestGroup
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Return RunTestsTimer Isa Object And RunTestsTimer.Mode <> Xojo.Core.Timer.Modes.Off
+			  Return RunTestsTimer Isa Object And RunTestsTimer.RunMode <> Timer.RunModes.Off
 			  
 			End Get
 		#tag EndGetter
@@ -513,7 +514,7 @@ Protected Class TestGroup
 	#tag EndComputedProperty
 
 	#tag Property, Flags = &h21
-		Private RunTestsTimer As Xojo.Core.Timer
+		Private RunTestsTimer As Timer
 	#tag EndProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -554,19 +555,27 @@ Protected Class TestGroup
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Duration"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="FailedTestCount"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="IncludeGroup"
+			Visible=false
 			Group="Behavior"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -574,11 +583,15 @@ Protected Class TestGroup
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="IsRunning"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -586,43 +599,63 @@ Protected Class TestGroup
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="NotImplementedCount"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="PassedTestCount"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="RunTestCount"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SkippedTestCount"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TestCount"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -630,6 +663,7 @@ Protected Class TestGroup
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

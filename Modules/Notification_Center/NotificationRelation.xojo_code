@@ -1,7 +1,7 @@
 #tag Class
 Private Class NotificationRelation
 	#tag Method, Flags = &h0
-		Sub Constructor(observer as object, callback as NotificationCenter.NotificationCallBack, notificationName as text, sender as object)
+		Sub Constructor(observer as object, callback as JK_NotificationCenter.NotificationCallBack, notificationName as text, sender as object)
 		  self.Observer = observer
 		  self.CallBack = callback
 		  self.NotificationName = notificationName
@@ -10,13 +10,13 @@ Private Class NotificationRelation
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SendNotification(anotification as Notification)
+		Sub SendNotification(anotification as JK_Notification)
 		  CallBack.Invoke(aNotification)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function WantsNotification(aNotification as Notification) As Boolean
+		Function WantsNotification(aNotification as JK_Notification) As Boolean
 		  dim wants as Boolean = False
 		  if NotificationName = "" and sender = nil then  
 		    //accepts all notifications from all sources
@@ -36,7 +36,7 @@ Private Class NotificationRelation
 
 
 	#tag Property, Flags = &h0
-		CallBack As NotificationCenter.NotificationCallBack
+		CallBack As JK_NotificationCenter.NotificationCallBack
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -59,6 +59,7 @@ Private Class NotificationRelation
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -66,16 +67,21 @@ Private Class NotificationRelation
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="NotificationName"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="text"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -83,7 +89,9 @@ Private Class NotificationRelation
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -91,6 +99,7 @@ Private Class NotificationRelation
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

@@ -309,13 +309,19 @@ Inherits NSObject
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="exchangeDataMaximumSize"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="UInteger"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="exchangeMaxInitiatedExchangesPerPlayer"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="UInteger"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -323,6 +329,7 @@ Inherits NSObject
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -330,33 +337,47 @@ Inherits NSObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="matchDataMaximumSize"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="UInteger"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="matchID"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Text"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="message"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Text"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -364,10 +385,13 @@ Inherits NSObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="status"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="GKTurnBasedMatchStatus"
 			EditorType="Enum"
 			#tag EnumValues

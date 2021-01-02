@@ -166,7 +166,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Shared Function CreateFromFile(file as FolderItem) As NSDictionary
+		Shared Function CreateFromFile(file as Xojo.IO.Folderitem) As NSDictionary
 		  //# Create a new NSDictionary from a file (like as .plist file)
 		  
 		  
@@ -440,7 +440,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function WriteToFile(file as FolderItem, atomically as Boolean = true) As Boolean
+		Function WriteToFile(file as Xojo.IO.Folderitem, atomically as Boolean = true) As Boolean
 		  //# Write the NSDictionary to 'file'. Returns true on success
 		  
 		  
@@ -470,8 +470,11 @@ Inherits NSObject
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Count"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -479,6 +482,7 @@ Inherits NSObject
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -486,18 +490,23 @@ Inherits NSObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -505,6 +514,7 @@ Inherits NSObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

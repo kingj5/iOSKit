@@ -91,8 +91,11 @@ Inherits UIGestureRecognizer
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="allowableMovement"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -100,6 +103,7 @@ Inherits UIGestureRecognizer
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -107,31 +111,45 @@ Inherits UIGestureRecognizer
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="minimumPressDuration"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="numberOfTapsRequired"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="UInteger"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="numberOfTouchesRequired"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="UInteger"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="state"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="TouchState"
 			EditorType="Enum"
 			#tag EnumValues
@@ -144,7 +162,9 @@ Inherits UIGestureRecognizer
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -152,6 +172,7 @@ Inherits UIGestureRecognizer
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

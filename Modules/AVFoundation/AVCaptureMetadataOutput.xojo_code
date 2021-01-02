@@ -72,7 +72,7 @@ Inherits AVFoundation.AVCaptureOutput
 		    release pMetadataObjects
 		    release pOutput
 		  else
-		    xojo.core.Timer.CallLater( 2, AddressOf OutputHandler )
+		    Timer.CallLater( 2, AddressOf OutputHandler )
 		  end if
 		End Sub
 	#tag EndMethod
@@ -82,7 +82,7 @@ Inherits AVFoundation.AVCaptureOutput
 		  declare sub setMetadataObjectsDelegate_ lib AVFoundationLib selector "setMetadataObjectsDelegate:queue:" (obj_id as ptr, objectsDelegate as ptr, objectsCallbackQueue as ptr)
 		  setMetadataObjectsDelegate_(self, objectsDelegate, objectsCallbackQueue)
 		  
-		  xojo.core.Timer.CallLater( 2, AddressOf OutputHandler )
+		  Timer.CallLater( 2, AddressOf OutputHandler )
 		End Sub
 	#tag EndMethod
 
@@ -206,6 +206,7 @@ Inherits AVFoundation.AVCaptureOutput
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -213,18 +214,23 @@ Inherits AVFoundation.AVCaptureOutput
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -232,6 +238,7 @@ Inherits AVFoundation.AVCaptureOutput
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

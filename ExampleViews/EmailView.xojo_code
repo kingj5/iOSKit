@@ -2,7 +2,7 @@
 Begin iosView EmailView
    BackButtonTitle =   "Back"
    Compatibility   =   ""
-   LargeTitleMode  =   "2"
+   LargeTitleMode  =   2
    Left            =   0
    NavigationBarVisible=   True
    TabIcon         =   ""
@@ -22,7 +22,7 @@ Begin iosView EmailView
       Left            =   110
       LockedInPosition=   False
       Scope           =   0
-      TextColor       =   "&c007AFF00"
+      TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
       Top             =   176

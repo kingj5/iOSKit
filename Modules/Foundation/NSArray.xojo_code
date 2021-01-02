@@ -61,28 +61,6 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(file as FolderItem)
-		  //# Initializes a newly allocated array with the contents of the file specified by a given path.
-		  
-		  
-		  declare function initWithContentsOfFile lib FoundationLib selector "initWithContentsOfFile:" (obj_id as Ptr, aPath as CFStringRef) as Ptr
-		  
-		  if file <> nil then
-		    super.Constructor(initWithContentsOfFile(Allocate(NSClassFromString("NSArray")), file.Path))
-		  else
-		    dim n as NilObjectException
-		    n.Reason = "NSArray.Constructor: FolderItem argument cannot be nil."
-		    raise n
-		  end if
-		  
-		  
-		  #pragma unused file
-		  
-		  needsExtraRelease = True
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h1000
 		Sub Constructor(anArray as NSArray)
 		  //# Creates and returns an array containing the objects in another given array.
 		  
@@ -171,6 +149,28 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
+		Sub Constructor(file as Xojo.IO.FolderItem)
+		  //# Initializes a newly allocated array with the contents of the file specified by a given path.
+		  
+		  
+		  declare function initWithContentsOfFile lib FoundationLib selector "initWithContentsOfFile:" (obj_id as Ptr, aPath as CFStringRef) as Ptr
+		  
+		  if file <> nil then
+		    Super.Constructor(initWithContentsOfFile(Allocate(NSClassFromString("NSArray")), file.Path))
+		  else
+		    dim n as NilObjectException
+		    n.Reason = "NSArray.Constructor: FolderItem argument cannot be nil."
+		    raise n
+		  end if
+		  
+		  
+		  #pragma unused file
+		  
+		  needsExtraRelease = True
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
 		Function ContainsObject(anObject as NSObject) As Boolean
 		  //# Returns a Boolean value that indicates whether a given object is present in the array.
 		  
@@ -245,7 +245,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Shared Function CreateWithFile(file as FolderItem) As NSArray
+		Shared Function CreateWithFile(file as Xojo.IO.FolderItem) As NSArray
 		  //# Creates and returns an array containing the contents of the file specified by a given path.
 		  
 		  
@@ -548,7 +548,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Function ValuesArray(aRange as NSRange) As MemoryBlock
+		Function ValuesArray(aRange as NSRange) As Xojo.Core.MutableMemoryBlock
 		  //# Copies the objects contained in the array that fall within the specified range to aBuffer.
 		  
 		  
@@ -561,11 +561,11 @@ Inherits NSObject
 		  #Endif
 		  
 		  
-		  dim m as new MutableMemoryBlock(SizeOfPointer*aRange.length)
+		  Dim m As New Xojo.Core.MutableMemoryBlock(SizeOfPointer * aRange.length)
 		  
 		  getObjects self, m.Data, aRange
 		  
-		  return m
+		  Return m
 		  
 		  #pragma unused aRange
 		  
@@ -573,7 +573,7 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Function Write(file as FolderItem, atomically as Boolean) As Boolean
+		Function Write(file as Xojo.IO.FolderItem, atomically as Boolean) As Boolean
 		  //# Writes the contents of the array to a file at a given path.
 		  
 		  
@@ -616,8 +616,11 @@ Inherits NSObject
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Count"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -625,6 +628,7 @@ Inherits NSObject
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -632,18 +636,23 @@ Inherits NSObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -651,6 +660,7 @@ Inherits NSObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

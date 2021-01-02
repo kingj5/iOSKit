@@ -55,6 +55,16 @@ Class NSObject
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function RespondsToSelector(name as string) As Boolean
+		  Declare Function RespondsToSelector_ Lib "Foundation" Selector "respondsToSelector:" (obj As Ptr, SEL As Ptr) As Boolean
+		  
+		  Dim sel As Ptr = Foundation.NSSelectorFromString(name)
+		  
+		  Return RespondsToSelector_(id, sel)
+		End Function
+	#tag EndMethod
+
 
 	#tag Property, Flags = &h21
 		Private m_id As ptr
@@ -72,6 +82,7 @@ Class NSObject
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -79,18 +90,23 @@ Class NSObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -98,6 +114,7 @@ Class NSObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

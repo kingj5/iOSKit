@@ -13,8 +13,8 @@ Inherits TestGroup
 		  Prop2 = Prop2 - 1
 		  
 		  If AsyncTestTimer IsA Object Then
-		    AsyncTestTimer.Mode = Xojo.Core.Timer.Modes.Off
-		    RemoveHandler AsyncTestTimer.Action, WeakAddressOf AsyncTestTimer_Action
+		    AsyncTestTimer.RunMode = Timer.RunModes.Off
+		    RemoveHandler AsyncTestTimer.Run, WeakAddressOf AsyncTestTimer_Action
 		    AsyncTestTimer = Nil
 		  End If
 		  
@@ -393,18 +393,18 @@ Inherits TestGroup
 	#tag Method, Flags = &h0
 		Sub AsyncTest()
 		  If AsyncTestTimer Is Nil Then
-		    AsyncTestTimer = New Xojo.Core.Timer
-		    AddHandler AsyncTestTimer.Action, WeakAddressOf AsyncTestTimer_Action
+		    AsyncTestTimer = New Timer
+		    AddHandler AsyncTestTimer.Run, WeakAddressOf AsyncTestTimer_Action
 		  End If
 		  
-		  AsyncTestTimer.Mode = Xojo.Core.Timer.Modes.Single
+		  AsyncTestTimer.RunMode = Timer.RunModes.Single
 		  AsyncTestTimer.Period = 500
 		  AsyncAwait 3
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub AsyncTestTimer_Action(sender As Xojo.Core.Timer)
+		Private Sub AsyncTestTimer_Action(sender As Timer)
 		  #Pragma Unused sender
 		  
 		  AsyncComplete
@@ -435,7 +435,7 @@ Inherits TestGroup
 
 	#tag Method, Flags = &h0
 		Sub IsNilTest()
-		  Dim d As Date
+		  Dim d As Xojo.Core.Date
 		  
 		  Assert.IsNil(d)
 		End Sub
@@ -491,7 +491,7 @@ Inherits TestGroup
 
 
 	#tag Property, Flags = &h21
-		Private AsyncTestTimer As Xojo.Core.Timer
+		Private AsyncTestTimer As Timer
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
@@ -506,49 +506,75 @@ Inherits TestGroup
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Duration"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="FailedTestCount"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="IncludeGroup"
+			Visible=false
 			Group="Behavior"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="IsRunning"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="NotImplementedCount"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="PassedTestCount"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="RunTestCount"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SkippedTestCount"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TestCount"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -556,6 +582,7 @@ Inherits TestGroup
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -563,18 +590,23 @@ Inherits TestGroup
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -582,6 +614,7 @@ Inherits TestGroup
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

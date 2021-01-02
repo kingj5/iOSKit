@@ -2,7 +2,7 @@
 Begin iosView MainView
    BackButtonTitle =   ""
    Compatibility   =   ""
-   LargeTitleMode  =   "2"
+   LargeTitleMode  =   2
    Left            =   0
    NavigationBarVisible=   True
    TabIcon         =   ""
@@ -20,8 +20,8 @@ Begin iosView MainView
       EditingEnabled  =   False
       EditingEnabled  =   False
       EstimatedRowHeight=   -1
-      Format          =   "0"
-      Height          =   338.0
+      Format          =   0
+      Height          =   426.0
       Left            =   0
       LockedInPosition=   False
       Scope           =   0
@@ -116,7 +116,7 @@ End
 		    newDetailView = New improvediOSTableView
 		  Case 17
 		    newDetailView = New HapticFeedbackView
-
+		    
 		    
 		  Case 18
 		    newDetailView = new HTMLView
@@ -127,7 +127,7 @@ End
 		    
 		    
 		    
-
+		    
 		  Else
 		    //shouldn't get here
 		    Return
@@ -229,7 +229,7 @@ End
 		  #Else
 		    d = Me.CreateCell("UIActivityView","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
 		    Me.AddRow(0,d)
-
+		    
 		    
 		    d = Me.CreateCell("Camera","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
 		    Me.AddRow(0,d)
@@ -285,7 +285,7 @@ End
 		    d = Me.CreateCell("HTMLViewer Delegate","2018r2+",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
 		    Me.AddRow(0,d)
 		    
-
+		    
 		    If Self.ParentSplitView.Available Then
 		      d = Me.CreateCell("Unit Tests","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
 		      Me.AddRow(0,d)
@@ -310,7 +310,9 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -320,6 +322,7 @@ End
 		Group="ID"
 		InitialValue="-2147483648"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Left"
@@ -327,37 +330,53 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="NavigationBarVisible"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabIcon"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="iOSImage"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -367,5 +386,6 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

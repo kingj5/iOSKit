@@ -1,5 +1,5 @@
 #tag Class
-Class NotificationCenter
+Class JK_NotificationCenter
 	#tag Method, Flags = &h0
 		Sub addObserver(observer as object, callback as NotificationCallBack, notificationName as text, sender as object)
 		  if callback = nil then
@@ -19,21 +19,21 @@ Class NotificationCenter
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Shared Function MainCenter() As NotificationCenter
-		  static mcenter as NotificationCenter
+		Shared Function MainCenter() As JK_NotificationCenter
+		  static mcenter as JK_NotificationCenter
 		  if mcenter = nil then
-		    mcenter = new NotificationCenter
+		    mcenter = new JK_NotificationCenter
 		  end if
 		  Return mcenter
 		End Function
 	#tag EndMethod
 
 	#tag DelegateDeclaration, Flags = &h0
-		Delegate Sub NotificationCallBack(aNotification as Notification)
+		Delegate Sub NotificationCallBack(aNotification as JK_Notification)
 	#tag EndDelegateDeclaration
 
 	#tag Method, Flags = &h0
-		Sub PostNotification(aNotification as Notification)
+		Sub PostNotification(aNotification as JK_Notification)
 		  if aNotification = nil then
 		    Break 'A posted notification cannot be nil.
 		    Return
@@ -54,7 +54,7 @@ Class NotificationCenter
 
 	#tag Method, Flags = &h0
 		Sub PostNotification(name as text, sender as object, userInfo as xojo.Core.Dictionary)
-		  PostNotification(new Notification(name, sender, userInfo))
+		  PostNotification(new JK_Notification(name, sender, userInfo))
 		End Sub
 	#tag EndMethod
 
@@ -102,6 +102,7 @@ Class NotificationCenter
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -109,18 +110,23 @@ Class NotificationCenter
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -128,6 +134,7 @@ Class NotificationCenter
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

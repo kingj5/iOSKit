@@ -2,7 +2,7 @@
 Begin iosView StandardGame Implements StandardMatchHelperObserver
    BackButtonTitle =   ""
    Compatibility   =   ""
-   LargeTitleMode  =   "2"
+   LargeTitleMode  =   2
    Left            =   0
    NavigationBarVisible=   True
    TabIcon         =   ""
@@ -44,16 +44,13 @@ Begin iosView StandardGame Implements StandardMatchHelperObserver
       Visible         =   True
       Width           =   320.0
    End
-   Begin xojo.Core.Timer Timer1
-      Left            =   0
+   Begin Timer Timer1
       LockedInPosition=   False
-      Mode            =   "2"
       PanelIndex      =   -1
       Parent          =   ""
       Period          =   10
+      RunMode         =   2
       Scope           =   0
-      Tolerance       =   0
-      Top             =   0
    End
    Begin GameKit.GKLocalPlayerListener GKLocalPlayerListener1
       Left            =   0
@@ -79,7 +76,7 @@ Begin iosView StandardGame Implements StandardMatchHelperObserver
       TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
-      Top             =   430
+      Top             =   518
       Visible         =   True
       Width           =   100.0
    End
@@ -103,7 +100,7 @@ End
 
 	#tag Method, Flags = &h1
 		Protected Function DeSerializePoint(data as Foundation.NSData) As xojo.Core.Point
-		  dim mb as MemoryBlock = data.DataMB
+		  Dim mb As Xojo.Core.MemoryBlock = data.DataMB
 		  dim x, y, s as Int32
 		  s = mb.Int32Value(8)
 		  x = mb.Int32Value(0)/s*self.Size.Width
@@ -111,7 +108,6 @@ End
 		  dim result as new xojo.Core.Point(x,y)
 		  
 		  Return result
-		  
 		  
 		End Function
 	#tag EndMethod
@@ -178,7 +174,7 @@ End
 	#tag Method, Flags = &h1
 		Protected Function SerializePoint(pt as xojo.Core.Point) As Foundation.NSData
 		  
-		  dim mb as new MutableMemoryBlock(12)
+		  Dim mb As New Xojo.Core.MutableMemoryBlock(12)
 		  mb.Int32Value(0) = pt.X //x value of point
 		  mb.Int32Value(4) = pt.Y //y value of point
 		  mb.Int32Value(8) = self.Size.Width //width of screen for scaling
@@ -309,7 +305,7 @@ End
 #tag EndEvents
 #tag Events Timer1
 	#tag Event
-		Sub Action()
+		Sub Run()
 		  Canvas1.Invalidate
 		End Sub
 	#tag EndEvent
@@ -393,7 +389,9 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -403,6 +401,7 @@ End
 		Group="ID"
 		InitialValue="-2147483648"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Left"
@@ -410,37 +409,53 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="NavigationBarVisible"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabIcon"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="iOSImage"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -450,5 +465,6 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

@@ -2,7 +2,7 @@
 Begin iosView ReadQRView
    BackButtonTitle =   "Back"
    Compatibility   =   ""
-   LargeTitleMode  =   "2"
+   LargeTitleMode  =   2
    Left            =   0
    NavigationBarVisible=   True
    TabIcon         =   ""
@@ -17,7 +17,7 @@ Begin iosView ReadQRView
       PanelIndex      =   -1
       Parent          =   ""
       Scope           =   1
-      SourceType      =   "1"
+      SourceType      =   1
       Top             =   0
    End
    Begin iOSTextArea TextArea1
@@ -27,18 +27,20 @@ Begin iosView ReadQRView
       AutoLayout      =   TextArea1, 4, <Parent>, 4, False, +1.00, 1, 1, -*kStdGapCtlToViewV, , True
       AutoLayout      =   TextArea1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, , True
       AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 1, 1, 253, , True
+      BorderColor     =   ""
+      BorderStyle     =   0
       Editable        =   False
       Height          =   253.0
-      KeyboardType    =   "0"
+      KeyboardType    =   0
       Left            =   20
       LockedInPosition=   False
       Scope           =   0
       Text            =   ""
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
-      Top             =   207
+      Top             =   295
       Visible         =   True
       Width           =   280.0
    End
@@ -52,15 +54,15 @@ Begin iosView ReadQRView
       Enabled         =   True
       Height          =   30.0
       Left            =   20
-      LineBreakMode   =   "0"
+      LineBreakMode   =   0
       LockedInPosition=   False
       Scope           =   0
       Text            =   "The text from your image is:"
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
-      Top             =   169
+      Top             =   257
       Visible         =   True
       Width           =   205.0
    End
@@ -126,7 +128,9 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -136,6 +140,7 @@ End
 		Group="ID"
 		InitialValue="-2147483648"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Left"
@@ -143,37 +148,53 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="NavigationBarVisible"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabIcon"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="iOSImage"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -183,5 +204,6 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior
