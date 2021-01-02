@@ -2,7 +2,7 @@
 Begin iosView HapticFeedbackView
    BackButtonTitle =   ""
    Compatibility   =   ""
-   LargeTitleMode  =   "2"
+   LargeTitleMode  =   2
    Left            =   0
    NavigationBarVisible=   True
    TabIcon         =   ""
@@ -19,11 +19,11 @@ Begin iosView HapticFeedbackView
       Enabled         =   True
       Height          =   30.0
       Left            =   110
-      LineBreakMode   =   "0"
+      LineBreakMode   =   0
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Impact"
-      TextAlignment   =   "1"
+      TextAlignment   =   1
       TextColor       =   &c00000000
       TextFont        =   "System Bold		"
       TextSize        =   0
@@ -101,11 +101,11 @@ Begin iosView HapticFeedbackView
       Enabled         =   True
       Height          =   30.0
       Left            =   110
-      LineBreakMode   =   "0"
+      LineBreakMode   =   0
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Selection"
-      TextAlignment   =   "1"
+      TextAlignment   =   1
       TextColor       =   &c00000000
       TextFont        =   "System Bold		"
       TextSize        =   0
@@ -143,11 +143,11 @@ Begin iosView HapticFeedbackView
       Enabled         =   True
       Height          =   30.0
       Left            =   110
-      LineBreakMode   =   "0"
+      LineBreakMode   =   0
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Selection"
-      TextAlignment   =   "1"
+      TextAlignment   =   1
       TextColor       =   &c00000000
       TextFont        =   "System Bold		"
       TextSize        =   0
@@ -366,18 +366,23 @@ End
 		Group="ID"
 		InitialValue="-2147483648"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Left"
@@ -385,6 +390,7 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Top"
@@ -392,31 +398,45 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="NavigationBarVisible"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabIcon"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="iOSImage"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty

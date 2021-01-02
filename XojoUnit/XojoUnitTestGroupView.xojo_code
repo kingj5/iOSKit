@@ -2,7 +2,7 @@
 Begin iosView XojoUnitTestGroupView
    BackButtonTitle =   "Groups"
    Compatibility   =   ""
-   LargeTitleMode  =   "2"
+   LargeTitleMode  =   2
    Left            =   0
    NavigationBarVisible=   True
    TabIcon         =   ""
@@ -20,8 +20,8 @@ Begin iosView XojoUnitTestGroupView
       EditingEnabled  =   False
       EditingEnabled  =   False
       EstimatedRowHeight=   -1
-      Format          =   "0"
-      Height          =   415.0
+      Format          =   0
+      Height          =   503.0
       Left            =   0
       LockedInPosition=   False
       Scope           =   0
@@ -110,7 +110,7 @@ End
 		Private Sub RunTests()
 		  If Self.ParentSplitView.Available Then
 		    Dim detail As XojoUnitTestDetailsView = XojoUnitTestDetailsView(Self.ParentSplitView.Detail)
-		    detail.StartLabel.Text = Date.Now.ToText(Locale.Current, Date.FormatStyles.Medium)
+		    detail.StartLabel.Text = Xojo.Core.Date.Now.ToText(Xojo.Core.Locale.Current, Xojo.Core.Date.FormatStyles.Medium)
 		    
 		    Controller.Start
 		    
@@ -137,7 +137,7 @@ End
 		Sub AllTestsFinished()
 		  Dim detail As XojoUnitTestDetailsView = XojoUnitTestDetailsView(Self.ParentSplitView.Detail)
 		  
-		  detail.DurationLabel.Text = Controller.Duration.ToText(Locale.Current, "#,##0.0000000") + "s"
+		  detail.DurationLabel.Text = Controller.Duration.ToText(Xojo.Core.Locale.Current, "#,##0.0000000") + "s"
 		  
 		  Dim testCount As Integer
 		  testCount = Controller.RunTestCount
@@ -145,10 +145,10 @@ End
 		  
 		  Dim pct As Double
 		  pct = (Controller.PassedCount / testCount) * 100
-		  detail.PassedCountLabel.Text = Controller.PassedCount.ToText + " (" + pct.ToText(Locale.Current, "#0.00") + "%)"
+		  detail.PassedCountLabel.Text = Controller.PassedCount.ToText + " (" + pct.ToText(Xojo.Core.Locale.Current, "#0.00") + "%)"
 		  
 		  pct = (Controller.FailedCount / testCount) * 100
-		  detail.FailedCountLabel.Text = Controller.FailedCount.ToText + " (" + pct.ToText(Locale.Current, "#0.00") + "%)"
+		  detail.FailedCountLabel.Text = Controller.FailedCount.ToText + " (" + pct.ToText(Xojo.Core.Locale.Current, "#0.00") + "%)"
 		  detail.SkippedCountLabel.Text = Controller.SkippedCount.ToText
 		End Sub
 	#tag EndEvent
@@ -177,7 +177,9 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -187,6 +189,7 @@ End
 		Group="ID"
 		InitialValue="-2147483648"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Left"
@@ -194,37 +197,53 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="NavigationBarVisible"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabIcon"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="iOSImage"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -234,5 +253,6 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

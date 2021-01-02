@@ -10,7 +10,7 @@ Inherits AVFoundation.AVCaptureOutput
 		  dim compHandler as new iOSBlock(AddressOf CompletionHandler)
 		  capture_(self,connection,compHandler.Handle)
 		  
-		  xojo.core.timer.CallLater(2,AddressOf CompletionWatcher)
+		  Timer.CallLater(2,AddressOf CompletionWatcher)
 		End Sub
 	#tag EndMethod
 
@@ -37,7 +37,7 @@ Inherits AVFoundation.AVCaptureOutput
 	#tag Method, Flags = &h21
 		Private Sub CompletionWatcher()
 		  if not done then
-		    xojo.core.Timer.CallLater(2,AddressOf CompletionWatcher)
+		    Timer.CallLater(2,AddressOf CompletionWatcher)
 		    Return
 		  end if
 		  
@@ -120,6 +120,7 @@ Inherits AVFoundation.AVCaptureOutput
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -127,18 +128,23 @@ Inherits AVFoundation.AVCaptureOutput
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -146,6 +152,7 @@ Inherits AVFoundation.AVCaptureOutput
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

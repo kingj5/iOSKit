@@ -4,14 +4,14 @@ Protected Class AuthenticationHelper
 		Private Sub authenticateMethod(viewController as ptr, err as ptr)
 		  if viewController <> nil then
 		    authenticationViewController = viewController
-		    NotificationCenter.MainCenter.PostNotification(GameKitNeedsToAuthenticateNotification, self)
+		    JK_NotificationCenter.MainCenter.PostNotification(GameKitNeedsToAuthenticateNotification, self)
 		  else
 		    if localPlayer.authenticated then
 		      gameCenterIsEnabled = True
-		      NotificationCenter.MainCenter.PostNotification(GameKitSucessfullyAuthenticatedNotification, self)
+		      JK_NotificationCenter.MainCenter.PostNotification(GameKitSucessfullyAuthenticatedNotification, self)
 		    else
 		      gameCenterIsEnabled = False
-		      NotificationCenter.MainCenter.PostNotification(GameKitFailedToAuthenticateNotification, self)
+		      JK_NotificationCenter.MainCenter.PostNotification(GameKitFailedToAuthenticateNotification, self)
 		    end if
 		  end if
 		  
@@ -105,6 +105,7 @@ Protected Class AuthenticationHelper
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -112,18 +113,23 @@ Protected Class AuthenticationHelper
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -131,6 +137,7 @@ Protected Class AuthenticationHelper
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

@@ -2,7 +2,7 @@
 Begin iosView KeychainView
    BackButtonTitle =   "Back"
    Compatibility   =   ""
-   LargeTitleMode  =   "2"
+   LargeTitleMode  =   2
    Left            =   0
    NavigationBarVisible=   True
    TabIcon         =   ""
@@ -19,11 +19,11 @@ Begin iosView KeychainView
       Enabled         =   True
       Height          =   30.0
       Left            =   20
-      LineBreakMode   =   "0"
+      LineBreakMode   =   0
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Service:"
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
@@ -40,14 +40,14 @@ Begin iosView KeychainView
       AutoLayout      =   ServiceField, 8, , 0, True, +1.00, 1, 1, 31, , True
       Enabled         =   True
       Height          =   31.0
-      KeyboardType    =   "0"
+      KeyboardType    =   0
       Left            =   92
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   ""
       Scope           =   0
       Text            =   ""
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
@@ -65,11 +65,11 @@ Begin iosView KeychainView
       Enabled         =   True
       Height          =   30.0
       Left            =   20
-      LineBreakMode   =   "0"
+      LineBreakMode   =   0
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Account:"
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
@@ -86,14 +86,14 @@ Begin iosView KeychainView
       AutoLayout      =   AccountField, 7, , 0, False, +1.00, 1, 1, 208, , True
       Enabled         =   True
       Height          =   31.0
-      KeyboardType    =   "0"
+      KeyboardType    =   0
       Left            =   92
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   ""
       Scope           =   0
       Text            =   ""
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
@@ -111,11 +111,11 @@ Begin iosView KeychainView
       Enabled         =   True
       Height          =   30.0
       Left            =   20
-      LineBreakMode   =   "0"
+      LineBreakMode   =   0
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Comment:"
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
@@ -132,14 +132,14 @@ Begin iosView KeychainView
       AutoLayout      =   CommentField, 7, , 0, False, +1.00, 1, 1, 208, , True
       Enabled         =   True
       Height          =   31.0
-      KeyboardType    =   "0"
+      KeyboardType    =   0
       Left            =   92
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   ""
       Scope           =   0
       Text            =   ""
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
@@ -157,11 +157,11 @@ Begin iosView KeychainView
       Enabled         =   True
       Height          =   30.0
       Left            =   20
-      LineBreakMode   =   "0"
+      LineBreakMode   =   0
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Label:"
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
@@ -178,14 +178,14 @@ Begin iosView KeychainView
       AutoLayout      =   LabelField, 7, , 0, False, +1.00, 1, 1, 208, , True
       Enabled         =   True
       Height          =   31.0
-      KeyboardType    =   "0"
+      KeyboardType    =   0
       Left            =   92
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   ""
       Scope           =   0
       Text            =   ""
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
@@ -223,11 +223,11 @@ Begin iosView KeychainView
       Enabled         =   True
       Height          =   30.0
       Left            =   20
-      LineBreakMode   =   "0"
+      LineBreakMode   =   0
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Description:"
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
@@ -242,14 +242,16 @@ Begin iosView KeychainView
       AutoLayout      =   DescriptionField, 3, <Parent>, 3, False, +1.00, 1, 1, 286, , True
       AutoLayout      =   DescriptionField, 8, , 0, False, +1.00, 1, 1, 65, , True
       AutoLayout      =   DescriptionField, 2, LabelField, 2, False, +1.00, 1, 1, 0, , True
+      BorderColor     =   ""
+      BorderStyle     =   0
       Editable        =   True
       Height          =   65.0
-      KeyboardType    =   "0"
+      KeyboardType    =   0
       Left            =   20
       LockedInPosition=   False
       Scope           =   0
       Text            =   ""
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
@@ -267,11 +269,11 @@ Begin iosView KeychainView
       Enabled         =   True
       Height          =   30.0
       Left            =   20
-      LineBreakMode   =   "0"
+      LineBreakMode   =   0
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Password:"
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
@@ -288,14 +290,14 @@ Begin iosView KeychainView
       AutoLayout      =   PasswordField, 7, , 0, False, +1.00, 1, 1, 181, , True
       Enabled         =   True
       Height          =   31.0
-      KeyboardType    =   "0"
+      KeyboardType    =   0
       Left            =   119
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   ""
       Scope           =   0
       Text            =   ""
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
@@ -319,7 +321,7 @@ Begin iosView KeychainView
       TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
-      Top             =   430
+      Top             =   518
       Visible         =   True
       Width           =   100.0
    End
@@ -395,8 +397,11 @@ End
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="TabIcon"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="iOSImage"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="LargeTitleMode"
@@ -413,7 +418,9 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -423,6 +430,7 @@ End
 		Group="ID"
 		InitialValue="-2147483648"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Left"
@@ -430,32 +438,45 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="NavigationBarVisible"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -465,5 +486,6 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

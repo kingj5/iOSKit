@@ -2,7 +2,7 @@
 Begin iosView GameKitDemoView
    BackButtonTitle =   "Back"
    Compatibility   =   ""
-   LargeTitleMode  =   "2"
+   LargeTitleMode  =   2
    Left            =   0
    NavigationBarVisible=   True
    TabIcon         =   ""
@@ -19,11 +19,11 @@ Begin iosView GameKitDemoView
       Enabled         =   True
       Height          =   30.0
       Left            =   20
-      LineBreakMode   =   "0"
+      LineBreakMode   =   0
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Choose a game type:"
-      TextAlignment   =   "0"
+      TextAlignment   =   0
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
@@ -86,16 +86,16 @@ End
 	#tag Event
 		Sub Close()
 		  'stop receiving notifications about gamekit
-		  NotificationCenter.MainCenter.removeObserver(self)
+		  JK_NotificationCenter.MainCenter.removeObserver(self)
 		End Sub
 	#tag EndEvent
 
 	#tag Event
 		Sub Open()
 		  //register for the authenticate Notification - if the player is not authenticated a view controller will have to be presented for the user to log in
-		  NotificationCenter.MainCenter.addObserver(self, AddressOf TryAuthenticate, AuthenticationHelper.GameKitNeedsToAuthenticateNotification, nil)
+		  JK_NotificationCenter.MainCenter.addObserver(self, AddressOf TryAuthenticate, AuthenticationHelper.GameKitNeedsToAuthenticateNotification, nil)
 		  
-		  NotificationCenter.MainCenter.addObserver(self, AddressOf DidAuthenticate, AuthenticationHelper.GameKitSucessfullyAuthenticatedNotification, nil)
+		  JK_NotificationCenter.MainCenter.addObserver(self, AddressOf DidAuthenticate, AuthenticationHelper.GameKitSucessfullyAuthenticatedNotification, nil)
 		  
 		  //start the authentication process
 		  //this method must be called in order for GameKit to begin the authentication process
@@ -107,7 +107,7 @@ End
 
 
 	#tag Method, Flags = &h1
-		Protected Sub DidAuthenticate(aNotification as Notification)
+		Protected Sub DidAuthenticate(aNotification as JK_Notification)
 		  GameKit.GKLocalPlayer.LocalPlayer.UnregisterAllListeners
 		  GameKit.GKLocalPlayer.LocalPlayer.RegisterListener(GKLocalPlayerListener1)
 		  
@@ -115,7 +115,7 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub TryAuthenticate(aNotification as Notification)
+		Protected Sub TryAuthenticate(aNotification as JK_Notification)
 		  dim helper as AuthenticationHelper = AuthenticationHelper.GetInstance
 		  if helper.NeedsToAuthenticate then
 		    helper.PresentAuthenticationViewController(self)
@@ -183,7 +183,9 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -193,6 +195,7 @@ End
 		Group="ID"
 		InitialValue="-2147483648"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Left"
@@ -200,37 +203,53 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="NavigationBarVisible"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabIcon"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="iOSImage"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -240,5 +259,6 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

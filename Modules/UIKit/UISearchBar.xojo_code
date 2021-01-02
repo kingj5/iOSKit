@@ -841,18 +841,25 @@ Inherits iOSUserControl
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="AccessibilityHint"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Text"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="AccessibilityLabel"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Text"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="autocapitalizationType"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="UIKit.UISearchbar.UITextAutocapitalizationType"
 			EditorType="Enum"
 			#tag EnumValues
@@ -866,6 +873,7 @@ Inherits iOSUserControl
 			Name="autocorrectionType"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="UIKit.UISearchbar.UITextAutocorrectionType"
 			EditorType="Enum"
 			#tag EnumValues
@@ -876,13 +884,17 @@ Inherits iOSUserControl
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="backgroundImage"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="iOSImage"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="barStyle"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="UIKit.UISearchbar.UIBarStyle"
 			EditorType="Enum"
 			#tag EnumValues
@@ -894,7 +906,9 @@ Inherits iOSUserControl
 			Name="Height"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -902,11 +916,13 @@ Inherits iOSUserControl
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="keyboardType"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="UIKit.UISearchbar.UIKeyboardType"
 			EditorType="Enum"
 			#tag EnumValues
@@ -929,34 +945,45 @@ Inherits iOSUserControl
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="placeholder"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="Text"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="prompt"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="Text"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="scopeBarBackgroundImage"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="iOSImage"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="searchBarStyle"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="UIKit.UISearchbar.UISearchBarStyle"
 			EditorType="Enum"
 			#tag EnumValues
@@ -967,42 +994,57 @@ Inherits iOSUserControl
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="searchResultsButtonSelected"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="selectedScopeButtonIndex"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="showsBookmarkButton"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="showsCancelButton"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="showsScopeBar"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="showsSearchResultsButton"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="spellCheckingType"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="UIKit.UISearchbar.UITextSpellCheckingType"
 			EditorType="Enum"
 			#tag EnumValues
@@ -1015,13 +1057,17 @@ Inherits iOSUserControl
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="text"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="Text"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -1029,24 +1075,31 @@ Inherits iOSUserControl
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="translucent"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Visible"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Width"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Double"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

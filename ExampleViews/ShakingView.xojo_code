@@ -2,7 +2,7 @@
 Begin iosView ShakingView
    BackButtonTitle =   "Back"
    Compatibility   =   ""
-   LargeTitleMode  =   "2"
+   LargeTitleMode  =   2
    Left            =   0
    NavigationBarVisible=   True
    TabIcon         =   ""
@@ -16,7 +16,7 @@ Begin iosView ShakingView
       AutoLayout      =   SwipeView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, , True
       AutoLayout      =   SwipeView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, , True
       AutoLayout      =   SwipeView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, , True
-      Height          =   415.0
+      Height          =   503.0
       Left            =   0
       LockedInPosition=   False
       Scope           =   1
@@ -24,16 +24,13 @@ Begin iosView ShakingView
       Visible         =   True
       Width           =   320.0
    End
-   Begin xojo.Core.Timer Timer1
-      Left            =   0
+   Begin Timer Timer1
       LockedInPosition=   False
-      Mode            =   "2"
       PanelIndex      =   -1
       Parent          =   ""
       Period          =   10
+      RunMode         =   2
       Scope           =   0
-      Tolerance       =   0
-      Top             =   0
    End
 End
 #tag EndIOSView
@@ -90,7 +87,7 @@ End
 #tag EndEvents
 #tag Events Timer1
 	#tag Event
-		Sub Action()
+		Sub Run()
 		  SwipeView1.Invalidate
 		End Sub
 	#tag EndEvent
@@ -98,8 +95,11 @@ End
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="TabIcon"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="iOSImage"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="LargeTitleMode"
@@ -116,7 +116,9 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="BackButtonTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -126,6 +128,7 @@ End
 		Group="ID"
 		InitialValue="-2147483648"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Left"
@@ -133,32 +136,45 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="NavigationBarVisible"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabTitle"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Text"
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
@@ -168,5 +184,6 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

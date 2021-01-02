@@ -58,20 +58,6 @@ Inherits NSDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(file as FolderItem)
-		  
-		  declare function initWithContentsOfFile lib FoundationLib selector "initWithContentsOfFile:" ( cls as Ptr, path as CFStringRef ) as Ptr
-		  
-		  Super.Constructor(initWithContentsOfFile(Allocate(NSClassFromString("NSMutableDictionary")), file.Path))
-		  
-		  #pragma Unused file
-		  
-		  
-		  needsExtraRelease = True
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h1000
 		Sub Constructor(capacity as Integer)
 		  
 		  declare function dictionaryWithCapacity lib FoundationLib selector "dictionaryWithCapacity:" ( cls as Ptr, capacity as UInt32 ) as Ptr
@@ -129,6 +115,20 @@ Inherits NSDictionary
 		  
 		  #pragma unused keys
 		  #pragma unused objects
+		  
+		  
+		  needsExtraRelease = True
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(file as Xojo.IO.Folderitem)
+		  
+		  declare function initWithContentsOfFile lib FoundationLib selector "initWithContentsOfFile:" ( cls as Ptr, path as CFStringRef ) as Ptr
+		  
+		  Super.Constructor(initWithContentsOfFile(Allocate(NSClassFromString("NSMutableDictionary")), file.Path))
+		  
+		  #pragma Unused file
 		  
 		  
 		  needsExtraRelease = True
@@ -195,7 +195,7 @@ Inherits NSDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Shared Function CreateWithFile(file as FolderItem) As NSMutableDictionary
+		Shared Function CreateWithFile(file as Xojo.IO.Folderitem) As NSMutableDictionary
 		  
 		  
 		  declare function dictionaryWithContentsOfFile lib FoundationLib selector "dictionaryWithContentsOfFile:" _
@@ -347,8 +347,11 @@ Inherits NSDictionary
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Count"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -356,6 +359,7 @@ Inherits NSDictionary
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -363,18 +367,23 @@ Inherits NSDictionary
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -382,6 +391,7 @@ Inherits NSDictionary
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

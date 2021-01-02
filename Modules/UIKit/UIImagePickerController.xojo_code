@@ -436,12 +436,17 @@ Inherits NSObject
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="allowsEditing"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="cameraCaptureMode"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="UIImagePickerControllerCameraCaptureMode"
 			EditorType="Enum"
 			#tag EnumValues
@@ -451,7 +456,9 @@ Inherits NSObject
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="cameraDevice"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="UIImagePickerControllerCameraDevice"
 			EditorType="Enum"
 			#tag EnumValues
@@ -461,7 +468,9 @@ Inherits NSObject
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="cameraFlashMode"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="UIImagePickerControllerCameraFlashMode"
 			EditorType="Enum"
 			#tag EnumValues
@@ -476,6 +485,7 @@ Inherits NSObject
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -483,21 +493,29 @@ Inherits NSObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="showsCameraControls"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="sourceType"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Source"
 			EditorType="Enum"
 			#tag EnumValues
@@ -510,7 +528,9 @@ Inherits NSObject
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -518,15 +538,21 @@ Inherits NSObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="videoMaximumDuration"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="videoQuality"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="UIImagePickerControllerQualityType"
 			EditorType="Enum"
 			#tag EnumValues
@@ -540,13 +566,19 @@ Inherits NSObject
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="editedImage"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="iOSImage"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="originalImage"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="iOSImage"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
