@@ -2,6 +2,18 @@
 Protected Class InAppPurchaseHelper
 Inherits StoreKit.PaymentTransactionObserver
 	#tag Event
+		Function ShouldAddStorePaymentForProduct(queue as StoreKit.SKPaymentQueue, payment as StoreKit.SKPayment, product as StoreKit.SKProduct) as Boolean
+		  // Note: If you have a product which needs a login before allowing purchase, you should return FALSE instead, save the product somewhere, and 
+		  // prompt the user to complete the purchase later when they are logged in. see https://stackoverflow.com/questions/49550661/storekit-appstore-purchase-promotion
+		  return true
+		  #Pragma Unused payment
+		  #Pragma Unused product
+		  
+		  #Pragma Unused queue
+		End Sub
+	#tag EndEvent
+	
+	#tag Event
 		Sub UpdatedTransactions(queue as StoreKit.SKPaymentQueue, transactions() as StoreKit.SKPaymentTransaction)
 		  for each t as StoreKit.SKPaymentTransaction in transactions
 		    select case t.transactionState

@@ -43,6 +43,12 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
+		Private Function HandleShouldAddStorePayment(queue as StoreKit.SKPaymentQueue, payment as StoreKit.SKPayment, product as StoreKit.SKProduct) as Boolean
+		  return RaiseEvent ShouldAddStorePaymentForProduct(queue, payment, product)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
 		Private Sub HandleUpdatedDownloads(queue as StoreKit.SKPaymentQueue, downloads as Foundation.NSArray)
 		  dim download() as StoreKit.SKDownload
 		  dim ct as Integer = downloads.Count
@@ -104,6 +110,18 @@ Inherits NSObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
+		Private Shared Function impl_shouldAddStorePayment(pid as ptr, sel as ptr, queue as ptr, payment as ptr, product as ptr) as Boolean
+		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
+		  if w.Value <> nil Then
+		    PaymentTransactionObserver(w.Value).HandleShouldAddStorePayment(new StoreKit.SKPaymentQueue(queue), new StoreKit.SKPayment(payment), new StoreKit.SKProduct(product))
+		  end if
+		  
+		  #Pragma unused sel
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
 		Private Shared Sub impl_updatedDownloads(pid as ptr, sel as ptr, queue as ptr, downloads as ptr)
 		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
 		  if w.Value <> nil Then
@@ -136,6 +154,7 @@ Inherits NSObject
 		    methods.Append new TargetClassMethodHelper("paymentQueue:restoreCompletedTransactionsFailedWithError:", AddressOf impl_restoreTransactionsFailed, "v@:@@")
 		    methods.Append new TargetClassMethodHelper("paymentQueueRestoreCompletedTransactionsFinished:", AddressOf impl_restoreTransactionsCompleted, "v@:@")
 		    methods.Append new TargetClassMethodHelper("paymentQueue:updatedDownloads:", AddressOf impl_updatedDownloads, "v@:@@")
+			methods.Append new TargetClassMethodHelper("paymentQueue:shouldAddStorePayment:forProduct:", AddressOf impl_shouldAddStorePayment, "b@:@@@")
 		    
 		    targetID = BuildTargetClass("NSObject","PaymentTransactionObserverDel",methods)
 		  end if
@@ -154,6 +173,10 @@ Inherits NSObject
 
 	#tag Hook, Flags = &h0
 		Event RestoreTransactionsFailed(queue as StoreKit.SKPaymentQueue, err as Foundation.NSError)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event ShouldAddStorePaymentForProduct(queue as StoreKit.SKPaymentQueue, payment as StoreKit.SKPayment, product as StoreKit.SKProduct) as Boolean
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
