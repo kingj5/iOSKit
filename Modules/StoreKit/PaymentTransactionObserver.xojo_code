@@ -113,7 +113,7 @@ Inherits NSObject
 		Private Shared Function impl_shouldAddStorePayment(pid as ptr, sel as ptr, queue as ptr, payment as ptr, product as ptr) as Boolean
 		  dim w as xojo.Core.WeakRef = xojo.core.WeakRef(dispatch.Value(pid))
 		  if w.Value <> nil Then
-		    PaymentTransactionObserver(w.Value).HandleShouldAddStorePayment(new StoreKit.SKPaymentQueue(queue), new StoreKit.SKPayment(payment), new StoreKit.SKProduct(product))
+		    return PaymentTransactionObserver(w.Value).HandleShouldAddStorePayment(new StoreKit.SKPaymentQueue(queue), new StoreKit.SKPayment(payment), new StoreKit.SKProduct(product))
 		  end if
 		  
 		  #Pragma unused sel
