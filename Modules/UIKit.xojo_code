@@ -32,6 +32,19 @@ Protected Module UIKit
 	#tag EndDelegateDeclaration
 
 
+	#tag ComputedProperty, Flags = &h1
+		#tag Getter
+			Get
+			  //new jly
+			  declare function reduceTransparency lib UIKitLib alias "UIAccessibilityIsReduceTransparencyEnabled"  as Boolean
+			  
+			  return reduceTransparency
+			End Get
+		#tag EndGetter
+		Protected UIAccessibilityIsReduceTransparencyEnabled As Boolean
+	#tag EndComputedProperty
+
+
 	#tag Constant, Name = UIKitLib, Type = Text, Dynamic = False, Default = \"UIKit.framework", Scope = Public
 	#tag EndConstant
 
