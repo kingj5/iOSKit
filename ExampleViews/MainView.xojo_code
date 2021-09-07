@@ -122,6 +122,9 @@ End
 		    newDetailView = new HTMLView
 		    
 		  Case 19
+		    newDetailView = new MessageView
+		    
+		  Case 20
 		    newMasterView = New XojoUnitTestGroupView
 		    newDetailView = New XojoUnitTestDetailsView
 		    
@@ -180,6 +183,7 @@ End
 		    d = New iOSTableCellData("Email")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
 		    Me.AddRow(0,d)
+		    
 		    
 		    d = New iOSTableCellData("Reachability")
 		    d.AccessoryType = iOSTableCellData.AccessoryTypes.Disclosure
@@ -283,6 +287,9 @@ End
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("HTMLViewer Delegate","2018r2+",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
+		    
+		    d = Me.CreateCell("Message","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
 		    Me.AddRow(0,d)
 		    
 		    

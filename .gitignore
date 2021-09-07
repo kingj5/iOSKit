@@ -3,3 +3,5 @@
 iOSKit.debug.app
 /Builds - iOSKit.xojo_project
 /.iOSKit.xojo_uistate
+Modules/.DS_Store
+.DS_Store
