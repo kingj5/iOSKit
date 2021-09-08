@@ -22,6 +22,7 @@ iOSView=improvediOSTableView;ExampleViews/improvediOSTableView.xojo_code;&h00000
 iOSView=ActivityView;ExampleViews/ActivityView.xojo_code;&h00000000379E3F9B;&h000000001989717F;false
 iOSView=EmailView;ExampleViews/EmailView.xojo_code;&h000000001FA03105;&h000000001989717F;false
 iOSView=MessageView;ExampleViews/MessageView.xojo_code;&h00000000369F0FFF;&h000000001989717F;false
+iOSView=ColorPickerView;ExampleViews/ColorPickerView.xojo_code;&h00000000626497FF;&h000000001989717F;false
 iOSView=CameraView;ExampleViews/CameraView.xojo_code;&h00000000734B3627;&h000000001989717F;false
 iOSView=MissingControlsView;ExampleViews/MissingControlsView.xojo_code;&h000000003DCAE9B5;&h000000001989717F;false
 iOSView=KeychainView;ExampleViews/KeychainView.xojo_code;&h000000001276C53B;&h000000001989717F;false
