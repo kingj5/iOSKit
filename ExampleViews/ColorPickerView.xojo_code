@@ -38,16 +38,16 @@ Begin iosView ColorPickerView
       AutoLayout      =   Label1, 3, TopLayoutGuide, 4, False, +1.00, 4, 1, *kStdControlGapV, , True
       Enabled         =   True
       Height          =   70.0
-      Left            =   20.0
+      Left            =   20
       LineBreakMode   =   0
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Note: UIColorPickerView only works in iOS14.\nUse .IsAvailable method to check if the PickerView can be displayed."
-      TextAlignment   =   ""
+      TextAlignment   =   0
       TextColor       =   &c000000
       TextFont        =   ""
       TextSize        =   0
-      Top             =   73.0
+      Top             =   73
       Visible         =   True
       Width           =   280.0
    End
@@ -55,17 +55,17 @@ Begin iosView ColorPickerView
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
       AutoLayout      =   ImageViewer1, 8, , 0, False, +1.00, 4, 1, 40, , True
-      AutoLayout      =   ImageViewer1, 1, , 0, False, +1.00, 4, 1, 85, , True
+      AutoLayout      =   ImageViewer1, 1, <Parent>, 1, False, +1.00, 4, 1, 85, , True
       AutoLayout      =   ImageViewer1, 3, Button1, 4, False, +1.00, 4, 1, *kStdControlGapV, , True
       AutoLayout      =   ImageViewer1, 7, , 0, False, +1.00, 4, 1, 40, , True
       ContentMode     =   4
       Height          =   40.0
       Image           =   0
       Image           =   0
-      Left            =   85.0
+      Left            =   85
       LockedInPosition=   False
       Scope           =   2
-      Top             =   279.0
+      Top             =   279
       Visible         =   False
       Width           =   40.0
    End
@@ -78,16 +78,16 @@ Begin iosView ColorPickerView
       AutoLayout      =   LabelColor, 7, , 0, False, +1.00, 4, 1, 100, , True
       Enabled         =   True
       Height          =   30.0
-      Left            =   133.0
+      Left            =   133
       LineBreakMode   =   0
       LockedInPosition=   False
       Scope           =   2
       Text            =   "#000000"
-      TextAlignment   =   ""
+      TextAlignment   =   0
       TextColor       =   &c000000
       TextFont        =   ""
       TextSize        =   0
-      Top             =   284.0
+      Top             =   284
       Visible         =   False
       Width           =   100.0
    End
@@ -100,10 +100,10 @@ Begin iosView ColorPickerView
       AutoLayout      =   Switch1, 7, , 0, True, +1.00, 4, 1, 51, , True
       Enabled         =   True
       Height          =   31.0
-      Left            =   182.0
+      Left            =   182
       LockedInPosition=   False
       Scope           =   2
-      Top             =   202.0
+      Top             =   202
       Value           =   True
       Visible         =   True
       Width           =   51.0
