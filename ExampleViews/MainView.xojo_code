@@ -125,6 +125,12 @@ End
 		    newDetailView = new MessageView
 		    
 		  Case 20
+		    newDetailView = new ColorPickerView
+		    
+		  case 21
+		    newDetailView = new UIMenuView
+		    
+		  Case 22
 		    newMasterView = New XojoUnitTestGroupView
 		    newDetailView = New XojoUnitTestDetailsView
 		    
@@ -290,6 +296,12 @@ End
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("Message","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
+		    
+		    d = Me.CreateCell("Color Picker","iOS14+",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    Me.AddRow(0,d)
+		    
+		    d = Me.CreateCell("Dropdown menu","iOS13+",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
 		    Me.AddRow(0,d)
 		    
 		    

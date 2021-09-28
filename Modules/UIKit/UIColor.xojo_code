@@ -24,12 +24,12 @@ Inherits NSObject
 
 	#tag Method, Flags = &h0
 		Function ColorValue() As Color
-		  //FIX: does not return the correct color
-		  declare function getComponents lib UIKitLib selector "getRed:green:blue:alpha:" (obj_id as ptr, byref red as Single, byref green as Single, byref blue as Single, byref alpha as Single) as Boolean
-		  dim r, g, b, a as Single
+		  //jly: Fixed. Now returns the correct color with alpha value
+		  declare function getComponents lib UIKitLib selector "getRed:green:blue:alpha:" (obj_id as ptr, byref red as Double, byref green as Double, byref blue as Double, byref alpha as Double) as Boolean
+		  dim r, g, b, a as Double
 		  dim success as Boolean = getComponents(self, r,g,b,a)
 		  if success then
-		    Return Color.RGB(r*255,g*255,b*255)
+		    Return Color.RGBA(r*255,g*255,b*255, 255*(1-a))
 		  end if
 		  Break
 		  Return Color.Black

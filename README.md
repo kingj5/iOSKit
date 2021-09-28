@@ -13,13 +13,18 @@ By module they are contained in:
 
 ### Foundation
 * NSArray
+* NSAttributedString
+* NSCharacterSet
 * NSData
 * NSDate
 * NSDictionary
 * NSError
+* NSIndexPath
 * NSMutableArray
+* NSMutableAttributedString
 * NSMutableDictionary
 * NSMutableSet
+* NSNumber
 * NSObject
 * NSPoint
 * NSRect
@@ -51,11 +56,13 @@ By module they are contained in:
 * Camera
 * EditableIOSImage
 * MFMailComposeViewController
+* MFMessageComposeViewController
 * PickerView
 * PickerViewMultiline
 * Reachability
 * ScrollView 
 * SwipeView
+* UIColorPickerViewController
 * UIPickerViewDataSource
 * UIPickerViewDataSourceMultiline
 * UIStepper
