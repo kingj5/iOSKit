@@ -47,7 +47,7 @@ Inherits UIMenuElement
 		    
 		  End If
 		  
-		  if sSystemVersion >= 13.0 then Return True
+		  if sSystemVersion >= 14.0 then Return True
 		End Function
 	#tag EndMethod
 
