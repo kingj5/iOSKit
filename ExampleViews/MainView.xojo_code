@@ -2,9 +2,11 @@
 Begin iosView MainView
    BackButtonTitle =   ""
    Compatibility   =   ""
+   Device = 1
    LargeTitleMode  =   2
    Left            =   0
    NavigationBarVisible=   True
+   Orientation = 0
    TabIcon         =   ""
    TabTitle        =   ""
    Title           =   ""
@@ -13,20 +15,20 @@ Begin iosView MainView
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
       AllowRefresh    =   False
-      AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, -69, , True
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, , True
-      AutoLayout      =   Table1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, , True
+      AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, , True
       AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, , True
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, , True
+      AutoLayout      =   Table1, 3, TopLayoutGuide, 3, False, +1.00, 1, 1, 0, , True
       EditingEnabled  =   False
       EditingEnabled  =   False
       EstimatedRowHeight=   -1
       Format          =   0
-      Height          =   426.0
+      Height          =   503.0
       Left            =   0
       LockedInPosition=   False
       Scope           =   0
       SectionCount    =   0
-      Top             =   73
+      Top             =   65
       Visible         =   True
       Width           =   320.0
    End
@@ -131,6 +133,10 @@ End
 		    newDetailView = new UIMenuView
 		    
 		  Case 22
+		    
+		    newDetailView = new PrintingView
+		    
+		  Case 23
 		    newMasterView = New XojoUnitTestGroupView
 		    newDetailView = New XojoUnitTestDetailsView
 		    
@@ -238,70 +244,96 @@ End
 		    End If
 		  #Else
 		    d = Me.CreateCell("UIActivityView","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("square.and.arrow.up", 0)
 		    Me.AddRow(0,d)
 		    
 		    
 		    d = Me.CreateCell("Camera","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("camera", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("Missing UIControls","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("square.and.pencil", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("Create QRCode","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("qrcode", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("Read QRCode","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("qrcode.viewfinder", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("System Sounds","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("speaker.circle", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("Email","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("paperplane", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("Reachability","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("network", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("Core Motion","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("cursorarrow.motionlines", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("Keychain Services","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("key.icloud", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("AVFoundation Demos","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("play.circle", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("Record and Play video","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("film", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("UIActionController","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("exclamationmark.triangle", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("Shaking","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("waveform", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("GameKit Demos (In progress)","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("gamecontroller", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("UIDocumentPicker","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("doc.text", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("Improved iOSTable","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("tablecells", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("Haptic Feedback","iPhone only",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("bolt", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("HTMLViewer Delegate","2018r2+",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("puzzlepiece", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("Message","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("message", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("Color Picker","iOS14+",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("paintpalette", 0)
 		    Me.AddRow(0,d)
 		    
 		    d = Me.CreateCell("Dropdown menu","iOS13+",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("contextualmenu.and.cursorarrow", 0)
+		    Me.AddRow(0,d)
+		    
+		    d = Me.CreateCell("Printing","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("printer", 0)
 		    Me.AddRow(0,d)
 		    
 		    
