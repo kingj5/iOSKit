@@ -137,6 +137,9 @@ End
 		    newDetailView = new PrintingView
 		    
 		  Case 23
+		    newDetailView = new SearchView
+		    
+		  Case 24
 		    newMasterView = New XojoUnitTestGroupView
 		    newDetailView = New XojoUnitTestDetailsView
 		    
@@ -334,6 +337,10 @@ End
 		    
 		    d = Me.CreateCell("Printing","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
 		    d.Image = iOSImage.SystemImage("printer", 0)
+		    Me.AddRow(0,d)
+		    
+		    d = Me.CreateCell("SearchBar","",Nil,iOSTableCellData.AccessoryTypes.Disclosure)
+		    d.Image = iOSImage.SystemImage("magnifyingglass", 0)
 		    Me.AddRow(0,d)
 		    
 		    

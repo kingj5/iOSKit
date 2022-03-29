@@ -2,9 +2,11 @@
 Begin iosView MissingControlsView
    BackButtonTitle =   "Back"
    Compatibility   =   ""
+   Device = 1
    LargeTitleMode  =   2
    Left            =   0
    NavigationBarVisible=   True
+   Orientation = 0
    TabIcon         =   ""
    TabTitle        =   ""
    Title           =   "Some Missing Controls"

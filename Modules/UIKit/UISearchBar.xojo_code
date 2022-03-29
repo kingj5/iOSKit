@@ -314,6 +314,22 @@ Inherits iOSUserControl
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub SetupDelegate()
+		  declare function init lib FoundationLib selector "init" (obj_id as ptr) as ptr
+		  declare function alloc lib FoundationLib selector "alloc" (clsRef as ptr) as ptr
+		  
+		  dim del as ptr = init(alloc(TargetClass))
+		  
+		  declare sub setDelegate lib UIKitLib selector "setDelegate:" (obj_id as ptr, del as ptr)
+		  setDelegate(self.m_id, del)
+		  
+		  using Xojo.Core
+		  if dispatch = nil then dispatch = new Dictionary
+		  dispatch.Value(del) = xojo.core.WeakRef.Create(self)
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h21
 		Private Shared Function TargetClass() As Ptr
 		  static targetID as ptr
