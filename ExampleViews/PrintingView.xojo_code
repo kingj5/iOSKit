@@ -9,7 +9,7 @@ Begin iOSView PrintingView
    Orientation = 0
    TabIcon         =   0
    TabTitle        =   ""
-   Title           =   "Home"
+   Title           =   "Print"
    Top             =   0
    Begin MobileHTMLViewer HTMLViewer1
       AccessibilityHint=   ""
@@ -40,7 +40,7 @@ Begin iOSView PrintingView
          Height          =   24
          Left            =   148
          LockedInPosition=   False
-         PanelIndex      =   -1
+         PanelIndex      =   0
          Parent          =   "HTMLViewer1"
          Scope           =   2
          Shade           =   0

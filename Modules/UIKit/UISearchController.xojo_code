@@ -11,7 +11,12 @@ Inherits UIViewController
 	#tag Method, Flags = &h0
 		Sub Constructor(searchResultsController as UIViewController)
 		  declare function initWithSearchResultsController_ lib UIKitLib selector "initWithSearchResultsController:" (obj_id as ptr, searchResultsController as ptr) as ptr
-		  Super.Constructor( initWithSearchResultsController_(Allocate(ClassRef), searchResultsController) )
+		  
+		  if searchResultsController is nil then
+		    Super.Constructor( initWithSearchResultsController_(Allocate(ClassRef), nil) )
+		  Else
+		    Super.Constructor( initWithSearchResultsController_(Allocate(ClassRef), searchResultsController) )
+		  end if
 		  
 		  needsExtraRelease = True
 		End Sub
