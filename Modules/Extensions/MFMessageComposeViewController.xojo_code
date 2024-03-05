@@ -2,10 +2,12 @@
 Protected Class MFMessageComposeViewController
 Inherits UIKit.UINavigationController
 	#tag Method, Flags = &h0
-		Function addAttachment(attachment as xojo.IO.FolderItem, MIMEType as text, fileName as Text) As Boolean
-		  declare function addAttachment_ lib MessageUIKitLib selector "addAttachmentData:mimeType:fileName:" _
-		  (obj_id as ptr, data as ptr, MIMEType as CFStringRef, fileName as CFStringRef) as Boolean
-		  return addAttachment_(self,NSDataFromFolderitem(attachment), MIMEType, fileName)
+		Function addAttachment(attachment as xojo.IO.FolderItem, typeIdentifier as text, fileName as Text) As Boolean
+		  Declare Function addAttachment_ Lib MessageUIKitLib Selector "addAttachmentData:typeIdentifier:filename:" _
+		  (obj_id As ptr, data As ptr, typeIdentifier As CFStringRef, fileName As CFStringRef) As Boolean
+		  
+		  Return addAttachment_(Self, NSDataFromFolderitem(attachment), typeIdentifier, fileName)
+		  
 		End Function
 	#tag EndMethod
 
